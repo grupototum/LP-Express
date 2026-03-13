@@ -11,7 +11,7 @@ export function TotumFinalCTA() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/12 rounded-full blur-[140px]" />
         <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-accent/8 rounded-full blur-[100px]" />
 
-        <div className="max-w-3xl mx-auto relative z-10 text-center">
+        <div className="max-w-[950px] mx-auto relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
