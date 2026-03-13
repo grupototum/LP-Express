@@ -23,7 +23,7 @@ export function TotumForm() {
       <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-totum-dark/5 rounded-full blur-[100px]" />
       <div className="absolute inset-0 bg-gradient-to-br from-accent/[0.03] via-transparent to-totum-dark/[0.02]" />
 
-      <div className="max-w-2xl mx-auto relative z-10">
+      <div className="max-w-[800px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

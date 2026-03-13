@@ -31,7 +31,7 @@ export function TotumCredibility() {
       <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-accent/5 rounded-full blur-[80px]" />
       <div className="absolute inset-0 bg-gradient-to-t from-accent/[0.04] via-transparent to-transparent" />
 
-      <div className="max-w-5xl mx-auto relative z-10">
+      <div className="max-w-[950px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -19,7 +19,7 @@ export function TotumConsulting() {
       <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] bg-totum-red/5 rounded-full blur-[80px]" />
       <div className="absolute inset-0 bg-gradient-to-br from-accent/[0.04] via-transparent to-accent/[0.02]" />
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-[950px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
