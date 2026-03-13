@@ -23,6 +23,10 @@ const painPoints = [
 export function TotumPain() {
   return (
     <section id="dor" className="py-24 px-6 bg-totum-dark relative grain-bg overflow-hidden">
+      {/* Background conceptual image */}
+      <div className="absolute inset-0 z-0">
+        <img src={conceptFunnel} alt="" className="w-full h-full object-cover opacity-[0.10]" />
+      </div>
       <div className="absolute top-10 right-10 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
 
       <div className="max-w-6xl mx-auto relative z-10">
@@ -39,45 +43,23 @@ export function TotumPain() {
           </h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-8 mb-16 items-center">
-          <div className="lg:col-span-3 grid sm:grid-cols-1 gap-6">
-            {painPoints.map((point, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.15 }}
-                className="glass-card-dark rounded-2xl p-8 hover:border-accent/30 gentle-animation group"
-              >
-                <div className="flex items-start gap-5">
-                  <div className="w-14 h-14 rounded-xl bg-accent/15 flex items-center justify-center shrink-0 group-hover:bg-accent/25 gentle-animation">
-                    <point.icon className="w-7 h-7 text-accent" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white mb-2">{point.title}</h3>
-                    <p className="text-white/60 leading-relaxed">{point.description}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="lg:col-span-2 hidden lg:block"
-          >
-            <div className="rounded-2xl overflow-hidden glass-card-dark p-2">
-              <img
-                src={conceptFunnel}
-                alt="Funil de conversão com vazamento — metáfora visual"
-                className="w-full h-auto object-cover rounded-xl"
-              />
-            </div>
-          </motion.div>
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+          {painPoints.map((point, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+              className="glass-card-dark rounded-2xl p-8 hover:border-accent/30 gentle-animation group"
+            >
+              <div className="w-14 h-14 rounded-xl bg-accent/15 flex items-center justify-center mb-6 group-hover:bg-accent/25 gentle-animation">
+                <point.icon className="w-7 h-7 text-accent" />
+              </div>
+              <h3 className="text-xl font-bold text-white mb-3">{point.title}</h3>
+              <p className="text-white/60 leading-relaxed">{point.description}</p>
+            </motion.div>
+          ))}
         </div>
 
         <motion.div
