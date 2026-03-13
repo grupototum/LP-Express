@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion'
-import { Volume2, VolumeX, Menu, X } from 'lucide-react'
+import { Volume2, VolumeX, Menu, X, MessageCircle, Unlock, CalendarCheck, Rocket, Award } from 'lucide-react'
 import { useState, useRef, useEffect } from 'react'
 import totumLogo from '../assets/totum-logo.png'
 
 const navLinks = [
-  { label: 'Fale conosco', href: '#contato' },
-  { label: 'Destravar negócio', href: '#dor' },
-  { label: 'Consultoria gratuita', href: '#consultoria' },
-  { label: 'Começar agora', href: '#formulario' },
-  { label: 'Garantias e bônus', href: '#credibilidade' },
+  { label: 'Fale conosco', href: '#contato', icon: MessageCircle },
+  { label: 'Destravar negócio', href: '#dor', icon: Unlock },
+  { label: 'Consultoria gratuita', href: '#consultoria', icon: CalendarCheck },
+  { label: 'Começar agora', href: '#formulario', icon: Rocket },
+  { label: 'Garantias e bônus', href: '#credibilidade', icon: Award },
 ]
 
 export function TotumHero() {
@@ -79,8 +79,9 @@ export function TotumHero() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-white/80 hover:text-white font-medium text-sm gentle-animation"
+                  className="text-white/80 hover:text-white font-medium text-sm gentle-animation flex items-center gap-1.5"
                 >
+                  <link.icon className="w-3.5 h-3.5" />
                   {link.label}
                 </a>
               ))}
@@ -137,9 +138,10 @@ export function TotumHero() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: isMobileMenuOpen ? 1 : 0, x: isMobileMenuOpen ? 0 : 30 }}
               transition={{ duration: 0.3, delay: isMobileMenuOpen ? 0.1 + index * 0.06 : 0 }}
-              className="text-white px-4 py-3 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg"
+              className="text-white px-4 py-3 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg flex items-center gap-3"
               onClick={() => setIsMobileMenuOpen(false)}
             >
+              <link.icon className="w-5 h-5 text-accent" />
               {link.label}
             </motion.a>
           ))}
