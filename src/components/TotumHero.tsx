@@ -65,7 +65,7 @@ export function TotumHero() {
         <div className={`w-full px-6 sm:px-8 lg:px-12 py-4 transition-all duration-300 ${
           isScrolled ? 'glass-navbar' : 'bg-transparent'
         }`}>
-          <div className="flex items-center justify-between max-w-7xl mx-auto">
+          <div className="flex items-center justify-between max-w-[950px] mx-auto">
             <motion.div
               whileHover={{ scale: 1.05 }}
               className="cursor-pointer"
