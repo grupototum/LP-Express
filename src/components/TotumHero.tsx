@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Volume2, VolumeX, Menu, X } from 'lucide-react'
 import { useState, useRef, useEffect } from 'react'
+import totumLogo from '../assets/totum-logo.png'
 
 const navLinks = [
   { label: 'Fale conosco', href: '#contato' },
@@ -71,7 +72,7 @@ export function TotumHero() {
               className="cursor-pointer"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             >
-              <span className="font-poppins text-white text-2xl font-bold tracking-wider">TOTUM</span>
+              <img src={totumLogo} alt="Totum" className="h-8 w-auto" />
             </motion.div>
 
             <div className="hidden lg:flex items-center space-x-8">
