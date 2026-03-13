@@ -37,7 +37,7 @@ export function TotumReferral() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleShare}
-              className="bg-primary text-primary-foreground font-bold px-8 py-4 rounded-xl text-lg hover:opacity-90 gentle-animation flex items-center justify-center gap-3 cursor-pointer"
+              className="glass-btn-dark text-white font-bold px-8 py-4 rounded-xl text-lg gentle-animation flex items-center justify-center gap-3 cursor-pointer"
             >
               <Share2 className="w-5 h-5" />
               {copied ? 'Link copiado!' : 'Compartilhar link'}
@@ -47,7 +47,7 @@ export function TotumReferral() {
               whileTap={{ scale: 0.95 }}
               href={`https://wa.me/?text=${encodeURIComponent('Olha essa consultoria gratuita para destravar negócios: ' + window.location.href)}`}
               target="_blank"
-              className="bg-[#25D366] text-white font-bold px-8 py-4 rounded-xl text-lg hover:opacity-90 gentle-animation flex items-center justify-center gap-3"
+              className="glass-btn-green text-white font-bold px-8 py-4 rounded-xl text-lg gentle-animation flex items-center justify-center gap-3"
             >
               Enviar pelo WhatsApp
             </motion.a>

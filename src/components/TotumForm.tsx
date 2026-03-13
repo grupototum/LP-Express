@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Send } from 'lucide-react'
+import conceptStrategy from '../assets/concept-strategy.jpg'
 
 export function TotumForm() {
   const [formData, setFormData] = useState({
@@ -18,11 +19,10 @@ export function TotumForm() {
 
   return (
     <section id="formulario" className="py-24 px-6 bg-totum-gray relative overflow-hidden">
-      {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-totum-dark/5 rounded-full blur-3xl" />
 
-      <div className="max-w-2xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -39,49 +39,70 @@ export function TotumForm() {
           </p>
         </motion.div>
 
-        <motion.form
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          onSubmit={handleSubmit}
-          className="glass-form rounded-2xl p-8 sm:p-10 space-y-6"
-        >
-          {[
-            { key: 'empresa', label: 'Nome Fantasia ou Razão Social', placeholder: 'Ex: Totum Consultoria', type: 'text' },
-            { key: 'cidade', label: 'Cidade ou Região', placeholder: 'Ex: São Paulo, SP', type: 'text' },
-            { key: 'produto', label: 'Principal produto ou serviço', placeholder: 'Ex: Consultoria de marketing digital', type: 'text' },
-            { key: 'whatsapp', label: 'WhatsApp', placeholder: '(11) 99999-9999', type: 'tel' },
-          ].map((field) => (
-            <div key={field.key}>
-              <label className="block text-sm font-semibold text-primary mb-2">
-                {field.label}
-              </label>
-              <input
-                type={field.type}
-                placeholder={field.placeholder}
-                value={formData[field.key as keyof typeof formData]}
-                onChange={(e) => setFormData(prev => ({ ...prev, [field.key]: e.target.value }))}
-                className="w-full px-4 py-3.5 rounded-xl bg-white border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none gentle-animation text-primary placeholder:text-muted-foreground"
-                required
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.form
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            onSubmit={handleSubmit}
+            className="glass-form rounded-2xl p-8 sm:p-10 space-y-6"
+          >
+            {[
+              { key: 'empresa', label: 'Nome Fantasia ou Razão Social', placeholder: 'Ex: Totum Consultoria', type: 'text' },
+              { key: 'cidade', label: 'Cidade ou Região', placeholder: 'Ex: São Paulo, SP', type: 'text' },
+              { key: 'produto', label: 'Principal produto ou serviço', placeholder: 'Ex: Consultoria de marketing digital', type: 'text' },
+              { key: 'whatsapp', label: 'WhatsApp', placeholder: '(11) 99999-9999', type: 'tel' },
+            ].map((field) => (
+              <div key={field.key}>
+                <label className="block text-sm font-semibold text-primary mb-2">
+                  {field.label}
+                </label>
+                <input
+                  type={field.type}
+                  placeholder={field.placeholder}
+                  value={formData[field.key as keyof typeof formData]}
+                  onChange={(e) => setFormData(prev => ({ ...prev, [field.key]: e.target.value }))}
+                  className="w-full px-4 py-3.5 rounded-xl bg-white border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none gentle-animation text-primary placeholder:text-muted-foreground"
+                  required
+                />
+              </div>
+            ))}
+
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              type="submit"
+              className="w-full glass-btn-accent text-accent-foreground font-bold py-4 rounded-xl text-lg gentle-animation flex items-center justify-center gap-3 cursor-pointer"
+            >
+              <Send className="w-5 h-5" />
+              Quero minha consultoria gratuita
+            </motion.button>
+
+            <p className="text-center text-sm text-muted-foreground">
+              🔒 Seus dados estão seguros. Sem spam, sem compromisso.
+            </p>
+          </motion.form>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="hidden lg:block"
+          >
+            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-totum-dark/20">
+              <img
+                src={conceptStrategy}
+                alt="Sessão de estratégia empresarial"
+                className="w-full h-auto object-cover"
               />
             </div>
-          ))}
-
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            type="submit"
-            className="w-full bg-accent text-accent-foreground font-bold py-4 rounded-xl text-lg hover:opacity-90 gentle-animation flex items-center justify-center gap-3 shadow-lg shadow-accent/20 cursor-pointer"
-          >
-            <Send className="w-5 h-5" />
-            Quero minha consultoria gratuita
-          </motion.button>
-
-          <p className="text-center text-sm text-muted-foreground">
-            🔒 Seus dados estão seguros. Sem spam, sem compromisso.
-          </p>
-        </motion.form>
+            <p className="text-center text-muted-foreground text-sm mt-4 italic">
+              Análise estratégica real, personalizada para o seu negócio.
+            </p>
+          </motion.div>
+        </div>
       </div>
     </section>
   )
