@@ -28,7 +28,7 @@ export function TotumPain() {
       <div className="absolute top-1/2 left-0 w-[300px] h-[500px] bg-accent/5 rounded-full blur-[80px]" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/[0.03] to-transparent" />
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-[950px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

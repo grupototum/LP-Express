@@ -65,7 +65,7 @@ export function TotumHero() {
         <div className={`w-full px-6 sm:px-8 lg:px-12 py-4 transition-all duration-300 ${
           isScrolled ? 'glass-navbar' : 'bg-transparent'
         }`}>
-          <div className="flex items-center justify-between max-w-7xl mx-auto">
+          <div className="flex items-center justify-between max-w-[950px] mx-auto">
             <motion.div
               whileHover={{ scale: 1.05 }}
               className="cursor-pointer"
@@ -156,7 +156,7 @@ export function TotumHero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="max-w-4xl"
+          className="max-w-[950px]"
         >
           <span className="inline-block glass-btn-accent text-accent-foreground px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
             Consultoria Estratégica Gratuita

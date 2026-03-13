@@ -11,7 +11,7 @@ export function TotumFinalCTA() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/12 rounded-full blur-[140px]" />
         <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-accent/8 rounded-full blur-[100px]" />
 
-        <div className="max-w-3xl mx-auto relative z-10 text-center">
+        <div className="max-w-[950px] mx-auto relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -51,7 +51,7 @@ export function TotumFinalCTA() {
       {/* Footer */}
       <footer className="bg-totum-dark border-t border-white/10 py-12 px-6 relative grain-bg overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-accent/5 rounded-full blur-[100px]" />
-        <div className="max-w-6xl mx-auto relative z-10">
+        <div className="max-w-[950px] mx-auto relative z-10">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
             <div>
               <img src={totumLogo} alt="Totum" className="h-7 w-auto mb-4" />
