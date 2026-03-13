@@ -130,23 +130,29 @@ export function TotumHero() {
         className="lg:hidden fixed top-0 right-0 h-full w-72 max-w-[85vw] glass-navbar z-[90]"
       >
         <div className="flex flex-col pt-20 px-6 space-y-4">
-          {navLinks.map(link => (
-            <a
+          {navLinks.map((link, index) => (
+            <motion.a
               key={link.href}
               href={link.href}
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: isMobileMenuOpen ? 1 : 0, x: isMobileMenuOpen ? 0 : 30 }}
+              transition={{ duration: 0.3, delay: isMobileMenuOpen ? 0.1 + index * 0.06 : 0 }}
               className="text-white px-4 py-3 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.label}
-            </a>
+            </motion.a>
           ))}
-          <a
+          <motion.a
             href="#formulario"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: isMobileMenuOpen ? 1 : 0, y: isMobileMenuOpen ? 0 : 15 }}
+            transition={{ duration: 0.35, delay: isMobileMenuOpen ? 0.1 + navLinks.length * 0.06 : 0 }}
             onClick={() => setIsMobileMenuOpen(false)}
             className="glass-btn-accent text-accent-foreground font-semibold px-6 py-3 rounded-xl text-center mt-4"
           >
             Começar agora
-          </a>
+          </motion.a>
         </div>
       </motion.div>
 
