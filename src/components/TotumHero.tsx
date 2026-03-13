@@ -138,9 +138,10 @@ export function TotumHero() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: isMobileMenuOpen ? 1 : 0, x: isMobileMenuOpen ? 0 : 30 }}
               transition={{ duration: 0.3, delay: isMobileMenuOpen ? 0.1 + index * 0.06 : 0 }}
-              className="text-white px-4 py-3 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg"
+              className="text-white px-4 py-3 hover:bg-white/10 rounded-lg gentle-animation font-medium text-lg flex items-center gap-3"
               onClick={() => setIsMobileMenuOpen(false)}
             >
+              <link.icon className="w-5 h-5 text-accent" />
               {link.label}
             </motion.a>
           ))}
