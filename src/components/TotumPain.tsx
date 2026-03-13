@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { AlertTriangle, TrendingDown, Tag } from 'lucide-react'
-import conceptFunnel from '../assets/concept-funnel.jpg'
 
 const painPoints = [
   {
@@ -23,11 +22,11 @@ const painPoints = [
 export function TotumPain() {
   return (
     <section id="dor" className="py-24 px-6 bg-totum-dark relative grain-bg overflow-hidden">
-      {/* Background conceptual image */}
-      <div className="absolute inset-0 z-0">
-        <img src={conceptFunnel} alt="" className="w-full h-full object-cover opacity-[0.10]" />
-      </div>
-      <div className="absolute top-10 right-10 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
+      {/* Light & gradient effects */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent/15 rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent/8 rounded-full blur-[100px]" />
+      <div className="absolute top-1/2 left-0 w-[300px] h-[500px] bg-accent/5 rounded-full blur-[80px]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/[0.03] to-transparent" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div

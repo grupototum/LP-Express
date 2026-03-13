@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { ShieldCheck, Clock, Lock } from 'lucide-react'
-import conceptTrust from '../assets/concept-trust.jpg'
 
 const objections = [
   {
@@ -26,11 +25,11 @@ const guarantees = [
 export function TotumCredibility() {
   return (
     <section id="credibilidade" className="py-24 px-6 bg-totum-dark relative grain-bg overflow-hidden">
-      {/* Background conceptual image */}
-      <div className="absolute inset-0 z-0">
-        <img src={conceptTrust} alt="" className="w-full h-full object-cover opacity-[0.10]" />
-      </div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+      {/* Light & gradient effects */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-accent/12 rounded-full blur-[140px]" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/8 rounded-full blur-[100px]" />
+      <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-accent/5 rounded-full blur-[80px]" />
+      <div className="absolute inset-0 bg-gradient-to-t from-accent/[0.04] via-transparent to-transparent" />
 
       <div className="max-w-5xl mx-auto relative z-10">
         <motion.div

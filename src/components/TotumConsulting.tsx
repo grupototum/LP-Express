@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { Search, Map, Rocket, Eye, CalendarCheck, Video } from 'lucide-react'
-import conceptUnlock from '../assets/concept-unlock.jpg'
 
 const items = [
   { icon: Search, title: 'Diagnóstico do seu cenário real', desc: 'Não usamos templates genéricos. Analisamos o que realmente está acontecendo no seu negócio.' },
@@ -14,12 +13,11 @@ const items = [
 export function TotumConsulting() {
   return (
     <section id="consultoria" className="py-24 px-6 bg-background relative overflow-hidden">
-      {/* Background conceptual image */}
-      <div className="absolute inset-0 z-0">
-        <img src={conceptUnlock} alt="" className="w-full h-full object-cover opacity-[0.10]" />
-      </div>
-      <div className="absolute top-20 left-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
+      {/* Light & gradient effects */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-accent/8 rounded-full blur-[100px]" />
+      <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] bg-totum-red/5 rounded-full blur-[80px]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/[0.04] via-transparent to-accent/[0.02]" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
