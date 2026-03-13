@@ -48,9 +48,9 @@ export function TotumHero() {
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover scale-110 opacity-60"
-        autoPlay muted loop playsInline
+        autoPlay muted playsInline
       >
-        <source src="https://mojli.s3.us-east-2.amazonaws.com/Mojli+Website+upscaled+(12mb).webm" type="video/webm" />
+        <source src="/videos/hero-rocket.mp4" type="video/mp4" />
       </video>
 
       <div className="absolute inset-0 bg-gradient-to-b from-totum-dark/80 via-totum-dark/50 to-totum-dark/90" />
