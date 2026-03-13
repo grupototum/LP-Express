@@ -9,7 +9,7 @@ import { TotumFinalCTA } from './components/TotumFinalCTA'
 export default function App() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <main role="main">
+      <main role="main" className="max-w-[950px] mx-auto">
         <TotumHero />
         <TotumForm />
         <TotumPain />
