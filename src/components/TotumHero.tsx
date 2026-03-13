@@ -161,7 +161,7 @@ export function TotumHero() {
           <span className="inline-block glass-btn-accent text-accent-foreground px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
             Consultoria Estratégica Gratuita
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.05] mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
             45 minutos que vão{' '}
             <span className="text-accent">destravar</span>{' '}
             o seu negócio
