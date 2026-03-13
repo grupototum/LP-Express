@@ -41,7 +41,7 @@ export function TotumCredibility() {
           
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 text-center">
             Por que essa consultoria pode{' '}
-            <span className="text-accent"><br>ajudar você agora?</span>
+            <span className="text-accent"><br /> ajudar você agora?</span>
           </h2>
         </motion.div>
 
