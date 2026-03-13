@@ -33,7 +33,7 @@ export function TotumForm() {
           
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
             Preencha abaixo e{' '}
-            <span className="text-accent"><>escolha seu horário</span>
+            <span className="text-accent"><br />escolha seu horário</span>
           </h2>
           <p className="text-muted-foreground text-lg">
             Leva menos de 1 minuto para garantir sua vaga.
