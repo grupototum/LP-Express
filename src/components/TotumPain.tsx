@@ -38,7 +38,7 @@ export function TotumPain() {
           
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             Por que muitos negócios travam{' '}
-            <span className="text-accent"><br>mesmo investindo em marketing?</span>
+            <span className="text-accent"><br> mesmo investindo em marketing?</span>
           </h2>
         </motion.div>
 
