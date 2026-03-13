@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Instagram, Linkedin, Mail, Phone } from 'lucide-react'
+import totumLogo from '../assets/totum-logo.png'
 
 export function TotumFinalCTA() {
   return (
     <>
       {/* Final CTA */}
-      <section id="contato" className="py-24 px-6 bg-totum-dark relative overflow-hidden">
+      <section id="contato" className="py-24 px-6 bg-totum-dark relative overflow-hidden grain-bg">
         <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-accent/5" />
         <div className="max-w-3xl mx-auto relative z-10 text-center">
           <motion.div
@@ -35,7 +36,7 @@ export function TotumFinalCTA() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               href="#formulario"
-              className="inline-flex items-center gap-3 bg-accent text-accent-foreground font-bold px-12 py-5 rounded-xl text-xl hover:opacity-90 gentle-animation shadow-lg shadow-accent/30"
+              className="inline-flex items-center gap-3 glass-btn-accent text-accent-foreground font-bold px-12 py-5 rounded-xl text-xl gentle-animation"
             >
               Quero minha consultoria gratuita
               <ArrowRight className="w-6 h-6" />
@@ -45,11 +46,11 @@ export function TotumFinalCTA() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-totum-dark border-t border-white/10 py-12 px-6">
-        <div className="max-w-6xl mx-auto">
+      <footer className="bg-totum-dark border-t border-white/10 py-12 px-6 relative grain-bg">
+        <div className="max-w-6xl mx-auto relative z-10">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
             <div>
-              <h3 className="text-xl font-bold text-white mb-4">TOTUM</h3>
+              <img src={totumLogo} alt="Totum" className="h-7 w-auto mb-4" />
               <p className="text-white/50 text-sm leading-relaxed">
                 Consultoria estratégica para negócios que querem crescer de forma sustentável e previsível.
               </p>
@@ -68,10 +69,10 @@ export function TotumFinalCTA() {
             <div>
               <h4 className="text-sm font-semibold text-white/70 uppercase tracking-wider mb-4">Redes Sociais</h4>
               <div className="flex gap-3">
-                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/50 hover:text-accent hover:bg-white/10 gentle-animation">
+                <a href="#" className="w-10 h-10 rounded-full glass-btn-white flex items-center justify-center text-white/50 hover:text-accent gentle-animation">
                   <Instagram className="w-5 h-5" />
                 </a>
-                <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/50 hover:text-accent hover:bg-white/10 gentle-animation">
+                <a href="#" className="w-10 h-10 rounded-full glass-btn-white flex items-center justify-center text-white/50 hover:text-accent gentle-animation">
                   <Linkedin className="w-5 h-5" />
                 </a>
               </div>

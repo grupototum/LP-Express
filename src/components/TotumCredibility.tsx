@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ShieldCheck, Clock, Lock } from 'lucide-react'
+import conceptTrust from '../assets/concept-trust.jpg'
 
 const objections = [
   {
@@ -24,8 +25,10 @@ const guarantees = [
 
 export function TotumCredibility() {
   return (
-    <section id="credibilidade" className="py-24 px-6 bg-background">
-      <div className="max-w-5xl mx-auto">
+    <section id="credibilidade" className="py-24 px-6 bg-totum-dark relative grain-bg overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+
+      <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -33,26 +36,44 @@ export function TotumCredibility() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             Por que essa consultoria pode{' '}
             <span className="text-accent">ajudar você agora?</span>
           </h2>
         </motion.div>
 
-        <div className="space-y-6 mb-16">
-          {objections.map((obj, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="glass-card rounded-2xl p-8 hover:shadow-lg gentle-animation"
-            >
-              <h3 className="text-xl font-bold text-primary mb-3">{obj.question}</h3>
-              <p className="text-muted-foreground text-lg">{obj.answer}</p>
-            </motion.div>
-          ))}
+        <div className="grid lg:grid-cols-5 gap-10 items-center mb-16">
+          <div className="lg:col-span-3 space-y-6">
+            {objections.map((obj, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.15 }}
+                className="glass-card-dark rounded-2xl p-8 hover:border-accent/30 gentle-animation"
+              >
+                <h3 className="text-xl font-bold text-white mb-3">{obj.question}</h3>
+                <p className="text-white/60 text-lg">{obj.answer}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="lg:col-span-2 hidden lg:block"
+          >
+            <div className="rounded-2xl overflow-hidden glass-card-dark p-2">
+              <img
+                src={conceptTrust}
+                alt="Confiança e parceria nos negócios"
+                className="w-full h-auto object-cover rounded-xl"
+              />
+            </div>
+          </motion.div>
         </div>
 
         <motion.div
@@ -60,16 +81,16 @@ export function TotumCredibility() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="glass-card rounded-2xl p-8 sm:p-10"
+          className="glass-card-dark rounded-2xl p-8 sm:p-10"
         >
-          <h3 className="text-2xl font-bold text-primary text-center mb-8">Garantias adicionais</h3>
+          <h3 className="text-2xl font-bold text-white text-center mb-8">Garantias adicionais</h3>
           <div className="grid sm:grid-cols-3 gap-6">
             {guarantees.map((g, i) => (
               <div key={i} className="flex flex-col items-center text-center gap-3">
-                <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center">
+                <div className="w-14 h-14 rounded-full bg-accent/15 flex items-center justify-center">
                   <g.icon className="w-7 h-7 text-accent" />
                 </div>
-                <p className="font-semibold text-primary">{g.text}</p>
+                <p className="font-semibold text-white">{g.text}</p>
               </div>
             ))}
           </div>

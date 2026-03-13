@@ -44,7 +44,7 @@ export function TotumHero() {
   }, [isMobileMenuOpen])
 
   return (
-    <div className="relative h-screen w-full overflow-hidden bg-totum-dark">
+    <div className="relative h-screen w-full overflow-hidden bg-totum-dark grain-bg">
       <video
         ref={videoRef}
         className="absolute inset-0 w-full h-full object-cover scale-110 opacity-60"
@@ -53,7 +53,6 @@ export function TotumHero() {
         <source src="https://mojli.s3.us-east-2.amazonaws.com/Mojli+Website+upscaled+(12mb).webm" type="video/webm" />
       </video>
 
-      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-totum-dark/80 via-totum-dark/50 to-totum-dark/90" />
 
       {/* Navbar */}
@@ -90,7 +89,7 @@ export function TotumHero() {
             <div className="flex items-center space-x-3">
               <button
                 onClick={() => setIsMuted(!isMuted)}
-                className="glass-card-dark p-3 rounded-full text-white hover:bg-white/20 gentle-animation cursor-pointer"
+                className="glass-btn-white p-3 rounded-full text-white gentle-animation cursor-pointer"
               >
                 {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
               </button>
@@ -99,14 +98,14 @@ export function TotumHero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="#formulario"
-                className="hidden sm:block bg-accent text-accent-foreground font-semibold px-6 py-3 rounded-xl hover:opacity-90 gentle-animation"
+                className="hidden sm:block glass-btn-accent text-accent-foreground font-semibold px-6 py-3 rounded-xl gentle-animation"
               >
                 Começar agora
               </motion.a>
 
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden glass-card-dark p-3 rounded-full text-white hover:bg-white/20 gentle-animation cursor-pointer z-[120]"
+                className="lg:hidden glass-btn-white p-3 rounded-full text-white gentle-animation cursor-pointer z-[120]"
               >
                 {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
@@ -144,7 +143,7 @@ export function TotumHero() {
           <a
             href="#formulario"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="bg-accent text-accent-foreground font-semibold px-6 py-3 rounded-xl text-center mt-4"
+            className="glass-btn-accent text-accent-foreground font-semibold px-6 py-3 rounded-xl text-center mt-4"
           >
             Começar agora
           </a>
@@ -159,7 +158,7 @@ export function TotumHero() {
           transition={{ duration: 1, delay: 0.5 }}
           className="max-w-4xl"
         >
-          <span className="inline-block bg-accent/20 text-accent border border-accent/30 px-4 py-1.5 rounded-full text-sm font-semibold mb-6 backdrop-blur-sm">
+          <span className="inline-block glass-btn-accent text-accent-foreground px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
             Consultoria Estratégica Gratuita
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-white leading-[1.05] mb-6">
@@ -175,7 +174,7 @@ export function TotumHero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               href="#formulario"
-              className="bg-accent text-accent-foreground font-bold px-10 py-4 rounded-xl text-lg hover:opacity-90 gentle-animation shadow-lg shadow-accent/25"
+              className="glass-btn-accent text-accent-foreground font-bold px-10 py-4 rounded-xl text-lg gentle-animation"
             >
               Começar agora
             </motion.a>
@@ -183,7 +182,7 @@ export function TotumHero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               href="#consultoria"
-              className="glass-card-dark text-white font-semibold px-10 py-4 rounded-xl text-lg hover:bg-white/10 gentle-animation"
+              className="glass-btn-white text-white font-semibold px-10 py-4 rounded-xl text-lg gentle-animation"
             >
               Saiba mais
             </motion.a>
