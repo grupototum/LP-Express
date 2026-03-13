@@ -51,7 +51,7 @@ export function TotumFinalCTA() {
       {/* Footer */}
       <footer className="bg-totum-dark border-t border-white/10 py-12 px-6 relative grain-bg overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-accent/5 rounded-full blur-[100px]" />
-        <div className="max-w-6xl mx-auto relative z-10">
+        <div className="max-w-[950px] mx-auto relative z-10">
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
             <div>
               <img src={totumLogo} alt="Totum" className="h-7 w-auto mb-4" />

@@ -156,7 +156,7 @@ export function TotumHero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="max-w-4xl"
+          className="max-w-[950px]"
         >
           <span className="inline-block glass-btn-accent text-accent-foreground px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
             Consultoria Estratégica Gratuita
