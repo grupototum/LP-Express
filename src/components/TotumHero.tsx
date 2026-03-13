@@ -79,8 +79,9 @@ export function TotumHero() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-white/80 hover:text-white font-medium text-sm gentle-animation"
+                  className="text-white/80 hover:text-white font-medium text-sm gentle-animation flex items-center gap-1.5"
                 >
+                  <link.icon className="w-3.5 h-3.5" />
                   {link.label}
                 </a>
               ))}
