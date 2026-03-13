@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion'
-import { Volume2, VolumeX, Menu, X } from 'lucide-react'
+import { Volume2, VolumeX, Menu, X, MessageCircle, Unlock, CalendarCheck, Rocket, Award } from 'lucide-react'
 import { useState, useRef, useEffect } from 'react'
 import totumLogo from '../assets/totum-logo.png'
 
 const navLinks = [
-  { label: 'Fale conosco', href: '#contato' },
-  { label: 'Destravar negócio', href: '#dor' },
-  { label: 'Consultoria gratuita', href: '#consultoria' },
-  { label: 'Começar agora', href: '#formulario' },
-  { label: 'Garantias e bônus', href: '#credibilidade' },
+  { label: 'Fale conosco', href: '#contato', icon: MessageCircle },
+  { label: 'Destravar negócio', href: '#dor', icon: Unlock },
+  { label: 'Consultoria gratuita', href: '#consultoria', icon: CalendarCheck },
+  { label: 'Começar agora', href: '#formulario', icon: Rocket },
+  { label: 'Garantias e bônus', href: '#credibilidade', icon: Award },
 ]
 
 export function TotumHero() {
