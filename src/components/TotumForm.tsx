@@ -48,26 +48,57 @@ export function TotumForm() {
           onSubmit={handleSubmit}
           className="glass-form rounded-2xl p-8 sm:p-10 space-y-6">
           
-          {[
-          { key: 'empresa', label: 'Nome Fantasia ou Razão Social', placeholder: 'Ex: Totum Consultoria', type: 'text' },
-          { key: 'cidade', label: 'Cidade ou Região', placeholder: 'Ex: São Paulo, SP', type: 'text' },
-          { key: 'produto', label: 'Principal produto ou serviço', placeholder: 'Ex: Consultoria de marketing digital', type: 'text' },
-          { key: 'whatsapp', label: 'WhatsApp', placeholder: '(11) 99999-9999', type: 'tel' }].
-          map((field) =>
-          <div key={field.key}>
-              <label className="block text-sm font-semibold text-primary mb-2">
-                {field.label}
-              </label>
+          {/* Row 1: Empresa (65%) + Cidade (35%) */}
+          <div className="flex gap-4">
+            <div className="w-[65%]">
+              <label className="block text-sm font-semibold text-primary mb-2">Nome Fantasia ou Razão Social</label>
               <input
-              type={field.type}
-              placeholder={field.placeholder}
-              value={formData[field.key as keyof typeof formData]}
-              onChange={(e) => setFormData((prev) => ({ ...prev, [field.key]: e.target.value }))}
-              className="w-full px-4 py-3.5 rounded-xl bg-white border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none gentle-animation text-primary placeholder:text-muted-foreground"
-              required />
-            
+                type="text"
+                placeholder="Ex: Totum Consultoria"
+                value={formData.empresa}
+                onChange={(e) => setFormData((prev) => ({ ...prev, empresa: e.target.value }))}
+                className="w-full px-4 py-3.5 rounded-xl bg-white border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none gentle-animation text-primary placeholder:text-muted-foreground"
+                required
+              />
             </div>
-          )}
+            <div className="w-[35%]">
+              <label className="block text-sm font-semibold text-primary mb-2">Cidade ou Região</label>
+              <input
+                type="text"
+                placeholder="Ex: São Paulo, SP"
+                value={formData.cidade}
+                onChange={(e) => setFormData((prev) => ({ ...prev, cidade: e.target.value }))}
+                className="w-full px-4 py-3.5 rounded-xl bg-white border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none gentle-animation text-primary placeholder:text-muted-foreground"
+                required
+              />
+            </div>
+          </div>
+
+          {/* Row 2: Produto (65%) + WhatsApp (35%) */}
+          <div className="flex gap-4">
+            <div className="w-[65%]">
+              <label className="block text-sm font-semibold text-primary mb-2">Principal produto ou serviço</label>
+              <input
+                type="text"
+                placeholder="Ex: Consultoria de marketing digital"
+                value={formData.produto}
+                onChange={(e) => setFormData((prev) => ({ ...prev, produto: e.target.value }))}
+                className="w-full px-4 py-3.5 rounded-xl bg-white border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none gentle-animation text-primary placeholder:text-muted-foreground"
+                required
+              />
+            </div>
+            <div className="w-[35%]">
+              <label className="block text-sm font-semibold text-primary mb-2">WhatsApp</label>
+              <input
+                type="tel"
+                placeholder="(11) 99999-9999"
+                value={formData.whatsapp}
+                onChange={(e) => setFormData((prev) => ({ ...prev, whatsapp: e.target.value }))}
+                className="w-full px-4 py-3.5 rounded-xl bg-white border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none gentle-animation text-primary placeholder:text-muted-foreground"
+                required
+              />
+            </div>
+          </div>
 
           <motion.button
             whileHover={{ scale: 1.02 }}
