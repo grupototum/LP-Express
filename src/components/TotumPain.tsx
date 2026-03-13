@@ -70,7 +70,7 @@ export function TotumPain() {
           
           <p className="text-xl sm:text-2xl font-bold text-white mb-4">
             "Você perde mais por falta de lead ou por{' '}
-            <span className="text-accent">não aproveitar os que já chegam?</span>"
+            <span className="text-accent"><br />não aproveitar os que já chegam?</span>"
           </p>
           <p className="text-white/60 text-lg">
             O problema raramente é apenas volume de leads.{' '}
