@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Volume2, VolumeX, Menu, X } from 'lucide-react'
 import { useState, useRef, useEffect } from 'react'
+import totumLogo from '../assets/totum-logo.png'
 
 const navLinks = [
   { label: 'Fale conosco', href: '#contato' },
