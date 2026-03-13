@@ -14,8 +14,12 @@ export function TotumReferral() {
   }
 
   return (
-    <section className="py-24 px-6 bg-totum-gray">
-      <div className="max-w-3xl mx-auto">
+    <section className="py-24 px-6 bg-totum-gray relative overflow-hidden">
+      {/* Light & gradient effects */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/6 rounded-full blur-[120px]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-accent/[0.02] via-transparent to-accent/[0.02]" />
+
+      <div className="max-w-3xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

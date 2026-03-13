@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Send } from 'lucide-react'
-import conceptStrategy from '../assets/concept-strategy.jpg'
 
 export function TotumForm() {
   const [formData, setFormData] = useState({
@@ -19,12 +18,10 @@ export function TotumForm() {
 
   return (
     <section id="formulario" className="py-24 px-6 bg-totum-gray relative overflow-hidden">
-      {/* Background conceptual image */}
-      <div className="absolute inset-0 z-0">
-        <img src={conceptStrategy} alt="" className="w-full h-full object-cover opacity-[0.12]" />
-      </div>
-      <div className="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-totum-dark/5 rounded-full blur-3xl" />
+      {/* Light & gradient effects */}
+      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-accent/8 rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-totum-dark/5 rounded-full blur-[100px]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-accent/[0.03] via-transparent to-totum-dark/[0.02]" />
 
       <div className="max-w-2xl mx-auto relative z-10">
         <motion.div
