@@ -18,9 +18,13 @@ export function TotumFinalCTA() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-8">
-              Ainda na dúvida? <span className="text-accent">Lembre:</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+              Marketing não deveria ser um{' '}
+              <span className="text-accent">experimento eterno.</span>
             </h2>
+            <p className="text-white/60 text-lg mb-8 max-w-2xl mx-auto">
+              Com estratégia clara, sua empresa pode crescer com muito mais eficiência.
+            </p>
             <div className="flex flex-wrap justify-center gap-6 mb-10">
               {['45 minutos', 'Gratuito', 'Sem compromisso'].map((item, i) => (
                 <motion.div

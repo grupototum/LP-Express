@@ -36,7 +36,7 @@ export function TotumForm() {
             <span className="text-accent"><br />escolha seu horário</span>
           </h2>
           <p className="text-muted-foreground text-lg">
-            Leva menos de 1 minuto para garantir sua vaga.
+            Para tornar sua consultoria mais assertiva, precisamos entender rapidamente o seu cenário.
           </p>
         </motion.div>
 

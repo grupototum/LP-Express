@@ -2,22 +2,22 @@ import { motion } from 'framer-motion';
 import { AlertTriangle, TrendingDown, Tag } from 'lucide-react';
 
 const painPoints = [
-{
-  icon: AlertTriangle,
-  title: 'Leads chegando mas não convertendo',
-  description: 'Você investe em tráfego, os leads aparecem, mas a taxa de conversão é frustrante.'
-},
-{
-  icon: TrendingDown,
-  title: 'Dependência total de tráfego pago ou indicação',
-  description: 'Se parar de investir, para de vender. Seu negócio vive refém de uma única fonte.'
-},
-{
-  icon: Tag,
-  title: 'Marca fraca que precisa competir por preço',
-  description: 'Sem posicionamento claro, resta competir por preço — e sempre alguém cobra menos.'
-}];
-
+  {
+    icon: AlertTriangle,
+    title: 'Marketing feito sem estratégia',
+    description: 'Muitas empresas executam ações isoladas — anúncios, posts, promoções — mas sem uma direção clara.'
+  },
+  {
+    icon: TrendingDown,
+    title: 'Dependência de poucos canais',
+    description: 'Quando a empresa depende apenas de tráfego pago ou indicação, o crescimento fica instável.'
+  },
+  {
+    icon: Tag,
+    title: 'Leads que não viram clientes',
+    description: 'O problema raramente é apenas gerar leads. O problema está no processo de conversão.'
+  }
+];
 
 export function TotumPain() {
   return (
@@ -69,15 +69,15 @@ export function TotumPain() {
           className="glass-card-dark rounded-2xl p-8 sm:p-10 text-center max-w-3xl mx-auto">
           
           <p className="text-xl sm:text-2xl font-bold text-white mb-4">
-            Você perde mais por falta de lead ou por{' '}
-            <span className="text-accent"><br />não aproveitar os que já chegam?</span>
+            Você está investindo em marketing…{' '}
+            <span className="text-accent"><br />ou apenas pagando para testar coisas?</span>
           </p>
           <p className="text-white/60 text-lg">
-            O problema raramente é apenas volume de leads.{' '}
-            <strong className="text-white/80">O problema geralmente está no mecanismo de conversão.</strong>
+            Empresas crescem quando deixam o improviso{' '}
+            <strong className="text-white/80">e passam a trabalhar com estratégia, processo e clareza.</strong>
           </p>
         </motion.div>
       </div>
-    </section>);
-
+    </section>
+  );
 }

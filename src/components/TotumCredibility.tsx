@@ -2,25 +2,25 @@ import { motion } from 'framer-motion';
 import { ShieldCheck, Clock, Lock } from 'lucide-react';
 
 const objections = [
-{
-  question: '"Já tentei marketing e não funcionou"',
-  answer: 'Aqui não aplicamos fórmulas genéricas. Primeiro entendemos o mecanismo do seu negócio.'
-},
-{
-  question: '"Vai tentar me vender algo?"',
-  answer: 'Não até que faça sentido para o seu cenário. Sem pressão, sem truques.'
-},
-{
-  question: '"Não tenho tempo"',
-  answer: 'São apenas 45 minutos que podem mudar os próximos 12 meses do seu negócio.'
-}];
-
+  {
+    question: 'Já tentei marketing e não funcionou',
+    answer: 'Na maioria das vezes o problema não é o marketing em si, mas a forma como ele foi estruturado.'
+  },
+  {
+    question: 'Vai tentar me vender algo?',
+    answer: 'Não até que faça sentido para o seu cenário. Sem pressão, sem truques.'
+  },
+  {
+    question: 'Não tenho tempo',
+    answer: 'São apenas 45 minutos que podem mudar os próximos 12 meses do seu negócio.'
+  }
+];
 
 const guarantees = [
-{ icon: ShieldCheck, text: 'Sem compromisso de compra' },
-{ icon: Lock, text: 'Confidencialidade garantida' },
-{ icon: Clock, text: 'Gravação da sessão enviada depois' }];
-
+  { icon: ShieldCheck, text: 'Sem compromisso de compra' },
+  { icon: Lock, text: 'Confidencialidade garantida' },
+  { icon: Clock, text: 'Gravação da sessão enviada depois' }
+];
 
 export function TotumCredibility() {
   return (
@@ -81,6 +81,6 @@ export function TotumCredibility() {
           </div>
         </motion.div>
       </div>
-    </section>);
-
+    </section>
+  );
 }
