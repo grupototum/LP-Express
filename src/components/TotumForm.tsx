@@ -1,19 +1,45 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Send } from 'lucide-react';
+import { Send, Loader2 } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from '@/hooks/use-toast';
 
 export function TotumForm() {
   const [formData, setFormData] = useState({
     empresa: '',
     cidade: '',
     produto: '',
-    whatsapp: ''
+    email: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const message = `Olá! Gostaria de agendar minha consultoria gratuita.\n\nEmpresa: ${formData.empresa}\nCidade: ${formData.cidade}\nProduto/Serviço: ${formData.produto}\nWhatsApp: ${formData.whatsapp}`;
-    window.open(`https://wa.me/5500000000000?text=${encodeURIComponent(message)}`, '_blank');
+    setIsSubmitting(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData,
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: 'Formulário enviado!',
+        description: 'Entraremos em contato em breve para agendar sua consultoria.',
+      });
+
+      setFormData({ empresa: '', cidade: '', produto: '', email: '' });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: 'Erro ao enviar',
+        description: 'Tente novamente ou entre em contato diretamente.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -74,7 +100,7 @@ export function TotumForm() {
             </div>
           </div>
 
-          {/* Row 2: Produto (65%) + WhatsApp (35%) */}
+          {/* Row 2: Produto (65%) + E-mail (35%) */}
           <div className="flex gap-4">
             <div className="w-[65%]">
               <label className="block text-sm font-semibold text-primary mb-2">Principal produto ou serviço</label>
@@ -88,12 +114,12 @@ export function TotumForm() {
               />
             </div>
             <div className="w-[35%]">
-              <label className="block text-sm font-semibold text-primary mb-2">WhatsApp</label>
+              <label className="block text-sm font-semibold text-primary mb-2">E-mail</label>
               <input
-                type="tel"
-                placeholder="(11) 99999-9999"
-                value={formData.whatsapp}
-                onChange={(e) => setFormData((prev) => ({ ...prev, whatsapp: e.target.value }))}
+                type="email"
+                placeholder="seu@email.com"
+                value={formData.email}
+                onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
                 className="w-full px-4 py-3.5 rounded-xl bg-white border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none gentle-animation text-primary placeholder:text-muted-foreground"
                 required
               />
@@ -104,10 +130,15 @@ export function TotumForm() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             type="submit"
-            className="w-full glass-btn-accent text-accent-foreground font-bold py-4 rounded-xl text-lg gentle-animation flex items-center justify-center gap-3 cursor-pointer">
+            disabled={isSubmitting}
+            className="w-full glass-btn-accent text-accent-foreground font-bold py-4 rounded-xl text-lg gentle-animation flex items-center justify-center gap-3 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed">
             
-            <Send className="w-5 h-5" />
-            Quero minha consultoria gratuita
+            {isSubmitting ? (
+              <Loader2 className="w-5 h-5 animate-spin" />
+            ) : (
+              <Send className="w-5 h-5" />
+            )}
+            {isSubmitting ? 'Enviando...' : 'Quero minha consultoria gratuita'}
           </motion.button>
 
           <p className="text-center text-sm text-muted-foreground">
@@ -116,5 +147,4 @@ export function TotumForm() {
         </motion.form>
       </div>
     </section>);
-
 }
