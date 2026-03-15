@@ -2,11 +2,11 @@ import { motion } from 'framer-motion'
 import { Search, Map, Rocket, Eye, CalendarCheck, Video } from 'lucide-react'
 
 const items = [
-  { icon: Search, title: 'Diagnóstico do seu cenário real', desc: 'Não usamos templates genéricos. Analisamos o que realmente está acontecendo no seu negócio.' },
-  { icon: Map, title: 'Mapeamento da jornada do seu cliente', desc: 'Entendemos cada ponto de contato e identificamos onde há atrito.' },
-  { icon: Rocket, title: 'Identificação das 3 principais alavancas de crescimento', desc: 'Encontramos as oportunidades de maior impacto com menor esforço.' },
-  { icon: Eye, title: 'Clareza sobre onde está o vazamento', desc: 'Mostramos exatamente onde seu negócio está perdendo oportunidades.' },
-  { icon: CalendarCheck, title: 'Direção prática para os próximos 60–90 dias', desc: 'Um plano claro com prioridades definidas para execução imediata.' },
+  { icon: Search, title: 'Diagnóstico real do marketing', desc: 'Analisamos o que realmente está acontecendo e onde estão os gargalos.' },
+  { icon: Map, title: 'Mapeamento da jornada do cliente', desc: 'Entendemos cada ponto de contato e identificamos onde há atrito.' },
+  { icon: Rocket, title: 'Principais oportunidades de crescimento', desc: 'Encontramos as oportunidades de maior impacto com menor esforço.' },
+  { icon: Eye, title: 'Clareza sobre onde o marketing está travando', desc: 'Mostramos exatamente onde sua empresa está perdendo oportunidades.' },
+  { icon: CalendarCheck, title: 'Direção prática para os próximos meses', desc: 'Um plano claro com prioridades definidas para execução imediata.' },
   { icon: Video, title: 'Gravação da sessão para você rever depois', desc: 'Receba a gravação completa para compartilhar com sua equipe.' },
 ]
 

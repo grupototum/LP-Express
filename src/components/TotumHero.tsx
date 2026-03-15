@@ -194,6 +194,7 @@ export function TotumHero() {
               Saiba mais
             </motion.a>
           </div>
+          <p className="text-white/50 text-sm mt-6">45 minutos • gratuito • sem compromisso</p>
         </motion.div>
       </div>
 
