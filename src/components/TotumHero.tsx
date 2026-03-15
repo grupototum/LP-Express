@@ -170,12 +170,11 @@ export function TotumHero() {
             Consultoria Estratégica Gratuita
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
-            45 minutos que vão{' '}
-            <span className="text-accent">destravar</span>{' '}
-            o seu negócio
+            Pare de desperdiçar dinheiro com{' '}
+            <span className="text-accent">marketing que não funciona</span>
           </h1>
           <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-            Uma consultoria estratégica gratuita para identificar exatamente onde o seu negócio está travando e como acelerar crescimento.
+            Uma consultoria estratégica gratuita para identificar onde sua empresa está perdendo oportunidades e como estruturar um marketing que realmente gere crescimento.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.a
