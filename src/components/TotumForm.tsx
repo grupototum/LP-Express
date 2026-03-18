@@ -57,12 +57,14 @@ export function TotumForm() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12">
           
+          <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+            Em uma consultoria estratégica de 45 minutos, você vai entender exatamente: <strong className="text-primary">o que está travando seu crescimento</strong>, <strong className="text-primary">onde você está perdendo dinheiro</strong> e <strong className="text-primary">o que precisa mudar agora</strong>.
+          </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
-            Preencha abaixo e{' '}
-            <span className="text-accent"><br />escolha seu horário</span>
+            Antes de começar
           </h2>
           <p className="text-muted-foreground text-lg">
-            Para tornar sua consultoria mais assertiva, precisamos entender rapidamente o seu cenário.
+            Para tornar a análise realmente útil, precisamos entender rapidamente o seu cenário:
           </p>
         </motion.div>
 
