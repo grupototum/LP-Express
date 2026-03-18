@@ -143,8 +143,8 @@ export function TotumForm() {
             {isSubmitting ? 'Enviando...' : 'Quero minha consultoria gratuita'}
           </motion.button>
 
-          <p className="text-center text-sm text-muted-foreground">
-            🔒 Seus dados estão seguros. Sem spam, sem compromisso.
+          <p className="text-center text-xs text-muted-foreground flex items-center justify-center gap-1.5">
+            🔒 Seus dados estão seguros. Sem spam.
           </p>
         </motion.form>
       </div>

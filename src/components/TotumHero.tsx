@@ -170,11 +170,11 @@ export function TotumHero() {
             Consultoria Estratégica Gratuita
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
-            Pare de desperdiçar dinheiro com{' '}
-            <span className="text-[#ffb700]">marketing que não funciona</span>
+            Você já investe em marketing. Então por que seu negócio{' '}
+            <span className="text-accent">ainda não cresce como deveria?</span>
           </h1>
           <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-            Uma consultoria estratégica gratuita para identificar onde sua empresa está perdendo oportunidades e como estruturar um marketing que realmente gere crescimento.
+            Se o seu marketing já gera demanda, mas não entrega previsibilidade, o problema dificilmente é esforço. É estrutura.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.a
