@@ -2,6 +2,8 @@ import { TotumHero } from './components/TotumHero'
 import { TotumForm } from './components/TotumForm'
 import { TotumPain } from './components/TotumPain'
 import { TotumConsulting } from './components/TotumConsulting'
+import { TotumResultados } from './components/TotumResultados'
+import { TotumQualificacao } from './components/TotumQualificacao'
 import { TotumSocialProof } from './components/TotumSocialProof'
 import { TotumCredibility } from './components/TotumCredibility'
 import { TotumReferral } from './components/TotumReferral'
@@ -15,6 +17,8 @@ export default function App() {
         <TotumForm />
         <TotumPain />
         <TotumConsulting />
+        <TotumResultados />
+        <TotumQualificacao />
         <TotumSocialProof />
         <TotumCredibility />
         <TotumReferral />
