@@ -78,7 +78,7 @@ export function TotumForm() {
           
           {/* Row 1: Empresa (65%) + Cidade (35%) */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <div className="w-[65%]">
+            <div className="w-full sm:w-[65%]">
               <label className="block text-sm font-semibold text-primary mb-2">Nome Fantasia ou Razão Social</label>
               <input
                 type="text"
