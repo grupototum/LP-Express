@@ -6,6 +6,7 @@ import { TotumResultados } from './components/TotumResultados'
 import { TotumQualificacao } from './components/TotumQualificacao'
 import { TotumSocialProof } from './components/TotumSocialProof'
 import { TotumCredibility } from './components/TotumCredibility'
+import { TotumFAQ } from './components/TotumFAQ'
 import { TotumReferral } from './components/TotumReferral'
 import { TotumFinalCTA } from './components/TotumFinalCTA'
 
@@ -21,6 +22,7 @@ export default function App() {
         <TotumQualificacao />
         <TotumSocialProof />
         <TotumCredibility />
+        <TotumFAQ />
         <TotumReferral />
         <TotumFinalCTA />
       </main>
