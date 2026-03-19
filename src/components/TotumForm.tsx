@@ -77,8 +77,8 @@ export function TotumForm() {
           className="glass-form rounded-2xl p-8 sm:p-10 space-y-6">
           
           {/* Row 1: Empresa (65%) + Cidade (35%) */}
-          <div className="flex gap-4">
-            <div className="w-[65%]">
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className="w-full sm:w-[65%]">
               <label className="block text-sm font-semibold text-primary mb-2">Nome Fantasia ou Razão Social</label>
               <input
                 type="text"
@@ -89,7 +89,7 @@ export function TotumForm() {
                 required
               />
             </div>
-            <div className="w-[35%]">
+            <div className="w-full sm:w-[35%]">
               <label className="block text-sm font-semibold text-primary mb-2">Cidade ou Região</label>
               <input
                 type="text"
@@ -103,8 +103,8 @@ export function TotumForm() {
           </div>
 
           {/* Row 2: Produto (65%) + E-mail (35%) */}
-          <div className="flex gap-4">
-            <div className="w-[65%]">
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className="w-full sm:w-[65%]">
               <label className="block text-sm font-semibold text-primary mb-2">Principal produto ou serviço</label>
               <input
                 type="text"
@@ -115,7 +115,7 @@ export function TotumForm() {
                 required
               />
             </div>
-            <div className="w-[35%]">
+            <div className="w-full sm:w-[35%]">
               <label className="block text-sm font-semibold text-primary mb-2">E-mail</label>
               <input
                 type="email"
