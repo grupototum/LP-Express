@@ -89,7 +89,7 @@ export function TotumForm() {
                 required
               />
             </div>
-            <div className="w-[35%]">
+            <div className="w-full sm:w-[35%]">
               <label className="block text-sm font-semibold text-primary mb-2">Cidade ou Região</label>
               <input
                 type="text"
