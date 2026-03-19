@@ -103,7 +103,7 @@ export function TotumForm() {
           </div>
 
           {/* Row 2: Produto (65%) + E-mail (35%) */}
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-4">
             <div className="w-[65%]">
               <label className="block text-sm font-semibold text-primary mb-2">Principal produto ou serviço</label>
               <input
