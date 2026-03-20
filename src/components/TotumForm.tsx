@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Send, Loader2 } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
 import { toast } from '@/hooks/use-toast';
+
+const FORMSPREE_ID = "xnjgrwqz";
 
 export function TotumForm() {
   const [formData, setFormData] = useState({
@@ -18,14 +19,27 @@ export function TotumForm() {
     setIsSubmitting(true);
 
     try {
-      const { data, error } = await supabase.functions.invoke('send-contact-email', {
-        body: formData,
+      const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          empresa: formData.empresa,
+          cidade: formData.cidade,
+          produto: formData.produto,
+          email: formData.email,
+        }),
       });
 
-      if (error) throw error;
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data?.error || 'Erro ao enviar');
+      }
 
       toast({
-        title: 'Formulário enviado!',
+        title: 'Formulário enviado! 🎉',
         description: 'Entraremos em contato em breve para agendar sua consultoria.',
       });
 
