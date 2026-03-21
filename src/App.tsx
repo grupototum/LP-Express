@@ -9,10 +9,11 @@ import { TotumCredibility } from './components/TotumCredibility'
 import { TotumFAQ } from './components/TotumFAQ'
 import { TotumReferral } from './components/TotumReferral'
 import { TotumFinalCTA } from './components/TotumFinalCTA'
+import { WhatsAppFloat } from './components/WhatsAppFloat'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <main role="main">
         <TotumHero />
         <TotumForm />
@@ -26,6 +27,7 @@ export default function App() {
         <TotumReferral />
         <TotumFinalCTA />
       </main>
+      <WhatsAppFloat />
     </div>
   )
 }
