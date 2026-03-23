@@ -74,7 +74,7 @@ export function TotumHero() {
               <img src={totumLogo} alt="Totum" className="h-8 w-auto" />
             </motion.div>
 
-            <div className="hidden xl:flex items-center xl:space-x-6 2xl:space-x-8">
+            <div className="hidden 2xl:flex items-center space-x-6">
               {navLinks.map((link) =>
               <a
                 key={link.href}
