@@ -120,7 +120,7 @@ export function TotumHero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="lg:hidden fixed inset-0 bg-black/50 backdrop-blur-md z-[80]"
+        className="xl:hidden fixed inset-0 bg-black/50 backdrop-blur-md z-[80]"
         onClick={() => setIsMobileMenuOpen(false)} />
 
       }
