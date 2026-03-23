@@ -128,7 +128,7 @@ export function TotumHero() {
         initial={{ x: '100%' }}
         animate={{ x: isMobileMenuOpen ? '0%' : '100%' }}
         transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-        className="lg:hidden fixed top-0 right-0 h-full w-72 max-w-[85vw] glass-navbar z-[90]">
+        className="xl:hidden fixed top-0 right-0 h-full w-72 max-w-[85vw] glass-navbar z-[90]">
         
         <div className="flex flex-col pt-20 px-6 space-y-4">
           {navLinks.map((link, index) =>
