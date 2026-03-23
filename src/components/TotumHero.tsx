@@ -106,7 +106,7 @@ export function TotumHero() {
 
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="xl:hidden glass-btn-white p-3 rounded-full text-white gentle-animation cursor-pointer z-[120]">
+                className="2xl:hidden glass-btn-white p-3 rounded-full text-white gentle-animation cursor-pointer z-[120]">
                 
                 {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
