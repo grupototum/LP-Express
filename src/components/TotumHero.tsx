@@ -74,7 +74,7 @@ export function TotumHero() {
               <img src={totumLogo} alt="Totum" className="h-8 w-auto" />
             </motion.div>
 
-            <div className="hidden xl:flex items-center xl:space-x-6 2xl:space-x-8">
+            <div className="hidden 2xl:flex items-center space-x-6">
               {navLinks.map((link) =>
               <a
                 key={link.href}
@@ -99,14 +99,14 @@ export function TotumHero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="#formulario"
-                className="hidden xl:block glass-btn-accent text-accent-foreground font-semibold px-6 py-3 rounded-xl gentle-animation">
+                className="hidden 2xl:block glass-btn-accent text-accent-foreground font-semibold px-6 py-3 rounded-xl gentle-animation">
                 
                 Começar agora
               </motion.a>
 
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="xl:hidden glass-btn-white p-3 rounded-full text-white gentle-animation cursor-pointer z-[120]">
+                className="2xl:hidden glass-btn-white p-3 rounded-full text-white gentle-animation cursor-pointer z-[120]">
                 
                 {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
@@ -120,7 +120,7 @@ export function TotumHero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="xl:hidden fixed inset-0 bg-black/50 backdrop-blur-md z-[80]"
+        className="2xl:hidden fixed inset-0 bg-black/50 backdrop-blur-md z-[80]"
         onClick={() => setIsMobileMenuOpen(false)} />
 
       }
@@ -128,7 +128,7 @@ export function TotumHero() {
         initial={{ x: '100%' }}
         animate={{ x: isMobileMenuOpen ? '0%' : '100%' }}
         transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-        className="xl:hidden fixed top-0 right-0 h-full w-72 max-w-[85vw] glass-navbar z-[90]">
+        className="2xl:hidden fixed top-0 right-0 h-full w-72 max-w-[85vw] glass-navbar z-[90]">
         
         <div className="flex flex-col pt-20 px-6 space-y-4">
           {navLinks.map((link, index) =>
