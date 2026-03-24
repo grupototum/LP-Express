@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Send, Loader2 } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
+import { trackPixelEvent } from '@/utils/meta-pixel';
 
 const FORMSPREE_ID = "xnjgrwqz";
 
