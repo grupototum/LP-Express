@@ -39,17 +39,14 @@ export function TotumForm() {
         throw new Error(data?.error || 'Erro ao enviar');
       }
 
-      // Meta Pixel: Lead event on successful form submission
-      if (typeof window !== 'undefined' && (window as any).fbq) {
-        (window as any).fbq('track', 'Lead', {
-          content_name: 'Consultoria Gratuita',
-          content_category: 'Form Submission',
-        });
-        (window as any).fbq('track', 'CompleteRegistration', {
-          content_name: formData.empresa,
-          status: true,
-        });
-      }
+      trackPixelEvent('Lead', {
+        content_name: 'Consultoria Gratuita',
+        content_category: 'Form Submission',
+      });
+      trackPixelEvent('CompleteRegistration', {
+        content_name: formData.empresa,
+        status: true,
+      });
 
       toast({
         title: 'Formulário enviado! 🎉',
