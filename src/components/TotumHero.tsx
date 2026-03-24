@@ -100,6 +100,7 @@ export function TotumHero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="#formulario"
+                onClick={() => trackPixelEvent('InitiateCheckout', { content_name: 'CTA Navbar' })}
                 className="hidden 2xl:block glass-btn-accent text-accent-foreground font-semibold px-6 py-3 rounded-xl gentle-animation">
                 
                 Começar agora
