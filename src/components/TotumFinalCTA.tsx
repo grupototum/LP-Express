@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { trackPixelEvent } from '@/utils/meta-pixel'
 import { ArrowRight, Instagram, Linkedin, Mail, Phone } from 'lucide-react'
 import totumLogo from '../assets/totum-logo.png'
 

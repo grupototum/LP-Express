@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { trackPixelEvent } from '@/utils/meta-pixel'
 import { Search, Map, Rocket, Eye, CalendarCheck, Video } from 'lucide-react'
 
 const items = [
