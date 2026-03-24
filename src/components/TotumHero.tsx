@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Volume2, VolumeX, Menu, X, MessageCircle, Unlock, CalendarCheck, Rocket, Award } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import totumLogo from '../assets/totum-logo.png';
+import { trackPixelEvent } from '@/utils/meta-pixel';
 
 const navLinks = [
 { label: 'Fale conosco', href: '#contato', icon: MessageCircle },
