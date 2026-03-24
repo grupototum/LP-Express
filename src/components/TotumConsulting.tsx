@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { trackPixelEvent } from '@/utils/meta-pixel'
 import { Search, Map, Rocket, Eye, CalendarCheck, Video } from 'lucide-react'
 
 const items = [
@@ -66,6 +67,7 @@ export function TotumConsulting() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             href="#formulario"
+            onClick={() => trackPixelEvent('InitiateCheckout', { content_name: 'CTA Consulting' })}
             className="inline-block glass-btn-accent text-accent-foreground font-bold px-10 py-4 rounded-xl text-lg gentle-animation"
           >
             Quero minha consultoria gratuita

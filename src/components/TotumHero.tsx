@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Volume2, VolumeX, Menu, X, MessageCircle, Unlock, CalendarCheck, Rocket, Award } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import totumLogo from '../assets/totum-logo.png';
+import { trackPixelEvent } from '@/utils/meta-pixel';
 
 const navLinks = [
 { label: 'Fale conosco', href: '#contato', icon: MessageCircle },
@@ -99,6 +100,7 @@ export function TotumHero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="#formulario"
+                onClick={() => trackPixelEvent('InitiateCheckout', { content_name: 'CTA Navbar' })}
                 className="hidden 2xl:block glass-btn-accent text-accent-foreground font-semibold px-6 py-3 rounded-xl gentle-animation">
                 
                 Começar agora
@@ -181,6 +183,7 @@ export function TotumHero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               href="#formulario"
+              onClick={() => trackPixelEvent('InitiateCheckout', { content_name: 'CTA Hero' })}
               className="glass-btn-accent text-accent-foreground font-bold px-10 py-4 rounded-xl text-lg gentle-animation">
               
               Começar agora

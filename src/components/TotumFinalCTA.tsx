@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { trackPixelEvent } from '@/utils/meta-pixel'
 import { ArrowRight, Instagram, Linkedin, Mail, Phone } from 'lucide-react'
 import totumLogo from '../assets/totum-logo.png'
 
@@ -43,6 +44,7 @@ export function TotumFinalCTA() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               href="#formulario"
+              onClick={() => trackPixelEvent('InitiateCheckout', { content_name: 'CTA Final' })}
               className="inline-flex items-center gap-3 glass-btn-accent text-accent-foreground font-bold px-12 py-5 rounded-xl text-xl gentle-animation"
             >
               Quero minha consultoria gratuita

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Send, Loader2 } from 'lucide-react';
 import { toast } from '@/hooks/use-toast';
+import { trackPixelEvent } from '@/utils/meta-pixel';
 
 const FORMSPREE_ID = "xnjgrwqz";
 
@@ -37,6 +38,15 @@ export function TotumForm() {
         const data = await response.json();
         throw new Error(data?.error || 'Erro ao enviar');
       }
+
+      trackPixelEvent('Lead', {
+        content_name: 'Consultoria Gratuita',
+        content_category: 'Form Submission',
+      });
+      trackPixelEvent('CompleteRegistration', {
+        content_name: formData.empresa,
+        status: true,
+      });
 
       toast({
         title: 'Formulário enviado! 🎉',
