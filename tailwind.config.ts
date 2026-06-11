@@ -18,9 +18,29 @@ export default {
     },
     extend: {
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
+        geomanist: ['geomanist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        'geomanist-book': ['geomanist-book', 'geomanist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['geomanist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
+        surface: 'var(--surface)',
+        elevated: 'var(--elevated)',
+        'hover-surface': 'var(--hover-surface)',
+        'warm-rust': 'var(--warm-rust)',
+        'cool-graphite': 'var(--cool-graphite)',
+        'brand-red': {
+          DEFAULT: 'var(--brand-red)',
+          bright: 'var(--brand-red-bright)',
+          vibrant: 'var(--brand-red-vibrant)',
+          light: 'var(--brand-red-light)',
+        },
+        'brand-blue': 'var(--brand-blue)',
+        'brand-purple': {
+          DEFAULT: 'var(--brand-purple)',
+          bright: 'var(--brand-purple-bright)',
+        },
+        success: 'var(--success)',
+        error: 'var(--error)',
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",
