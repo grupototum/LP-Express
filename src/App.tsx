@@ -53,8 +53,9 @@ export default function App() {
   return (
     <HostRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<ExpressPage />} />
         <Route path="/express" element={<ExpressPage />} />
+        <Route path="/full" element={<HomePage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </HostRouter>
