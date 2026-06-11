@@ -46,7 +46,7 @@ export function ExpressFlow() {
           </motion.div>
 
           {/* Right grid */}
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 gap-4 auto-rows-fr">
             {steps.map((s, i) => (
               <motion.div
                 key={i}
@@ -54,7 +54,7 @@ export function ExpressFlow() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.08 }}
-                className="group relative glass-card rounded-2xl p-5 hover:shadow-xl gentle-animation"
+                className="group relative glass-card rounded-2xl p-5 hover:shadow-xl gentle-animation flex flex-col h-full"
               >
                 <div className="absolute top-4 right-4 text-accent/40 font-light text-xs tracking-wider">
                   0{i + 1}
@@ -62,8 +62,8 @@ export function ExpressFlow() {
                 <div className="w-11 h-11 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/15 gentle-animation">
                   <s.icon className="w-5 h-5 text-accent" />
                 </div>
-                <h3 className="text-lg font-normal text-primary mb-1.5 leading-tight">{s.title}</h3>
-                <p className="text-sm text-muted-foreground font-light leading-relaxed">{s.desc}</p>
+                <h3 className="text-base sm:text-lg font-normal text-primary mb-1.5 leading-snug">{s.title}</h3>
+                <p className="text-sm text-muted-foreground font-light leading-relaxed min-h-[2.875rem]">{s.desc}</p>
               </motion.div>
             ))}
           </div>
