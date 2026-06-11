@@ -43,14 +43,6 @@ function Nav() {
             height={28}
             className="h-7 w-auto object-contain"
           />
-          <span className="hidden sm:flex flex-col leading-none">
-            <span className="font-display text-[14px] tracking-[0.22em] uppercase text-white">
-              Atelier <span className="text-[#ee4f27]">Rosso</span>
-            </span>
-            <span className="mt-1 text-[9px] tracking-[0.32em] uppercase text-white/40">
-              by Totum
-            </span>
-          </span>
         </a>
         <nav className="hidden md:flex items-center gap-8 text-[12px] tracking-[0.2em] uppercase text-white/70">
           {NAV_LINKS.map((s) => (
