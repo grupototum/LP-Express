@@ -504,7 +504,7 @@ function Reputation() {
 
 function Problem() {
   return (
-    <section className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5 overflow-hidden">
+    <section className="relative bg-[#0e0918] pt-4 pb-28 lg:pb-40 overflow-hidden">
       <img
         src={conceptClarity}
         alt=""
