@@ -381,24 +381,41 @@ function Difference() {
         className="absolute -right-40 top-0 w-[600px] h-[600px] rounded-full bg-[#ee4f27]/10 blur-[180px]"
       />
       <div className="relative mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-7 order-2 lg:order-1">
           <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">05 — Diferencial</div>
           <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.025em] uppercase leading-[0.92]">
             A maioria vende páginas. <br />
             <span className="text-[#ee4f27]">Nós vendemos crescimento.</span>
           </h2>
+          <div className="mt-10 space-y-6 text-white/75 text-lg leading-relaxed max-w-xl">
+            <p>
+              Uma página bonita não resolve o problema. O que gera resultado é{' '}
+              <span className="text-white">transmitir o valor</span> da sua empresa de forma clara
+              para quem ainda não conhece você.
+            </p>
+            <p className="text-white/55">
+              Ajudamos empresas a transformar reputação em oportunidades reais — começando pela
+              estratégia, não pelo design.
+            </p>
+          </div>
         </div>
-        <div className="lg:col-span-5 space-y-6 text-white/75 text-lg leading-relaxed">
-          <p>
-            Uma página bonita não resolve o problema. O que gera resultado é{' '}
-            <span className="text-white">transmitir o valor</span> da sua empresa de forma clara
-            para quem ainda não conhece você.
-          </p>
-          <p className="text-white/55">
-            Ajudamos empresas a transformar reputação em oportunidades reais — começando pela
-            estratégia, não pelo design.
-          </p>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+          className="lg:col-span-5 order-1 lg:order-2 relative aspect-square overflow-hidden rounded-sm border border-white/10"
+        >
+          <img
+            src={conceptGrowth}
+            alt="Direção estratégica e crescimento"
+            loading="lazy"
+            width={1024}
+            height={1024}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-tl from-[#0e0918]/70 via-transparent to-transparent" />
+        </motion.div>
       </div>
     </section>
   )
