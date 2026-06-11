@@ -134,6 +134,26 @@
     font-weight: 400;
   }
 
+  /* ============ Weight enforcement ============
+     Spec: títulos = 300, body/UI = 400. Nunca 500/600/700/800/900.
+     Tailwind utilities heavier than 400 are normalized to geomanist-book 400. */
+  .font-medium,
+  .font-semibold,
+  .font-bold,
+  .font-extrabold,
+  .font-black {
+    font-family: "geomanist-book", geomanist, ui-sans-serif, system-ui, sans-serif !important;
+    font-weight: 400 !important;
+  }
+  /* Headings keep 300 even if a heavier utility is applied inline */
+  h1, h2, h3, h4,
+  h1.font-medium, h1.font-semibold, h1.font-bold, h1.font-extrabold, h1.font-black,
+  h2.font-medium, h2.font-semibold, h2.font-bold, h2.font-extrabold, h2.font-black,
+  h3.font-medium, h3.font-semibold, h3.font-bold, h3.font-extrabold, h3.font-black,
+  h4.font-medium, h4.font-semibold, h4.font-bold, h4.font-extrabold, h4.font-black {
+    font-weight: 300 !important;
+  }
+
   /* ============ Typography Scale ============ */
   h1, .display-hero {
     font-family: geomanist, ui-sans-serif, system-ui, sans-serif;
