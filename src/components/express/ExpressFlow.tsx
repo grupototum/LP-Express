@@ -1,32 +1,12 @@
 import { motion } from 'framer-motion'
-import { Award, Search, Sparkles, Users, Rocket } from 'lucide-react'
+import { Award, Search, Sparkles, Users, Rocket, ArrowUpRight } from 'lucide-react'
 
 const steps = [
-  {
-    icon: Award,
-    title: 'Você possui uma reputação construída',
-    desc: 'Autoridade, conexões e resultados reais. Agora precisam de uma narrativa que comunique o seu valor.',
-  },
-  {
-    icon: Search,
-    title: 'Identificamos uma oportunidade',
-    desc: 'Nossa equipe analisou o seu posicionamento e mapeou uma oportunidade clara de crescimento que ainda não está sendo capturada.',
-  },
-  {
-    icon: Sparkles,
-    title: 'Criamos uma prévia estratégica',
-    desc: 'Você já viu o preview: nosso entendimento do seu negócio, o ângulo proposto e a estrutura inicial.',
-  },
-  {
-    icon: Users,
-    title: 'Apresentamos a estratégia na reunião',
-    desc: 'Agora validamos o direcionamento, apresentamos a estratégia completa e alinhamos os últimos detalhes.',
-  },
-  {
-    icon: Rocket,
-    title: 'Entregamos sua página em até 24h',
-    desc: 'Após o alinhamento, materializamos tudo em uma Landing Page Express pronta para gerar oportunidades reais.',
-  },
+  { icon: Award, title: 'Reputação construída', desc: 'Autoridade e resultados reais já existem.' },
+  { icon: Search, title: 'Oportunidade mapeada', desc: 'Identificamos o ângulo de crescimento.' },
+  { icon: Sparkles, title: 'Prévia estratégica', desc: 'Você já viu o entendimento e a estrutura.' },
+  { icon: Users, title: 'Reunião de alinhamento', desc: 'Validamos direção e ajustamos detalhes.' },
+  { icon: Rocket, title: 'No ar em 24h', desc: 'Landing Page Express pronta para capturar.' },
 ]
 
 export function ExpressFlow() {
@@ -36,46 +16,54 @@ export function ExpressFlow() {
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/6 rounded-full blur-[100px]" />
 
       <div className="max-w-[950px] mx-auto relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16 max-w-2xl mx-auto"
-        >
-          <span className="inline-block text-accent text-xs font-light tracking-widest uppercase mb-4">O processo</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-primary mb-4 leading-tight">
-            Da reputação que você tem<br />
-            à página que a materializa
-          </h2>
-          <p className="text-muted-foreground font-light text-lg">
-            Cinco etapas. Posicionamento primeiro, pixels depois.
-          </p>
-        </motion.div>
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* Left content */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:sticky lg:top-28"
+          >
+            <span className="inline-block text-accent text-xs font-light tracking-widest uppercase mb-4">
+              O processo
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-primary mb-5 leading-[1.1]">
+              Da reputação que você tem<br />
+              à página que a <span className="text-accent">materializa</span>
+            </h2>
+            <p className="text-muted-foreground font-light text-lg mb-8 leading-relaxed">
+              Cinco etapas objetivas. Posicionamento primeiro, pixels depois.
+              Você valida cada decisão antes de qualquer linha entrar no ar.
+            </p>
+            <a
+              href="#agendar"
+              className="inline-flex items-center gap-2 glass-btn-accent text-accent-foreground font-medium px-6 py-3 rounded-xl gentle-animation"
+            >
+              Agendar reunião
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </motion.div>
 
-        <div className="relative">
-          <div className="hidden md:block absolute left-[27px] top-2 bottom-2 w-px bg-gradient-to-b from-accent/40 via-accent/20 to-transparent" />
-
-          <div className="space-y-6">
+          {/* Right grid */}
+          <div className="grid sm:grid-cols-2 gap-4">
             {steps.map((s, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="glass-card rounded-2xl p-6 sm:p-8 flex gap-5 hover:shadow-xl gentle-animation"
+                transition={{ duration: 0.45, delay: i * 0.08 }}
+                className="group relative glass-card rounded-2xl p-5 hover:shadow-xl gentle-animation"
               >
-                <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center">
-                  <s.icon className="w-6 h-6 text-accent" />
+                <div className="absolute top-4 right-4 text-accent/40 font-light text-xs tracking-wider">
+                  0{i + 1}
                 </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-accent/70 font-light text-sm">0{i + 1}</span>
-                    <h3 className="text-xl sm:text-2xl font-light text-primary leading-tight">{s.title}</h3>
-                  </div>
-                  <p className="text-muted-foreground font-light leading-relaxed">{s.desc}</p>
+                <div className="w-11 h-11 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/15 gentle-animation">
+                  <s.icon className="w-5 h-5 text-accent" />
                 </div>
+                <h3 className="text-lg font-normal text-primary mb-1.5 leading-tight">{s.title}</h3>
+                <p className="text-sm text-muted-foreground font-light leading-relaxed">{s.desc}</p>
               </motion.div>
             ))}
           </div>
