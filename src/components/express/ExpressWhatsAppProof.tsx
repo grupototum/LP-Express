@@ -13,6 +13,9 @@ const images = [
   { src: wpp5, alt: 'Conversa real elogiando o profissionalismo e indicando a Totum' },
 ]
 
+// Duplicate the list so the marquee loops seamlessly
+const loop = [...images, ...images]
+
 export function ExpressWhatsAppProof() {
   return (
     <section id="prova" className="relative py-24 px-6 bg-background overflow-hidden">
@@ -37,26 +40,41 @@ export function ExpressWhatsAppProof() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-          {images.map((img, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className={`rounded-2xl overflow-hidden border border-border bg-white shadow-lg hover:shadow-2xl gentle-animation ${i === 2 ? 'col-span-2 md:col-span-1' : ''}`}
-            >
-              <img
-                src={img.src}
-                alt={img.alt}
-                width={1024}
-                height={1536}
-                loading="lazy"
-                className="w-full h-auto block"
-              />
-            </motion.div>
-          ))}
+        {/* Carrossel com autoplay infinito — 3 por vez no desktop, 1 no mobile */}
+        <div
+          className="relative overflow-hidden group"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent, black 6%, black 94%, transparent)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent, black 6%, black 94%, transparent)',
+          }}
+        >
+          <div className="flex w-max gap-4 sm:gap-6 animate-wpp-marquee group-hover:[animation-play-state:paused]">
+            {loop.map((img, i) => (
+              <div
+                key={i}
+                className="relative w-[80vw] sm:w-[300px] md:w-[290px] shrink-0 rounded-2xl overflow-hidden border border-border bg-white shadow-lg"
+              >
+                {/* Faixa que esconde foto e nome do topo do WhatsApp */}
+                <div className="absolute top-0 left-0 right-0 h-[11%] bg-white z-10" />
+                <div
+                  className="absolute left-0 right-0 z-10"
+                  style={{
+                    top: '11%',
+                    height: '3%',
+                    background: 'linear-gradient(to bottom, white, transparent)',
+                  }}
+                />
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  width={1024}
+                  height={1536}
+                  loading="lazy"
+                  className="w-full h-auto block"
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
         <motion.p
@@ -66,9 +84,19 @@ export function ExpressWhatsAppProof() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-center text-muted-foreground font-light text-sm mt-10"
         >
-          Conversas reais. Nomes preservados a pedido dos clientes.
+          Conversas reais. Identidades preservadas a pedido dos clientes.
         </motion.p>
       </div>
+
+      <style>{`
+        @keyframes wpp-marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-wpp-marquee {
+          animation: wpp-marquee 40s linear infinite;
+        }
+      `}</style>
     </section>
   )
 }
