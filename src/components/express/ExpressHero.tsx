@@ -113,15 +113,15 @@ export function ExpressHero() {
           className="max-w-[950px]"
         >
           <span className="inline-block glass-btn-white text-white/90 px-4 py-1.5 rounded-full text-xs font-light mb-6 tracking-wide uppercase">
-            Você recebeu uma análise estratégica da Totum
+            Análise estratégica entregue
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-light text-white leading-[1.05] mb-6 tracking-tight">
             Sua reputação já existe.<br />
-            Falta dar a ela{' '}
-            <span className="text-accent">o posicionamento certo.</span>
+            Agora precisa do{' '}
+            <span className="text-accent">posicionamento certo.</span>
           </h1>
           <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-            Você viu a prévia que preparamos para o seu negócio. Agora vamos sentar, apresentar a estratégia completa e validar o direcionamento antes de colocar tudo no ar.
+            Você viu a prévia. Agora vamos validar o direcionamento e colocar a estratégia no ar.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.a

@@ -5,7 +5,7 @@ const steps = [
   {
     icon: Award,
     title: 'Você possui uma reputação construída',
-    desc: 'Anos de trabalho geraram autoridade, conexões e resultados reais. Falta organizar isso em uma narrativa que comunique o seu valor.',
+    desc: 'Autoridade, conexões e resultados reais. Agora precisam de uma narrativa que comunique o seu valor.',
   },
   {
     icon: Search,
@@ -15,17 +15,17 @@ const steps = [
   {
     icon: Sparkles,
     title: 'Criamos uma prévia estratégica',
-    desc: 'Você já recebeu o preview conceitual: a forma como entendemos o seu negócio, o ângulo proposto e a estrutura inicial.',
+    desc: 'Você já viu o preview: nosso entendimento do seu negócio, o ângulo proposto e a estrutura inicial.',
   },
   {
     icon: Users,
     title: 'Apresentamos a estratégia na reunião',
-    desc: 'Agora sentamos para validar o direcionamento, apresentar a estratégia completa e alinhar os últimos detalhes da entrega.',
+    desc: 'Agora validamos o direcionamento, apresentamos a estratégia completa e alinhamos os últimos detalhes.',
   },
   {
     icon: Rocket,
     title: 'Entregamos sua página em até 24h',
-    desc: 'Após o alinhamento, materializamos tudo em uma Landing Page Express pronta para gerar oportunidades reais para o seu negócio.',
+    desc: 'Após o alinhamento, materializamos tudo em uma Landing Page Express pronta para gerar oportunidades reais.',
   },
 ]
 
