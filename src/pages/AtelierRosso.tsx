@@ -622,7 +622,7 @@ const STEPS = [
 
 function Process() {
   return (
-    <section id="processo" className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
+    <section id="processo" className="relative bg-[#0e0918] pt-4 pb-28 lg:pb-40">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
           <div>
@@ -721,7 +721,7 @@ const LP_BENEFITS = [
 
 function Benefits() {
   return (
-    <section className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
+    <section className="relative bg-[#0e0918] pt-4 pb-28 lg:pb-40">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
         <div className="grid lg:grid-cols-12 gap-10 mb-16">
           <div className="lg:col-span-5">
@@ -773,7 +773,7 @@ const AUDIENCE = [
 
 function Audience() {
   return (
-    <section className="relative bg-[#0e0918] py-28 lg:py-36 border-t border-white/5 overflow-hidden">
+    <section className="relative bg-[#0e0918] pt-4 pb-28 lg:pb-36 overflow-hidden">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10 mb-14">
         <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">07 — Para Quem</div>
         <h2 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.02em] uppercase leading-[0.95] max-w-3xl">
@@ -1142,7 +1142,7 @@ const FAQS = [
 function FAQ() {
   const [open, setOpen] = useState<number | null>(0)
   return (
-    <section id="faq" className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
+    <section id="faq" className="relative bg-[#0e0918] pt-4 pb-28 lg:pb-40">
       <div className="mx-auto max-w-[1100px] px-6 lg:px-10">
         <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">11 — FAQ</div>
         <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.02em] uppercase leading-[0.95] mb-16">
