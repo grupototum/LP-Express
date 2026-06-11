@@ -54,7 +54,7 @@ export function ExpressFlow() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.08 }}
-                className="group relative glass-card rounded-2xl p-5 hover:shadow-xl gentle-animation flex flex-col h-full"
+                className="group relative glass-card rounded-2xl p-5 hover:shadow-xl gentle-animation flex flex-col h-full min-h-[170px]"
               >
                 <div className="absolute top-4 right-4 text-accent/40 font-light text-xs tracking-wider">
                   0{i + 1}
@@ -63,7 +63,7 @@ export function ExpressFlow() {
                   <s.icon className="w-5 h-5 text-accent" />
                 </div>
                 <h3 className="text-base sm:text-lg font-normal text-primary mb-1.5 leading-snug">{s.title}</h3>
-                <p className="text-sm text-muted-foreground font-light leading-relaxed min-h-[2.875rem]">{s.desc}</p>
+                <p className="text-[clamp(0.8125rem,3.2vw,0.875rem)] text-muted-foreground font-light leading-relaxed min-h-[2.875rem] hyphens-auto break-words">{s.desc}</p>
               </motion.div>
             ))}
           </div>
