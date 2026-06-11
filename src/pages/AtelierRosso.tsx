@@ -46,12 +46,18 @@ function Portfolio() {
   const [open, setOpen] = useState<number | null>(null)
   const [zoom, setZoom] = useState(1)
   const [isFs, setIsFs] = useState(false)
+  const [dir, setDir] = useState(1)
   const overlayRef = useRef<HTMLDivElement>(null)
   const active = open !== null ? PORTFOLIO_ITEMS[open] : null
 
-  const next = () => setOpen((i) => (i === null ? null : (i + 1) % PORTFOLIO_ITEMS.length))
-  const prev = () =>
+  const next = () => {
+    setDir(1)
+    setOpen((i) => (i === null ? null : (i + 1) % PORTFOLIO_ITEMS.length))
+  }
+  const prev = () => {
+    setDir(-1)
     setOpen((i) => (i === null ? null : (i - 1 + PORTFOLIO_ITEMS.length) % PORTFOLIO_ITEMS.length))
+  }
 
   const toggleFullscreen = async () => {
     const el = overlayRef.current
@@ -236,20 +242,31 @@ function Portfolio() {
                 className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white items-center justify-center backdrop-blur"
               >→</button>
 
-              <div className="h-full overflow-auto p-4 lg:p-10 flex items-start justify-center">
-                <img
-                  key={active.src}
-                  src={active.src}
-                  alt={active.title}
-                  onClick={() => setZoom((z) => (z >= 2 ? 1 : z + 1))}
-                  style={{
-                    width: `${zoom * 100}%`,
-                    maxWidth: zoom === 1 ? '900px' : 'none',
-                    cursor: zoom >= 2 ? 'zoom-out' : 'zoom-in',
-                  }}
-                  className="rounded-xl shadow-2xl select-none transition-[width] duration-200 ease-out"
-                  draggable={false}
-                />
+              <div className="relative h-full overflow-hidden">
+                <AnimatePresence mode="wait" custom={dir} initial={false}>
+                  <motion.div
+                    key={active.src}
+                    custom={dir}
+                    initial={{ opacity: 0, x: dir * 60 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: dir * -60 }}
+                    transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                    className="absolute inset-0 overflow-auto p-4 lg:p-10 flex items-start justify-center"
+                  >
+                    <img
+                      src={active.src}
+                      alt={active.title}
+                      onClick={() => setZoom((z) => (z >= 2 ? 1 : z + 1))}
+                      style={{
+                        width: `${zoom * 100}%`,
+                        maxWidth: zoom === 1 ? '900px' : 'none',
+                        cursor: zoom >= 2 ? 'zoom-out' : 'zoom-in',
+                      }}
+                      className="rounded-xl shadow-2xl select-none transition-[width] duration-200 ease-out"
+                      draggable={false}
+                    />
+                  </motion.div>
+                </AnimatePresence>
               </div>
             </div>
 
@@ -257,10 +274,20 @@ function Portfolio() {
               className="shrink-0 border-t border-white/10 px-5 lg:px-8 py-4 text-white"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="mx-auto max-w-3xl">
-                <div className="text-[10px] tracking-[0.3em] uppercase text-[#ee4f27] mb-1">{active.tag}</div>
-                <div className="font-display text-lg lg:text-xl tracking-[-0.01em] mb-1">{active.title}</div>
-                <p className="text-white/60 text-sm leading-relaxed">{active.description}</p>
+              <div className="mx-auto max-w-3xl relative min-h-[78px]">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={active.title}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.25 }}
+                  >
+                    <div className="text-[10px] tracking-[0.3em] uppercase text-[#ee4f27] mb-1">{active.tag}</div>
+                    <div className="font-display text-lg lg:text-xl tracking-[-0.01em] mb-1">{active.title}</div>
+                    <p className="text-white/60 text-sm leading-relaxed">{active.description}</p>
+                  </motion.div>
+                </AnimatePresence>
                 <div className="mt-2 text-[10px] tracking-[0.25em] uppercase text-white/30">
                   ← → Navegar · + − Zoom · F Tela cheia · Esc Fechar
                 </div>
