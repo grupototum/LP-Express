@@ -272,7 +272,6 @@ function Portfolio() {
     </section>
   )
 }
-}
 
 /* ============================================================
    Atelier Rosso — Estratégia · Posicionamento · Landing Pages
