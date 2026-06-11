@@ -54,7 +54,7 @@ export function ExpressFlow() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.08 }}
-                className="group relative glass-card rounded-2xl p-5 hover:shadow-xl gentle-animation"
+                className="group relative glass-card rounded-2xl p-5 hover:shadow-xl gentle-animation flex flex-col h-full"
               >
                 <div className="absolute top-4 right-4 text-accent/40 font-light text-xs tracking-wider">
                   0{i + 1}
