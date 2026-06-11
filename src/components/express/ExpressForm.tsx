@@ -58,32 +58,49 @@ export function ExpressForm() {
       <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-accent/8 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-totum-dark/5 rounded-full blur-[100px]" />
 
-      <div className="max-w-[800px] mx-auto relative z-10">
+      <div className="max-w-[950px] mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10"
+          className="glass-card rounded-3xl overflow-hidden grid lg:grid-cols-5"
         >
-          <span className="inline-block text-accent text-xs font-light tracking-widest uppercase mb-4">Próximo passo</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-primary mb-4 leading-tight">
-            Agende sua Reunião<br />
-            de Alinhamento Estratégico
-          </h2>
-          <p className="text-muted-foreground font-light text-lg max-w-xl mx-auto">
-            Confirme alguns dados rápidos e nossa equipe entra em contato em até 1 hora útil para confirmar o melhor horário.
-          </p>
-        </motion.div>
+          {/* Left info side */}
+          <div className="lg:col-span-2 p-8 sm:p-10 bg-gradient-to-br from-totum-dark to-[#1a1011] text-white relative overflow-hidden">
+            <div className="absolute -top-20 -right-20 w-60 h-60 bg-accent/20 rounded-full blur-3xl" />
+            <div className="relative">
+              <span className="inline-block text-accent text-xs font-light tracking-widest uppercase mb-4">Próximo passo</span>
+              <h2 className="text-2xl sm:text-3xl font-light leading-tight mb-4">
+                Agende sua Reunião de Alinhamento
+              </h2>
+              <p className="text-white/70 font-light leading-relaxed mb-8">
+                Confirme alguns dados rápidos. Nossa equipe entra em contato em até 1 hora útil para confirmar o melhor horário.
+              </p>
 
-        <motion.form
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          onSubmit={handleSubmit}
-          className="glass-form rounded-2xl p-8 sm:p-10 space-y-5"
-        >
+              <div className="grid grid-cols-2 gap-4 pt-6 border-t border-white/10">
+                {contactInfo.map((info, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
+                      <info.icon className="w-4 h-4 text-accent" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-white/50 font-light">{info.label}</p>
+                      <p className="text-sm text-white font-light">{info.value}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 flex items-center gap-2 text-xs text-white/50 font-light">
+                <MessageCircle className="w-3.5 h-3.5 text-accent" />
+                Prefere falar agora? Use o botão flutuante do WhatsApp.
+              </div>
+            </div>
+          </div>
+
+          {/* Right form side */}
+          <form onSubmit={handleSubmit} className="lg:col-span-3 p-8 sm:p-10 space-y-5 bg-background">
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="w-full sm:w-[65%]">
               <label className="block text-sm font-normal text-primary mb-2">Seu nome</label>
@@ -164,7 +181,8 @@ export function ExpressForm() {
           <p className="text-center text-xs text-muted-foreground font-light flex items-center justify-center gap-1.5">
             🔒 Seus dados estão seguros. Confirmação em até 1 hora útil.
           </p>
-        </motion.form>
+          </form>
+        </motion.div>
       </div>
     </section>
   )
