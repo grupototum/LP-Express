@@ -421,19 +421,12 @@ function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-8 max-w-5xl"
+          className="mt-10 max-w-5xl"
         >
           <p className="text-white/75 text-base lg:text-lg leading-relaxed max-w-md">
             Sua reputação já existe. Transformamos ela em uma página estratégica que comunica
             confiança, autoridade e diferenciais antes do primeiro contato.
           </p>
-          <a
-            href="https://wa.me/5533991294114?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20de%20alinhamento." target="_blank" rel="noopener noreferrer"
-            className="group inline-flex items-center gap-3 text-[14px] tracking-[0.05em] text-white bg-rosso hover:bg-rosso-accent rounded-full px-6 py-3 transition-all duration-300 w-fit hover:shadow-[0_7px_80px_-12px_#c8102e]"
-          >
-            Agendar Reunião
-            <span className="inline-block group-hover:translate-x-1 transition-transform">→</span>
-          </a>
         </motion.div>
       </motion.div>
 
@@ -1221,7 +1214,7 @@ function FinalCTA() {
 
         <div className="mt-16 flex flex-col items-center gap-6">
           <a
-            href="https://wa.me/5533991294114?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20de%20alinhamento." target="_blank" rel="noopener noreferrer"
+            href="https://wa.me/5533991294114?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20de%20alinhamento."
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-4 bg-rosso hover:bg-rosso-accent text-white text-[15px] lg:text-base tracking-[0.05em] rounded-full px-10 lg:px-14 py-4 lg:py-5 transition-all duration-300 hover:shadow-[0_7px_80px_-12px_#c8102e]"
