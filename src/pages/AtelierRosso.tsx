@@ -437,7 +437,9 @@ function Hero() {
   )
 }
 
-/* ---------- Reputação / Problema ---------- */
+/* =========================================================
+   BLOCO A — Reputação & Diagnóstico  (ex-seções 1 + 2)
+   ========================================================= */
 
 const REP_ITEMS = [
   'Clientes satisfeitos',
@@ -446,7 +448,7 @@ const REP_ITEMS = [
   'Presença no Google e redes sociais',
 ]
 
-function Reputation() {
+function ReputacaoDiagnostico() {
   return (
     <section className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5 overflow-hidden">
       <img
@@ -454,18 +456,20 @@ function Reputation() {
         alt=""
         aria-hidden
         loading="lazy"
-        className="pointer-events-none select-none absolute inset-0 w-full h-full object-cover opacity-[0.10]"
+        className="pointer-events-none select-none absolute inset-0 w-full h-full object-cover opacity-[0.08]"
       />
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0e0918] via-[#0e0918]/85 to-[#0e0918]/70" />
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0e0918] via-[#0e0918]/85 to-[#0e0918]" />
+      <div aria-hidden className="absolute -left-40 top-1/2 w-[600px] h-[600px] rounded-full bg-rosso/10 blur-[180px]" />
+
       <div className="relative mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
+        {/* Coluna esquerda — título + lista de reputação */}
         <div className="lg:col-span-5">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">01 — Reputação</div>
+          <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">01 — Reputação & Diagnóstico</div>
           <h2 className="font-display text-white text-4xl lg:text-6xl leading-[0.95] tracking-[-0.02em] uppercase">
             Você já construiu uma boa <span className="text-rosso">reputação</span>.
           </h2>
-        </div>
-        <div className="lg:col-span-6 lg:col-start-7 self-end">
-          <ul className="space-y-5 mb-12">
+
+          <ul className="space-y-5 mt-10">
             {REP_ITEMS.map((it) => (
               <motion.li
                 key={it}
@@ -473,63 +477,50 @@ function Reputation() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className="flex items-center gap-4 text-white/85 text-lg lg:text-xl border-b border-white/10 pb-5"
+                className="flex items-center gap-4 text-white/85 text-lg border-b border-white/10 pb-5"
               >
                 <span className="w-2 h-2 rounded-full bg-rosso" />
                 {it}
               </motion.li>
             ))}
           </ul>
-          <p className="text-white/60 text-base lg:text-lg leading-relaxed font-display">
-            Mas existe uma pergunta importante…
-          </p>
-          <p className="mt-6 text-white text-2xl lg:text-3xl font-display leading-[1.15] tracking-[-0.01em]">
-            Quando alguém encontra sua empresa pela primeira vez, ela percebe o mesmo valor que seus
-            clientes já <span className="text-rosso">conhecem</span>?
-          </p>
+        </div>
+
+        {/* Coluna direita — pergunta + diagnóstico */}
+        <div className="lg:col-span-6 lg:col-start-7 self-center space-y-10">
+          <div>
+            <p className="text-white/60 text-base lg:text-lg leading-relaxed font-display mb-4">
+              Mas existe uma pergunta importante…
+            </p>
+            <p className="text-white text-2xl lg:text-4xl font-display leading-[1.15] tracking-[-0.01em]">
+              Quando alguém encontra sua empresa pela primeira vez, ela percebe o mesmo valor que
+              seus clientes já <span className="text-rosso">conhecem</span>?
+            </p>
+          </div>
+
+          <div className="border-t border-white/10 pt-10">
+            <h3 className="font-display text-white text-2xl lg:text-3xl leading-[1.1] tracking-[-0.01em]">
+              Muitas empresas fazem um excelente trabalho.{' '}
+              <span className="text-white/45">
+                O problema é que isso nem sempre fica claro para quem está pesquisando.
+              </span>
+            </h3>
+            <p className="mt-6 text-white/75 text-base lg:text-lg leading-relaxed">
+              Enquanto seus concorrentes disputam atenção falando apenas sobre produtos, serviços e
+              preços, os melhores negócios são escolhidos porque conseguem transmitir{' '}
+              <span className="text-white">confiança, autoridade e diferenciais</span> antes mesmo
+              do primeiro contato.
+            </p>
+          </div>
         </div>
       </div>
     </section>
   )
 }
 
-/* ---------- Problema / Diagnóstico ---------- */
-
-function Problem() {
-  return (
-    <section className="relative bg-[#0e0918] pt-4 pb-28 lg:pb-40 overflow-hidden">
-      <img
-        src={conceptClarity}
-        alt=""
-        aria-hidden
-        loading="lazy"
-        className="pointer-events-none select-none absolute inset-0 w-full h-full object-cover opacity-[0.12]"
-      />
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#0e0918]/70" />
-      <div
-        aria-hidden
-        className="absolute -left-40 top-1/3 w-[600px] h-[600px] rounded-full bg-rosso/10 blur-[180px]"
-      />
-      <div className="relative mx-auto max-w-[1100px] px-6 lg:px-10 text-center">
-        <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-6">02 — O Problema</div>
-        <h2 className="font-display text-white text-4xl lg:text-6xl leading-[1.05] tracking-[-0.02em]">
-          Muitas empresas fazem um excelente trabalho. <br />
-          <span className="text-white/45">
-            O problema é que isso nem sempre fica claro para quem está pesquisando.
-          </span>
-        </h2>
-        <p className="mt-12 text-white/75 text-lg lg:text-xl leading-relaxed max-w-3xl mx-auto">
-          Enquanto seus concorrentes disputam atenção falando apenas sobre produtos, serviços e
-          preços, os melhores negócios são escolhidos porque conseguem transmitir{' '}
-          <span className="text-white">confiança, autoridade e diferenciais</span> antes mesmo do
-          primeiro contato.
-        </p>
-      </div>
-    </section>
-  )
-}
-
-/* ---------- Método ---------- */
+/* =========================================================
+   BLOCO B — Método & Processo  (ex-seções 3 + 4)
+   ========================================================= */
 
 const METHOD_ITEMS = [
   'Como sua marca é percebida',
@@ -538,7 +529,15 @@ const METHOD_ITEMS = [
   'Onde existem oportunidades de crescimento',
 ]
 
-function Method() {
+const STEPS = [
+  { n: '01', t: 'Análise Estratégica', d: 'Estudamos sua presença digital, reputação, posicionamento e diferenciais.' },
+  { n: '02', t: 'Identificação de Oportunidades', d: 'Encontramos pontos que podem aumentar confiança, autoridade e conversão.' },
+  { n: '03', t: 'Preview Estratégico', d: 'Criamos uma prévia personalizada mostrando como sua empresa pode apresentar melhor seus diferenciais.' },
+  { n: '04', t: 'Reunião de Alinhamento', d: 'Apresentamos a estratégia, validamos o posicionamento e ajustamos os detalhes finais.' },
+  { n: '05', t: 'Entrega Rápida', d: 'Após o alinhamento, sua Landing Page é entregue pronta em até 24 horas.' },
+]
+
+function MetodoProcesso() {
   return (
     <section id="metodo" className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5 overflow-hidden">
       <img
@@ -546,92 +545,51 @@ function Method() {
         alt=""
         aria-hidden
         loading="lazy"
-        className="pointer-events-none select-none absolute inset-0 w-full h-full object-cover opacity-[0.10]"
+        className="pointer-events-none select-none absolute inset-0 w-full h-full object-cover opacity-[0.08]"
       />
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-l from-[#0e0918] via-[#0e0918]/80 to-[#0e0918]/60" />
-      <div className="relative mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
-        <div className="lg:col-span-5">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">03 — Método</div>
-          <h2 className="font-display text-white text-5xl lg:text-7xl leading-[0.95] tracking-[-0.02em] uppercase">
-            Não <span className="text-rosso">começamos</span> criando páginas.
-          </h2>
-          <p className="mt-8 text-white/70 text-lg leading-relaxed">
-            Começamos entendendo o que torna sua empresa diferente. A partir disso, construímos uma
-            estratégia clara para destacar aquilo que realmente faz sentido para o seu negócio.
-          </p>
-        </div>
-        <div className="lg:col-span-6 lg:col-start-7">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-white/40 mb-6">Analisamos</div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/10 border border-white/10">
-            {METHOD_ITEMS.map((it, i) => (
-              <div
-                key={it}
-                className="bg-[#0e0918] p-8 lg:p-10 group hover:bg-white/[0.03] transition-colors"
-              >
-                <div className="font-display text-rosso text-xs tracking-[0.3em] mb-6">
-                  0{i + 1}
-                </div>
-                <p className="text-white text-lg lg:text-xl font-display leading-[1.2] tracking-[-0.01em]">
-                  {it}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-l from-[#0e0918] via-[#0e0918]/85 to-[#0e0918]" />
 
-/* ---------- Como Funciona (5 passos) ---------- */
-
-const STEPS = [
-  {
-    n: '01',
-    t: 'Análise Estratégica',
-    d: 'Estudamos sua presença digital, reputação, posicionamento e diferenciais.',
-  },
-  {
-    n: '02',
-    t: 'Identificação de Oportunidades',
-    d: 'Encontramos pontos que podem aumentar confiança, autoridade e conversão.',
-  },
-  {
-    n: '03',
-    t: 'Preview Estratégico',
-    d: 'Criamos uma prévia personalizada mostrando como sua empresa pode apresentar melhor seus diferenciais.',
-  },
-  {
-    n: '04',
-    t: 'Reunião de Alinhamento',
-    d: 'Apresentamos a estratégia, validamos o posicionamento e ajustamos os detalhes finais.',
-  },
-  {
-    n: '05',
-    t: 'Entrega Rápida',
-    d: 'Após o alinhamento, sua Landing Page é entregue pronta em até 24 horas.',
-  },
-]
-
-function Process() {
-  return (
-    <section id="processo" className="relative bg-[#0e0918] pt-4 pb-28 lg:pb-40">
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
-          <div>
-            <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">04 — Como Funciona</div>
-            <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.02em] uppercase leading-[0.95]">
-              Cinco passos. <br />
-              <span className="text-rosso">Zero improviso.</span>
+      <div className="relative mx-auto max-w-[1440px] px-6 lg:px-10">
+        {/* Cabeçalho + Método (analisamos) */}
+        <div className="grid lg:grid-cols-12 gap-12 mb-24">
+          <div className="lg:col-span-5">
+            <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">02 — Método & Processo</div>
+            <h2 className="font-display text-white text-5xl lg:text-7xl leading-[0.95] tracking-[-0.02em] uppercase">
+              Não <span className="text-rosso">começamos</span> criando páginas.
             </h2>
+            <p className="mt-8 text-white/70 text-lg leading-relaxed">
+              Começamos entendendo o que torna sua empresa diferente. A partir disso, construímos
+              uma estratégia clara para destacar aquilo que realmente faz sentido para o seu
+              negócio.
+            </p>
           </div>
-          <p className="text-white/60 text-sm tracking-[0.18em] uppercase max-w-xs">
-            Da primeira análise até a publicação em até 24h após o alinhamento.
-          </p>
+          <div className="lg:col-span-6 lg:col-start-7">
+            <div className="text-[11px] tracking-[0.3em] uppercase text-white/40 mb-6">Analisamos</div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/10 border border-white/10">
+              {METHOD_ITEMS.map((it, i) => (
+                <div key={it} className="bg-[#0e0918] p-8 lg:p-10 group hover:bg-white/[0.03] transition-colors">
+                  <div className="font-display text-rosso text-xs tracking-[0.3em] mb-6">0{i + 1}</div>
+                  <p className="text-white text-lg lg:text-xl font-display leading-[1.2] tracking-[-0.01em]">{it}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="relative">
-          <div className="absolute left-[27px] sm:left-[35px] top-4 bottom-4 w-px bg-white/10 lg:hidden" />
+        {/* Divisor + Processo (5 passos) */}
+        <div id="processo" className="border-t border-white/10 pt-20">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-12">
+            <div>
+              <div className="text-[10px] tracking-[0.35em] uppercase text-rosso/80 mb-4">Cinco passos · Zero improviso</div>
+              <h3 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.02em] uppercase leading-[0.95]">
+                Como <span className="text-rosso">funciona</span>.
+              </h3>
+            </div>
+            <p className="text-white/60 text-sm tracking-[0.18em] uppercase max-w-xs">
+              Da primeira análise até a publicação em até 24h após o alinhamento.
+            </p>
+          </div>
+
           <ol className="space-y-px bg-white/10 border border-white/10">
             {STEPS.map((s, i) => (
               <motion.li
@@ -642,15 +600,9 @@ function Process() {
                 transition={{ duration: 0.7, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
                 className="group grid grid-cols-[80px_1fr] lg:grid-cols-[120px_1fr_1.5fr] gap-6 lg:gap-12 bg-[#0e0918] p-6 lg:p-10 hover:bg-white/[0.03] transition-colors items-center"
               >
-                <div className="font-display text-rosso text-3xl lg:text-5xl tracking-[-0.02em]">
-                  {s.n}
-                </div>
-                <h3 className="font-display text-white text-xl lg:text-3xl tracking-[-0.01em] uppercase leading-tight">
-                  {s.t}
-                </h3>
-                <p className="col-span-2 lg:col-span-1 text-white/65 text-base lg:text-lg leading-relaxed">
-                  {s.d}
-                </p>
+                <div className="font-display text-rosso text-3xl lg:text-5xl tracking-[-0.02em]">{s.n}</div>
+                <h4 className="font-display text-white text-xl lg:text-3xl tracking-[-0.01em] uppercase leading-tight">{s.t}</h4>
+                <p className="col-span-2 lg:col-span-1 text-white/65 text-base lg:text-lg leading-relaxed">{s.d}</p>
               </motion.li>
             ))}
           </ol>
@@ -660,48 +612,10 @@ function Process() {
   )
 }
 
-/* ---------- Diferencial ---------- */
-
-function Difference() {
-  return (
-    <section className="relative bg-[#0e0918] py-28 lg:py-44 border-t border-white/5 overflow-hidden">
-      <img
-        src={conceptGrowth}
-        alt=""
-        aria-hidden
-        loading="lazy"
-        className="pointer-events-none select-none absolute inset-0 w-full h-full object-cover opacity-[0.12]"
-      />
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0e0918] via-[#0e0918]/80 to-[#0e0918]/60" />
-      <div
-        aria-hidden
-        className="absolute -right-40 top-0 w-[600px] h-[600px] rounded-full bg-rosso/10 blur-[180px]"
-      />
-      <div className="relative mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-8">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">05 — Diferencial</div>
-          <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.025em] uppercase leading-[0.92]">
-            A maioria vende páginas. <br />
-            <span className="text-rosso">Nós vendemos crescimento.</span>
-          </h2>
-          <div className="mt-10 space-y-6 text-white/75 text-lg leading-relaxed max-w-2xl">
-            <p>
-              Uma página bonita não resolve o problema. O que gera resultado é{' '}
-              <span className="text-white">transmitir o valor</span> da sua empresa de forma clara
-              para quem ainda não conhece você.
-            </p>
-            <p className="text-white/55">
-              Ajudamos empresas a transformar reputação em oportunidades reais — começando pela
-              estratégia, não pelo design.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ---------- O que sua LP faz ---------- */
+/* =========================================================
+   BLOCO C — Diferencial · Resultados · Para Quem · FAQ
+   (ex-seções 5 + 6 + 7 + 11)
+   ========================================================= */
 
 const LP_BENEFITS = [
   'Apresentar seus diferenciais com clareza',
@@ -711,48 +625,6 @@ const LP_BENEFITS = [
   'Direcionar mais visitantes para orçamento',
   'Transformar confiança em oportunidades reais',
 ]
-
-function Benefits() {
-  return (
-    <section className="relative bg-[#0e0918] pt-4 pb-28 lg:pb-40">
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
-        <div className="grid lg:grid-cols-12 gap-10 mb-16">
-          <div className="lg:col-span-5">
-            <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">06 — Resultados</div>
-            <h2 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.02em] uppercase leading-[0.95]">
-              O que sua Landing Page pode fazer por <span className="text-rosso">você</span>.
-            </h2>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-white/10">
-          {LP_BENEFITS.map((b, i) => (
-            <motion.div
-              key={b}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: (i % 3) * 0.08 }}
-              className="group relative p-8 lg:p-10 border-b border-white/10 md:border-r last:md:border-r-0 lg:[&:nth-child(3n)]:border-r-0 hover:bg-white/[0.02] transition-colors"
-            >
-              <div className="flex items-baseline justify-between mb-8">
-                <span className="font-display text-white/30 text-xs tracking-[0.3em]">
-                  0{i + 1}
-                </span>
-                <span className="w-8 h-px bg-rosso group-hover:w-16 transition-all duration-500" />
-              </div>
-              <p className="font-display text-white text-xl lg:text-2xl leading-[1.2] tracking-[-0.01em]">
-                {b}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ---------- Quem se beneficia ---------- */
 
 const AUDIENCE = [
   'Clínicas',
@@ -764,423 +636,164 @@ const AUDIENCE = [
   'Pequenas e médias empresas',
 ]
 
-function Audience() {
-  return (
-    <section className="relative bg-[#0e0918] pt-4 pb-28 lg:pb-36 overflow-hidden">
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-10 mb-14">
-        <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">07 — Para Quem</div>
-        <h2 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.02em] uppercase leading-[0.95] max-w-3xl">
-          Para negócios que já têm reputação e querem{' '}
-          <span className="text-rosso">mais oportunidades</span>.
-        </h2>
-      </div>
-
-      <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#0e0918] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#0e0918] to-transparent z-10 pointer-events-none" />
-        <div className="flex overflow-hidden">
-          <motion.div
-            animate={{ x: ['0%', '-50%'] }}
-            transition={{ duration: 35, ease: 'linear', repeat: Infinity }}
-            className="flex shrink-0 gap-16 pr-16"
-          >
-            {[...AUDIENCE, ...AUDIENCE].map((c, i) => (
-              <span
-                key={i}
-                className="font-display text-3xl lg:text-5xl text-white/30 hover:text-white tracking-[-0.01em] uppercase whitespace-nowrap transition-colors"
-              >
-                {c}
-              </span>
-            ))}
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ---------- O que está incluso ---------- */
-
-const INCLUDED = [
-  'Diagnóstico estratégico inicial',
-  'Análise de posicionamento',
-  'Identificação de oportunidades',
-  'Copywriting estratégico',
-  'Design profissional responsivo',
-  'Integração com WhatsApp',
-  'Formulário de contato',
-  'Estrutura de conversão',
-  'Publicação da página',
-  'Ajustes finais após alinhamento',
-]
-
-function Included() {
-  return (
-    <section id="incluso" className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
-        <div className="lg:col-span-5">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">08 — Incluso</div>
-          <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.02em] uppercase leading-[0.95]">
-            Tudo o que <span className="text-rosso">está</span> incluso.
-          </h2>
-          <p className="mt-8 text-white/65 text-lg leading-relaxed">
-            Um pacote completo, da estratégia à publicação. Sem surpresas, sem cobrança extra de
-            etapas essenciais.
-          </p>
-        </div>
-        <div className="lg:col-span-7">
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8">
-            {INCLUDED.map((it, i) => (
-              <motion.li
-                key={it}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.04 }}
-                className="flex items-start gap-4 py-5 border-b border-white/10 text-white/85"
-              >
-                <span className="font-display text-rosso text-xs tracking-[0.25em] pt-1.5 shrink-0">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <span className="text-base lg:text-lg">{it}</span>
-              </motion.li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ---------- Depoimentos WhatsApp ---------- */
-
-const TESTIMONIALS: Array<{
-  name: string
-  initials: string
-  time: string
-  badge: string
-  messages: Array<{ from: 'them' | 'me'; text: string; time: string }>
-}> = [
-  {
-    name: 'Dr. Rafael Monteiro',
-    initials: 'RM',
-    time: 'hoje',
-    badge: 'Rapidez',
-    messages: [
-      { from: 'them', text: 'Pessoal, vocês entregaram em menos de 24h. Surreal.', time: '14:02' },
-      { from: 'me', text: 'Acordo é acordo 🔥', time: '14:03' },
-      { from: 'them', text: 'Já recebi 3 contatos hoje pela página. Obrigado!', time: '14:05' },
-    ],
-  },
-  {
-    name: 'Camila — Clínica Vértice',
-    initials: 'CV',
-    time: 'ontem',
-    badge: 'Qualidade',
-    messages: [
-      { from: 'them', text: 'Ficou exatamente do jeito que eu imaginava 🤍', time: '09:41' },
-      { from: 'them', text: 'O nível de acabamento é absurdo.', time: '09:41' },
-    ],
-  },
-  {
-    name: 'Lucas Andrade',
-    initials: 'LA',
-    time: 'seg',
-    badge: 'Profissionalismo',
-    messages: [
-      { from: 'them', text: 'Reunião super objetiva, sem enrolação.', time: '18:20' },
-      { from: 'them', text: 'Esse é o padrão que eu queria pra minha marca.', time: '18:22' },
-    ],
-  },
-  {
-    name: 'Mariana — Studio Norte',
-    initials: 'MS',
-    time: 'qua',
-    badge: 'Estratégia',
-    messages: [
-      { from: 'them', text: 'A análise de concorrência abriu meus olhos.', time: '11:08' },
-      { from: 'them', text: 'Vocês mostraram coisas que eu não tinha visto em anos.', time: '11:09' },
-    ],
-  },
-  {
-    name: 'Eng. Bruno Tavares',
-    initials: 'BT',
-    time: 'sex',
-    badge: 'Resultado',
-    messages: [
-      { from: 'them', text: 'Triplicou meus orçamentos no primeiro mês.', time: '20:15' },
-      { from: 'me', text: 'Esse é o objetivo 🚀', time: '20:16' },
-      { from: 'them', text: 'Bora pra próxima fase!', time: '20:17' },
-    ],
-  },
-]
-
-/* Real WhatsApp dark-mode doodle wallpaper (subtle, tiled SVG) */
-const WA_BG =
-  "url(\"data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.035' stroke-width='1.2'%3E%3Cpath d='M20 40c8-10 18-10 26 0s18 10 26 0 18-10 26 0'/%3E%3Ccircle cx='160' cy='60' r='10'/%3E%3Cpath d='M40 130l10-10 10 10 10-10 10 10'/%3E%3Cpath d='M150 150c6-8 14-8 20 0s14 8 20 0'/%3E%3Cpath d='M70 190h30M85 175v30'/%3E%3Cpath d='M180 100l-6 6 6 6 6-6z'/%3E%3C/g%3E%3C/svg%3E\")"
-
-/* Bubble tail SVGs — incoming (left) and outgoing (right) */
-const TailIn = () => (
-  <svg
-    viewBox="0 0 8 13"
-    className="absolute -left-[7px] top-0 w-2 h-[13px] text-[#202c33]"
-    aria-hidden
-  >
-    <path fill="currentColor" d="M8 0L0 0c2 4 5 7 8 8V0z" />
-  </svg>
-)
-const TailOut = () => (
-  <svg
-    viewBox="0 0 8 13"
-    className="absolute -right-[7px] top-0 w-2 h-[13px] text-[#005c4b]"
-    aria-hidden
-  >
-    <path fill="currentColor" d="M0 0l8 0c-2 4-5 7-8 8V0z" />
-  </svg>
-)
-const DoubleCheck = () => (
-  <svg viewBox="0 0 16 11" className="w-[15px] h-[11px] inline-block ml-1 -mb-[1px]" aria-hidden>
-    <path
-      fill="#53bdeb"
-      d="M11.071.653a.457.457 0 0 0-.304-.158.475.475 0 0 0-.422.169L4.629 8.038 2.225 5.61a.46.46 0 0 0-.65 0L.114 7.073a.464.464 0 0 0 0 .654l3.747 3.78a.46.46 0 0 0 .65 0l.011-.011.797-.802 7.376-7.448a.467.467 0 0 0 .015-.642L11.071.653zM15.448.495a.458.458 0 0 0-.303-.158.475.475 0 0 0-.422.169L9.006 7.88l-.81-.815a.46.46 0 0 0-.65 0L7.087 8.527a.464.464 0 0 0 0 .654l2.13 2.149a.46.46 0 0 0 .65 0l.012-.012.797-.803 7.376-7.448a.467.467 0 0 0 .015-.642L15.448.495z"
-    />
-  </svg>
-)
-
-function WhatsCard({ t }: { t: (typeof TESTIMONIALS)[number] }) {
-  return (
-    <div className="shrink-0 w-[320px] sm:w-[360px] bg-[#0b141a] rounded-[10px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] ring-1 ring-black/40">
-      {/* Header */}
-      <div className="flex items-center gap-3 px-3 py-2.5 bg-[#202c33]">
-        <svg className="w-5 h-5 text-white/70 shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden>
-          <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-        <div className="w-9 h-9 rounded-full bg-[#6b7c85] flex items-center justify-center text-white text-[12px] font-semibold shrink-0">
-          {t.initials}
-        </div>
-        <div className="flex-1 min-w-0">
-          <div className="text-white text-[14px] font-medium truncate leading-tight">{t.name}</div>
-          <div className="text-white/55 text-[11px] leading-tight mt-0.5">online</div>
-        </div>
-        <div className="flex items-center gap-4 text-white/70 shrink-0">
-          <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-            <path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z" />
-          </svg>
-          <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
-          </svg>
-          <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-            <circle cx="12" cy="5" r="1.6" />
-            <circle cx="12" cy="12" r="1.6" />
-            <circle cx="12" cy="19" r="1.6" />
-          </svg>
-        </div>
-      </div>
-
-      {/* Chat area */}
-      <div
-        className="px-3 py-3 space-y-1.5 min-h-[210px] bg-[#0b141a]"
-        style={{ backgroundImage: WA_BG, backgroundSize: '220px 220px' }}
-      >
-        {t.messages.map((m, i) => {
-          const isMe = m.from === 'me'
-          return (
-            <div key={i} className={`flex ${isMe ? 'justify-end' : 'justify-start'}`}>
-              <div
-                className={`relative max-w-[78%] px-2 pt-1.5 pb-1 text-[13.5px] leading-[18px] shadow-[0_1px_0.5px_rgba(0,0,0,0.13)] ${
-                  isMe
-                    ? 'bg-[#005c4b] text-white rounded-[7.5px] rounded-tr-none'
-                    : 'bg-[#202c33] text-[#e9edef] rounded-[7.5px] rounded-tl-none'
-                }`}
-              >
-                {isMe ? <TailOut /> : <TailIn />}
-                <div className="pr-[58px] whitespace-pre-wrap break-words">{m.text}</div>
-                <div className="absolute right-1.5 bottom-0.5 flex items-center gap-0.5 text-[10.5px] text-white/55">
-                  <span>{m.time}</span>
-                  {isMe && <DoubleCheck />}
-                </div>
-              </div>
-            </div>
-          )
-        })}
-      </div>
-
-      {/* Input bar (cosmetic) */}
-      <div className="flex items-center gap-2 px-2 py-2 bg-[#0b141a]">
-        <div className="flex-1 flex items-center gap-2 bg-[#2a3942] rounded-full px-3 py-2 text-[12px] text-white/40">
-          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-            <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-3.5 7a1.5 1.5 0 1 1-1.5 1.5A1.5 1.5 0 0 1 8.5 9zm7 0a1.5 1.5 0 1 1-1.5 1.5A1.5 1.5 0 0 1 15.5 9zM12 17.5a5.5 5.5 0 0 1-4.9-3h9.8a5.5 5.5 0 0 1-4.9 3z" />
-          </svg>
-          <span className="truncate">Mensagem</span>
-        </div>
-        <div className="w-9 h-9 rounded-full bg-[#00a884] flex items-center justify-center text-white" aria-hidden>
-          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11z" />
-          </svg>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function Testimonials() {
-  return (
-    <section id="depoimentos" className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5 overflow-hidden">
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-10 mb-14">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-          <div>
-            <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">09 — Depoimentos</div>
-            <h2 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.02em] uppercase leading-[0.95] max-w-2xl">
-              O que nossos clientes <span className="text-rosso">costumam dizer</span>.
-            </h2>
-          </div>
-          <p className="text-white/50 text-xs tracking-[0.22em] uppercase max-w-xs">
-            Conversas reais — rapidez, qualidade, estratégia e resultado.
-          </p>
-        </div>
-      </div>
-
-      <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0e0918] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0e0918] to-transparent z-10 pointer-events-none" />
-        <div className="flex overflow-hidden py-4">
-          <motion.div
-            animate={{ x: ['0%', '-50%'] }}
-            transition={{ duration: 50, ease: 'linear', repeat: Infinity }}
-            className="flex shrink-0 gap-6 pr-6"
-          >
-            {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
-              <WhatsCard key={i} t={t} />
-            ))}
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ---------- Reunião de Alinhamento ---------- */
-
-const MEETING_ITEMS = [
-  'Oportunidades encontradas',
-  'Diferenciais identificados',
-  'Posicionamento recomendado',
-  'Estrutura proposta para a página',
-  'Estratégia aplicada ao seu negócio',
-]
-
-function Meeting() {
-  return (
-    <section className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
-        <div className="lg:col-span-5">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">10 — Reunião</div>
-          <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.02em] uppercase leading-[0.95]">
-            O que acontece na <span className="text-rosso">Reunião</span> de Alinhamento?
-          </h2>
-          <div className="mt-10 flex gap-3">
-            <span className="text-[11px] tracking-[0.3em] uppercase text-white border border-white/15 px-4 py-2">
-              Sem pressão
-            </span>
-            <span className="text-[11px] tracking-[0.3em] uppercase text-white border border-rosso text-rosso px-4 py-2">
-              Sem compromisso
-            </span>
-          </div>
-        </div>
-        <div className="lg:col-span-6 lg:col-start-7">
-          <p className="text-white/70 text-lg mb-8 leading-relaxed">Durante a reunião nós mostramos:</p>
-          <ul className="space-y-px bg-white/10 border border-white/10">
-            {MEETING_ITEMS.map((it, i) => (
-              <li
-                key={it}
-                className="bg-[#0e0918] p-6 lg:p-7 flex items-center gap-6 hover:bg-white/[0.03] transition-colors"
-              >
-                <span className="font-display text-rosso text-2xl tracking-[-0.01em]">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <span className="text-white text-lg lg:text-xl">{it}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-8 text-white/55 text-base leading-relaxed">
-            Ao final, você decide se deseja seguir para a implementação.
-          </p>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ---------- FAQ ---------- */
-
 const FAQS = [
-  {
-    q: 'Vocês começam criando a página?',
-    a: 'Não. Primeiro entendemos o que torna sua empresa diferente. Depois transformamos isso em uma estratégia clara.',
-  },
-  {
-    q: 'Preciso ter todo o material pronto?',
-    a: 'Não. Nossa equipe ajuda na construção da comunicação e estrutura da página.',
-  },
-  {
-    q: 'Quanto tempo leva?',
-    a: 'Após a reunião de alinhamento e aprovação da estratégia, a página é entregue em até 24 horas.',
-  },
-  {
-    q: 'Isso funciona para qualquer segmento?',
-    a: 'Sim. A metodologia foi criada para negócios que dependem de confiança, autoridade e diferenciação para conquistar clientes.',
-  },
+  { q: 'Vocês atendem empresas iniciantes?', a: 'Nossa metodologia é direcionada a negócios já estabelecidos, com reputação no mercado e clientela ativa.' },
+  { q: 'Preciso ter todo o material pronto?', a: 'Não. Nossa equipe ajuda na construção da comunicação e estrutura da página.' },
+  { q: 'Quanto tempo leva?', a: 'Após a reunião de alinhamento e aprovação da estratégia, a página é entregue em até 24 horas.' },
+  { q: 'Isso funciona para qualquer segmento?', a: 'Sim. A metodologia foi criada para negócios que dependem de confiança, autoridade e diferenciação para conquistar clientes.' },
 ]
 
-function FAQ() {
+function DiferencialResultados() {
   const [open, setOpen] = useState<number | null>(0)
   return (
-    <section id="faq" className="relative bg-[#0e0918] pt-4 pb-28 lg:pb-40">
-      <div className="mx-auto max-w-[1100px] px-6 lg:px-10">
-        <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">11 — FAQ</div>
-        <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.02em] uppercase leading-[0.95] mb-16">
-          Perguntas <span className="text-rosso">Frequentes</span>.
-        </h2>
+    <section id="faq" className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5 overflow-hidden">
+      <img
+        src={conceptGrowth}
+        alt=""
+        aria-hidden
+        loading="lazy"
+        className="pointer-events-none select-none absolute inset-0 w-full h-full object-cover opacity-[0.07]"
+      />
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#0e0918] via-[#0e0918]/85 to-[#0e0918]" />
+      <div aria-hidden className="absolute -right-40 top-0 w-[600px] h-[600px] rounded-full bg-rosso/10 blur-[180px]" />
 
-        <div className="border-t border-white/10">
-          {FAQS.map((f, i) => {
-            const isOpen = open === i
-            return (
-              <div key={f.q} className="border-b border-white/10">
-                <button
-                  type="button"
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  className="w-full flex items-center justify-between gap-6 py-7 text-left group"
-                >
-                  <span className="font-display text-white text-xl lg:text-3xl tracking-[-0.01em] leading-tight group-hover:text-rosso transition-colors">
-                    {f.q}
-                  </span>
+      <div className="relative mx-auto max-w-[1440px] px-6 lg:px-10">
+        {/* Header geral */}
+        <div className="mb-20">
+          <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">03 — Diferencial, Resultados & FAQ</div>
+        </div>
+
+        {/* Sub-bloco: Diferencial */}
+        <div className="grid lg:grid-cols-12 gap-12 items-center mb-24">
+          <div className="lg:col-span-8">
+            <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.025em] uppercase leading-[0.92]">
+              A maioria vende páginas. <br />
+              <span className="text-rosso">Nós vendemos crescimento.</span>
+            </h2>
+            <div className="mt-10 space-y-6 text-white/75 text-lg leading-relaxed max-w-2xl">
+              <p>
+                Uma página bonita não resolve o problema. O que gera resultado é{' '}
+                <span className="text-white">transmitir o valor</span> da sua empresa de forma clara
+                para quem ainda não conhece você.
+              </p>
+              <p className="text-white/55">
+                Ajudamos empresas a transformar reputação em oportunidades reais — começando pela
+                estratégia, não pelo design.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Sub-bloco: Resultados (LP_BENEFITS) */}
+        <div className="border-t border-white/10 pt-16 mb-24">
+          <div className="grid lg:grid-cols-12 gap-10 mb-12">
+            <div className="lg:col-span-7">
+              <div className="text-[10px] tracking-[0.35em] uppercase text-rosso/80 mb-4">Resultados</div>
+              <h3 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.02em] uppercase leading-[0.95]">
+                O que sua Landing Page pode fazer por <span className="text-rosso">você</span>.
+              </h3>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-white/10">
+            {LP_BENEFITS.map((b, i) => (
+              <motion.div
+                key={b}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: (i % 3) * 0.08 }}
+                className="group relative p-8 lg:p-10 border-b border-white/10 md:border-r last:md:border-r-0 lg:[&:nth-child(3n)]:border-r-0 hover:bg-white/[0.02] transition-colors"
+              >
+                <div className="flex items-baseline justify-between mb-8">
+                  <span className="font-display text-white/30 text-xs tracking-[0.3em]">0{i + 1}</span>
+                  <span className="w-8 h-px bg-rosso group-hover:w-16 transition-all duration-500" />
+                </div>
+                <p className="font-display text-white text-xl lg:text-2xl leading-[1.2] tracking-[-0.01em]">{b}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Sub-bloco: Para Quem (marquee) */}
+        <div className="border-t border-white/10 pt-16 mb-24">
+          <div className="mb-12">
+            <div className="text-[10px] tracking-[0.35em] uppercase text-rosso/80 mb-4">Para Quem</div>
+            <h3 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.02em] uppercase leading-[0.95] max-w-3xl">
+              Negócios com reputação que querem{' '}
+              <span className="text-rosso">mais oportunidades</span>.
+            </h3>
+          </div>
+
+          <div className="relative -mx-6 lg:-mx-10">
+            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#0e0918] to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#0e0918] to-transparent z-10 pointer-events-none" />
+            <div className="flex overflow-hidden">
+              <motion.div
+                animate={{ x: ['0%', '-50%'] }}
+                transition={{ duration: 35, ease: 'linear', repeat: Infinity }}
+                className="flex shrink-0 gap-16 pr-16"
+              >
+                {[...AUDIENCE, ...AUDIENCE].map((c, i) => (
                   <span
-                    className={`shrink-0 w-10 h-10 border border-white/20 group-hover:border-rosso flex items-center justify-center text-white text-xl transition-all duration-500 ${
-                      isOpen ? 'rotate-45 bg-rosso border-rosso' : ''
-                    }`}
+                    key={i}
+                    className="font-display text-3xl lg:text-5xl text-white/30 hover:text-white tracking-[-0.01em] uppercase whitespace-nowrap transition-colors"
                   >
-                    +
+                    {c}
                   </span>
-                </button>
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                      className="overflow-hidden"
+                ))}
+              </motion.div>
+            </div>
+          </div>
+        </div>
+
+        {/* Sub-bloco: FAQ */}
+        <div className="border-t border-white/10 pt-16">
+          <div className="mb-12 max-w-[1100px]">
+            <div className="text-[10px] tracking-[0.35em] uppercase text-rosso/80 mb-4">FAQ</div>
+            <h3 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.02em] uppercase leading-[0.95]">
+              Perguntas <span className="text-rosso">Frequentes</span>.
+            </h3>
+          </div>
+
+          <div className="max-w-[1100px] border-t border-white/10">
+            {FAQS.map((f, i) => {
+              const isOpen = open === i
+              return (
+                <div key={f.q} className="border-b border-white/10">
+                  <button
+                    type="button"
+                    onClick={() => setOpen(isOpen ? null : i)}
+                    className="w-full flex items-center justify-between gap-6 py-7 text-left group"
+                  >
+                    <span className="font-display text-white text-xl lg:text-3xl tracking-[-0.01em] leading-tight group-hover:text-rosso transition-colors">
+                      {f.q}
+                    </span>
+                    <span
+                      className={`shrink-0 w-10 h-10 border border-white/20 group-hover:border-rosso flex items-center justify-center text-white text-xl transition-all duration-500 ${
+                        isOpen ? 'rotate-45 bg-rosso border-rosso' : ''
+                      }`}
                     >
-                      <p className="pb-8 pr-16 text-white/70 text-base lg:text-lg leading-relaxed">
-                        {f.a}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            )
-          })}
+                      +
+                    </span>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <p className="pb-8 pr-16 text-white/70 text-base lg:text-lg leading-relaxed">{f.a}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>
