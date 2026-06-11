@@ -161,7 +161,7 @@ export function ExpressHero() {
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
             Sua reputação já existe. Agora precisa do{' '}
-            <span className="text-orange-400">posicionamento certo.</span>
+            <span className="text-[#c8102e]">posicionamento certo.</span>
           </h1>
           <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
             Você viu a prévia. Agora vamos validar o direcionamento e colocar a estratégia no ar.
