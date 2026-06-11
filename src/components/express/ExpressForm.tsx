@@ -1,10 +1,17 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { CalendarCheck, Loader2 } from 'lucide-react'
+import { CalendarCheck, Loader2, Clock, MessageCircle, ShieldCheck, Rocket } from 'lucide-react'
 import { toast } from '@/hooks/use-toast'
 import { trackPixelEvent } from '@/utils/meta-pixel'
 
 const FORMSPREE_ID = 'xnjgrwqz'
+
+const contactInfo = [
+  { icon: Clock, label: 'Resposta', value: 'Em até 1 hora útil' },
+  { icon: CalendarCheck, label: 'Reunião', value: '25 min, online' },
+  { icon: Rocket, label: 'Entrega', value: 'Página no ar em 24h' },
+  { icon: ShieldCheck, label: 'Compromisso', value: 'Zero pressão comercial' },
+]
 
 export function ExpressForm() {
   const [formData, setFormData] = useState({
