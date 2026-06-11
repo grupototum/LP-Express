@@ -173,7 +173,7 @@ export function TotumHero() {
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
             Você já investe em marketing. Então por que seu negócio{' '}
-            <span className="text-orange-400">ainda não cresce como deveria?</span>
+            <span className="text-[#c8102e]">ainda não cresce como deveria?</span>
           </h1>
           <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
             Se o seu marketing já gera demanda, mas não entrega previsibilidade, o problema dificilmente é esforço. É estrutura.

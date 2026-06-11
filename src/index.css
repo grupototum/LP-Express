@@ -20,9 +20,9 @@
   --cool-graphite: #191422;
 
   /* Brand — n8n Fire Orange */
-  --brand-red: #ee4f27;          /* primary brand (legacy alias name kept) */
+  --brand-red: #c8102e;          /* primary brand (legacy alias name kept) */
   --brand-red-bright: #fd8925;   /* gradient start */
-  --brand-red-vibrant: #ff0c00;  /* gradient end / hover */
+  --brand-red-vibrant: #a00d24;  /* gradient end / hover */
   --brand-red-light: #ff9b26;    /* warm amber accent */
 
   /* Secondary / Tertiary */
