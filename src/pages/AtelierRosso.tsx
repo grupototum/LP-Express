@@ -270,6 +270,23 @@ function Method() {
             Começamos entendendo o que torna sua empresa diferente. A partir disso, construímos uma
             estratégia clara para destacar aquilo que realmente faz sentido para o seu negócio.
           </p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="relative mt-12 aspect-[4/3] overflow-hidden rounded-sm border border-white/10 hidden lg:block"
+          >
+            <img
+              src={conceptMethod}
+              alt="Método e planejamento estratégico"
+              loading="lazy"
+              width={1024}
+              height={768}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0e0918]/80 via-transparent to-transparent" />
+          </motion.div>
         </div>
         <div className="lg:col-span-6 lg:col-start-7">
           <div className="text-[11px] tracking-[0.3em] uppercase text-white/40 mb-6">Analisamos</div>
