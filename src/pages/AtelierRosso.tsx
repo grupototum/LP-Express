@@ -1,6 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import heroImg from '@/assets/atelier-hero.jpg'
+import totumLogo from '@/assets/totum-logo.png'
+import conceptReputation from '@/assets/concept-reputation.jpg'
+import conceptClarity from '@/assets/concept-clarity.jpg'
+import conceptGrowth from '@/assets/concept-growth.jpg'
+import conceptMethod from '@/assets/concept-method.jpg'
 
 /* ============================================================
    Atelier Rosso — Estratégia · Posicionamento · Landing Pages
@@ -30,10 +35,21 @@ function Nav() {
       }`}
     >
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 group">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#ee4f27] shadow-[0_0_18px_#ee4f27]" />
-          <span className="font-display text-[15px] tracking-[0.22em] uppercase text-white">
-            Atelier <span className="text-[#ee4f27]">Rosso</span>
+        <a href="#top" className="flex items-center gap-3 group">
+          <img
+            src={totumLogo}
+            alt="Totum"
+            width={28}
+            height={28}
+            className="h-7 w-auto object-contain"
+          />
+          <span className="hidden sm:flex flex-col leading-none">
+            <span className="font-display text-[14px] tracking-[0.22em] uppercase text-white">
+              Atelier <span className="text-[#ee4f27]">Rosso</span>
+            </span>
+            <span className="mt-1 text-[9px] tracking-[0.32em] uppercase text-white/40">
+              by Totum
+            </span>
           </span>
         </a>
         <nav className="hidden md:flex items-center gap-8 text-[12px] tracking-[0.2em] uppercase text-white/70">
