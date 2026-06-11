@@ -79,12 +79,16 @@ function Hero() {
   return (
     <section ref={ref} id="top" className="relative h-[100svh] min-h-[680px] overflow-hidden bg-[#0e0918]">
       <motion.div style={{ y }} className="absolute inset-0">
-        <img
-          src={heroImg}
-          alt="Atelier Rosso — estratégia e posicionamento"
+        <video
+          src="/videos/hero-rocket.mp4"
+          poster={heroImg}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden
           className="absolute inset-0 w-full h-full object-cover"
-          width={1920}
-          height={1080}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0e0918] via-[#0e0918]/60 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0e0918] via-transparent to-[#0e0918]/40" />
