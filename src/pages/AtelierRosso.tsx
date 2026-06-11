@@ -107,7 +107,7 @@ function Hero() {
           </p>
           <a
             href="#agendar"
-            className="group inline-flex items-center gap-3 text-[12px] tracking-[0.28em] uppercase text-white bg-[#ee4f27] hover:bg-[#ff0c00] px-6 py-4 transition-colors w-fit shadow-[0_0_40px_rgba(238,79,39,0.35)]"
+            className="group inline-flex items-center gap-3 text-[14px] tracking-[0.05em] text-white bg-[#ee4f27] hover:bg-[#ff0c00] rounded-full px-6 py-3 transition-all duration-300 w-fit hover:shadow-[0_7px_80px_-12px_#ee4f27]"
           >
             Agendar Reunião
             <span className="inline-block group-hover:translate-x-1 transition-transform">→</span>
@@ -806,7 +806,7 @@ function FinalCTA() {
             href="https://wa.me/5500000000000?text=Quero%20agendar%20uma%20Reuni%C3%A3o%20de%20Alinhamento%20Estrat%C3%A9gico"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-4 bg-[#ee4f27] hover:bg-[#ff0c00] text-white text-[13px] lg:text-sm tracking-[0.3em] uppercase px-10 lg:px-14 py-5 lg:py-6 transition-colors shadow-[0_0_60px_rgba(238,79,39,0.4)]"
+            className="group inline-flex items-center gap-4 bg-[#ee4f27] hover:bg-[#ff0c00] text-white text-[15px] lg:text-base tracking-[0.05em] rounded-full px-10 lg:px-14 py-4 lg:py-5 transition-all duration-300 hover:shadow-[0_7px_80px_-12px_#ee4f27]"
           >
             Agendar Reunião de Alinhamento
             <span className="inline-block group-hover:translate-x-1 transition-transform text-lg">
