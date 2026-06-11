@@ -103,58 +103,75 @@ function Portfolio() {
   }
 
   return (
-    <section id="portfolio" className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
-        <div className="grid lg:grid-cols-12 gap-10 mb-14">
-          <div className="lg:col-span-7">
-            <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">Portfólio</div>
-            <h2 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.02em] uppercase leading-[0.95]">
+    <section id="portfolio" className="relative bg-[#0e0918] py-32 lg:py-48 border-t border-white/5">
+      <div className="mx-auto max-w-[1200px] px-6 lg:px-12">
+        {/* Cabeçalho — respiro generoso, hierarquia tipográfica clara */}
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 mb-20 lg:mb-24 items-end">
+          <div className="lg:col-span-8">
+            <div className="flex items-center gap-4 mb-8">
+              <span className="block w-12 h-px bg-[#ee4f27]" />
+              <span className="text-[10px] tracking-[0.4em] uppercase text-[#ee4f27] font-medium">Portfólio Selecionado</span>
+            </div>
+            <h2 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.025em] uppercase leading-[0.95]">
               Páginas que <span className="text-[#ee4f27]">vendem</span>.
             </h2>
-            <p className="mt-6 text-white/60 text-lg max-w-xl">
-              Clique em qualquer projeto para ampliar, navegar entre eles e usar a lupa para ver os detalhes.
+          </div>
+          <div className="lg:col-span-4">
+            <p className="text-white/55 text-base leading-[1.7] font-light">
+              Projetos reais entregues a clientes que escolheram a Totum para escalar sua presença digital com o mesmo padrão que mantêm fora dela.
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
+        {/* Grid 8pt — gap-8 / gap-12, proporção 4:5 mantida para consistência */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {PORTFOLIO_ITEMS.map((item, i) => (
             <motion.button
               key={item.title}
               type="button"
               onClick={() => setOpen(i)}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.6, delay: (i % 2) * 0.08 }}
-              className="group relative overflow-hidden rounded-2xl bg-[#1b1728] text-left border border-white/5 hover:border-[#ee4f27]/40 transition-colors"
+              transition={{ duration: 0.7, delay: (i % 2) * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              className="group relative overflow-hidden rounded-[20px] bg-[#15101f] text-left border border-white/[0.06] hover:border-[#ee4f27]/40 transition-all duration-500 hover:shadow-[0_30px_80px_-20px_rgba(238,79,39,0.25)]"
             >
-              <div className="relative aspect-[4/5] overflow-hidden">
+              {/* Imagem — proporção mais cinematográfica */}
+              <div className="relative aspect-[4/5] overflow-hidden bg-[#0e0918]">
                 <img
                   src={item.src}
-                  alt={item.title}
+                  alt={`Projeto ${item.title} — ${item.tag}`}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-[8000ms] ease-linear group-hover:translate-y-[-30%]"
+                  className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-[9000ms] ease-linear group-hover:translate-y-[-28%]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0e0918] via-[#0e0918]/30 to-transparent" />
-                <div className="absolute top-4 right-4 w-11 h-11 rounded-full bg-[#ee4f27] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all shadow-lg">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#15101f] via-[#15101f]/20 to-transparent" />
+
+                {/* Badge lupa — CTA evidente ao hover */}
+                <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-[#ee4f27] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-400 shadow-xl shadow-[#ee4f27]/30">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="11" cy="11" r="7" />
                     <line x1="21" y1="21" x2="16.65" y2="16.65" />
                     <line x1="11" y1="8" x2="11" y2="14" />
                     <line x1="8" y1="11" x2="14" y2="11" />
                   </svg>
                 </div>
-              </div>
-              <div className="relative p-5 lg:p-6">
-                <div className="flex items-start justify-between gap-4 mb-3">
-                  <div>
-                    <div className="text-[10px] tracking-[0.3em] uppercase text-white/40 mb-2">{item.tag}</div>
-                    <div className="font-display text-white text-xl lg:text-2xl tracking-[-0.01em]">{item.title}</div>
-                  </div>
-                  <span className="text-[11px] tracking-[0.25em] uppercase text-[#ee4f27] whitespace-nowrap pt-1">Ampliar →</span>
+
+                {/* Numeração discreta — autoridade editorial */}
+                <div className="absolute top-6 left-6 text-white/40 text-[10px] tracking-[0.3em] uppercase tabular-nums font-medium">
+                  {String(i + 1).padStart(2, '0')} / {String(PORTFOLIO_ITEMS.length).padStart(2, '0')}
                 </div>
-                <p className="text-white/55 text-sm leading-relaxed">{item.description}</p>
+              </div>
+
+              {/* Conteúdo — 8pt grid, hierarquia clara, respiro luxuoso */}
+              <div className="relative p-8 lg:p-10">
+                <div className="text-[10px] tracking-[0.35em] uppercase text-[#ee4f27]/80 mb-4 font-medium">{item.tag}</div>
+                <h3 className="font-display text-white text-2xl lg:text-[28px] tracking-[-0.015em] leading-[1.1] mb-4">{item.title}</h3>
+                <p className="text-white/50 text-[14px] leading-[1.7] font-light mb-8">{item.description}</p>
+
+                <div className="flex items-center gap-3 text-[11px] tracking-[0.3em] uppercase text-white/70 group-hover:text-[#ee4f27] transition-colors duration-300 font-medium">
+                  <span>Ver projeto</span>
+                  <span className="block w-8 h-px bg-current transition-all duration-300 group-hover:w-12" />
+                </div>
               </div>
             </motion.button>
           ))}
