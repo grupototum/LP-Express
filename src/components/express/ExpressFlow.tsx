@@ -45,11 +45,11 @@ export function ExpressFlow() {
         >
           <span className="inline-block text-accent text-xs font-light tracking-widest uppercase mb-4">O processo</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-primary mb-4 leading-tight">
-            Da reputação que você já tem<br />
-            até a página que vai materializá-la
+            Da reputação que você tem<br />
+            à página que a materializa
           </h2>
           <p className="text-muted-foreground font-light text-lg">
-            Cinco etapas pensadas para entregar posicionamento, não apenas pixels.
+            Cinco etapas. Posicionamento primeiro, pixels depois.
           </p>
         </motion.div>
 

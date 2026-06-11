@@ -144,8 +144,8 @@ export function ExpressHero() {
           </div>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-white/60 text-sm font-light">
-            <span className="inline-flex items-center gap-2"><Clock className="w-4 h-4 text-accent" /> Reunião de 40 minutos</span>
-            <span className="inline-flex items-center gap-2"><CalendarCheck className="w-4 h-4 text-accent" /> Página no ar em até 24h após o alinhamento</span>
+            <span className="inline-flex items-center gap-2"><Clock className="w-4 h-4 text-accent" /> Reunião de 40 min</span>
+            <span className="inline-flex items-center gap-2"><CalendarCheck className="w-4 h-4 text-accent" /> Página no ar em até 24h</span>
             <span className="inline-flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-accent" /> Sem compromisso</span>
           </div>
         </motion.div>
