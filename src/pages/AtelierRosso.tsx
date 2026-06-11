@@ -226,6 +226,23 @@ function Problem() {
           <span className="text-white">confiança, autoridade e diferenciais</span> antes mesmo do
           primeiro contato.
         </p>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+          className="relative mt-20 aspect-[16/7] overflow-hidden rounded-sm border border-white/10"
+        >
+          <img
+            src={conceptClarity}
+            alt="Clareza emergindo no ruído"
+            loading="lazy"
+            width={1920}
+            height={1080}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0e0918] via-transparent to-[#0e0918]/40" />
+        </motion.div>
       </div>
     </section>
   )
