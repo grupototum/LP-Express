@@ -12,31 +12,89 @@ import portfolioLarmond from '@/assets/portfolio-larmond.png.asset.json'
 import portfolioHeva from '@/assets/portfolio-heva.png.asset.json'
 
 const PORTFOLIO_ITEMS = [
-  { title: 'Azure Home Build', tag: 'Construção · Investimento', src: portfolioAzure.url },
-  { title: 'We Move on Demand', tag: 'Mudanças · Serviços', src: portfolioWemove.url },
-  { title: "L'Armond", tag: 'Odontologia · Clínica', src: portfolioLarmond.url },
-  { title: 'Heva Wellness', tag: 'Bem-estar · Saúde', src: portfolioHeva.url },
+  {
+    title: 'Azure Home Build',
+    tag: 'Construção · Investimento',
+    description:
+      'Landing page institucional para construtora americana focada em investidores de Fix & Flip. Estrutura voltada a credibilidade, portfólio de obras e captação qualificada.',
+    src: portfolioAzure.url,
+  },
+  {
+    title: 'We Move on Demand',
+    tag: 'Mudanças · Serviços',
+    description:
+      'Página de conversão para empresa de mudanças residenciais e comerciais. Hero direto, prova social com avaliações reais e formulário de orçamento gratuito.',
+    src: portfolioWemove.url,
+  },
+  {
+    title: "L'Armond",
+    tag: 'Odontologia · Clínica',
+    description:
+      'Site para clínica odontológica premium em Governador Valadares. Apresenta equipe, tecnologia, antes e depois de casos e localização — tudo com estética acolhedora.',
+    src: portfolioLarmond.url,
+  },
+  {
+    title: 'Heva Wellness',
+    tag: 'Bem-estar · Saúde',
+    description:
+      'Landing para programa de bem-estar digital com foco em equilíbrio e cuidado contínuo. Visual editorial, depoimentos integrados e formulário para iniciar a jornada.',
+    src: portfolioHeva.url,
+  },
 ]
 
 function Portfolio() {
   const [open, setOpen] = useState<number | null>(null)
   const [zoom, setZoom] = useState(1)
+  const [isFs, setIsFs] = useState(false)
+  const overlayRef = useRef<HTMLDivElement>(null)
   const active = open !== null ? PORTFOLIO_ITEMS[open] : null
+
+  const next = () => setOpen((i) => (i === null ? null : (i + 1) % PORTFOLIO_ITEMS.length))
+  const prev = () =>
+    setOpen((i) => (i === null ? null : (i - 1 + PORTFOLIO_ITEMS.length) % PORTFOLIO_ITEMS.length))
+
+  const toggleFullscreen = async () => {
+    const el = overlayRef.current
+    if (!el) return
+    try {
+      if (!document.fullscreenElement) {
+        await el.requestFullscreen()
+      } else {
+        await document.exitFullscreen()
+      }
+    } catch {}
+  }
 
   useEffect(() => {
     if (open === null) return
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(null)
+      if (e.key === 'Escape') {
+        if (document.fullscreenElement) document.exitFullscreen().catch(() => {})
+        setOpen(null)
+      }
+      if (e.key === 'ArrowRight') next()
+      if (e.key === 'ArrowLeft') prev()
+      if (e.key.toLowerCase() === 'f') toggleFullscreen()
     }
+    const onFs = () => setIsFs(!!document.fullscreenElement)
     document.body.style.overflow = 'hidden'
     window.addEventListener('keydown', onKey)
+    document.addEventListener('fullscreenchange', onFs)
     return () => {
       document.body.style.overflow = ''
       window.removeEventListener('keydown', onKey)
+      document.removeEventListener('fullscreenchange', onFs)
     }
   }, [open])
 
-  useEffect(() => { setZoom(1) }, [open])
+  useEffect(() => {
+    setZoom(1)
+  }, [open])
+
+  const close = () => {
+    if (document.fullscreenElement) document.exitFullscreen().catch(() => {})
+    setOpen(null)
+  }
 
   return (
     <section id="portfolio" className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
@@ -48,7 +106,7 @@ function Portfolio() {
               Páginas que <span className="text-[#ee4f27]">vendem</span>.
             </h2>
             <p className="mt-6 text-white/60 text-lg max-w-xl">
-              Clique em qualquer projeto para ampliar e usar a lupa para ver os detalhes.
+              Clique em qualquer projeto para ampliar, navegar entre eles e usar a lupa para ver os detalhes.
             </p>
           </div>
         </div>
@@ -82,12 +140,15 @@ function Portfolio() {
                   </svg>
                 </div>
               </div>
-              <div className="relative p-5 lg:p-6 flex items-end justify-between gap-4">
-                <div>
-                  <div className="text-[10px] tracking-[0.3em] uppercase text-white/40 mb-2">{item.tag}</div>
-                  <div className="font-display text-white text-xl lg:text-2xl tracking-[-0.01em]">{item.title}</div>
+              <div className="relative p-5 lg:p-6">
+                <div className="flex items-start justify-between gap-4 mb-3">
+                  <div>
+                    <div className="text-[10px] tracking-[0.3em] uppercase text-white/40 mb-2">{item.tag}</div>
+                    <div className="font-display text-white text-xl lg:text-2xl tracking-[-0.01em]">{item.title}</div>
+                  </div>
+                  <span className="text-[11px] tracking-[0.25em] uppercase text-[#ee4f27] whitespace-nowrap pt-1">Ampliar →</span>
                 </div>
-                <span className="text-[11px] tracking-[0.25em] uppercase text-[#ee4f27] whitespace-nowrap">Ampliar →</span>
+                <p className="text-white/55 text-sm leading-relaxed">{item.description}</p>
               </div>
             </motion.button>
           ))}
@@ -97,19 +158,39 @@ function Portfolio() {
       <AnimatePresence>
         {active && (
           <motion.div
+            ref={overlayRef}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex flex-col"
-            onClick={() => setOpen(null)}
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex flex-col"
+            onClick={close}
           >
-            <div className="flex items-center justify-between px-5 lg:px-8 h-16 border-b border-white/10 text-white" onClick={(e) => e.stopPropagation()}>
-              <div className="text-sm">
-                <span className="text-white/50 mr-3 text-[10px] tracking-[0.3em] uppercase">{active.tag}</span>
-                <span className="font-display tracking-[-0.01em]">{active.title}</span>
+            <div
+              className="flex items-center justify-between gap-4 px-5 lg:px-8 h-16 border-b border-white/10 text-white shrink-0"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="min-w-0 text-sm flex items-center gap-3">
+                <span className="text-white/40 text-[10px] tracking-[0.3em] uppercase tabular-nums">
+                  {String((open ?? 0) + 1).padStart(2, '0')} / {String(PORTFOLIO_ITEMS.length).padStart(2, '0')}
+                </span>
+                <span className="hidden sm:inline text-white/50 text-[10px] tracking-[0.3em] uppercase">{active.tag}</span>
+                <span className="font-display tracking-[-0.01em] truncate">{active.title}</span>
               </div>
               <div className="flex items-center gap-2">
+                <button
+                  onClick={prev}
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center"
+                  aria-label="Projeto anterior"
+                  title="Anterior (←)"
+                >←</button>
+                <button
+                  onClick={next}
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center"
+                  aria-label="Próximo projeto"
+                  title="Próximo (→)"
+                >→</button>
+                <span className="w-px h-6 bg-white/10 mx-1" />
                 <button
                   onClick={() => setZoom((z) => Math.max(1, +(z - 0.5).toFixed(2)))}
                   className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center"
@@ -121,32 +202,76 @@ function Portfolio() {
                   className="w-10 h-10 rounded-full bg-[#ee4f27] hover:bg-[#ff0c00] transition-colors flex items-center justify-center"
                   aria-label="Aumentar zoom"
                 >+</button>
+                <span className="w-px h-6 bg-white/10 mx-1" />
                 <button
-                  onClick={() => setOpen(null)}
-                  className="ml-2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center"
-                  aria-label="Fechar"
+                  onClick={toggleFullscreen}
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center"
+                  aria-label={isFs ? 'Sair de tela cheia' : 'Tela cheia'}
+                  title={isFs ? 'Sair de tela cheia (F)' : 'Tela cheia (F)'}
+                >
+                  {isFs ? (
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8 3v3a2 2 0 0 1-2 2H3"/><path d="M21 8h-3a2 2 0 0 1-2-2V3"/><path d="M3 16h3a2 2 0 0 1 2 2v3"/><path d="M16 21v-3a2 2 0 0 1 2-2h3"/></svg>
+                  ) : (
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 8V5a2 2 0 0 1 2-2h3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M21 16v3a2 2 0 0 1-2 2h-3"/></svg>
+                  )}
+                </button>
+                <button
+                  onClick={close}
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center"
+                  aria-label="Fechar (Esc)"
+                  title="Fechar (Esc)"
                 >✕</button>
               </div>
             </div>
 
+            <div className="relative flex-1 overflow-hidden" onClick={(e) => e.stopPropagation()}>
+              <button
+                onClick={prev}
+                aria-label="Projeto anterior"
+                className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white items-center justify-center backdrop-blur"
+              >←</button>
+              <button
+                onClick={next}
+                aria-label="Próximo projeto"
+                className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white items-center justify-center backdrop-blur"
+              >→</button>
+
+              <div className="h-full overflow-auto p-4 lg:p-10 flex items-start justify-center">
+                <img
+                  key={active.src}
+                  src={active.src}
+                  alt={active.title}
+                  onClick={() => setZoom((z) => (z >= 2 ? 1 : z + 1))}
+                  style={{
+                    width: `${zoom * 100}%`,
+                    maxWidth: zoom === 1 ? '900px' : 'none',
+                    cursor: zoom >= 2 ? 'zoom-out' : 'zoom-in',
+                  }}
+                  className="rounded-xl shadow-2xl select-none transition-[width] duration-200 ease-out"
+                  draggable={false}
+                />
+              </div>
+            </div>
+
             <div
-              className="flex-1 overflow-auto p-4 lg:p-10 flex items-start justify-center"
+              className="shrink-0 border-t border-white/10 px-5 lg:px-8 py-4 text-white"
               onClick={(e) => e.stopPropagation()}
             >
-              <img
-                src={active.src}
-                alt={active.title}
-                onClick={() => setZoom((z) => (z >= 2 ? 1 : z + 1))}
-                style={{ width: `${zoom * 100}%`, maxWidth: zoom === 1 ? '900px' : 'none', cursor: zoom >= 2 ? 'zoom-out' : 'zoom-in' }}
-                className="rounded-xl shadow-2xl select-none transition-[width] duration-200 ease-out"
-                draggable={false}
-              />
+              <div className="mx-auto max-w-3xl">
+                <div className="text-[10px] tracking-[0.3em] uppercase text-[#ee4f27] mb-1">{active.tag}</div>
+                <div className="font-display text-lg lg:text-xl tracking-[-0.01em] mb-1">{active.title}</div>
+                <p className="text-white/60 text-sm leading-relaxed">{active.description}</p>
+                <div className="mt-2 text-[10px] tracking-[0.25em] uppercase text-white/30">
+                  ← → Navegar · + − Zoom · F Tela cheia · Esc Fechar
+                </div>
+              </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
     </section>
   )
+}
 }
 
 /* ============================================================
