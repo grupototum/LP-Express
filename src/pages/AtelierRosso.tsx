@@ -656,45 +656,109 @@ const TESTIMONIALS: Array<{
   },
 ]
 
+/* Real WhatsApp dark-mode doodle wallpaper (subtle, tiled SVG) */
+const WA_BG =
+  "url(\"data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.035' stroke-width='1.2'%3E%3Cpath d='M20 40c8-10 18-10 26 0s18 10 26 0 18-10 26 0'/%3E%3Ccircle cx='160' cy='60' r='10'/%3E%3Cpath d='M40 130l10-10 10 10 10-10 10 10'/%3E%3Cpath d='M150 150c6-8 14-8 20 0s14 8 20 0'/%3E%3Cpath d='M70 190h30M85 175v30'/%3E%3Cpath d='M180 100l-6 6 6 6 6-6z'/%3E%3C/g%3E%3C/svg%3E\")"
+
+/* Bubble tail SVGs — incoming (left) and outgoing (right) */
+const TailIn = () => (
+  <svg
+    viewBox="0 0 8 13"
+    className="absolute -left-[7px] top-0 w-2 h-[13px] text-[#202c33]"
+    aria-hidden
+  >
+    <path fill="currentColor" d="M8 0L0 0c2 4 5 7 8 8V0z" />
+  </svg>
+)
+const TailOut = () => (
+  <svg
+    viewBox="0 0 8 13"
+    className="absolute -right-[7px] top-0 w-2 h-[13px] text-[#005c4b]"
+    aria-hidden
+  >
+    <path fill="currentColor" d="M0 0l8 0c-2 4-5 7-8 8V0z" />
+  </svg>
+)
+const DoubleCheck = () => (
+  <svg viewBox="0 0 16 11" className="w-[15px] h-[11px] inline-block ml-1 -mb-[1px]" aria-hidden>
+    <path
+      fill="#53bdeb"
+      d="M11.071.653a.457.457 0 0 0-.304-.158.475.475 0 0 0-.422.169L4.629 8.038 2.225 5.61a.46.46 0 0 0-.65 0L.114 7.073a.464.464 0 0 0 0 .654l3.747 3.78a.46.46 0 0 0 .65 0l.011-.011.797-.802 7.376-7.448a.467.467 0 0 0 .015-.642L11.071.653zM15.448.495a.458.458 0 0 0-.303-.158.475.475 0 0 0-.422.169L9.006 7.88l-.81-.815a.46.46 0 0 0-.65 0L7.087 8.527a.464.464 0 0 0 0 .654l2.13 2.149a.46.46 0 0 0 .65 0l.012-.012.797-.803 7.376-7.448a.467.467 0 0 0 .015-.642L15.448.495z"
+    />
+  </svg>
+)
+
 function WhatsCard({ t }: { t: (typeof TESTIMONIALS)[number] }) {
   return (
-    <div className="shrink-0 w-[320px] sm:w-[360px] bg-[#0b141a] border border-white/10 rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
-      <div className="flex items-center gap-3 px-4 py-3 bg-[#1f2c33] border-b border-black/30">
-        <div className="w-9 h-9 rounded-full bg-[#ee4f27]/90 flex items-center justify-center text-white text-xs font-semibold tracking-wider">
+    <div className="shrink-0 w-[320px] sm:w-[360px] bg-[#0b141a] rounded-[10px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] ring-1 ring-black/40">
+      {/* Header */}
+      <div className="flex items-center gap-3 px-3 py-2.5 bg-[#202c33]">
+        <svg className="w-5 h-5 text-white/70 shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        <div className="w-9 h-9 rounded-full bg-[#6b7c85] flex items-center justify-center text-white text-[12px] font-semibold shrink-0">
           {t.initials}
         </div>
         <div className="flex-1 min-w-0">
-          <div className="text-white text-sm truncate">{t.name}</div>
-          <div className="text-white/40 text-[10px] tracking-wider uppercase">online</div>
+          <div className="text-white text-[14px] font-medium truncate leading-tight">{t.name}</div>
+          <div className="text-white/55 text-[11px] leading-tight mt-0.5">online</div>
         </div>
-        <span className="text-[9px] tracking-[0.22em] uppercase text-[#ee4f27] border border-[#ee4f27]/40 px-2 py-1 rounded">
-          {t.badge}
-        </span>
+        <div className="flex items-center gap-4 text-white/70 shrink-0">
+          <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+            <path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z" />
+          </svg>
+          <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
+          </svg>
+          <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+            <circle cx="12" cy="5" r="1.6" />
+            <circle cx="12" cy="12" r="1.6" />
+            <circle cx="12" cy="19" r="1.6" />
+          </svg>
+        </div>
       </div>
+
+      {/* Chat area */}
       <div
-        className="p-4 space-y-2 min-h-[200px]"
-        style={{
-          backgroundImage:
-            'radial-gradient(circle at 10% 10%, rgba(238,79,39,0.05), transparent 40%), radial-gradient(circle at 90% 80%, rgba(255,255,255,0.02), transparent 50%)',
-        }}
+        className="px-3 py-3 space-y-1.5 min-h-[210px] bg-[#0b141a]"
+        style={{ backgroundImage: WA_BG, backgroundSize: '220px 220px' }}
       >
-        {t.messages.map((m, i) => (
-          <div key={i} className={`flex ${m.from === 'me' ? 'justify-end' : 'justify-start'}`}>
-            <div
-              className={`max-w-[80%] px-3 py-2 rounded-lg text-[13px] leading-snug ${
-                m.from === 'me'
-                  ? 'bg-[#005c4b] text-white rounded-br-sm'
-                  : 'bg-[#202c33] text-white/95 rounded-bl-sm'
-              }`}
-            >
-              {m.text}
-              <div className="text-[9px] text-white/40 text-right mt-1">{m.time}</div>
+        {t.messages.map((m, i) => {
+          const isMe = m.from === 'me'
+          return (
+            <div key={i} className={`flex ${isMe ? 'justify-end' : 'justify-start'}`}>
+              <div
+                className={`relative max-w-[78%] px-2 pt-1.5 pb-1 text-[13.5px] leading-[18px] shadow-[0_1px_0.5px_rgba(0,0,0,0.13)] ${
+                  isMe
+                    ? 'bg-[#005c4b] text-white rounded-[7.5px] rounded-tr-none'
+                    : 'bg-[#202c33] text-[#e9edef] rounded-[7.5px] rounded-tl-none'
+                }`}
+              >
+                {isMe ? <TailOut /> : <TailIn />}
+                <div className="pr-[58px] whitespace-pre-wrap break-words">{m.text}</div>
+                <div className="absolute right-1.5 bottom-0.5 flex items-center gap-0.5 text-[10.5px] text-white/55">
+                  <span>{m.time}</span>
+                  {isMe && <DoubleCheck />}
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
-      <div className="px-4 py-2 bg-[#1f2c33] text-[10px] text-white/40 tracking-wider uppercase border-t border-black/30">
-        {t.time}
+
+      {/* Input bar (cosmetic) */}
+      <div className="flex items-center gap-2 px-2 py-2 bg-[#0b141a]">
+        <div className="flex-1 flex items-center gap-2 bg-[#2a3942] rounded-full px-3 py-2 text-[12px] text-white/40">
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+            <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-3.5 7a1.5 1.5 0 1 1-1.5 1.5A1.5 1.5 0 0 1 8.5 9zm7 0a1.5 1.5 0 1 1-1.5 1.5A1.5 1.5 0 0 1 15.5 9zM12 17.5a5.5 5.5 0 0 1-4.9-3h9.8a5.5 5.5 0 0 1-4.9 3z" />
+          </svg>
+          <span className="truncate">Mensagem</span>
+        </div>
+        <div className="w-9 h-9 rounded-full bg-[#00a884] flex items-center justify-center text-white" aria-hidden>
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11z" />
+          </svg>
+        </div>
       </div>
     </div>
   )
