@@ -1,6 +1,11 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import heroImg from '@/assets/atelier-hero.jpg'
+import totumLogo from '@/assets/totum-logo.png'
+import conceptReputation from '@/assets/concept-reputation.jpg'
+import conceptClarity from '@/assets/concept-clarity.jpg'
+import conceptGrowth from '@/assets/concept-growth.jpg'
+import conceptMethod from '@/assets/concept-method.jpg'
 
 /* ============================================================
    Atelier Rosso — Estratégia · Posicionamento · Landing Pages
@@ -30,10 +35,21 @@ function Nav() {
       }`}
     >
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 group">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#ee4f27] shadow-[0_0_18px_#ee4f27]" />
-          <span className="font-display text-[15px] tracking-[0.22em] uppercase text-white">
-            Atelier <span className="text-[#ee4f27]">Rosso</span>
+        <a href="#top" className="flex items-center gap-3 group">
+          <img
+            src={totumLogo}
+            alt="Totum"
+            width={28}
+            height={28}
+            className="h-7 w-auto object-contain"
+          />
+          <span className="hidden sm:flex flex-col leading-none">
+            <span className="font-display text-[14px] tracking-[0.22em] uppercase text-white">
+              Atelier <span className="text-[#ee4f27]">Rosso</span>
+            </span>
+            <span className="mt-1 text-[9px] tracking-[0.32em] uppercase text-white/40">
+              by Totum
+            </span>
           </span>
         </a>
         <nav className="hidden md:flex items-center gap-8 text-[12px] tracking-[0.2em] uppercase text-white/70">
@@ -133,15 +149,32 @@ const REP_ITEMS = [
 
 function Reputation() {
   return (
-    <section className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
-        <div className="lg:col-span-5">
+    <section className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5 overflow-hidden">
+      <div className="relative mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <div className="lg:col-span-4">
           <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">01 — Reputação</div>
           <h2 className="font-display text-white text-4xl lg:text-6xl leading-[0.95] tracking-[-0.02em] uppercase">
             Você já construiu uma boa <span className="text-[#ee4f27]">reputação</span>.
           </h2>
         </div>
-        <div className="lg:col-span-6 lg:col-start-7 self-end">
+        <motion.div
+          initial={{ opacity: 0, scale: 1.05 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="lg:col-span-3 relative aspect-[4/5] overflow-hidden rounded-sm border border-white/10"
+        >
+          <img
+            src={conceptReputation}
+            alt="Reputação construída"
+            loading="lazy"
+            width={680}
+            height={850}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0e0918]/80 via-transparent to-transparent" />
+        </motion.div>
+        <div className="lg:col-span-5">
           <ul className="space-y-5 mb-12">
             {REP_ITEMS.map((it) => (
               <motion.li
@@ -193,6 +226,23 @@ function Problem() {
           <span className="text-white">confiança, autoridade e diferenciais</span> antes mesmo do
           primeiro contato.
         </p>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+          className="relative mt-20 aspect-[16/7] overflow-hidden rounded-sm border border-white/10"
+        >
+          <img
+            src={conceptClarity}
+            alt="Clareza emergindo no ruído"
+            loading="lazy"
+            width={1920}
+            height={1080}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0e0918] via-transparent to-[#0e0918]/40" />
+        </motion.div>
       </div>
     </section>
   )
@@ -220,6 +270,23 @@ function Method() {
             Começamos entendendo o que torna sua empresa diferente. A partir disso, construímos uma
             estratégia clara para destacar aquilo que realmente faz sentido para o seu negócio.
           </p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="relative mt-12 aspect-[4/3] overflow-hidden rounded-sm border border-white/10 hidden lg:block"
+          >
+            <img
+              src={conceptMethod}
+              alt="Método e planejamento estratégico"
+              loading="lazy"
+              width={1024}
+              height={768}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0e0918]/80 via-transparent to-transparent" />
+          </motion.div>
         </div>
         <div className="lg:col-span-6 lg:col-start-7">
           <div className="text-[11px] tracking-[0.3em] uppercase text-white/40 mb-6">Analisamos</div>
@@ -331,24 +398,41 @@ function Difference() {
         className="absolute -right-40 top-0 w-[600px] h-[600px] rounded-full bg-[#ee4f27]/10 blur-[180px]"
       />
       <div className="relative mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-7 order-2 lg:order-1">
           <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">05 — Diferencial</div>
           <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.025em] uppercase leading-[0.92]">
             A maioria vende páginas. <br />
             <span className="text-[#ee4f27]">Nós vendemos crescimento.</span>
           </h2>
+          <div className="mt-10 space-y-6 text-white/75 text-lg leading-relaxed max-w-xl">
+            <p>
+              Uma página bonita não resolve o problema. O que gera resultado é{' '}
+              <span className="text-white">transmitir o valor</span> da sua empresa de forma clara
+              para quem ainda não conhece você.
+            </p>
+            <p className="text-white/55">
+              Ajudamos empresas a transformar reputação em oportunidades reais — começando pela
+              estratégia, não pelo design.
+            </p>
+          </div>
         </div>
-        <div className="lg:col-span-5 space-y-6 text-white/75 text-lg leading-relaxed">
-          <p>
-            Uma página bonita não resolve o problema. O que gera resultado é{' '}
-            <span className="text-white">transmitir o valor</span> da sua empresa de forma clara
-            para quem ainda não conhece você.
-          </p>
-          <p className="text-white/55">
-            Ajudamos empresas a transformar reputação em oportunidades reais — começando pela
-            estratégia, não pelo design.
-          </p>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+          className="lg:col-span-5 order-1 lg:order-2 relative aspect-square overflow-hidden rounded-sm border border-white/10"
+        >
+          <img
+            src={conceptGrowth}
+            alt="Direção estratégica e crescimento"
+            loading="lazy"
+            width={1024}
+            height={1024}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-tl from-[#0e0918]/70 via-transparent to-transparent" />
+        </motion.div>
       </div>
     </section>
   )
@@ -824,11 +908,14 @@ function FinalCTA() {
 
 function Footer() {
   return (
-    <footer className="bg-[#0e0918] border-t border-white/5 py-10">
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] tracking-[0.3em] uppercase text-white/40">
-        <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#ee4f27]" />
-          Atelier Rosso © {new Date().getFullYear()}
+    <footer className="bg-[#0e0918] border-t border-white/5 py-12">
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-6 text-[10px] tracking-[0.3em] uppercase text-white/40">
+        <div className="flex items-center gap-3">
+          <img src={totumLogo} alt="Totum" width={28} height={28} className="h-7 w-auto object-contain opacity-90" />
+          <div className="flex flex-col leading-none gap-1">
+            <span className="text-white/70">Atelier <span className="text-[#ee4f27]">Rosso</span></span>
+            <span className="text-white/35">by Totum · © {new Date().getFullYear()}</span>
+          </div>
         </div>
         <div>Estratégia · Posicionamento · Landing Pages</div>
         <div>Feito com método.</div>
