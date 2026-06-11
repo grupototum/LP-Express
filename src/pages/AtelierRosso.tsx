@@ -274,10 +274,20 @@ function Portfolio() {
               className="shrink-0 border-t border-white/10 px-5 lg:px-8 py-4 text-white"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="mx-auto max-w-3xl">
-                <div className="text-[10px] tracking-[0.3em] uppercase text-[#ee4f27] mb-1">{active.tag}</div>
-                <div className="font-display text-lg lg:text-xl tracking-[-0.01em] mb-1">{active.title}</div>
-                <p className="text-white/60 text-sm leading-relaxed">{active.description}</p>
+              <div className="mx-auto max-w-3xl relative min-h-[78px]">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={active.title}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.25 }}
+                  >
+                    <div className="text-[10px] tracking-[0.3em] uppercase text-[#ee4f27] mb-1">{active.tag}</div>
+                    <div className="font-display text-lg lg:text-xl tracking-[-0.01em] mb-1">{active.title}</div>
+                    <p className="text-white/60 text-sm leading-relaxed">{active.description}</p>
+                  </motion.div>
+                </AnimatePresence>
                 <div className="mt-2 text-[10px] tracking-[0.25em] uppercase text-white/30">
                   ← → Navegar · + − Zoom · F Tela cheia · Esc Fechar
                 </div>
