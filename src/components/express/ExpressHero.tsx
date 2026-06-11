@@ -184,7 +184,7 @@ export function ExpressHero() {
             </motion.a>
           </div>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-white/60 text-sm font-light">
-            <span className="inline-flex items-center gap-2"><Clock className="w-4 h-4 text-accent" /> 40 min</span>
+            <span className="inline-flex items-center gap-2"><Clock className="w-4 h-4 text-accent" /> 25 min</span>
             <span className="inline-flex items-center gap-2"><CalendarCheck className="w-4 h-4 text-accent" /> No ar em 24h</span>
             <span className="inline-flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-accent" /> Sem compromisso</span>
           </div>
