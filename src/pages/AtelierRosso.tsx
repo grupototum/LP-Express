@@ -800,6 +800,317 @@ function DiferencialResultados() {
   )
 }
 
+const INCLUDED = [
+  'Diagnóstico estratégico inicial',
+  'Análise de posicionamento',
+  'Identificação de oportunidades',
+  'Copywriting estratégico',
+  'Design profissional responsivo',
+  'Integração com WhatsApp',
+  'Formulário de contato',
+  'Estrutura de conversão',
+  'Publicação da página',
+  'Ajustes finais após alinhamento',
+]
+
+function Included() {
+  return (
+    <section id="incluso" className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
+        <div className="lg:col-span-5">
+          <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">08 — Incluso</div>
+          <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.02em] uppercase leading-[0.95]">
+            Tudo o que <span className="text-rosso">está</span> incluso.
+          </h2>
+          <p className="mt-8 text-white/65 text-lg leading-relaxed">
+            Um pacote completo, da estratégia à publicação. Sem surpresas, sem cobrança extra de
+            etapas essenciais.
+          </p>
+        </div>
+        <div className="lg:col-span-7">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8">
+            {INCLUDED.map((it, i) => (
+              <motion.li
+                key={it}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.04 }}
+                className="flex items-start gap-4 py-5 border-b border-white/10 text-white/85"
+              >
+                <span className="font-display text-rosso text-xs tracking-[0.25em] pt-1.5 shrink-0">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="text-base lg:text-lg">{it}</span>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ---------- Depoimentos WhatsApp ---------- */
+
+const TESTIMONIALS: Array<{
+  name: string
+  initials: string
+  time: string
+  badge: string
+  messages: Array<{ from: 'them' | 'me'; text: string; time: string }>
+}> = [
+  {
+    name: 'Dr. Rafael Monteiro',
+    initials: 'RM',
+    time: 'hoje',
+    badge: 'Rapidez',
+    messages: [
+      { from: 'them', text: 'Pessoal, vocês entregaram em menos de 24h. Surreal.', time: '14:02' },
+      { from: 'me', text: 'Acordo é acordo 🔥', time: '14:03' },
+      { from: 'them', text: 'Já recebi 3 contatos hoje pela página. Obrigado!', time: '14:05' },
+    ],
+  },
+  {
+    name: 'Camila — Clínica Vértice',
+    initials: 'CV',
+    time: 'ontem',
+    badge: 'Qualidade',
+    messages: [
+      { from: 'them', text: 'Ficou exatamente do jeito que eu imaginava 🤍', time: '09:41' },
+      { from: 'them', text: 'O nível de acabamento é absurdo.', time: '09:41' },
+    ],
+  },
+  {
+    name: 'Lucas Andrade',
+    initials: 'LA',
+    time: 'seg',
+    badge: 'Profissionalismo',
+    messages: [
+      { from: 'them', text: 'Reunião super objetiva, sem enrolação.', time: '18:20' },
+      { from: 'them', text: 'Esse é o padrão que eu queria pra minha marca.', time: '18:22' },
+    ],
+  },
+  {
+    name: 'Mariana — Studio Norte',
+    initials: 'MS',
+    time: 'qua',
+    badge: 'Estratégia',
+    messages: [
+      { from: 'them', text: 'A análise de concorrência abriu meus olhos.', time: '11:08' },
+      { from: 'them', text: 'Vocês mostraram coisas que eu não tinha visto em anos.', time: '11:09' },
+    ],
+  },
+  {
+    name: 'Eng. Bruno Tavares',
+    initials: 'BT',
+    time: 'sex',
+    badge: 'Resultado',
+    messages: [
+      { from: 'them', text: 'Triplicou meus orçamentos no primeiro mês.', time: '20:15' },
+      { from: 'me', text: 'Esse é o objetivo 🚀', time: '20:16' },
+      { from: 'them', text: 'Bora pra próxima fase!', time: '20:17' },
+    ],
+  },
+]
+
+/* Real WhatsApp dark-mode doodle wallpaper (subtle, tiled SVG) */
+const WA_BG =
+  "url(\"data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.035' stroke-width='1.2'%3E%3Cpath d='M20 40c8-10 18-10 26 0s18 10 26 0 18-10 26 0'/%3E%3Ccircle cx='160' cy='60' r='10'/%3E%3Cpath d='M40 130l10-10 10 10 10-10 10 10'/%3E%3Cpath d='M150 150c6-8 14-8 20 0s14 8 20 0'/%3E%3Cpath d='M70 190h30M85 175v30'/%3E%3Cpath d='M180 100l-6 6 6 6 6-6z'/%3E%3C/g%3E%3C/svg%3E\")"
+
+/* Bubble tail SVGs — incoming (left) and outgoing (right) */
+const TailIn = () => (
+  <svg
+    viewBox="0 0 8 13"
+    className="absolute -left-[7px] top-0 w-2 h-[13px] text-[#202c33]"
+    aria-hidden
+  >
+    <path fill="currentColor" d="M8 0L0 0c2 4 5 7 8 8V0z" />
+  </svg>
+)
+const TailOut = () => (
+  <svg
+    viewBox="0 0 8 13"
+    className="absolute -right-[7px] top-0 w-2 h-[13px] text-[#005c4b]"
+    aria-hidden
+  >
+    <path fill="currentColor" d="M0 0l8 0c-2 4-5 7-8 8V0z" />
+  </svg>
+)
+const DoubleCheck = () => (
+  <svg viewBox="0 0 16 11" className="w-[15px] h-[11px] inline-block ml-1 -mb-[1px]" aria-hidden>
+    <path
+      fill="#53bdeb"
+      d="M11.071.653a.457.457 0 0 0-.304-.158.475.475 0 0 0-.422.169L4.629 8.038 2.225 5.61a.46.46 0 0 0-.65 0L.114 7.073a.464.464 0 0 0 0 .654l3.747 3.78a.46.46 0 0 0 .65 0l.011-.011.797-.802 7.376-7.448a.467.467 0 0 0 .015-.642L11.071.653zM15.448.495a.458.458 0 0 0-.303-.158.475.475 0 0 0-.422.169L9.006 7.88l-.81-.815a.46.46 0 0 0-.65 0L7.087 8.527a.464.464 0 0 0 0 .654l2.13 2.149a.46.46 0 0 0 .65 0l.012-.012.797-.803 7.376-7.448a.467.467 0 0 0 .015-.642L15.448.495z"
+    />
+  </svg>
+)
+
+function WhatsCard({ t }: { t: (typeof TESTIMONIALS)[number] }) {
+  return (
+    <div className="shrink-0 w-[320px] sm:w-[360px] bg-[#0b141a] rounded-[10px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)] ring-1 ring-black/40">
+      {/* Header */}
+      <div className="flex items-center gap-3 px-3 py-2.5 bg-[#202c33]">
+        <svg className="w-5 h-5 text-white/70 shrink-0" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+        <div className="w-9 h-9 rounded-full bg-[#6b7c85] flex items-center justify-center text-white text-[12px] font-semibold shrink-0">
+          {t.initials}
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="text-white text-[14px] font-medium truncate leading-tight">{t.name}</div>
+          <div className="text-white/55 text-[11px] leading-tight mt-0.5">online</div>
+        </div>
+        <div className="flex items-center gap-4 text-white/70 shrink-0">
+          <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+            <path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z" />
+          </svg>
+          <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+            <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
+          </svg>
+          <svg className="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+            <circle cx="12" cy="5" r="1.6" />
+            <circle cx="12" cy="12" r="1.6" />
+            <circle cx="12" cy="19" r="1.6" />
+          </svg>
+        </div>
+      </div>
+
+      {/* Chat area */}
+      <div
+        className="px-3 py-3 space-y-1.5 min-h-[210px] bg-[#0b141a]"
+        style={{ backgroundImage: WA_BG, backgroundSize: '220px 220px' }}
+      >
+        {t.messages.map((m, i) => {
+          const isMe = m.from === 'me'
+          return (
+            <div key={i} className={`flex ${isMe ? 'justify-end' : 'justify-start'}`}>
+              <div
+                className={`relative max-w-[78%] px-2 pt-1.5 pb-1 text-[13.5px] leading-[18px] shadow-[0_1px_0.5px_rgba(0,0,0,0.13)] ${
+                  isMe
+                    ? 'bg-[#005c4b] text-white rounded-[7.5px] rounded-tr-none'
+                    : 'bg-[#202c33] text-[#e9edef] rounded-[7.5px] rounded-tl-none'
+                }`}
+              >
+                {isMe ? <TailOut /> : <TailIn />}
+                <div className="pr-[58px] whitespace-pre-wrap break-words">{m.text}</div>
+                <div className="absolute right-1.5 bottom-0.5 flex items-center gap-0.5 text-[10.5px] text-white/55">
+                  <span>{m.time}</span>
+                  {isMe && <DoubleCheck />}
+                </div>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+
+      {/* Input bar (cosmetic) */}
+      <div className="flex items-center gap-2 px-2 py-2 bg-[#0b141a]">
+        <div className="flex-1 flex items-center gap-2 bg-[#2a3942] rounded-full px-3 py-2 text-[12px] text-white/40">
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+            <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm-3.5 7a1.5 1.5 0 1 1-1.5 1.5A1.5 1.5 0 0 1 8.5 9zm7 0a1.5 1.5 0 1 1-1.5 1.5A1.5 1.5 0 0 1 15.5 9zM12 17.5a5.5 5.5 0 0 1-4.9-3h9.8a5.5 5.5 0 0 1-4.9 3z" />
+          </svg>
+          <span className="truncate">Mensagem</span>
+        </div>
+        <div className="w-9 h-9 rounded-full bg-[#00a884] flex items-center justify-center text-white" aria-hidden>
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11z" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function Testimonials() {
+  return (
+    <section id="depoimentos" className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5 overflow-hidden">
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-10 mb-14">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+          <div>
+            <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">09 — Depoimentos</div>
+            <h2 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.02em] uppercase leading-[0.95] max-w-2xl">
+              O que nossos clientes <span className="text-rosso">costumam dizer</span>.
+            </h2>
+          </div>
+          <p className="text-white/50 text-xs tracking-[0.22em] uppercase max-w-xs">
+            Conversas reais — rapidez, qualidade, estratégia e resultado.
+          </p>
+        </div>
+      </div>
+
+      <div className="relative">
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0e0918] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0e0918] to-transparent z-10 pointer-events-none" />
+        <div className="flex overflow-hidden py-4">
+          <motion.div
+            animate={{ x: ['0%', '-50%'] }}
+            transition={{ duration: 50, ease: 'linear', repeat: Infinity }}
+            className="flex shrink-0 gap-6 pr-6"
+          >
+            {[...TESTIMONIALS, ...TESTIMONIALS].map((t, i) => (
+              <WhatsCard key={i} t={t} />
+            ))}
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ---------- Reunião de Alinhamento ---------- */
+
+const MEETING_ITEMS = [
+  'Oportunidades encontradas',
+  'Diferenciais identificados',
+  'Posicionamento recomendado',
+  'Estrutura proposta para a página',
+  'Estratégia aplicada ao seu negócio',
+]
+
+function Meeting() {
+  return (
+    <section className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
+        <div className="lg:col-span-5">
+          <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">10 — Reunião</div>
+          <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.02em] uppercase leading-[0.95]">
+            O que acontece na <span className="text-rosso">Reunião</span> de Alinhamento?
+          </h2>
+          <div className="mt-10 flex gap-3">
+            <span className="text-[11px] tracking-[0.3em] uppercase text-white border border-white/15 px-4 py-2">
+              Sem pressão
+            </span>
+            <span className="text-[11px] tracking-[0.3em] uppercase text-white border border-rosso text-rosso px-4 py-2">
+              Sem compromisso
+            </span>
+          </div>
+        </div>
+        <div className="lg:col-span-6 lg:col-start-7">
+          <p className="text-white/70 text-lg mb-8 leading-relaxed">Durante a reunião nós mostramos:</p>
+          <ul className="space-y-px bg-white/10 border border-white/10">
+            {MEETING_ITEMS.map((it, i) => (
+              <li
+                key={it}
+                className="bg-[#0e0918] p-6 lg:p-7 flex items-center gap-6 hover:bg-white/[0.03] transition-colors"
+              >
+                <span className="font-display text-rosso text-2xl tracking-[-0.01em]">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="text-white text-lg lg:text-xl">{it}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 text-white/55 text-base leading-relaxed">
+            Ao final, você decide se deseja seguir para a implementação.
+          </p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+
 /* ---------- CTA Final ---------- */
 
 function FinalCTA() {
@@ -873,18 +1184,13 @@ export default function AtelierRosso() {
       <Nav />
       <main>
         <Hero />
-        <Reputation />
-        <Problem />
-        <Method />
-        <Process />
-        <Difference />
+        <ReputacaoDiagnostico />
+        <MetodoProcesso />
+        <DiferencialResultados />
         <Portfolio />
-        <Benefits />
-        <Audience />
         <Included />
         <Testimonials />
         <Meeting />
-        <FAQ />
         <FinalCTA />
       </main>
       <Footer />
