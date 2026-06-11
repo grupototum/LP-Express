@@ -149,8 +149,8 @@ const REP_ITEMS = [
 
 function Reputation() {
   return (
-    <section className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
-      <div className="mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
+    <section className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5 overflow-hidden">
+      <div className="relative mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5">
           <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">01 — Reputação</div>
           <h2 className="font-display text-white text-4xl lg:text-6xl leading-[0.95] tracking-[-0.02em] uppercase">
@@ -158,6 +158,23 @@ function Reputation() {
           </h2>
         </div>
         <div className="lg:col-span-6 lg:col-start-7 self-end">
+          <motion.div
+            initial={{ opacity: 0, scale: 1.05 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="relative mt-10 lg:mt-0 lg:absolute lg:left-6 lg:top-1/2 lg:-translate-y-1/2 lg:w-[28%] lg:max-w-[340px] aspect-[4/5] overflow-hidden rounded-sm border border-white/10 hidden lg:block"
+          >
+            <img
+              src={conceptReputation}
+              alt="Reputação construída"
+              loading="lazy"
+              width={680}
+              height={850}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0e0918] via-transparent to-transparent" />
+          </motion.div>
           <ul className="space-y-5 mb-12">
             {REP_ITEMS.map((it) => (
               <motion.li
