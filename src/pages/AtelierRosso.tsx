@@ -138,7 +138,7 @@ function Reputation() {
         <div className="lg:col-span-5">
           <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">01 — Reputação</div>
           <h2 className="font-display text-white text-4xl lg:text-6xl leading-[0.95] tracking-[-0.02em] uppercase">
-            Você já construiu uma boa <span className="italic">reputação</span>.
+            Você já construiu uma boa <span className="text-[#ee4f27]">reputação</span>.
           </h2>
         </div>
         <div className="lg:col-span-6 lg:col-start-7 self-end">
@@ -214,7 +214,7 @@ function Method() {
         <div className="lg:col-span-5">
           <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">03 — Método</div>
           <h2 className="font-display text-white text-5xl lg:text-7xl leading-[0.95] tracking-[-0.02em] uppercase">
-            Não <span className="italic">começamos</span> criando páginas.
+            Não <span className="text-[#ee4f27]">começamos</span> criando páginas.
           </h2>
           <p className="mt-8 text-white/70 text-lg leading-relaxed">
             Começamos entendendo o que torna sua empresa diferente. A partir disso, construímos uma
@@ -283,7 +283,7 @@ function Process() {
             <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">04 — Como Funciona</div>
             <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.02em] uppercase leading-[0.95]">
               Cinco passos. <br />
-              <span className="italic">Zero improviso.</span>
+              <span className="text-[#ee4f27]">Zero improviso.</span>
             </h2>
           </div>
           <p className="text-white/60 text-sm tracking-[0.18em] uppercase max-w-xs">
@@ -373,7 +373,7 @@ function Benefits() {
           <div className="lg:col-span-5">
             <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">06 — Resultados</div>
             <h2 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.02em] uppercase leading-[0.95]">
-              O que sua Landing Page pode fazer por <span className="italic">você</span>.
+              O que sua Landing Page pode fazer por <span className="text-[#ee4f27]">você</span>.
             </h2>
           </div>
         </div>
@@ -474,7 +474,7 @@ function Included() {
         <div className="lg:col-span-5">
           <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">08 — Incluso</div>
           <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.02em] uppercase leading-[0.95]">
-            Tudo o que <span className="italic">está</span> incluso.
+            Tudo o que <span className="text-[#ee4f27]">está</span> incluso.
           </h2>
           <p className="mt-8 text-white/65 text-lg leading-relaxed">
             Um pacote completo, da estratégia à publicação. Sem surpresas, sem cobrança extra de
@@ -620,7 +620,7 @@ function Testimonials() {
           <div>
             <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">09 — Depoimentos</div>
             <h2 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.02em] uppercase leading-[0.95] max-w-2xl">
-              O que nossos clientes <span className="italic">costumam dizer</span>.
+              O que nossos clientes <span className="text-[#ee4f27]">costumam dizer</span>.
             </h2>
           </div>
           <p className="text-white/50 text-xs tracking-[0.22em] uppercase max-w-xs">
@@ -665,7 +665,7 @@ function Meeting() {
         <div className="lg:col-span-5">
           <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">10 — Reunião</div>
           <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.02em] uppercase leading-[0.95]">
-            O que acontece na <span className="italic">Reunião</span> de Alinhamento?
+            O que acontece na <span className="text-[#ee4f27]">Reunião</span> de Alinhamento?
           </h2>
           <div className="mt-10 flex gap-3">
             <span className="text-[11px] tracking-[0.3em] uppercase text-white border border-white/15 px-4 py-2">
@@ -728,7 +728,7 @@ function FAQ() {
       <div className="mx-auto max-w-[1100px] px-6 lg:px-10">
         <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">11 — FAQ</div>
         <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.02em] uppercase leading-[0.95] mb-16">
-          Perguntas <span className="italic">Frequentes</span>.
+          Perguntas <span className="text-[#ee4f27]">Frequentes</span>.
         </h2>
 
         <div className="border-t border-white/10">
