@@ -195,6 +195,14 @@ function Reputation() {
 function Problem() {
   return (
     <section className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5 overflow-hidden">
+      <img
+        src={conceptClarity}
+        alt=""
+        aria-hidden
+        loading="lazy"
+        className="pointer-events-none select-none absolute inset-0 w-full h-full object-cover opacity-[0.12]"
+      />
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#0e0918]/70" />
       <div
         aria-hidden
         className="absolute -left-40 top-1/3 w-[600px] h-[600px] rounded-full bg-[#ee4f27]/10 blur-[180px]"
@@ -213,23 +221,6 @@ function Problem() {
           <span className="text-white">confiança, autoridade e diferenciais</span> antes mesmo do
           primeiro contato.
         </p>
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative mt-20 aspect-[16/7] overflow-hidden rounded-sm border border-white/10"
-        >
-          <img
-            src={conceptClarity}
-            alt="Clareza emergindo no ruído"
-            loading="lazy"
-            width={1920}
-            height={1080}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0e0918] via-transparent to-[#0e0918]/40" />
-        </motion.div>
       </div>
     </section>
   )
