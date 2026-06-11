@@ -972,10 +972,7 @@ function Footer() {
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-6 text-[10px] tracking-[0.3em] uppercase text-white/40">
         <div className="flex items-center gap-3">
           <img src={totumLogo} alt="Totum" width={28} height={28} className="h-7 w-auto object-contain opacity-90" />
-          <div className="flex flex-col leading-none gap-1">
-            <span className="text-white/70">Atelier <span className="text-[#ee4f27]">Rosso</span></span>
-            <span className="text-white/35">by Totum · © {new Date().getFullYear()}</span>
-          </div>
+          <span className="text-white/50">© {new Date().getFullYear()}</span>
         </div>
         <div>Estratégia · Posicionamento · Landing Pages</div>
         <div>Feito com método.</div>
