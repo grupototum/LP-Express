@@ -46,7 +46,7 @@ export function ExpressFlow() {
           </motion.div>
 
           {/* Right grid */}
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 gap-4 auto-rows-fr">
             {steps.map((s, i) => (
               <motion.div
                 key={i}
