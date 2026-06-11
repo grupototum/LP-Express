@@ -20,8 +20,8 @@ export default {
       fontFamily: {
         geomanist: ['geomanist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         'geomanist-book': ['geomanist-book', 'geomanist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        sans: ['"Neue Haas Grotesk"', '"Helvetica Neue"', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        display: ['"Bodoni Moda"', '"Didot"', '"Playfair Display"', 'Georgia', 'serif'],
+        sans: ['geomanist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['geomanist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
         surface: 'var(--surface)',

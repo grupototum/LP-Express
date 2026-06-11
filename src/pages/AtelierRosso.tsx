@@ -4,7 +4,7 @@ import heroImg from '@/assets/atelier-hero.jpg'
 
 /* ============================================================
    Atelier Rosso — Estratégia · Posicionamento · Landing Pages
-   Tokens: --rosso #da291c · --canvas #0a0a0a
+   Tokens: --rosso #ee4f27 · --canvas #0e0918
    ============================================================ */
 
 const NAV_LINKS = [
@@ -26,14 +26,14 @@ function Nav() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled ? 'bg-[#0a0a0a]/85 backdrop-blur-xl border-b border-white/5' : 'bg-transparent'
+        scrolled ? 'bg-[#0e0918]/85 backdrop-blur-xl border-b border-white/5' : 'bg-transparent'
       }`}
     >
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10 h-16 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2 group">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#da291c] shadow-[0_0_18px_#da291c]" />
+          <span className="w-2.5 h-2.5 rounded-full bg-[#ee4f27] shadow-[0_0_18px_#ee4f27]" />
           <span className="font-display text-[15px] tracking-[0.22em] uppercase text-white">
-            Atelier <span className="text-[#da291c]">Rosso</span>
+            Atelier <span className="text-[#ee4f27]">Rosso</span>
           </span>
         </a>
         <nav className="hidden md:flex items-center gap-8 text-[12px] tracking-[0.2em] uppercase text-white/70">
@@ -45,7 +45,7 @@ function Nav() {
         </nav>
         <a
           href="#agendar"
-          className="hidden md:inline-flex items-center gap-2 text-[12px] tracking-[0.22em] uppercase text-white border border-white/15 hover:border-[#da291c] hover:text-[#da291c] px-4 py-2.5 transition-colors"
+          className="hidden md:inline-flex items-center gap-2 text-[13px] text-white bg-[#ee4f27] hover:bg-[#ff0c00] rounded-full px-5 py-2.5 transition-all duration-300 hover:shadow-[0_7px_40px_-12px_#ee4f27]"
         >
           Agendar Reunião
           <span aria-hidden>→</span>
@@ -61,7 +61,7 @@ function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], [0, 180])
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0])
   return (
-    <section ref={ref} id="top" className="relative h-[100svh] min-h-[680px] overflow-hidden bg-[#0a0a0a]">
+    <section ref={ref} id="top" className="relative h-[100svh] min-h-[680px] overflow-hidden bg-[#0e0918]">
       <motion.div style={{ y }} className="absolute inset-0">
         <img
           src={heroImg}
@@ -70,8 +70,8 @@ function Hero() {
           width={1920}
           height={1080}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0e0918] via-[#0e0918]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0e0918] via-transparent to-[#0e0918]/40" />
       </motion.div>
 
       <motion.div
@@ -84,7 +84,7 @@ function Hero() {
           transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
           className="flex items-center gap-3 text-[11px] tracking-[0.32em] uppercase text-white/60 mb-8"
         >
-          <span className="w-10 h-px bg-[#da291c]" />
+          <span className="w-10 h-px bg-[#ee4f27]" />
           Estratégia · Posicionamento · Landing Pages
         </motion.div>
         <motion.h1
@@ -93,7 +93,7 @@ function Hero() {
           transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="font-display text-white text-[12vw] sm:text-[10vw] lg:text-[7.4vw] leading-[0.9] tracking-[-0.025em] uppercase max-w-[18ch]"
         >
-          Sua empresa está sendo escolhida pelo motivo <span className="italic text-[#da291c]">certo</span>?
+          Sua empresa está sendo escolhida pelo motivo <span className="text-[#ee4f27]">certo</span>?
         </motion.h1>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -107,7 +107,7 @@ function Hero() {
           </p>
           <a
             href="#agendar"
-            className="group inline-flex items-center gap-3 text-[12px] tracking-[0.28em] uppercase text-white bg-[#da291c] hover:bg-[#b51e14] px-6 py-4 transition-colors w-fit shadow-[0_0_40px_rgba(218,41,28,0.35)]"
+            className="group inline-flex items-center gap-3 text-[14px] tracking-[0.05em] text-white bg-[#ee4f27] hover:bg-[#ff0c00] rounded-full px-6 py-3 transition-all duration-300 w-fit hover:shadow-[0_7px_80px_-12px_#ee4f27]"
           >
             Agendar Reunião
             <span className="inline-block group-hover:translate-x-1 transition-transform">→</span>
@@ -133,12 +133,12 @@ const REP_ITEMS = [
 
 function Reputation() {
   return (
-    <section className="relative bg-[#0a0a0a] py-28 lg:py-40 border-t border-white/5">
+    <section className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-[#da291c] mb-5">01 — Reputação</div>
+          <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">01 — Reputação</div>
           <h2 className="font-display text-white text-4xl lg:text-6xl leading-[0.95] tracking-[-0.02em] uppercase">
-            Você já construiu uma boa <span className="italic">reputação</span>.
+            Você já construiu uma boa <span className="text-[#ee4f27]">reputação</span>.
           </h2>
         </div>
         <div className="lg:col-span-6 lg:col-start-7 self-end">
@@ -152,17 +152,17 @@ function Reputation() {
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 className="flex items-center gap-4 text-white/85 text-lg lg:text-xl border-b border-white/10 pb-5"
               >
-                <span className="w-2 h-2 rounded-full bg-[#da291c]" />
+                <span className="w-2 h-2 rounded-full bg-[#ee4f27]" />
                 {it}
               </motion.li>
             ))}
           </ul>
-          <p className="text-white/60 text-base lg:text-lg leading-relaxed italic font-display">
+          <p className="text-white/60 text-base lg:text-lg leading-relaxed font-display">
             Mas existe uma pergunta importante…
           </p>
           <p className="mt-6 text-white text-2xl lg:text-3xl font-display leading-[1.15] tracking-[-0.01em]">
             Quando alguém encontra sua empresa pela primeira vez, ela percebe o mesmo valor que seus
-            clientes já <span className="text-[#da291c] italic">conhecem</span>?
+            clientes já <span className="text-[#ee4f27]">conhecem</span>?
           </p>
         </div>
       </div>
@@ -174,13 +174,13 @@ function Reputation() {
 
 function Problem() {
   return (
-    <section className="relative bg-[#0a0a0a] py-28 lg:py-40 border-t border-white/5 overflow-hidden">
+    <section className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5 overflow-hidden">
       <div
         aria-hidden
-        className="absolute -left-40 top-1/3 w-[600px] h-[600px] rounded-full bg-[#da291c]/10 blur-[180px]"
+        className="absolute -left-40 top-1/3 w-[600px] h-[600px] rounded-full bg-[#ee4f27]/10 blur-[180px]"
       />
       <div className="relative mx-auto max-w-[1100px] px-6 lg:px-10 text-center">
-        <div className="text-[11px] tracking-[0.3em] uppercase text-[#da291c] mb-6">02 — O Problema</div>
+        <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-6">02 — O Problema</div>
         <h2 className="font-display text-white text-4xl lg:text-6xl leading-[1.05] tracking-[-0.02em]">
           Muitas empresas fazem um excelente trabalho. <br />
           <span className="text-white/45">
@@ -209,12 +209,12 @@ const METHOD_ITEMS = [
 
 function Method() {
   return (
-    <section id="metodo" className="relative bg-[#0a0a0a] py-28 lg:py-40 border-t border-white/5">
+    <section id="metodo" className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-[#da291c] mb-5">03 — Método</div>
+          <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">03 — Método</div>
           <h2 className="font-display text-white text-5xl lg:text-7xl leading-[0.95] tracking-[-0.02em] uppercase">
-            Não <span className="italic">começamos</span> criando páginas.
+            Não <span className="text-[#ee4f27]">começamos</span> criando páginas.
           </h2>
           <p className="mt-8 text-white/70 text-lg leading-relaxed">
             Começamos entendendo o que torna sua empresa diferente. A partir disso, construímos uma
@@ -227,9 +227,9 @@ function Method() {
             {METHOD_ITEMS.map((it, i) => (
               <div
                 key={it}
-                className="bg-[#0a0a0a] p-8 lg:p-10 group hover:bg-white/[0.03] transition-colors"
+                className="bg-[#0e0918] p-8 lg:p-10 group hover:bg-white/[0.03] transition-colors"
               >
-                <div className="font-display text-[#da291c] text-xs tracking-[0.3em] mb-6">
+                <div className="font-display text-[#ee4f27] text-xs tracking-[0.3em] mb-6">
                   0{i + 1}
                 </div>
                 <p className="text-white text-lg lg:text-xl font-display leading-[1.2] tracking-[-0.01em]">
@@ -276,14 +276,14 @@ const STEPS = [
 
 function Process() {
   return (
-    <section id="processo" className="relative bg-[#0a0a0a] py-28 lg:py-40 border-t border-white/5">
+    <section id="processo" className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
           <div>
-            <div className="text-[11px] tracking-[0.3em] uppercase text-[#da291c] mb-5">04 — Como Funciona</div>
+            <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">04 — Como Funciona</div>
             <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.02em] uppercase leading-[0.95]">
               Cinco passos. <br />
-              <span className="italic">Zero improviso.</span>
+              <span className="text-[#ee4f27]">Zero improviso.</span>
             </h2>
           </div>
           <p className="text-white/60 text-sm tracking-[0.18em] uppercase max-w-xs">
@@ -301,9 +301,9 @@ function Process() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.7, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                className="group grid grid-cols-[80px_1fr] lg:grid-cols-[120px_1fr_1.5fr] gap-6 lg:gap-12 bg-[#0a0a0a] p-6 lg:p-10 hover:bg-white/[0.03] transition-colors items-center"
+                className="group grid grid-cols-[80px_1fr] lg:grid-cols-[120px_1fr_1.5fr] gap-6 lg:gap-12 bg-[#0e0918] p-6 lg:p-10 hover:bg-white/[0.03] transition-colors items-center"
               >
-                <div className="font-display text-[#da291c] text-3xl lg:text-5xl tracking-[-0.02em]">
+                <div className="font-display text-[#ee4f27] text-3xl lg:text-5xl tracking-[-0.02em]">
                   {s.n}
                 </div>
                 <h3 className="font-display text-white text-xl lg:text-3xl tracking-[-0.01em] uppercase leading-tight">
@@ -325,17 +325,17 @@ function Process() {
 
 function Difference() {
   return (
-    <section className="relative bg-[#0a0a0a] py-28 lg:py-44 border-t border-white/5 overflow-hidden">
+    <section className="relative bg-[#0e0918] py-28 lg:py-44 border-t border-white/5 overflow-hidden">
       <div
         aria-hidden
-        className="absolute -right-40 top-0 w-[600px] h-[600px] rounded-full bg-[#da291c]/10 blur-[180px]"
+        className="absolute -right-40 top-0 w-[600px] h-[600px] rounded-full bg-[#ee4f27]/10 blur-[180px]"
       />
       <div className="relative mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-7">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-[#da291c] mb-5">05 — Diferencial</div>
+          <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">05 — Diferencial</div>
           <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.025em] uppercase leading-[0.92]">
             A maioria vende páginas. <br />
-            <span className="italic text-[#da291c]">Nós vendemos crescimento.</span>
+            <span className="text-[#ee4f27]">Nós vendemos crescimento.</span>
           </h2>
         </div>
         <div className="lg:col-span-5 space-y-6 text-white/75 text-lg leading-relaxed">
@@ -367,13 +367,13 @@ const LP_BENEFITS = [
 
 function Benefits() {
   return (
-    <section className="relative bg-[#0a0a0a] py-28 lg:py-40 border-t border-white/5">
+    <section className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
         <div className="grid lg:grid-cols-12 gap-10 mb-16">
           <div className="lg:col-span-5">
-            <div className="text-[11px] tracking-[0.3em] uppercase text-[#da291c] mb-5">06 — Resultados</div>
+            <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">06 — Resultados</div>
             <h2 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.02em] uppercase leading-[0.95]">
-              O que sua Landing Page pode fazer por <span className="italic">você</span>.
+              O que sua Landing Page pode fazer por <span className="text-[#ee4f27]">você</span>.
             </h2>
           </div>
         </div>
@@ -392,7 +392,7 @@ function Benefits() {
                 <span className="font-display text-white/30 text-xs tracking-[0.3em]">
                   0{i + 1}
                 </span>
-                <span className="w-8 h-px bg-[#da291c] group-hover:w-16 transition-all duration-500" />
+                <span className="w-8 h-px bg-[#ee4f27] group-hover:w-16 transition-all duration-500" />
               </div>
               <p className="font-display text-white text-xl lg:text-2xl leading-[1.2] tracking-[-0.01em]">
                 {b}
@@ -419,18 +419,18 @@ const AUDIENCE = [
 
 function Audience() {
   return (
-    <section className="relative bg-[#0a0a0a] py-28 lg:py-36 border-t border-white/5 overflow-hidden">
+    <section className="relative bg-[#0e0918] py-28 lg:py-36 border-t border-white/5 overflow-hidden">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10 mb-14">
-        <div className="text-[11px] tracking-[0.3em] uppercase text-[#da291c] mb-5">07 — Para Quem</div>
+        <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">07 — Para Quem</div>
         <h2 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.02em] uppercase leading-[0.95] max-w-3xl">
           Para negócios que já têm reputação e querem{' '}
-          <span className="italic text-[#da291c]">mais oportunidades</span>.
+          <span className="text-[#ee4f27]">mais oportunidades</span>.
         </h2>
       </div>
 
       <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-[#0e0918] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-[#0e0918] to-transparent z-10 pointer-events-none" />
         <div className="flex overflow-hidden">
           <motion.div
             animate={{ x: ['0%', '-50%'] }}
@@ -469,12 +469,12 @@ const INCLUDED = [
 
 function Included() {
   return (
-    <section id="incluso" className="relative bg-[#0a0a0a] py-28 lg:py-40 border-t border-white/5">
+    <section id="incluso" className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-[#da291c] mb-5">08 — Incluso</div>
+          <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">08 — Incluso</div>
           <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.02em] uppercase leading-[0.95]">
-            Tudo o que <span className="italic">está</span> incluso.
+            Tudo o que <span className="text-[#ee4f27]">está</span> incluso.
           </h2>
           <p className="mt-8 text-white/65 text-lg leading-relaxed">
             Um pacote completo, da estratégia à publicação. Sem surpresas, sem cobrança extra de
@@ -492,7 +492,7 @@ function Included() {
                 transition={{ duration: 0.5, delay: i * 0.04 }}
                 className="flex items-start gap-4 py-5 border-b border-white/10 text-white/85"
               >
-                <span className="font-display text-[#da291c] text-xs tracking-[0.25em] pt-1.5 shrink-0">
+                <span className="font-display text-[#ee4f27] text-xs tracking-[0.25em] pt-1.5 shrink-0">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <span className="text-base lg:text-lg">{it}</span>
@@ -572,14 +572,14 @@ function WhatsCard({ t }: { t: (typeof TESTIMONIALS)[number] }) {
   return (
     <div className="shrink-0 w-[320px] sm:w-[360px] bg-[#0b141a] border border-white/10 rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.6)]">
       <div className="flex items-center gap-3 px-4 py-3 bg-[#1f2c33] border-b border-black/30">
-        <div className="w-9 h-9 rounded-full bg-[#da291c]/90 flex items-center justify-center text-white text-xs font-semibold tracking-wider">
+        <div className="w-9 h-9 rounded-full bg-[#ee4f27]/90 flex items-center justify-center text-white text-xs font-semibold tracking-wider">
           {t.initials}
         </div>
         <div className="flex-1 min-w-0">
           <div className="text-white text-sm truncate">{t.name}</div>
           <div className="text-white/40 text-[10px] tracking-wider uppercase">online</div>
         </div>
-        <span className="text-[9px] tracking-[0.22em] uppercase text-[#da291c] border border-[#da291c]/40 px-2 py-1 rounded">
+        <span className="text-[9px] tracking-[0.22em] uppercase text-[#ee4f27] border border-[#ee4f27]/40 px-2 py-1 rounded">
           {t.badge}
         </span>
       </div>
@@ -587,7 +587,7 @@ function WhatsCard({ t }: { t: (typeof TESTIMONIALS)[number] }) {
         className="p-4 space-y-2 min-h-[200px]"
         style={{
           backgroundImage:
-            'radial-gradient(circle at 10% 10%, rgba(218,41,28,0.05), transparent 40%), radial-gradient(circle at 90% 80%, rgba(255,255,255,0.02), transparent 50%)',
+            'radial-gradient(circle at 10% 10%, rgba(238,79,39,0.05), transparent 40%), radial-gradient(circle at 90% 80%, rgba(255,255,255,0.02), transparent 50%)',
         }}
       >
         {t.messages.map((m, i) => (
@@ -614,13 +614,13 @@ function WhatsCard({ t }: { t: (typeof TESTIMONIALS)[number] }) {
 
 function Testimonials() {
   return (
-    <section id="depoimentos" className="relative bg-[#0a0a0a] py-28 lg:py-40 border-t border-white/5 overflow-hidden">
+    <section id="depoimentos" className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5 overflow-hidden">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10 mb-14">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
           <div>
-            <div className="text-[11px] tracking-[0.3em] uppercase text-[#da291c] mb-5">09 — Depoimentos</div>
+            <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">09 — Depoimentos</div>
             <h2 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.02em] uppercase leading-[0.95] max-w-2xl">
-              O que nossos clientes <span className="italic">costumam dizer</span>.
+              O que nossos clientes <span className="text-[#ee4f27]">costumam dizer</span>.
             </h2>
           </div>
           <p className="text-white/50 text-xs tracking-[0.22em] uppercase max-w-xs">
@@ -630,8 +630,8 @@ function Testimonials() {
       </div>
 
       <div className="relative">
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0e0918] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0e0918] to-transparent z-10 pointer-events-none" />
         <div className="flex overflow-hidden py-4">
           <motion.div
             animate={{ x: ['0%', '-50%'] }}
@@ -660,18 +660,18 @@ const MEETING_ITEMS = [
 
 function Meeting() {
   return (
-    <section className="relative bg-[#0a0a0a] py-28 lg:py-40 border-t border-white/5">
+    <section className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-[#da291c] mb-5">10 — Reunião</div>
+          <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">10 — Reunião</div>
           <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.02em] uppercase leading-[0.95]">
-            O que acontece na <span className="italic">Reunião</span> de Alinhamento?
+            O que acontece na <span className="text-[#ee4f27]">Reunião</span> de Alinhamento?
           </h2>
           <div className="mt-10 flex gap-3">
             <span className="text-[11px] tracking-[0.3em] uppercase text-white border border-white/15 px-4 py-2">
               Sem pressão
             </span>
-            <span className="text-[11px] tracking-[0.3em] uppercase text-white border border-[#da291c] text-[#da291c] px-4 py-2">
+            <span className="text-[11px] tracking-[0.3em] uppercase text-white border border-[#ee4f27] text-[#ee4f27] px-4 py-2">
               Sem compromisso
             </span>
           </div>
@@ -682,9 +682,9 @@ function Meeting() {
             {MEETING_ITEMS.map((it, i) => (
               <li
                 key={it}
-                className="bg-[#0a0a0a] p-6 lg:p-7 flex items-center gap-6 hover:bg-white/[0.03] transition-colors"
+                className="bg-[#0e0918] p-6 lg:p-7 flex items-center gap-6 hover:bg-white/[0.03] transition-colors"
               >
-                <span className="font-display text-[#da291c] text-2xl tracking-[-0.01em]">
+                <span className="font-display text-[#ee4f27] text-2xl tracking-[-0.01em]">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <span className="text-white text-lg lg:text-xl">{it}</span>
@@ -724,11 +724,11 @@ const FAQS = [
 function FAQ() {
   const [open, setOpen] = useState<number | null>(0)
   return (
-    <section id="faq" className="relative bg-[#0a0a0a] py-28 lg:py-40 border-t border-white/5">
+    <section id="faq" className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
       <div className="mx-auto max-w-[1100px] px-6 lg:px-10">
-        <div className="text-[11px] tracking-[0.3em] uppercase text-[#da291c] mb-5">11 — FAQ</div>
+        <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">11 — FAQ</div>
         <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.02em] uppercase leading-[0.95] mb-16">
-          Perguntas <span className="italic">Frequentes</span>.
+          Perguntas <span className="text-[#ee4f27]">Frequentes</span>.
         </h2>
 
         <div className="border-t border-white/10">
@@ -741,12 +741,12 @@ function FAQ() {
                   onClick={() => setOpen(isOpen ? null : i)}
                   className="w-full flex items-center justify-between gap-6 py-7 text-left group"
                 >
-                  <span className="font-display text-white text-xl lg:text-3xl tracking-[-0.01em] leading-tight group-hover:text-[#da291c] transition-colors">
+                  <span className="font-display text-white text-xl lg:text-3xl tracking-[-0.01em] leading-tight group-hover:text-[#ee4f27] transition-colors">
                     {f.q}
                   </span>
                   <span
-                    className={`shrink-0 w-10 h-10 border border-white/20 group-hover:border-[#da291c] flex items-center justify-center text-white text-xl transition-all duration-500 ${
-                      isOpen ? 'rotate-45 bg-[#da291c] border-[#da291c]' : ''
+                    className={`shrink-0 w-10 h-10 border border-white/20 group-hover:border-[#ee4f27] flex items-center justify-center text-white text-xl transition-all duration-500 ${
+                      isOpen ? 'rotate-45 bg-[#ee4f27] border-[#ee4f27]' : ''
                     }`}
                   >
                     +
@@ -782,20 +782,20 @@ function FinalCTA() {
   return (
     <section
       id="agendar"
-      className="relative bg-[#0a0a0a] py-32 lg:py-48 border-t border-white/5 overflow-hidden"
+      className="relative bg-[#0e0918] py-32 lg:py-48 border-t border-white/5 overflow-hidden"
     >
       <div
         aria-hidden
-        className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full bg-[#da291c]/15 blur-[180px]"
+        className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full bg-[#ee4f27]/15 blur-[180px]"
       />
       <div
         aria-hidden
-        className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-[#da291c]/10 blur-[160px]"
+        className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-[#ee4f27]/10 blur-[160px]"
       />
       <div className="relative mx-auto max-w-[1100px] px-6 lg:px-10 text-center">
-        <div className="text-[11px] tracking-[0.3em] uppercase text-[#da291c] mb-6">12 — Próximo Passo</div>
+        <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-6">12 — Próximo Passo</div>
         <h2 className="font-display text-white text-[12vw] sm:text-[9vw] lg:text-[6.5vw] leading-[0.9] tracking-[-0.03em] uppercase">
-          Sua empresa já construiu uma <span className="italic text-[#da291c]">reputação</span>.
+          Sua empresa já construiu uma <span className="text-[#ee4f27]">reputação</span>.
         </h2>
         <p className="mt-10 text-white/75 text-lg lg:text-2xl leading-relaxed font-display max-w-3xl mx-auto">
           Agora é hora de garantir que ela seja percebida por quem ainda não conhece você.
@@ -806,7 +806,7 @@ function FinalCTA() {
             href="https://wa.me/5500000000000?text=Quero%20agendar%20uma%20Reuni%C3%A3o%20de%20Alinhamento%20Estrat%C3%A9gico"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-4 bg-[#da291c] hover:bg-[#b51e14] text-white text-[13px] lg:text-sm tracking-[0.3em] uppercase px-10 lg:px-14 py-5 lg:py-6 transition-colors shadow-[0_0_60px_rgba(218,41,28,0.4)]"
+            className="group inline-flex items-center gap-4 bg-[#ee4f27] hover:bg-[#ff0c00] text-white text-[15px] lg:text-base tracking-[0.05em] rounded-full px-10 lg:px-14 py-4 lg:py-5 transition-all duration-300 hover:shadow-[0_7px_80px_-12px_#ee4f27]"
           >
             Agendar Reunião de Alinhamento
             <span className="inline-block group-hover:translate-x-1 transition-transform text-lg">
@@ -824,10 +824,10 @@ function FinalCTA() {
 
 function Footer() {
   return (
-    <footer className="bg-[#0a0a0a] border-t border-white/5 py-10">
+    <footer className="bg-[#0e0918] border-t border-white/5 py-10">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10 flex flex-col md:flex-row items-center justify-between gap-4 text-[10px] tracking-[0.3em] uppercase text-white/40">
         <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#da291c]" />
+          <span className="w-1.5 h-1.5 rounded-full bg-[#ee4f27]" />
           Atelier Rosso © {new Date().getFullYear()}
         </div>
         <div>Estratégia · Posicionamento · Landing Pages</div>
@@ -845,7 +845,7 @@ export default function AtelierRosso() {
     }
   }, [])
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden font-sans antialiased selection:bg-[#da291c] selection:text-white">
+    <div className="min-h-screen bg-[#0e0918] text-white overflow-x-hidden font-sans antialiased selection:bg-[#ee4f27] selection:text-white">
       <Nav />
       <main>
         <Hero />
