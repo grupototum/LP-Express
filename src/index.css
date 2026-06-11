@@ -19,11 +19,20 @@
   --warm-rust: #432d33;
   --cool-graphite: #191422;
 
-  /* Brand — n8n Fire Orange */
-  --brand-red: #c8102e;          /* primary brand (legacy alias name kept) */
-  --brand-red-bright: #fd8925;   /* gradient start */
-  --brand-red-vibrant: #a00d24;  /* gradient end / hover */
-  --brand-red-light: #ff9b26;    /* warm amber accent */
+  /* Brand — Atelier Rosso (vermelho premium) */
+  --brand-red: #c8102e;
+  --brand-red-bright: #e63946;
+  --brand-red-vibrant: #a00d24;
+  --brand-red-light: #f25c6e;
+
+  /* Rosso palette — semantic tokens (troque aqui p/ retematizar) */
+  --rosso: #c8102e;              /* primary — CTAs, links, ícones, badges */
+  --rosso-accent: #a00d24;       /* hover / pressed */
+  --rosso-deep: #7a0a1c;         /* shadow / borda intensa */
+  --rosso-soft: #e63946;         /* destaques claros, gradiente */
+  --rosso-muted: #c8102e1a;      /* fundos suaves (10% alpha) */
+  --rosso-border: #c8102e66;     /* bordas (40% alpha) */
+  --rosso-glow-rgb: 200, 16, 46; /* uso em rgba(var(--rosso-glow-rgb)/.X) */
 
   /* Secondary / Tertiary */
   --brand-blue: #077ac7;

@@ -109,11 +109,11 @@ function Portfolio() {
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 mb-20 lg:mb-24 items-end">
           <div className="lg:col-span-8">
             <div className="flex items-center gap-4 mb-8">
-              <span className="block w-12 h-px bg-[#c8102e]" />
-              <span className="text-[10px] tracking-[0.4em] uppercase text-[#c8102e] font-medium">Portfólio Selecionado</span>
+              <span className="block w-12 h-px bg-rosso" />
+              <span className="text-[10px] tracking-[0.4em] uppercase text-rosso font-medium">Portfólio Selecionado</span>
             </div>
             <h2 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.025em] uppercase leading-[0.95]">
-              Páginas que <span className="text-[#c8102e]">vendem</span>.
+              Páginas que <span className="text-rosso">vendem</span>.
             </h2>
           </div>
           <div className="lg:col-span-4">
@@ -134,7 +134,7 @@ function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.7, delay: (i % 2) * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="group relative overflow-hidden rounded-[20px] bg-[#15101f] text-left border border-white/[0.06] hover:border-[#c8102e]/40 transition-all duration-500 hover:shadow-[0_30px_80px_-20px_rgba(200,16,46,0.25)]"
+              className="group relative overflow-hidden rounded-[20px] bg-[#15101f] text-left border border-white/[0.06] hover:border-rosso/40 transition-all duration-500 hover:shadow-[0_30px_80px_-20px_rgba(200,16,46,0.25)]"
             >
               {/* Imagem — proporção mais cinematográfica */}
               <div className="relative aspect-[4/5] overflow-hidden bg-[#0e0918]">
@@ -147,7 +147,7 @@ function Portfolio() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#15101f] via-[#15101f]/20 to-transparent" />
 
                 {/* Badge lupa — CTA evidente ao hover */}
-                <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-[#c8102e] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-400 shadow-xl shadow-[#c8102e]/30">
+                <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-rosso text-white flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-400 shadow-xl shadow-rosso/30">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="11" cy="11" r="7" />
                     <line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -164,11 +164,11 @@ function Portfolio() {
 
               {/* Conteúdo — 8pt grid, hierarquia clara, respiro luxuoso */}
               <div className="relative p-8 lg:p-10">
-                <div className="text-[10px] tracking-[0.35em] uppercase text-[#c8102e]/80 mb-4 font-medium">{item.tag}</div>
+                <div className="text-[10px] tracking-[0.35em] uppercase text-rosso/80 mb-4 font-medium">{item.tag}</div>
                 <h3 className="font-display text-white text-2xl lg:text-[28px] tracking-[-0.015em] leading-[1.1] mb-4">{item.title}</h3>
                 <p className="text-white/50 text-[14px] leading-[1.7] font-light mb-8">{item.description}</p>
 
-                <div className="flex items-center gap-3 text-[11px] tracking-[0.3em] uppercase text-white/70 group-hover:text-[#c8102e] transition-colors duration-300 font-medium">
+                <div className="flex items-center gap-3 text-[11px] tracking-[0.3em] uppercase text-white/70 group-hover:text-rosso transition-colors duration-300 font-medium">
                   <span>Ver projeto</span>
                   <span className="block w-8 h-px bg-current transition-all duration-300 group-hover:w-12" />
                 </div>
@@ -222,7 +222,7 @@ function Portfolio() {
                 <span className="text-xs text-white/60 w-12 text-center tabular-nums">{Math.round(zoom * 100)}%</span>
                 <button
                   onClick={() => setZoom((z) => Math.min(4, +(z + 0.5).toFixed(2)))}
-                  className="w-10 h-10 rounded-full bg-[#c8102e] hover:bg-[#a00d24] transition-colors flex items-center justify-center"
+                  className="w-10 h-10 rounded-full bg-rosso hover:bg-rosso-accent transition-colors flex items-center justify-center"
                   aria-label="Aumentar zoom"
                 >+</button>
                 <span className="w-px h-6 bg-white/10 mx-1" />
@@ -300,7 +300,7 @@ function Portfolio() {
                     exit={{ opacity: 0, y: -6 }}
                     transition={{ duration: 0.25 }}
                   >
-                    <div className="text-[10px] tracking-[0.3em] uppercase text-[#c8102e] mb-1">{active.tag}</div>
+                    <div className="text-[10px] tracking-[0.3em] uppercase text-rosso mb-1">{active.tag}</div>
                     <div className="font-display text-lg lg:text-xl tracking-[-0.01em] mb-1">{active.title}</div>
                     <p className="text-white/60 text-sm leading-relaxed">{active.description}</p>
                   </motion.div>
@@ -363,7 +363,7 @@ function Nav() {
         </nav>
         <a
           href="#agendar"
-          className="hidden md:inline-flex items-center gap-2 text-[13px] text-white bg-[#c8102e] hover:bg-[#a00d24] rounded-full px-5 py-2.5 transition-all duration-300 hover:shadow-[0_7px_40px_-12px_#c8102e]"
+          className="hidden md:inline-flex items-center gap-2 text-[13px] text-white bg-rosso hover:bg-rosso-accent rounded-full px-5 py-2.5 transition-all duration-300 hover:shadow-[0_7px_40px_-12px_#c8102e]"
         >
           Agendar Reunião
           <span aria-hidden>→</span>
@@ -406,7 +406,7 @@ function Hero() {
           transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
           className="flex items-center gap-3 text-[11px] tracking-[0.32em] uppercase text-white/60 mb-8"
         >
-          <span className="w-10 h-px bg-[#c8102e]" />
+          <span className="w-10 h-px bg-rosso" />
           Estratégia · Posicionamento · Landing Pages
         </motion.div>
         <motion.h1
@@ -415,7 +415,7 @@ function Hero() {
           transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="font-display text-white text-[12vw] sm:text-[10vw] lg:text-[7.4vw] leading-[0.9] tracking-[-0.025em] uppercase max-w-[18ch]"
         >
-          Sua empresa está sendo escolhida pelo motivo <span className="text-[#c8102e]">certo</span>?
+          Sua empresa está sendo escolhida pelo motivo <span className="text-rosso">certo</span>?
         </motion.h1>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -429,7 +429,7 @@ function Hero() {
           </p>
           <a
             href="#agendar"
-            className="group inline-flex items-center gap-3 text-[14px] tracking-[0.05em] text-white bg-[#c8102e] hover:bg-[#a00d24] rounded-full px-6 py-3 transition-all duration-300 w-fit hover:shadow-[0_7px_80px_-12px_#c8102e]"
+            className="group inline-flex items-center gap-3 text-[14px] tracking-[0.05em] text-white bg-rosso hover:bg-rosso-accent rounded-full px-6 py-3 transition-all duration-300 w-fit hover:shadow-[0_7px_80px_-12px_#c8102e]"
           >
             Agendar Reunião
             <span className="inline-block group-hover:translate-x-1 transition-transform">→</span>
@@ -466,9 +466,9 @@ function Reputation() {
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0e0918] via-[#0e0918]/85 to-[#0e0918]/70" />
       <div className="relative mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-[#c8102e] mb-5">01 — Reputação</div>
+          <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">01 — Reputação</div>
           <h2 className="font-display text-white text-4xl lg:text-6xl leading-[0.95] tracking-[-0.02em] uppercase">
-            Você já construiu uma boa <span className="text-[#c8102e]">reputação</span>.
+            Você já construiu uma boa <span className="text-rosso">reputação</span>.
           </h2>
         </div>
         <div className="lg:col-span-6 lg:col-start-7 self-end">
@@ -482,7 +482,7 @@ function Reputation() {
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 className="flex items-center gap-4 text-white/85 text-lg lg:text-xl border-b border-white/10 pb-5"
               >
-                <span className="w-2 h-2 rounded-full bg-[#c8102e]" />
+                <span className="w-2 h-2 rounded-full bg-rosso" />
                 {it}
               </motion.li>
             ))}
@@ -492,7 +492,7 @@ function Reputation() {
           </p>
           <p className="mt-6 text-white text-2xl lg:text-3xl font-display leading-[1.15] tracking-[-0.01em]">
             Quando alguém encontra sua empresa pela primeira vez, ela percebe o mesmo valor que seus
-            clientes já <span className="text-[#c8102e]">conhecem</span>?
+            clientes já <span className="text-rosso">conhecem</span>?
           </p>
         </div>
       </div>
@@ -504,7 +504,7 @@ function Reputation() {
 
 function Problem() {
   return (
-    <section className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5 overflow-hidden">
+    <section className="relative bg-[#0e0918] pt-4 pb-28 lg:pb-40 overflow-hidden">
       <img
         src={conceptClarity}
         alt=""
@@ -515,10 +515,10 @@ function Problem() {
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-[#0e0918]/70" />
       <div
         aria-hidden
-        className="absolute -left-40 top-1/3 w-[600px] h-[600px] rounded-full bg-[#c8102e]/10 blur-[180px]"
+        className="absolute -left-40 top-1/3 w-[600px] h-[600px] rounded-full bg-rosso/10 blur-[180px]"
       />
       <div className="relative mx-auto max-w-[1100px] px-6 lg:px-10 text-center">
-        <div className="text-[11px] tracking-[0.3em] uppercase text-[#c8102e] mb-6">02 — O Problema</div>
+        <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-6">02 — O Problema</div>
         <h2 className="font-display text-white text-4xl lg:text-6xl leading-[1.05] tracking-[-0.02em]">
           Muitas empresas fazem um excelente trabalho. <br />
           <span className="text-white/45">
@@ -558,9 +558,9 @@ function Method() {
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-l from-[#0e0918] via-[#0e0918]/80 to-[#0e0918]/60" />
       <div className="relative mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-[#c8102e] mb-5">03 — Método</div>
+          <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">03 — Método</div>
           <h2 className="font-display text-white text-5xl lg:text-7xl leading-[0.95] tracking-[-0.02em] uppercase">
-            Não <span className="text-[#c8102e]">começamos</span> criando páginas.
+            Não <span className="text-rosso">começamos</span> criando páginas.
           </h2>
           <p className="mt-8 text-white/70 text-lg leading-relaxed">
             Começamos entendendo o que torna sua empresa diferente. A partir disso, construímos uma
@@ -575,7 +575,7 @@ function Method() {
                 key={it}
                 className="bg-[#0e0918] p-8 lg:p-10 group hover:bg-white/[0.03] transition-colors"
               >
-                <div className="font-display text-[#c8102e] text-xs tracking-[0.3em] mb-6">
+                <div className="font-display text-rosso text-xs tracking-[0.3em] mb-6">
                   0{i + 1}
                 </div>
                 <p className="text-white text-lg lg:text-xl font-display leading-[1.2] tracking-[-0.01em]">
@@ -622,14 +622,14 @@ const STEPS = [
 
 function Process() {
   return (
-    <section id="processo" className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
+    <section id="processo" className="relative bg-[#0e0918] pt-4 pb-28 lg:pb-40">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
           <div>
-            <div className="text-[11px] tracking-[0.3em] uppercase text-[#c8102e] mb-5">04 — Como Funciona</div>
+            <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">04 — Como Funciona</div>
             <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.02em] uppercase leading-[0.95]">
               Cinco passos. <br />
-              <span className="text-[#c8102e]">Zero improviso.</span>
+              <span className="text-rosso">Zero improviso.</span>
             </h2>
           </div>
           <p className="text-white/60 text-sm tracking-[0.18em] uppercase max-w-xs">
@@ -649,7 +649,7 @@ function Process() {
                 transition={{ duration: 0.7, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
                 className="group grid grid-cols-[80px_1fr] lg:grid-cols-[120px_1fr_1.5fr] gap-6 lg:gap-12 bg-[#0e0918] p-6 lg:p-10 hover:bg-white/[0.03] transition-colors items-center"
               >
-                <div className="font-display text-[#c8102e] text-3xl lg:text-5xl tracking-[-0.02em]">
+                <div className="font-display text-rosso text-3xl lg:text-5xl tracking-[-0.02em]">
                   {s.n}
                 </div>
                 <h3 className="font-display text-white text-xl lg:text-3xl tracking-[-0.01em] uppercase leading-tight">
@@ -682,14 +682,14 @@ function Difference() {
       <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#0e0918] via-[#0e0918]/80 to-[#0e0918]/60" />
       <div
         aria-hidden
-        className="absolute -right-40 top-0 w-[600px] h-[600px] rounded-full bg-[#c8102e]/10 blur-[180px]"
+        className="absolute -right-40 top-0 w-[600px] h-[600px] rounded-full bg-rosso/10 blur-[180px]"
       />
       <div className="relative mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-8">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-[#c8102e] mb-5">05 — Diferencial</div>
+          <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">05 — Diferencial</div>
           <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.025em] uppercase leading-[0.92]">
             A maioria vende páginas. <br />
-            <span className="text-[#c8102e]">Nós vendemos crescimento.</span>
+            <span className="text-rosso">Nós vendemos crescimento.</span>
           </h2>
           <div className="mt-10 space-y-6 text-white/75 text-lg leading-relaxed max-w-2xl">
             <p>
@@ -721,13 +721,13 @@ const LP_BENEFITS = [
 
 function Benefits() {
   return (
-    <section className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
+    <section className="relative bg-[#0e0918] pt-4 pb-28 lg:pb-40">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
         <div className="grid lg:grid-cols-12 gap-10 mb-16">
           <div className="lg:col-span-5">
-            <div className="text-[11px] tracking-[0.3em] uppercase text-[#c8102e] mb-5">06 — Resultados</div>
+            <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">06 — Resultados</div>
             <h2 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.02em] uppercase leading-[0.95]">
-              O que sua Landing Page pode fazer por <span className="text-[#c8102e]">você</span>.
+              O que sua Landing Page pode fazer por <span className="text-rosso">você</span>.
             </h2>
           </div>
         </div>
@@ -746,7 +746,7 @@ function Benefits() {
                 <span className="font-display text-white/30 text-xs tracking-[0.3em]">
                   0{i + 1}
                 </span>
-                <span className="w-8 h-px bg-[#c8102e] group-hover:w-16 transition-all duration-500" />
+                <span className="w-8 h-px bg-rosso group-hover:w-16 transition-all duration-500" />
               </div>
               <p className="font-display text-white text-xl lg:text-2xl leading-[1.2] tracking-[-0.01em]">
                 {b}
@@ -773,12 +773,12 @@ const AUDIENCE = [
 
 function Audience() {
   return (
-    <section className="relative bg-[#0e0918] py-28 lg:py-36 border-t border-white/5 overflow-hidden">
+    <section className="relative bg-[#0e0918] pt-4 pb-28 lg:pb-36 overflow-hidden">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10 mb-14">
-        <div className="text-[11px] tracking-[0.3em] uppercase text-[#c8102e] mb-5">07 — Para Quem</div>
+        <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">07 — Para Quem</div>
         <h2 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.02em] uppercase leading-[0.95] max-w-3xl">
           Para negócios que já têm reputação e querem{' '}
-          <span className="text-[#c8102e]">mais oportunidades</span>.
+          <span className="text-rosso">mais oportunidades</span>.
         </h2>
       </div>
 
@@ -826,9 +826,9 @@ function Included() {
     <section id="incluso" className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-[#c8102e] mb-5">08 — Incluso</div>
+          <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">08 — Incluso</div>
           <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.02em] uppercase leading-[0.95]">
-            Tudo o que <span className="text-[#c8102e]">está</span> incluso.
+            Tudo o que <span className="text-rosso">está</span> incluso.
           </h2>
           <p className="mt-8 text-white/65 text-lg leading-relaxed">
             Um pacote completo, da estratégia à publicação. Sem surpresas, sem cobrança extra de
@@ -846,7 +846,7 @@ function Included() {
                 transition={{ duration: 0.5, delay: i * 0.04 }}
                 className="flex items-start gap-4 py-5 border-b border-white/10 text-white/85"
               >
-                <span className="font-display text-[#c8102e] text-xs tracking-[0.25em] pt-1.5 shrink-0">
+                <span className="font-display text-rosso text-xs tracking-[0.25em] pt-1.5 shrink-0">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <span className="text-base lg:text-lg">{it}</span>
@@ -1036,9 +1036,9 @@ function Testimonials() {
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10 mb-14">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
           <div>
-            <div className="text-[11px] tracking-[0.3em] uppercase text-[#c8102e] mb-5">09 — Depoimentos</div>
+            <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">09 — Depoimentos</div>
             <h2 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.02em] uppercase leading-[0.95] max-w-2xl">
-              O que nossos clientes <span className="text-[#c8102e]">costumam dizer</span>.
+              O que nossos clientes <span className="text-rosso">costumam dizer</span>.
             </h2>
           </div>
           <p className="text-white/50 text-xs tracking-[0.22em] uppercase max-w-xs">
@@ -1081,15 +1081,15 @@ function Meeting() {
     <section className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
       <div className="mx-auto max-w-[1440px] px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-5">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-[#c8102e] mb-5">10 — Reunião</div>
+          <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">10 — Reunião</div>
           <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.02em] uppercase leading-[0.95]">
-            O que acontece na <span className="text-[#c8102e]">Reunião</span> de Alinhamento?
+            O que acontece na <span className="text-rosso">Reunião</span> de Alinhamento?
           </h2>
           <div className="mt-10 flex gap-3">
             <span className="text-[11px] tracking-[0.3em] uppercase text-white border border-white/15 px-4 py-2">
               Sem pressão
             </span>
-            <span className="text-[11px] tracking-[0.3em] uppercase text-white border border-[#c8102e] text-[#c8102e] px-4 py-2">
+            <span className="text-[11px] tracking-[0.3em] uppercase text-white border border-rosso text-rosso px-4 py-2">
               Sem compromisso
             </span>
           </div>
@@ -1102,7 +1102,7 @@ function Meeting() {
                 key={it}
                 className="bg-[#0e0918] p-6 lg:p-7 flex items-center gap-6 hover:bg-white/[0.03] transition-colors"
               >
-                <span className="font-display text-[#c8102e] text-2xl tracking-[-0.01em]">
+                <span className="font-display text-rosso text-2xl tracking-[-0.01em]">
                   {String(i + 1).padStart(2, '0')}
                 </span>
                 <span className="text-white text-lg lg:text-xl">{it}</span>
@@ -1142,11 +1142,11 @@ const FAQS = [
 function FAQ() {
   const [open, setOpen] = useState<number | null>(0)
   return (
-    <section id="faq" className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
+    <section id="faq" className="relative bg-[#0e0918] pt-4 pb-28 lg:pb-40">
       <div className="mx-auto max-w-[1100px] px-6 lg:px-10">
-        <div className="text-[11px] tracking-[0.3em] uppercase text-[#c8102e] mb-5">11 — FAQ</div>
+        <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-5">11 — FAQ</div>
         <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.02em] uppercase leading-[0.95] mb-16">
-          Perguntas <span className="text-[#c8102e]">Frequentes</span>.
+          Perguntas <span className="text-rosso">Frequentes</span>.
         </h2>
 
         <div className="border-t border-white/10">
@@ -1159,12 +1159,12 @@ function FAQ() {
                   onClick={() => setOpen(isOpen ? null : i)}
                   className="w-full flex items-center justify-between gap-6 py-7 text-left group"
                 >
-                  <span className="font-display text-white text-xl lg:text-3xl tracking-[-0.01em] leading-tight group-hover:text-[#c8102e] transition-colors">
+                  <span className="font-display text-white text-xl lg:text-3xl tracking-[-0.01em] leading-tight group-hover:text-rosso transition-colors">
                     {f.q}
                   </span>
                   <span
-                    className={`shrink-0 w-10 h-10 border border-white/20 group-hover:border-[#c8102e] flex items-center justify-center text-white text-xl transition-all duration-500 ${
-                      isOpen ? 'rotate-45 bg-[#c8102e] border-[#c8102e]' : ''
+                    className={`shrink-0 w-10 h-10 border border-white/20 group-hover:border-rosso flex items-center justify-center text-white text-xl transition-all duration-500 ${
+                      isOpen ? 'rotate-45 bg-rosso border-rosso' : ''
                     }`}
                   >
                     +
@@ -1204,16 +1204,16 @@ function FinalCTA() {
     >
       <div
         aria-hidden
-        className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full bg-[#c8102e]/15 blur-[180px]"
+        className="absolute -top-40 -right-40 w-[700px] h-[700px] rounded-full bg-rosso/15 blur-[180px]"
       />
       <div
         aria-hidden
-        className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-[#c8102e]/10 blur-[160px]"
+        className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-rosso/10 blur-[160px]"
       />
       <div className="relative mx-auto max-w-[1100px] px-6 lg:px-10 text-center">
-        <div className="text-[11px] tracking-[0.3em] uppercase text-[#c8102e] mb-6">12 — Próximo Passo</div>
+        <div className="text-[11px] tracking-[0.3em] uppercase text-rosso mb-6">12 — Próximo Passo</div>
         <h2 className="font-display text-white text-[12vw] sm:text-[9vw] lg:text-[6.5vw] leading-[0.9] tracking-[-0.03em] uppercase">
-          Sua empresa já construiu uma <span className="text-[#c8102e]">reputação</span>.
+          Sua empresa já construiu uma <span className="text-rosso">reputação</span>.
         </h2>
         <p className="mt-10 text-white/75 text-lg lg:text-2xl leading-relaxed font-display max-w-3xl mx-auto">
           Agora é hora de garantir que ela seja percebida por quem ainda não conhece você.
@@ -1224,7 +1224,7 @@ function FinalCTA() {
             href="https://wa.me/5500000000000?text=Quero%20agendar%20uma%20Reuni%C3%A3o%20de%20Alinhamento%20Estrat%C3%A9gico"
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-4 bg-[#c8102e] hover:bg-[#a00d24] text-white text-[15px] lg:text-base tracking-[0.05em] rounded-full px-10 lg:px-14 py-4 lg:py-5 transition-all duration-300 hover:shadow-[0_7px_80px_-12px_#c8102e]"
+            className="group inline-flex items-center gap-4 bg-rosso hover:bg-rosso-accent text-white text-[15px] lg:text-base tracking-[0.05em] rounded-full px-10 lg:px-14 py-4 lg:py-5 transition-all duration-300 hover:shadow-[0_7px_80px_-12px_#c8102e]"
           >
             Agendar Reunião de Alinhamento
             <span className="inline-block group-hover:translate-x-1 transition-transform text-lg">
@@ -1263,7 +1263,7 @@ export default function AtelierRosso() {
     }
   }, [])
   return (
-    <div className="min-h-screen bg-[#0e0918] text-white overflow-x-hidden font-sans antialiased selection:bg-[#c8102e] selection:text-white">
+    <div className="min-h-screen bg-[#0e0918] text-white overflow-x-hidden font-sans antialiased selection:bg-rosso selection:text-white">
       <Nav />
       <main>
         <Hero />

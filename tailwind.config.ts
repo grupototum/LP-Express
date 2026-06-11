@@ -35,6 +35,14 @@ export default {
           vibrant: 'var(--brand-red-vibrant)',
           light: 'var(--brand-red-light)',
         },
+        rosso: {
+          DEFAULT: 'var(--rosso)',
+          accent: 'var(--rosso-accent)',
+          deep: 'var(--rosso-deep)',
+          soft: 'var(--rosso-soft)',
+          muted: 'var(--rosso-muted)',
+          border: 'var(--rosso-border)',
+        },
         'brand-blue': 'var(--brand-blue)',
         'brand-purple': {
           DEFAULT: 'var(--brand-purple)',
