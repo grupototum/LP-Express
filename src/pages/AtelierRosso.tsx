@@ -362,7 +362,7 @@ function Nav() {
           ))}
         </nav>
         <a
-          href="#agendar"
+          href="https://wa.me/5533991294114?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20de%20alinhamento." target="_blank" rel="noopener noreferrer"
           className="hidden md:inline-flex items-center gap-2 text-[13px] text-white bg-rosso hover:bg-rosso-accent rounded-full px-5 py-2.5 transition-all duration-300 hover:shadow-[0_7px_40px_-12px_#c8102e]"
         >
           Agendar Reunião
@@ -428,7 +428,7 @@ function Hero() {
             confiança, autoridade e diferenciais antes do primeiro contato.
           </p>
           <a
-            href="#agendar"
+            href="https://wa.me/5533991294114?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20de%20alinhamento." target="_blank" rel="noopener noreferrer"
             className="group inline-flex items-center gap-3 text-[14px] tracking-[0.05em] text-white bg-rosso hover:bg-rosso-accent rounded-full px-6 py-3 transition-all duration-300 w-fit hover:shadow-[0_7px_80px_-12px_#c8102e]"
           >
             Agendar Reunião
@@ -1221,7 +1221,7 @@ function FinalCTA() {
 
         <div className="mt-16 flex flex-col items-center gap-6">
           <a
-            href="https://wa.me/5500000000000?text=Quero%20agendar%20uma%20Reuni%C3%A3o%20de%20Alinhamento%20Estrat%C3%A9gico"
+            href="https://wa.me/5533991294114?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20de%20alinhamento." target="_blank" rel="noopener noreferrer"
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-4 bg-rosso hover:bg-rosso-accent text-white text-[15px] lg:text-base tracking-[0.05em] rounded-full px-10 lg:px-14 py-4 lg:py-5 transition-all duration-300 hover:shadow-[0_7px_80px_-12px_#c8102e]"
