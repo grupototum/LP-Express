@@ -93,7 +93,7 @@ function Hero() {
           transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="font-display text-white text-[12vw] sm:text-[10vw] lg:text-[7.4vw] leading-[0.9] tracking-[-0.025em] uppercase max-w-[18ch]"
         >
-          Sua empresa está sendo escolhida pelo motivo <span className="italic text-[#ee4f27]">certo</span>?
+          Sua empresa está sendo escolhida pelo motivo <span className="text-[#ee4f27]">certo</span>?
         </motion.h1>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -157,12 +157,12 @@ function Reputation() {
               </motion.li>
             ))}
           </ul>
-          <p className="text-white/60 text-base lg:text-lg leading-relaxed italic font-display">
+          <p className="text-white/60 text-base lg:text-lg leading-relaxed font-display">
             Mas existe uma pergunta importante…
           </p>
           <p className="mt-6 text-white text-2xl lg:text-3xl font-display leading-[1.15] tracking-[-0.01em]">
             Quando alguém encontra sua empresa pela primeira vez, ela percebe o mesmo valor que seus
-            clientes já <span className="text-[#ee4f27] italic">conhecem</span>?
+            clientes já <span className="text-[#ee4f27]">conhecem</span>?
           </p>
         </div>
       </div>
@@ -335,7 +335,7 @@ function Difference() {
           <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">05 — Diferencial</div>
           <h2 className="font-display text-white text-5xl lg:text-7xl tracking-[-0.025em] uppercase leading-[0.92]">
             A maioria vende páginas. <br />
-            <span className="italic text-[#ee4f27]">Nós vendemos crescimento.</span>
+            <span className="text-[#ee4f27]">Nós vendemos crescimento.</span>
           </h2>
         </div>
         <div className="lg:col-span-5 space-y-6 text-white/75 text-lg leading-relaxed">
@@ -424,7 +424,7 @@ function Audience() {
         <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">07 — Para Quem</div>
         <h2 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.02em] uppercase leading-[0.95] max-w-3xl">
           Para negócios que já têm reputação e querem{' '}
-          <span className="italic text-[#ee4f27]">mais oportunidades</span>.
+          <span className="text-[#ee4f27]">mais oportunidades</span>.
         </h2>
       </div>
 
@@ -795,7 +795,7 @@ function FinalCTA() {
       <div className="relative mx-auto max-w-[1100px] px-6 lg:px-10 text-center">
         <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-6">12 — Próximo Passo</div>
         <h2 className="font-display text-white text-[12vw] sm:text-[9vw] lg:text-[6.5vw] leading-[0.9] tracking-[-0.03em] uppercase">
-          Sua empresa já construiu uma <span className="italic text-[#ee4f27]">reputação</span>.
+          Sua empresa já construiu uma <span className="text-[#ee4f27]">reputação</span>.
         </h2>
         <p className="mt-10 text-white/75 text-lg lg:text-2xl leading-relaxed font-display max-w-3xl mx-auto">
           Agora é hora de garantir que ela seja percebida por quem ainda não conhece você.
