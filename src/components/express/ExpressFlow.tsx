@@ -63,7 +63,12 @@ export function ExpressFlow() {
                   <s.icon className="w-5 h-5 text-accent" />
                 </div>
                 <h3 className="text-base sm:text-lg font-normal text-primary mb-1.5 leading-snug">{s.title}</h3>
-                <p className="text-[clamp(0.8125rem,3.2vw,0.875rem)] text-muted-foreground font-light leading-relaxed min-h-[2.875rem] hyphens-auto break-words">{s.desc}</p>
+              <p
+                lang="pt-BR"
+                className="text-[clamp(0.8125rem,3.2vw,0.875rem)] text-muted-foreground font-light leading-relaxed min-h-[2.875rem] hyphens-auto break-words"
+              >
+                {s.desc}
+              </p>
               </motion.div>
             ))}
           </div>
