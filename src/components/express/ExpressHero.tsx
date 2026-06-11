@@ -113,15 +113,15 @@ export function ExpressHero() {
           className="max-w-[950px]"
         >
           <span className="inline-block glass-btn-white text-white/90 px-4 py-1.5 rounded-full text-xs font-light mb-6 tracking-wide uppercase">
-            Você recebeu uma análise estratégica da Totum
+            Análise estratégica entregue
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-light text-white leading-[1.05] mb-6 tracking-tight">
             Sua reputação já existe.<br />
-            Falta dar a ela{' '}
-            <span className="text-accent">o posicionamento certo.</span>
+            Agora precisa do{' '}
+            <span className="text-accent">posicionamento certo.</span>
           </h1>
           <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-            Você viu a prévia que preparamos para o seu negócio. Agora vamos sentar, apresentar a estratégia completa e validar o direcionamento antes de colocar tudo no ar.
+            Você viu a prévia. Agora vamos validar o direcionamento e colocar a estratégia no ar.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.a
@@ -144,8 +144,8 @@ export function ExpressHero() {
           </div>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-white/60 text-sm font-light">
-            <span className="inline-flex items-center gap-2"><Clock className="w-4 h-4 text-accent" /> Reunião de 40 minutos</span>
-            <span className="inline-flex items-center gap-2"><CalendarCheck className="w-4 h-4 text-accent" /> Página no ar em até 24h após o alinhamento</span>
+            <span className="inline-flex items-center gap-2"><Clock className="w-4 h-4 text-accent" /> Reunião de 40 min</span>
+            <span className="inline-flex items-center gap-2"><CalendarCheck className="w-4 h-4 text-accent" /> Página no ar em até 24h</span>
             <span className="inline-flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-accent" /> Sem compromisso</span>
           </div>
         </motion.div>

@@ -5,7 +5,7 @@ const steps = [
   {
     icon: Award,
     title: 'Você possui uma reputação construída',
-    desc: 'Anos de trabalho geraram autoridade, conexões e resultados reais. Falta organizar isso em uma narrativa que comunique o seu valor.',
+    desc: 'Autoridade, conexões e resultados reais. Agora precisam de uma narrativa que comunique o seu valor.',
   },
   {
     icon: Search,
@@ -15,17 +15,17 @@ const steps = [
   {
     icon: Sparkles,
     title: 'Criamos uma prévia estratégica',
-    desc: 'Você já recebeu o preview conceitual: a forma como entendemos o seu negócio, o ângulo proposto e a estrutura inicial.',
+    desc: 'Você já viu o preview: nosso entendimento do seu negócio, o ângulo proposto e a estrutura inicial.',
   },
   {
     icon: Users,
     title: 'Apresentamos a estratégia na reunião',
-    desc: 'Agora sentamos para validar o direcionamento, apresentar a estratégia completa e alinhar os últimos detalhes da entrega.',
+    desc: 'Agora validamos o direcionamento, apresentamos a estratégia completa e alinhamos os últimos detalhes.',
   },
   {
     icon: Rocket,
     title: 'Entregamos sua página em até 24h',
-    desc: 'Após o alinhamento, materializamos tudo em uma Landing Page Express pronta para gerar oportunidades reais para o seu negócio.',
+    desc: 'Após o alinhamento, materializamos tudo em uma Landing Page Express pronta para gerar oportunidades reais.',
   },
 ]
 
@@ -45,11 +45,11 @@ export function ExpressFlow() {
         >
           <span className="inline-block text-accent text-xs font-light tracking-widest uppercase mb-4">O processo</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-primary mb-4 leading-tight">
-            Da reputação que você já tem<br />
-            até a página que vai materializá-la
+            Da reputação que você tem<br />
+            à página que a materializa
           </h2>
           <p className="text-muted-foreground font-light text-lg">
-            Cinco etapas pensadas para entregar posicionamento, não apenas pixels.
+            Cinco etapas. Posicionamento primeiro, pixels depois.
           </p>
         </motion.div>
 
