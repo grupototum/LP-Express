@@ -45,7 +45,7 @@ function Nav() {
         </nav>
         <a
           href="#agendar"
-          className="hidden md:inline-flex items-center gap-2 text-[12px] tracking-[0.22em] uppercase text-white border border-white/15 hover:border-[#ee4f27] hover:text-[#ee4f27] px-4 py-2.5 transition-colors"
+          className="hidden md:inline-flex items-center gap-2 text-[13px] text-white bg-[#ee4f27] hover:bg-[#ff0c00] rounded-full px-5 py-2.5 transition-all duration-300 hover:shadow-[0_7px_40px_-12px_#ee4f27]"
         >
           Agendar Reunião
           <span aria-hidden>→</span>
