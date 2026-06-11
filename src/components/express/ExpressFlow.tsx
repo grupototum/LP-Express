@@ -11,7 +11,7 @@ const steps = [
 
 export function ExpressFlow() {
   return (
-    <section id="fluxo" className="relative py-24 px-6 bg-background overflow-hidden">
+    <section id="fluxo" lang="pt-BR" className="relative py-24 px-6 bg-background overflow-hidden">
       <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-accent/8 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/6 rounded-full blur-[100px]" />
 
@@ -63,7 +63,12 @@ export function ExpressFlow() {
                   <s.icon className="w-5 h-5 text-accent" />
                 </div>
                 <h3 className="text-base sm:text-lg font-normal text-primary mb-1.5 leading-snug">{s.title}</h3>
-                <p className="text-[clamp(0.8125rem,3.2vw,0.875rem)] text-muted-foreground font-light leading-relaxed min-h-[2.875rem] hyphens-auto break-words">{s.desc}</p>
+              <p
+                lang="pt-BR"
+                className="text-[clamp(0.8125rem,3.2vw,0.875rem)] text-muted-foreground font-light leading-relaxed min-h-[2.875rem] hyphens-auto break-words"
+              >
+                {s.desc}
+              </p>
               </motion.div>
             ))}
           </div>
