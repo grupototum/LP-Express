@@ -6,6 +6,148 @@ import conceptReputation from '@/assets/concept-reputation.jpg'
 import conceptClarity from '@/assets/concept-clarity.jpg'
 import conceptGrowth from '@/assets/concept-growth.jpg'
 import conceptMethod from '@/assets/concept-method.jpg'
+import portfolioAzure from '@/assets/portfolio-azure.png.asset.json'
+import portfolioWemove from '@/assets/portfolio-wemove.png.asset.json'
+import portfolioLarmond from '@/assets/portfolio-larmond.png.asset.json'
+import portfolioHeva from '@/assets/portfolio-heva.png.asset.json'
+
+const PORTFOLIO_ITEMS = [
+  { title: 'Azure Home Build', tag: 'Construção · Investimento', src: portfolioAzure.url },
+  { title: 'We Move on Demand', tag: 'Mudanças · Serviços', src: portfolioWemove.url },
+  { title: "L'Armond", tag: 'Odontologia · Clínica', src: portfolioLarmond.url },
+  { title: 'Heva Wellness', tag: 'Bem-estar · Saúde', src: portfolioHeva.url },
+]
+
+function Portfolio() {
+  const [open, setOpen] = useState<number | null>(null)
+  const [zoom, setZoom] = useState(1)
+  const active = open !== null ? PORTFOLIO_ITEMS[open] : null
+
+  useEffect(() => {
+    if (open === null) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(null)
+    }
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = ''
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [open])
+
+  useEffect(() => { setZoom(1) }, [open])
+
+  return (
+    <section id="portfolio" className="relative bg-[#0e0918] py-28 lg:py-40 border-t border-white/5">
+      <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
+        <div className="grid lg:grid-cols-12 gap-10 mb-14">
+          <div className="lg:col-span-7">
+            <div className="text-[11px] tracking-[0.3em] uppercase text-[#ee4f27] mb-5">Portfólio</div>
+            <h2 className="font-display text-white text-4xl lg:text-6xl tracking-[-0.02em] uppercase leading-[0.95]">
+              Páginas que <span className="text-[#ee4f27]">vendem</span>.
+            </h2>
+            <p className="mt-6 text-white/60 text-lg max-w-xl">
+              Clique em qualquer projeto para ampliar e usar a lupa para ver os detalhes.
+            </p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6">
+          {PORTFOLIO_ITEMS.map((item, i) => (
+            <motion.button
+              key={item.title}
+              type="button"
+              onClick={() => setOpen(i)}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.6, delay: (i % 2) * 0.08 }}
+              className="group relative overflow-hidden rounded-2xl bg-[#1b1728] text-left border border-white/5 hover:border-[#ee4f27]/40 transition-colors"
+            >
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-[8000ms] ease-linear group-hover:translate-y-[-30%]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0e0918] via-[#0e0918]/30 to-transparent" />
+                <div className="absolute top-4 right-4 w-11 h-11 rounded-full bg-[#ee4f27] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all shadow-lg">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="11" cy="11" r="7" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    <line x1="11" y1="8" x2="11" y2="14" />
+                    <line x1="8" y1="11" x2="14" y2="11" />
+                  </svg>
+                </div>
+              </div>
+              <div className="relative p-5 lg:p-6 flex items-end justify-between gap-4">
+                <div>
+                  <div className="text-[10px] tracking-[0.3em] uppercase text-white/40 mb-2">{item.tag}</div>
+                  <div className="font-display text-white text-xl lg:text-2xl tracking-[-0.01em]">{item.title}</div>
+                </div>
+                <span className="text-[11px] tracking-[0.25em] uppercase text-[#ee4f27] whitespace-nowrap">Ampliar →</span>
+              </div>
+            </motion.button>
+          ))}
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {active && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex flex-col"
+            onClick={() => setOpen(null)}
+          >
+            <div className="flex items-center justify-between px-5 lg:px-8 h-16 border-b border-white/10 text-white" onClick={(e) => e.stopPropagation()}>
+              <div className="text-sm">
+                <span className="text-white/50 mr-3 text-[10px] tracking-[0.3em] uppercase">{active.tag}</span>
+                <span className="font-display tracking-[-0.01em]">{active.title}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setZoom((z) => Math.max(1, +(z - 0.5).toFixed(2)))}
+                  className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center"
+                  aria-label="Diminuir zoom"
+                >−</button>
+                <span className="text-xs text-white/60 w-12 text-center tabular-nums">{Math.round(zoom * 100)}%</span>
+                <button
+                  onClick={() => setZoom((z) => Math.min(4, +(z + 0.5).toFixed(2)))}
+                  className="w-10 h-10 rounded-full bg-[#ee4f27] hover:bg-[#ff0c00] transition-colors flex items-center justify-center"
+                  aria-label="Aumentar zoom"
+                >+</button>
+                <button
+                  onClick={() => setOpen(null)}
+                  className="ml-2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 transition-colors flex items-center justify-center"
+                  aria-label="Fechar"
+                >✕</button>
+              </div>
+            </div>
+
+            <div
+              className="flex-1 overflow-auto p-4 lg:p-10 flex items-start justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={active.src}
+                alt={active.title}
+                onClick={() => setZoom((z) => (z >= 2 ? 1 : z + 1))}
+                style={{ width: `${zoom * 100}%`, maxWidth: zoom === 1 ? '900px' : 'none', cursor: zoom >= 2 ? 'zoom-out' : 'zoom-in' }}
+                className="rounded-xl shadow-2xl select-none transition-[width] duration-200 ease-out"
+                draggable={false}
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  )
+}
 
 /* ============================================================
    Atelier Rosso — Estratégia · Posicionamento · Landing Pages
@@ -962,6 +1104,7 @@ export default function AtelierRosso() {
         <Method />
         <Process />
         <Difference />
+        <Portfolio />
         <Benefits />
         <Audience />
         <Included />
