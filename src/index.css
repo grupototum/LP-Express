@@ -19,11 +19,11 @@
   --warm-rust: #432d33;
   --cool-graphite: #191422;
 
-  /* Brand — Red */
-  --brand-red: #da2128;
-  --brand-red-bright: #e3433e;
-  --brand-red-vibrant: #da2128;
-  --brand-red-light: #ef9a9a;
+  /* Brand — n8n Fire Orange */
+  --brand-red: #ee4f27;          /* primary brand (legacy alias name kept) */
+  --brand-red-bright: #fd8925;   /* gradient start */
+  --brand-red-vibrant: #ff0c00;  /* gradient end / hover */
+  --brand-red-light: #ff9b26;    /* warm amber accent */
 
   /* Secondary / Tertiary */
   --brand-blue: #077ac7;
@@ -276,7 +276,7 @@
     padding: 32px;
     box-shadow:
       inset 0 0 0 1px hsla(0, 0%, 100%, 0.1),
-      inset 0 1px 0 0 rgba(218, 33, 40, 0.3);
+      inset 0 1px 0 0 rgba(238, 79, 39, 0.3);
   }
 
   .card-dark {
