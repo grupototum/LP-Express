@@ -1214,7 +1214,7 @@ function FinalCTA() {
 
         <div className="mt-16 flex flex-col items-center gap-6">
           <a
-            href="https://wa.me/5533991294114?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20de%20alinhamento." target="_blank" rel="noopener noreferrer"
+            href="https://wa.me/5533991294114?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20de%20alinhamento."
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-4 bg-rosso hover:bg-rosso-accent text-white text-[15px] lg:text-base tracking-[0.05em] rounded-full px-10 lg:px-14 py-4 lg:py-5 transition-all duration-300 hover:shadow-[0_7px_80px_-12px_#c8102e]"
