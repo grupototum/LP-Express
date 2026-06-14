@@ -1,6 +1,24 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight, ArrowDownRight, Menu, X, Plus, Minus } from 'lucide-react'
+import {
+  ArrowRight,
+  ArrowDownRight,
+  Menu,
+  X,
+  Plus,
+  Minus,
+  Search,
+  Lightbulb,
+  Eye,
+  MessageSquare,
+  Rocket,
+  CheckCircle2,
+  TrendingUp,
+  Star,
+  ShieldCheck,
+  BarChart3,
+  Sparkles,
+} from 'lucide-react'
 import totumLogo from '@/assets/totum-logo.png'
 import portfolioAzure from '@/assets/portfolio-azure.png.asset.json'
 import portfolioWemove from '@/assets/portfolio-wemove.png.asset.json'
@@ -12,7 +30,6 @@ const WHATSAPP_URL =
 
 const RED = 'var(--rosso)'
 const GREY = 'var(--muted-foreground)'
-
 
 /* ---------- Reusable bits ---------- */
 
@@ -155,20 +172,18 @@ function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-surface/40 via-surface/60 to-surface pointer-events-none" />
 
       <div className="max-w-[950px] w-full mx-auto relative z-10">
-
         <Reveal>
           <Eyebrow>Estratégia · Posicionamento · Landing Pages</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
-          <h1 className="font-display text-white mt-8 text-[14vw] sm:text-[12vw] lg:text-[9.5vw] xl:text-[150px]">
+          <h1 className="font-display text-white mt-8 text-[14vw] sm:text-[12vw] lg:text-[9.5vw] xl:text-[150px] uppercase">
             Sua empresa está sendo escolhida pelo motivo{' '}
             <span style={{ color: RED }}>certo?</span>
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="font-body-inter text-base sm:text-lg text-white/60 max-w-2xl mt-10 leading-relaxed">
-            Sua reputação já existe. Nós a transformamos em uma página que comunica confiança e
-            autoridade antes do primeiro contato.
+          <p className="font-body-inter text-base sm:text-lg text-white/60 max-w-xl mt-10 leading-relaxed">
+            Transformamos sua reputação em uma página que comunica confiança antes do primeiro contato.
           </p>
         </Reveal>
         <Reveal delay={0.3}>
@@ -189,7 +204,7 @@ function Hero() {
 
 /* ---------- 02 Tensão ---------- */
 
-const CHIPS = ['Clientes satisfeitos', 'Indicações', 'Avaliações positivas', 'Presença online']
+const CHIPS = ['Clientes satisfeitos', 'Indicações', 'Avaliações', 'Presença online']
 
 function Tensao() {
   return (
@@ -199,18 +214,13 @@ function Tensao() {
           <Eyebrow>01 — Reputação</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-7xl lg:text-8xl max-w-5xl">
-            Você já tem reputação. Quem ainda não te conhece <span style={{ color: RED }}>percebe</span> isso?
+          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-7xl lg:text-8xl max-w-5xl uppercase">
+            Você tem reputação. Quem ainda não te conhece{' '}
+            <span style={{ color: RED }}>percebe?</span>
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="font-body-inter text-white/60 mt-10 max-w-2xl text-lg">
-            Clientes satisfeitos, indicações e boas avaliações — mas nada disso aparece para quem te
-            encontra pela primeira vez.
-          </p>
-        </Reveal>
-        <Reveal delay={0.3}>
-          <div className="mt-12 flex flex-wrap gap-3">
+          <div className="mt-10 flex flex-wrap gap-3">
             {CHIPS.map((c) => (
               <span
                 key={c}
@@ -221,19 +231,37 @@ function Tensao() {
             ))}
           </div>
         </Reveal>
+
+        {/*
+          Visual — PLACEHOLDER: díptico 2 imagens lado a lado (aspect 16/9 cada).
+          Esquerda: profissional nítido/confiante (como clientes existentes te veem).
+          Direita: a mesma cena com desfoque gaussiano forte (como um estranho te encontra online).
+          Borda entre as duas imagens = linha fina branca/5.
+          Substituir este bloco por <img> reais quando o ativo estiver pronto.
+        */}
+        <Reveal delay={0.3}>
+          <div className="mt-16 grid grid-cols-2 gap-1 rounded-xl overflow-hidden border border-white/10">
+            <div
+              className="aspect-[4/3] bg-elevated flex items-end p-4"
+              aria-label="Foto nítida: profissional confiante visto pelos clientes"
+            >
+              <span className="font-mono-eyebrow text-[10px] text-white/40">Como te veem</span>
+            </div>
+            <div
+              className="aspect-[4/3] flex items-end p-4"
+              style={{ background: 'var(--elevated)', filter: 'blur(2px)' }}
+              aria-label="Mesma cena desfocada: como um estranho te encontra online"
+            >
+              <span className="font-mono-eyebrow text-[10px] text-white/40">Como te encontram</span>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   )
 }
 
-/* ---------- 03 Método ---------- */
-
-const METODO = [
-  'Como sua marca é percebida',
-  'Por que seus clientes escolhem você',
-  'O que seus concorrentes comunicam',
-  'Onde estão as oportunidades de crescimento',
-]
+/* ---------- 03 O que fazemos ---------- */
 
 function Metodo() {
   return (
@@ -243,26 +271,63 @@ function Metodo() {
           <Eyebrow>02 — Método</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-7xl lg:text-8xl max-w-5xl">
-            Não começamos pelo design.<br />
-            Começamos pela <span style={{ color: RED }}>estratégia.</span>
+          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-7xl lg:text-8xl max-w-5xl uppercase">
+            Não vendemos páginas.{' '}
+            <span style={{ color: RED }}>Vendemos clareza.</span>
           </h2>
         </Reveal>
 
-        <div className="mt-20 grid gap-px bg-white/5 border border-white/5 lg:grid-cols-4">
-          {METODO.map((item, i) => (
-            <Reveal key={item} delay={i * 0.08}>
-              <div className="bg-surface p-8 lg:p-10 h-full hover:bg-elevated transition-colors group">
-                <div className="font-mono-eyebrow text-xs" style={{ color: RED }}>
-                  {String(i + 1).padStart(2, '0')}
+        <Reveal delay={0.2}>
+          <blockquote
+            className="mt-16 border-l-2 pl-8"
+            style={{ borderColor: RED }}
+          >
+            <p className="font-display text-white/80 text-2xl sm:text-3xl lg:text-4xl leading-snug max-w-3xl">
+              "O cliente não compra uma landing page. Compra uma visão mais clara do próprio valor."
+            </p>
+          </blockquote>
+        </Reveal>
+
+        {/*
+          Visual — PLACEHOLDER: mockup do painel Site Hunter AI.
+          Dashboard escuro com análise de reputação/concorrência da empresa.
+          Dados exibidos em vermelho (--rosso): score de reputação, gráfico de concorrentes, oportunidades listadas.
+          Estilo: terminal/dashboard minimalista, fundo #0e0918, tipografia mono.
+          Substituir por screenshot real do sistema quando disponível.
+        */}
+        <Reveal delay={0.3}>
+          <div
+            className="mt-16 rounded-xl border border-white/10 overflow-hidden"
+            aria-label="Mockup do Site Hunter AI — dashboard de análise de reputação e concorrência"
+          >
+            <div className="px-5 py-3 border-b border-white/10 flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-white/10" />
+              <span className="w-3 h-3 rounded-full bg-white/10" />
+              <span className="w-3 h-3 rounded-full bg-white/10" />
+              <span className="font-mono-eyebrow text-[10px] text-white/30 ml-3">Site Hunter AI — análise de reputação</span>
+            </div>
+            <div className="bg-[#0a0812] p-8 min-h-[220px] flex flex-col gap-4">
+              {['Reputação online', 'Análise de concorrentes', 'Oportunidades identificadas'].map((row, i) => (
+                <div key={row} className="flex items-center gap-4">
+                  <span className="font-mono-eyebrow text-[10px] text-white/30 w-32 shrink-0">{row}</span>
+                  <div className="flex-1 h-px bg-white/5" />
+                  <div
+                    className="h-2 rounded-full"
+                    style={{
+                      background: RED,
+                      width: `${[72, 58, 84][i]}%`,
+                      maxWidth: 200,
+                      opacity: [1, 0.7, 0.9][i],
+                    }}
+                  />
+                  <span className="font-mono-eyebrow text-[10px] w-8 text-right" style={{ color: RED }}>
+                    {['72', '58', '84'][i]}
+                  </span>
                 </div>
-                <p className="font-display text-2xl lg:text-3xl text-white mt-8 leading-tight">
-                  {item}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+              ))}
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -270,12 +335,12 @@ function Metodo() {
 
 /* ---------- 04 Processo ---------- */
 
-const STEPS = [
-  ['Análise estratégica', 'Presença, reputação e diferenciais.'],
-  ['Oportunidades', 'Onde ganhar confiança e conversão.'],
-  ['Preview personalizado', 'Uma prévia da sua página.'],
-  ['Alinhamento', 'Validamos o posicionamento juntos.'],
-  ['Entrega em 24h', 'Página pronta após o alinhamento.'],
+const STEPS: { label: string; icon: React.ReactNode }[] = [
+  { label: 'Análise', icon: <Search className="w-5 h-5" /> },
+  { label: 'Oportunidades', icon: <Lightbulb className="w-5 h-5" /> },
+  { label: 'Preview', icon: <Eye className="w-5 h-5" /> },
+  { label: 'Alinhamento', icon: <MessageSquare className="w-5 h-5" /> },
+  { label: 'Entrega 24h', icon: <Rocket className="w-5 h-5" /> },
 ]
 
 function Processo() {
@@ -286,27 +351,42 @@ function Processo() {
           <Eyebrow>03 — Processo</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-7xl lg:text-8xl max-w-5xl">
-            Da análise à publicação em até <span style={{ color: RED }}>24h.</span>
+          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-7xl lg:text-8xl max-w-5xl uppercase">
+            Da análise à página no ar em{' '}
+            <span style={{ color: RED }}>24h.</span>
           </h2>
         </Reveal>
 
-        <div className="mt-20 grid gap-8 lg:grid-cols-5 lg:gap-4 relative">
-          <div className="hidden lg:block absolute top-8 left-0 right-0 h-px bg-white/10" />
-          {STEPS.map(([title, desc], i) => (
-            <Reveal key={title} delay={i * 0.08}>
-              <div className="relative">
-                <div
-                  className="font-display text-6xl lg:text-7xl leading-none"
-                  style={{ color: RED }}
-                >
-                  {String(i + 1).padStart(2, '0')}
+        {/* Timeline — horizontal desktop / vertical mobile */}
+        <div className="mt-20 relative">
+          {/* Connector line — desktop */}
+          <div className="hidden lg:block absolute top-[22px] left-0 right-0 h-px bg-white/10" />
+
+          <div className="grid gap-10 lg:grid-cols-5 lg:gap-4">
+            {STEPS.map((step, i) => (
+              <Reveal key={step.label} delay={i * 0.08}>
+                <div className="relative flex flex-col lg:items-start gap-4">
+                  {/* Vertical connector — mobile */}
+                  {i < STEPS.length - 1 && (
+                    <div className="lg:hidden absolute left-[22px] top-12 bottom-0 w-px bg-white/10" />
+                  )}
+                  {/* Node */}
+                  <div
+                    className="w-11 h-11 rounded-full flex items-center justify-center border border-white/10 bg-surface z-10 shrink-0"
+                    style={{ color: RED }}
+                  >
+                    {step.icon}
+                  </div>
+                  <div className="ml-0 lg:ml-0">
+                    <div className="font-mono-eyebrow text-[10px] mb-1" style={{ color: RED }}>
+                      {String(i + 1).padStart(2, '0')}
+                    </div>
+                    <p className="font-body-inter text-white text-sm leading-snug">{step.label}</p>
+                  </div>
                 </div>
-                <h3 className="font-body-inter font-medium text-white text-lg mt-6">{title}</h3>
-                <p className="font-body-inter text-sm text-white/55 mt-2 leading-relaxed">{desc}</p>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -317,22 +397,16 @@ function Processo() {
 
 function Diferencial() {
   return (
-    <section className="px-6 py-32 lg:py-52 border-t border-white/5 hero-spotlight">
-      <div className="max-w-[950px] mx-auto text-center">
+    <section
+      className="relative px-6 py-32 lg:py-52 border-t border-white/5 overflow-hidden grain-bg"
+      style={{ background: 'var(--surface)' }}
+    >
+      <div className="max-w-[950px] mx-auto text-center relative z-10">
         <Reveal>
-          <Eyebrow>04 — Diferencial</Eyebrow>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-10 text-[12vw] sm:text-7xl lg:text-[120px]">
-            A maioria vende páginas.<br />
-            Nós vendemos <span style={{ color: RED }}>crescimento.</span>
+          <h2 className="font-display text-white text-[12vw] sm:text-7xl lg:text-[110px] leading-none uppercase">
+            Reputação vira{' '}
+            <span style={{ color: RED }}>crescimento.</span>
           </h2>
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p className="font-body-inter text-white/60 mt-10 max-w-2xl mx-auto text-lg">
-            Resultado não vem do design bonito, e sim de comunicar com clareza o valor que você já
-            tem.
-          </p>
         </Reveal>
       </div>
     </section>
@@ -341,13 +415,13 @@ function Diferencial() {
 
 /* ---------- 06 Resultados ---------- */
 
-const RESULTADOS = [
-  'Diferenciais claros',
-  'Mais profissionalismo percebido',
-  'Provas sociais em destaque',
-  'Menos objeções antes do contato',
-  'Mais visitantes pedindo orçamento',
-  'Confiança virando oportunidade',
+const RESULTADOS: { label: string; icon: React.ReactNode }[] = [
+  { label: 'Diferenciais claros', icon: <CheckCircle2 className="w-6 h-6" /> },
+  { label: 'Mais autoridade', icon: <TrendingUp className="w-6 h-6" /> },
+  { label: 'Provas sociais', icon: <Star className="w-6 h-6" /> },
+  { label: 'Menos objeções', icon: <ShieldCheck className="w-6 h-6" /> },
+  { label: 'Mais orçamentos', icon: <BarChart3 className="w-6 h-6" /> },
+  { label: 'Confiança em oportunidade', icon: <Sparkles className="w-6 h-6" /> },
 ]
 
 function Resultados() {
@@ -355,21 +429,20 @@ function Resultados() {
     <section className="px-6 py-32 lg:py-44 border-t border-white/5">
       <div className="max-w-[950px] mx-auto">
         <Reveal>
-          <Eyebrow>05 — Resultados</Eyebrow>
+          <Eyebrow>04 — Resultados</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-7xl lg:text-8xl max-w-4xl">
-            O que sua página passa a <span style={{ color: RED }}>fazer.</span>
+          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-7xl lg:text-8xl max-w-4xl uppercase">
+            O que sua página passa a{' '}
+            <span style={{ color: RED }}>fazer.</span>
           </h2>
         </Reveal>
         <div className="mt-20 grid gap-px bg-white/5 border border-white/5 sm:grid-cols-2 lg:grid-cols-3">
           {RESULTADOS.map((r, i) => (
-            <Reveal key={r} delay={(i % 3) * 0.08}>
-              <div className="bg-surface p-10 h-full hover:border-l-2 hover:border-rosso transition-all">
-                <div className="font-display text-5xl" style={{ color: RED }}>
-                  {String(i + 1).padStart(2, '0')}
-                </div>
-                <p className="font-body-inter text-white text-lg mt-6">{r}</p>
+            <Reveal key={r.label} delay={(i % 3) * 0.08}>
+              <div className="bg-surface p-10 h-full hover:bg-elevated transition-colors group">
+                <div style={{ color: RED }}>{r.icon}</div>
+                <p className="font-body-inter text-white text-sm mt-5 leading-snug">{r.label}</p>
               </div>
             </Reveal>
           ))}
@@ -382,31 +455,20 @@ function Resultados() {
 /* ---------- 07 Para quem (marquee) ---------- */
 
 const AUDIENCE = [
-  'Clínicas',
-  'Escritórios',
-  'Consultores',
-  'Prestadores de serviço',
-  'Empresas locais',
-  'Especialistas',
-  'Pequenas e médias empresas',
+  'CLÍNICAS',
+  'ESCRITÓRIOS',
+  'CONSULTORES',
+  'PRESTADORES',
+  'EMPRESAS LOCAIS',
+  'ESPECIALISTAS',
+  'PMEs',
 ]
 
 function ParaQuem() {
   const items = [...AUDIENCE, ...AUDIENCE]
   return (
-    <section className="py-32 lg:py-44 border-t border-white/5 overflow-hidden">
-      <div className="max-w-[950px] mx-auto px-6">
-        <Reveal>
-          <Eyebrow>Para quem</Eyebrow>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-6xl lg:text-7xl max-w-4xl">
-            Negócios com reputação que querem mais <span style={{ color: RED }}>oportunidades.</span>
-          </h2>
-        </Reveal>
-      </div>
-
-      <div className="mt-20 relative">
+    <section className="py-20 border-t border-white/5 overflow-hidden">
+      <div className="relative">
         <div className="marquee-track">
           {items.map((it, i) => (
             <span
@@ -427,27 +489,23 @@ function ParaQuem() {
 
 const PORTFOLIO = [
   {
-    tag: 'Construção · Investimento',
+    tag: 'Construção',
     name: 'Azure Home Build',
-    desc: 'Captação qualificada para construtora de Fix & Flip.',
     img: portfolioAzure.url,
   },
   {
-    tag: 'Mudanças · Serviços',
+    tag: 'Mudanças',
     name: 'We Move on Demand',
-    desc: 'Conversão com prova social e orçamento gratuito.',
     img: portfolioWemove.url,
   },
   {
-    tag: 'Odontologia · Clínica',
+    tag: 'Odontologia',
     name: "L'Armond",
-    desc: 'Clínica premium: equipe, tecnologia e casos reais.',
     img: portfolioLarmond.url,
   },
   {
-    tag: 'Bem-estar · Saúde',
+    tag: 'Bem-estar',
     name: 'Heva Wellness',
-    desc: 'Programa de bem-estar com visual editorial.',
     img: portfolioHeva.url,
   },
 ]
@@ -460,7 +518,7 @@ function Portfolio() {
           <Eyebrow>Portfólio</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-7xl lg:text-8xl">
+          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-7xl lg:text-8xl uppercase">
             Páginas que <span style={{ color: RED }}>vendem.</span>
           </h2>
         </Reveal>
@@ -480,10 +538,9 @@ function Portfolio() {
                     className="w-full h-full object-cover opacity-85 group-hover:opacity-100 group-hover:scale-[1.04] transition-all duration-700"
                   />
                 </div>
-                <div className="p-8">
+                <div className="px-8 py-6">
                   <Eyebrow>{p.tag}</Eyebrow>
-                  <h3 className="font-display text-3xl text-white mt-4">{p.name}</h3>
-                  <p className="font-body-inter text-white/55 text-sm mt-3">{p.desc}</p>
+                  <h3 className="font-display text-2xl text-white mt-3">{p.name}</h3>
                 </div>
               </a>
             </Reveal>
@@ -497,16 +554,16 @@ function Portfolio() {
 /* ---------- 09 Inclui ---------- */
 
 const INCLUDED = [
-  'Diagnóstico estratégico',
-  'Análise de posicionamento',
-  'Mapa de oportunidades',
-  'Copywriting estratégico',
+  'Diagnóstico',
+  'Posicionamento',
+  'Oportunidades',
+  'Copywriting',
   'Design responsivo',
-  'Integração WhatsApp',
-  'Formulário de contato',
-  'Estrutura de conversão',
+  'WhatsApp',
+  'Formulário',
+  'Conversão',
   'Publicação',
-  'Ajustes finais',
+  'Ajustes',
 ]
 
 function Inclui() {
@@ -517,22 +574,23 @@ function Inclui() {
           <Eyebrow>Inclui</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-7xl lg:text-8xl max-w-5xl">
-            Da estratégia à publicação. Sem <span style={{ color: RED }}>surpresas.</span>
+          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-7xl lg:text-8xl max-w-5xl uppercase">
+            Da estratégia à{' '}
+            <span style={{ color: RED }}>publicação.</span>
           </h2>
         </Reveal>
-        <div className="mt-20 grid gap-px bg-white/5 border border-white/5 sm:grid-cols-2 lg:grid-cols-5">
-          {INCLUDED.map((item, i) => (
-            <Reveal key={item} delay={(i % 5) * 0.05}>
-              <div className="bg-surface p-6 h-full">
-                <div className="font-mono-eyebrow text-[10px]" style={{ color: RED }}>
-                  {String(i + 1).padStart(2, '0')}
-                </div>
-                <p className="font-body-inter text-white text-sm mt-4 leading-snug">{item}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal delay={0.2}>
+          <div className="mt-16 flex flex-wrap gap-3">
+            {INCLUDED.map((item) => (
+              <span
+                key={item}
+                className="font-body-inter text-sm px-5 py-2.5 rounded-full border border-white/15 text-white/80 hover:border-rosso hover:text-white transition-colors"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -544,27 +602,22 @@ const TESTIMONIALS = [
   {
     name: 'Dr. Rafael Monteiro',
     initials: 'RM',
-    text: 'Entregaram em menos de 24h. Já recebi 3 contatos hoje pela página. 🔥',
+    text: 'Entregaram em 24h. Já recebi 3 contatos hoje. 🔥',
   },
   {
     name: 'Camila — Clínica Vértice',
     initials: 'CV',
-    text: 'Ficou exatamente como eu imaginava. O acabamento é absurdo. 🤍',
+    text: 'Ficou como eu imaginava. Acabamento absurdo. 🤍',
   },
   {
-    name: 'Lucas Andrade',
-    initials: 'LA',
-    text: 'Reunião super objetiva. Esse é o padrão que eu queria pra minha marca.',
+    name: 'Eng. Bruno Tavares',
+    initials: 'BT',
+    text: 'Triplicou meus orçamentos no 1º mês. 🚀',
   },
   {
     name: 'Mariana — Studio Norte',
     initials: 'MN',
     text: 'A análise de concorrência abriu meus olhos.',
-  },
-  {
-    name: 'Eng. Bruno Tavares',
-    initials: 'BT',
-    text: 'Triplicou meus orçamentos no primeiro mês. 🚀',
   },
 ]
 
@@ -573,21 +626,18 @@ function Depoimentos() {
     <section id="depoimentos" className="px-6 py-32 lg:py-44 border-t border-white/5">
       <div className="max-w-[950px] mx-auto">
         <Reveal>
-          <Eyebrow>Depoimentos</Eyebrow>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-7xl lg:text-8xl">
+          <h2 className="font-display text-white text-[10vw] sm:text-7xl lg:text-8xl uppercase">
             Conversas <span style={{ color: RED }}>reais.</span>
           </h2>
         </Reveal>
 
-        <div className="mt-20 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-20 grid gap-6 md:grid-cols-2">
           {TESTIMONIALS.map((t, i) => (
-            <Reveal key={t.name} delay={(i % 3) * 0.08}>
+            <Reveal key={t.name} delay={(i % 2) * 0.08}>
               <div className="bg-elevated border border-white/10 rounded-2xl p-6 hover:border-rosso transition-all">
                 <div className="flex items-center gap-3">
                   <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center font-body-inter font-medium text-white text-sm"
+                    className="w-10 h-10 rounded-full flex items-center justify-center font-body-inter font-medium text-white text-sm shrink-0"
                     style={{ background: RED }}
                   >
                     {t.initials}
@@ -633,10 +683,7 @@ function FaqSection() {
     <section className="px-6 py-32 lg:py-44 border-t border-white/5">
       <div className="max-w-[900px] mx-auto">
         <Reveal>
-          <Eyebrow>FAQ</Eyebrow>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-6xl lg:text-7xl">
+          <h2 className="font-display text-white text-[10vw] sm:text-6xl lg:text-7xl uppercase">
             Perguntas <span style={{ color: RED }}>frequentes.</span>
           </h2>
         </Reveal>
@@ -688,17 +735,12 @@ function FinalCTA() {
     <section className="px-6 py-32 lg:py-52 border-t border-white/5 hero-spotlight">
       <div className="max-w-[950px] mx-auto text-center">
         <Reveal>
-          <h2 className="font-display text-white text-[12vw] sm:text-7xl lg:text-[130px]">
-            Sua reputação já está pronta.<br />
-            Falta ser <span style={{ color: RED }}>percebida.</span>
+          <h2 className="font-display text-white text-[12vw] sm:text-7xl lg:text-[110px] leading-tight uppercase">
+            Sua reputação já existe.{' '}
+            <span style={{ color: RED }}>Falta ser vista.</span>
           </h2>
         </Reveal>
-        <Reveal delay={0.15}>
-          <p className="font-body-inter text-white/60 mt-10 max-w-2xl mx-auto text-lg">
-            Mostramos as oportunidades aplicadas ao seu negócio. Sem pressão, sem compromisso.
-          </p>
-        </Reveal>
-        <Reveal delay={0.25}>
+        <Reveal delay={0.2}>
           <div className="mt-14">
             <CTAButton className="text-base px-10 py-5" />
           </div>
