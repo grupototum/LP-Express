@@ -178,7 +178,7 @@ function Hero() {
         </Reveal>
       </div>
 
-      <div className="absolute bottom-8 left-6 right-6 max-w-[950px] mx-auto flex justify-end">
+      <div className="absolute bottom-8 left-6 right-6 max-w-[950px] mx-auto flex justify-end z-10">
         <Eyebrow>
           Role para descobrir <ArrowDownRight className="inline w-3 h-3" />
         </Eyebrow>
