@@ -10,8 +10,9 @@ import portfolioHeva from '@/assets/portfolio-heva.png.asset.json'
 const WHATSAPP_URL =
   'https://wa.me/5533991294114?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20de%20alinhamento.'
 
-const RED = '#E0322D'
-const GREY = '#8A8A8A'
+const RED = 'var(--rosso)'
+const GREY = 'var(--muted-foreground)'
+
 
 /* ---------- Reusable bits ---------- */
 
@@ -36,7 +37,7 @@ const CTAButton = ({
     href={WHATSAPP_URL}
     target="_blank"
     rel="noopener noreferrer"
-    className={`inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-body-inter font-medium text-white transition-all duration-200 hover:scale-[1.03] hover:shadow-[0_0_40px_-8px_#E0322D] ${className}`}
+    className={`inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-body-inter font-medium text-white transition-all duration-200 hover:scale-[1.03] hover:shadow-[0_0_40px_-8px_var(--rosso)] ${className}`}
     style={{ background: RED }}
   >
     {children}
@@ -81,7 +82,7 @@ function Navbar() {
         scrolled ? 'backdrop-blur-xl bg-black/60 border-b border-white/5' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
+      <div className="max-w-[950px] mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2">
           <img src={totumLogo} alt="Totum" className="h-6 w-auto" />
         </a>
@@ -140,8 +141,21 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section id="top" className="relative min-h-screen hero-spotlight flex flex-col justify-center pt-32 pb-16 px-6">
-      <div className="max-w-[1280px] w-full mx-auto">
+    <section id="top" className="relative min-h-screen hero-spotlight flex flex-col justify-center pt-32 pb-16 px-6 overflow-hidden">
+      {/* Background video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-screen pointer-events-none"
+      >
+        <source src="/videos/hero-rocket.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-gradient-to-b from-surface/40 via-surface/60 to-surface pointer-events-none" />
+
+      <div className="max-w-[950px] w-full mx-auto relative z-10">
+
         <Reveal>
           <Eyebrow>Estratégia · Posicionamento · Landing Pages</Eyebrow>
         </Reveal>
@@ -164,7 +178,7 @@ function Hero() {
         </Reveal>
       </div>
 
-      <div className="absolute bottom-8 left-6 right-6 max-w-[1280px] mx-auto flex justify-end">
+      <div className="absolute bottom-8 left-6 right-6 max-w-[950px] mx-auto flex justify-end z-10">
         <Eyebrow>
           Role para descobrir <ArrowDownRight className="inline w-3 h-3" />
         </Eyebrow>
@@ -180,7 +194,7 @@ const CHIPS = ['Clientes satisfeitos', 'Indicações', 'Avaliações positivas',
 function Tensao() {
   return (
     <section className="px-6 py-32 lg:py-44 border-t border-white/5">
-      <div className="max-w-[1280px] mx-auto">
+      <div className="max-w-[950px] mx-auto">
         <Reveal>
           <Eyebrow>01 — Reputação</Eyebrow>
         </Reveal>
@@ -224,7 +238,7 @@ const METODO = [
 function Metodo() {
   return (
     <section id="metodo" className="px-6 py-32 lg:py-44 border-t border-white/5">
-      <div className="max-w-[1280px] mx-auto">
+      <div className="max-w-[950px] mx-auto">
         <Reveal>
           <Eyebrow>02 — Método</Eyebrow>
         </Reveal>
@@ -238,7 +252,7 @@ function Metodo() {
         <div className="mt-20 grid gap-px bg-white/5 border border-white/5 lg:grid-cols-4">
           {METODO.map((item, i) => (
             <Reveal key={item} delay={i * 0.08}>
-              <div className="bg-[#0A0A0B] p-8 lg:p-10 h-full hover:bg-[#11100f] transition-colors group">
+              <div className="bg-surface p-8 lg:p-10 h-full hover:bg-elevated transition-colors group">
                 <div className="font-mono-eyebrow text-xs" style={{ color: RED }}>
                   {String(i + 1).padStart(2, '0')}
                 </div>
@@ -267,7 +281,7 @@ const STEPS = [
 function Processo() {
   return (
     <section id="processo" className="px-6 py-32 lg:py-44 border-t border-white/5">
-      <div className="max-w-[1280px] mx-auto">
+      <div className="max-w-[950px] mx-auto">
         <Reveal>
           <Eyebrow>03 — Processo</Eyebrow>
         </Reveal>
@@ -304,7 +318,7 @@ function Processo() {
 function Diferencial() {
   return (
     <section className="px-6 py-32 lg:py-52 border-t border-white/5 hero-spotlight">
-      <div className="max-w-[1280px] mx-auto text-center">
+      <div className="max-w-[950px] mx-auto text-center">
         <Reveal>
           <Eyebrow>04 — Diferencial</Eyebrow>
         </Reveal>
@@ -339,7 +353,7 @@ const RESULTADOS = [
 function Resultados() {
   return (
     <section className="px-6 py-32 lg:py-44 border-t border-white/5">
-      <div className="max-w-[1280px] mx-auto">
+      <div className="max-w-[950px] mx-auto">
         <Reveal>
           <Eyebrow>05 — Resultados</Eyebrow>
         </Reveal>
@@ -351,7 +365,7 @@ function Resultados() {
         <div className="mt-20 grid gap-px bg-white/5 border border-white/5 sm:grid-cols-2 lg:grid-cols-3">
           {RESULTADOS.map((r, i) => (
             <Reveal key={r} delay={(i % 3) * 0.08}>
-              <div className="bg-[#0A0A0B] p-10 h-full hover:border-l-2 hover:border-[#E0322D] transition-all">
+              <div className="bg-surface p-10 h-full hover:border-l-2 hover:border-rosso transition-all">
                 <div className="font-display text-5xl" style={{ color: RED }}>
                   {String(i + 1).padStart(2, '0')}
                 </div>
@@ -381,7 +395,7 @@ function ParaQuem() {
   const items = [...AUDIENCE, ...AUDIENCE]
   return (
     <section className="py-32 lg:py-44 border-t border-white/5 overflow-hidden">
-      <div className="max-w-[1280px] mx-auto px-6">
+      <div className="max-w-[950px] mx-auto px-6">
         <Reveal>
           <Eyebrow>Para quem</Eyebrow>
         </Reveal>
@@ -441,7 +455,7 @@ const PORTFOLIO = [
 function Portfolio() {
   return (
     <section className="px-6 py-32 lg:py-44 border-t border-white/5">
-      <div className="max-w-[1280px] mx-auto">
+      <div className="max-w-[950px] mx-auto">
         <Reveal>
           <Eyebrow>Portfólio</Eyebrow>
         </Reveal>
@@ -457,7 +471,7 @@ function Portfolio() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block border border-white/10 hover:border-[#E0322D] transition-all duration-300 overflow-hidden bg-[#0c0c0e]"
+                className="group block border border-white/10 hover:border-rosso transition-all duration-300 overflow-hidden bg-card"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-black">
                   <img
@@ -498,7 +512,7 @@ const INCLUDED = [
 function Inclui() {
   return (
     <section id="inclui" className="px-6 py-32 lg:py-44 border-t border-white/5">
-      <div className="max-w-[1280px] mx-auto">
+      <div className="max-w-[950px] mx-auto">
         <Reveal>
           <Eyebrow>Inclui</Eyebrow>
         </Reveal>
@@ -510,7 +524,7 @@ function Inclui() {
         <div className="mt-20 grid gap-px bg-white/5 border border-white/5 sm:grid-cols-2 lg:grid-cols-5">
           {INCLUDED.map((item, i) => (
             <Reveal key={item} delay={(i % 5) * 0.05}>
-              <div className="bg-[#0A0A0B] p-6 h-full">
+              <div className="bg-surface p-6 h-full">
                 <div className="font-mono-eyebrow text-[10px]" style={{ color: RED }}>
                   {String(i + 1).padStart(2, '0')}
                 </div>
@@ -557,7 +571,7 @@ const TESTIMONIALS = [
 function Depoimentos() {
   return (
     <section id="depoimentos" className="px-6 py-32 lg:py-44 border-t border-white/5">
-      <div className="max-w-[1280px] mx-auto">
+      <div className="max-w-[950px] mx-auto">
         <Reveal>
           <Eyebrow>Depoimentos</Eyebrow>
         </Reveal>
@@ -570,7 +584,7 @@ function Depoimentos() {
         <div className="mt-20 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {TESTIMONIALS.map((t, i) => (
             <Reveal key={t.name} delay={(i % 3) * 0.08}>
-              <div className="bg-[#11100f] border border-white/10 rounded-2xl p-6 hover:border-[#E0322D] transition-all">
+              <div className="bg-elevated border border-white/10 rounded-2xl p-6 hover:border-rosso transition-all">
                 <div className="flex items-center gap-3">
                   <div
                     className="w-10 h-10 rounded-full flex items-center justify-center font-body-inter font-medium text-white text-sm"
@@ -583,7 +597,7 @@ function Depoimentos() {
                     <p className="font-body-inter text-[10px] text-emerald-400">● online</p>
                   </div>
                 </div>
-                <div className="mt-5 bg-[#0A0A0B] rounded-2xl rounded-tl-sm px-4 py-3">
+                <div className="mt-5 bg-surface rounded-2xl rounded-tl-sm px-4 py-3">
                   <p className="font-body-inter text-white/85 text-sm leading-relaxed">{t.text}</p>
                 </div>
               </div>
@@ -636,7 +650,7 @@ function FaqSection() {
                   onClick={() => setOpenIdx(open ? null : i)}
                   className="w-full py-6 flex items-center justify-between text-left group"
                 >
-                  <span className="font-display text-2xl md:text-3xl text-white group-hover:text-[#E0322D] transition-colors">
+                  <span className="font-display text-2xl md:text-3xl text-white group-hover:text-rosso transition-colors">
                     {item.q}
                   </span>
                   <span style={{ color: RED }}>
@@ -672,7 +686,7 @@ function FaqSection() {
 function FinalCTA() {
   return (
     <section className="px-6 py-32 lg:py-52 border-t border-white/5 hero-spotlight">
-      <div className="max-w-[1280px] mx-auto text-center">
+      <div className="max-w-[950px] mx-auto text-center">
         <Reveal>
           <h2 className="font-display text-white text-[12vw] sm:text-7xl lg:text-[130px]">
             Sua reputação já está pronta.<br />
@@ -699,7 +713,7 @@ function FinalCTA() {
 function Footer() {
   return (
     <footer className="px-6 py-12 border-t border-white/5">
-      <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="max-w-[950px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
         <img src={totumLogo} alt="Totum" className="h-6 w-auto" />
         <p className="font-body-inter text-xs text-white/40">
           © {new Date().getFullYear()} Totum. Todos os direitos reservados.
@@ -731,7 +745,7 @@ function Footer() {
 
 export default function AtelierRosso() {
   return (
-    <main className="bg-[#0A0A0B] text-white min-h-screen overflow-x-hidden">
+    <main className="bg-surface text-white min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero />
       <Tensao />

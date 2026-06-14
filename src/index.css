@@ -488,26 +488,25 @@
    LP Totum v2 — Display utilities + marquee
    ============================================================ */
 .font-display {
-  font-family: "Anton", "Archivo Narrow", "Helvetica Neue", sans-serif;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
-  line-height: 0.92;
+  font-family: geomanist, ui-sans-serif, system-ui, sans-serif;
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  line-height: 0.95;
 }
 .font-mono-eyebrow {
-  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-weight: 500;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 .font-body-inter {
-  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  font-family: geomanist, ui-sans-serif, system-ui, sans-serif;
 }
 
 .hero-spotlight {
   background:
-    radial-gradient(80% 60% at 50% 0%, rgba(224,50,45,0.28) 0%, rgba(224,50,45,0.08) 35%, rgba(10,10,11,0) 70%),
-    #0A0A0B;
+    radial-gradient(80% 60% at 50% 0%, rgba(var(--rosso-glow-rgb), 0.28) 0%, rgba(var(--rosso-glow-rgb), 0.08) 35%, rgba(14,9,24,0) 70%),
+    var(--surface);
 }
 
 @keyframes marquee-x {
@@ -519,3 +518,4 @@
   width: max-content;
   animation: marquee-x 38s linear infinite;
 }
+
