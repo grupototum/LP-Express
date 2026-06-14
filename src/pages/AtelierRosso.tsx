@@ -141,8 +141,21 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section id="top" className="relative min-h-screen hero-spotlight flex flex-col justify-center pt-32 pb-16 px-6">
-      <div className="max-w-[950px] w-full mx-auto">
+    <section id="top" className="relative min-h-screen hero-spotlight flex flex-col justify-center pt-32 pb-16 px-6 overflow-hidden">
+      {/* Background video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-screen pointer-events-none"
+      >
+        <source src="/videos/hero-rocket.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-gradient-to-b from-surface/40 via-surface/60 to-surface pointer-events-none" />
+
+      <div className="max-w-[950px] w-full mx-auto relative z-10">
+
         <Reveal>
           <Eyebrow>Estratégia · Posicionamento · Landing Pages</Eyebrow>
         </Reveal>
