@@ -13,15 +13,9 @@ import {
   MessageSquare,
   Rocket,
   CheckCircle2,
-  TrendingUp,
-  Star,
-  ShieldCheck,
-  BarChart3,
-  Sparkles,
   ChevronLeft,
   ChevronRight,
   XCircle,
-  Target,
 } from 'lucide-react'
 import totumLogo from '@/assets/totum-logo.png'
 import portfolioAzure from '@/assets/portfolio-azure.png.asset.json'
@@ -265,38 +259,43 @@ function Proposta() {
   )
 }
 
-/* ---------- 03 Processo (moved up, expanded) ---------- */
+/* ---------- 03 Processo ---------- */
 
 const STEPS = [
   {
     icon: <Search className="w-5 h-5" />,
+    label: 'Análise',
     title: 'Analisamos sua empresa',
-    desc: 'Entendemos sua presença digital, reputação, concorrência e diferenciais.',
+    desc: 'Entendemos sua presença digital, reputação, concorrência e diferenciais reais.',
+    badge: null,
   },
   {
     icon: <Lightbulb className="w-5 h-5" />,
+    label: 'Diferencial',
     title: 'Identificamos seu diferencial',
-    desc: 'Descobrimos o motivo pelo qual seus clientes escolhem você.',
+    desc: 'Descobrimos o motivo pelo qual seus clientes escolhem você — e não o concorrente.',
+    badge: null,
   },
   {
     icon: <Eye className="w-5 h-5" />,
+    label: 'Preview',
     title: 'Criamos o Preview Estratégico',
-    desc: 'Mostramos uma prévia visual de como sua empresa pode se apresentar melhor.',
+    desc: 'Mostramos uma prévia visual de como sua empresa pode se apresentar melhor online.',
+    badge: null,
   },
   {
     icon: <MessageSquare className="w-5 h-5" />,
-    title: 'Alinhamos a estratégia',
-    desc: 'Você valida a direção, os textos, o posicionamento e os ajustes finais.',
+    label: 'Alinhamento',
+    title: 'Alinhamos a estratégia com você',
+    desc: 'Você valida a direção, os textos, o posicionamento e solicita os ajustes finais.',
+    badge: null,
   },
   {
     icon: <Rocket className="w-5 h-5" />,
+    label: 'Entrega',
     title: 'Publicamos sua página',
-    desc: (
-      <>
-        Após a reunião de alinhamento, entregamos sua Landing Page pronta em{' '}
-        <span style={{ color: RED }} className="font-medium">até 24 horas.</span>
-      </>
-    ),
+    desc: 'Sua Landing Page vai ao ar pronta, responsiva e conectada ao WhatsApp.',
+    badge: 'em até 24h',
   },
 ]
 
@@ -314,35 +313,104 @@ function Processo() {
           </h2>
         </Reveal>
 
-        <div className="mt-20 flex flex-col gap-px bg-white/5 border border-white/5">
-          {STEPS.map((step, i) => (
-            <Reveal key={step.title} delay={i * 0.07}>
-              <div className="bg-surface hover:bg-elevated transition-colors group grid grid-cols-[auto_1fr] gap-6 p-8 lg:p-10">
-                {/* Number + icon */}
-                <div className="flex flex-col items-center gap-3 pt-1">
+        {/* Desktop: 5 colunas com linha de progresso / Mobile: lista vertical */}
+        <div className="mt-20">
+
+          {/* — Desktop grid — */}
+          <div className="hidden lg:block">
+            {/* Progress bar */}
+            <div className="flex items-center mb-12">
+              {STEPS.map((_, i) => (
+                <div key={i} className="flex items-center flex-1 last:flex-none">
                   <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 group-hover:border-rosso transition-colors shrink-0"
-                    style={{ color: RED }}
+                    className="w-8 h-8 rounded-full flex items-center justify-center border text-xs font-mono-eyebrow shrink-0 z-10"
+                    style={{
+                      background: 'var(--surface)',
+                      borderColor: 'var(--rosso)',
+                      color: 'var(--rosso)',
+                    }}
                   >
-                    {step.icon}
+                    {String(i + 1).padStart(2, '0')}
                   </div>
                   {i < STEPS.length - 1 && (
-                    <div className="flex-1 w-px bg-white/10 min-h-[32px]" />
+                    <div className="flex-1 h-px mx-2" style={{ background: 'var(--rosso)', opacity: 0.25 }} />
                   )}
                 </div>
-                {/* Content */}
-                <div className="pb-2">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="font-mono-eyebrow text-[10px]" style={{ color: RED }}>
-                      {String(i + 1).padStart(2, '0')}
-                    </span>
+              ))}
+            </div>
+
+            {/* Cards row */}
+            <div className="grid grid-cols-5 gap-4">
+              {STEPS.map((step, i) => (
+                <Reveal key={step.title} delay={i * 0.07}>
+                  <div
+                    className="relative flex flex-col gap-4 rounded-xl border border-white/8 p-6 hover:border-rosso transition-all duration-300 h-full group"
+                    style={{ background: 'var(--elevated)' }}
+                  >
+                    <div
+                      className="w-9 h-9 rounded-lg flex items-center justify-center border border-white/10 group-hover:border-rosso transition-colors"
+                      style={{ color: RED }}
+                    >
+                      {step.icon}
+                    </div>
+                    <div>
+                      <p className="font-mono-eyebrow text-[9px] mb-2 text-white/40">{step.label}</p>
+                      <h3 className="font-display text-base text-white leading-snug">{step.title}</h3>
+                      <p className="font-body-inter text-xs text-white/45 mt-2 leading-relaxed">{step.desc}</p>
+                    </div>
+                    {step.badge && (
+                      <span
+                        className="mt-auto inline-flex self-start font-mono-eyebrow text-[9px] px-2 py-1 rounded-full"
+                        style={{ background: 'var(--rosso)', color: '#fff' }}
+                      >
+                        {step.badge}
+                      </span>
+                    )}
                   </div>
-                  <h3 className="font-display text-xl sm:text-2xl text-white leading-snug">{step.title}</h3>
-                  <p className="font-body-inter text-sm text-white/55 mt-2 leading-relaxed max-w-lg">{step.desc}</p>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
+          {/* — Mobile vertical list — */}
+          <div className="flex flex-col lg:hidden">
+            {STEPS.map((step, i) => (
+              <Reveal key={step.title} delay={i * 0.07}>
+                <div className="relative grid grid-cols-[auto_1fr] gap-5 py-8 border-b border-white/8 last:border-0">
+                  {/* Left: number + connector */}
+                  <div className="flex flex-col items-center gap-0 pt-1">
+                    <div
+                      className="w-9 h-9 rounded-full flex items-center justify-center border text-xs font-mono-eyebrow shrink-0"
+                      style={{ borderColor: RED, color: RED, background: 'var(--surface)' }}
+                    >
+                      {String(i + 1).padStart(2, '0')}
+                    </div>
+                    {i < STEPS.length - 1 && (
+                      <div className="flex-1 w-px mt-3" style={{ background: 'var(--rosso)', opacity: 0.2 }} />
+                    )}
+                  </div>
+                  {/* Right: content */}
+                  <div className="pb-2">
+                    <div className="flex items-center gap-3 mb-2" style={{ color: RED }}>
+                      {step.icon}
+                      <span className="font-mono-eyebrow text-[10px] text-white/40">{step.label}</span>
+                    </div>
+                    <h3 className="font-display text-xl text-white leading-snug">{step.title}</h3>
+                    <p className="font-body-inter text-sm text-white/55 mt-2 leading-relaxed">{step.desc}</p>
+                    {step.badge && (
+                      <span
+                        className="mt-4 inline-flex font-mono-eyebrow text-[10px] px-3 py-1.5 rounded-full"
+                        style={{ background: RED, color: '#fff' }}
+                      >
+                        {step.badge}
+                      </span>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>
@@ -411,98 +479,6 @@ function AnteDepois() {
               </ul>
             </div>
           </Reveal>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ---------- 05 Diferencial ---------- */
-
-function Diferencial() {
-  return (
-    <section
-      className="relative px-6 py-32 lg:py-52 border-t border-white/5 overflow-hidden grain-bg"
-      style={{ background: 'var(--surface)' }}
-    >
-      <div className="max-w-[950px] mx-auto text-center relative z-10">
-        <Reveal>
-          <h2 className="font-display text-white text-[12vw] sm:text-7xl lg:text-[110px] leading-none uppercase">
-            Reputação vira{' '}
-            <span style={{ color: RED }}>crescimento.</span>
-          </h2>
-        </Reveal>
-      </div>
-    </section>
-  )
-}
-
-/* ---------- 06 Resultados ---------- */
-
-const RESULTADOS: { label: string; icon: React.ReactNode }[] = [
-  { label: 'Diferenciais claros', icon: <CheckCircle2 className="w-6 h-6" /> },
-  { label: 'Mais autoridade', icon: <TrendingUp className="w-6 h-6" /> },
-  { label: 'Provas sociais', icon: <Star className="w-6 h-6" /> },
-  { label: 'Menos objeções', icon: <ShieldCheck className="w-6 h-6" /> },
-  { label: 'Mais orçamentos', icon: <BarChart3 className="w-6 h-6" /> },
-  { label: 'Confiança em oportunidade', icon: <Sparkles className="w-6 h-6" /> },
-]
-
-function Resultados() {
-  return (
-    <section className="px-6 py-32 lg:py-44 border-t border-white/5">
-      <div className="max-w-[950px] mx-auto">
-        <Reveal>
-          <Eyebrow>04 — Resultados</Eyebrow>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[9vw] sm:text-6xl lg:text-7xl max-w-4xl uppercase leading-tight">
-            O que sua página passa a{' '}
-            <span style={{ color: RED }}>fazer.</span>
-          </h2>
-        </Reveal>
-        <div className="mt-20 grid gap-px bg-white/5 border border-white/5 sm:grid-cols-2 lg:grid-cols-3">
-          {RESULTADOS.map((r, i) => (
-            <Reveal key={r.label} delay={(i % 3) * 0.08}>
-              <div className="bg-surface p-10 h-full hover:bg-elevated transition-colors group">
-                <div style={{ color: RED }}>{r.icon}</div>
-                <p className="font-body-inter text-white text-sm mt-5 leading-snug">{r.label}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ---------- 07 Para quem (marquee) ---------- */
-
-const AUDIENCE = [
-  'CLÍNICAS',
-  'ESCRITÓRIOS',
-  'CONSULTORES',
-  'PRESTADORES',
-  'EMPRESAS LOCAIS',
-  'ESPECIALISTAS',
-  'PMEs',
-]
-
-function ParaQuem() {
-  const items = [...AUDIENCE, ...AUDIENCE]
-  return (
-    <section className="py-20 border-t border-white/5 overflow-hidden">
-      <div className="relative">
-        <div className="marquee-track">
-          {items.map((it, i) => (
-            <span
-              key={i}
-              className="font-display text-6xl md:text-8xl text-white/90 px-10 flex items-center gap-10"
-            >
-              {it}
-              <span style={{ color: RED }}>·</span>
-            </span>
-          ))}
         </div>
       </div>
     </section>
@@ -985,9 +961,6 @@ export default function AtelierRosso() {
       <Proposta />
       <Processo />
       <AnteDepois />
-      <Diferencial />
-      <Resultados />
-      <ParaQuem />
       <Portfolio />
       <Inclui />
       <Depoimentos />
