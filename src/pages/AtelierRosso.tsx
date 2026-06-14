@@ -18,6 +18,10 @@ import {
   ShieldCheck,
   BarChart3,
   Sparkles,
+  ChevronLeft,
+  ChevronRight,
+  XCircle,
+  Target,
 } from 'lucide-react'
 import totumLogo from '@/assets/totum-logo.png'
 import portfolioAzure from '@/assets/portfolio-azure.png.asset.json'
@@ -42,7 +46,7 @@ const Eyebrow = ({ children }: { children: React.ReactNode }) => (
 const CTAButton = ({
   children = (
     <>
-      Agendar reunião <ArrowRight className="w-4 h-4" />
+      Agendar reunião de alinhamento <ArrowRight className="w-4 h-4" />
     </>
   ),
   className = '',
@@ -75,10 +79,10 @@ const Reveal = ({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 /* ---------- Navbar ---------- */
 
 const NAV_LINKS = [
-  { label: 'Método', href: '#metodo' },
-  { label: 'Processo', href: '#processo' },
-  { label: 'Inclui', href: '#inclui' },
+  { label: 'Como funciona', href: '#processo' },
+  { label: 'Portfólio', href: '#portfolio' },
   { label: 'Depoimentos', href: '#depoimentos' },
+  { label: 'FAQ', href: '#faq' },
 ]
 
 function Navbar() {
@@ -159,7 +163,6 @@ function Navbar() {
 function Hero() {
   return (
     <section id="top" className="relative min-h-screen hero-spotlight flex flex-col justify-center pt-32 pb-16 px-6 overflow-hidden">
-      {/* Background video */}
       <video
         autoPlay
         muted
@@ -176,171 +179,125 @@ function Hero() {
           <Eyebrow>Estratégia · Posicionamento · Landing Pages</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
-          <h1 className="font-display text-white mt-8 text-[14vw] sm:text-[12vw] lg:text-[9.5vw] xl:text-[150px] uppercase">
-            Sua empresa está sendo escolhida pelo motivo{' '}
-            <span style={{ color: RED }}>certo?</span>
+          <h1 className="font-display text-white mt-8 text-[11vw] sm:text-[9vw] lg:text-[7.5vw] xl:text-[118px] leading-[0.95]">
+            O que sua empresa oferece que seus{' '}
+            <span style={{ color: RED }}>concorrentes não conseguem?</span>
           </h1>
         </Reveal>
         <Reveal delay={0.2}>
-          <p className="font-body-inter text-base sm:text-lg text-white/60 max-w-xl mt-10 leading-relaxed">
-            Transformamos sua reputação em uma página que comunica confiança antes do primeiro contato.
+          <p className="font-body-inter text-base sm:text-lg text-white/60 max-w-2xl mt-10 leading-relaxed">
+            A maioria das empresas fala sobre produtos e serviços. Nós ajudamos você a descobrir e comunicar o verdadeiro motivo pelo qual seus clientes escolhem você.
           </p>
         </Reveal>
         <Reveal delay={0.3}>
-          <div className="mt-12">
+          <div className="mt-12 flex flex-col sm:flex-row gap-4">
             <CTAButton />
+            <a
+              href="#processo"
+              className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-body-inter text-white/70 border border-white/15 hover:border-white/30 hover:text-white transition-all duration-200"
+            >
+              Ver como funciona <ArrowDownRight className="w-4 h-4" />
+            </a>
           </div>
         </Reveal>
-      </div>
-
-      <div className="absolute bottom-8 left-6 right-6 max-w-[950px] mx-auto flex justify-end z-10">
-        <Eyebrow>
-          Role para descobrir <ArrowDownRight className="inline w-3 h-3" />
-        </Eyebrow>
       </div>
     </section>
   )
 }
 
-/* ---------- 02 Tensão ---------- */
+/* ---------- 02 Proposta (replaces Tensão + Método) ---------- */
 
-const CHIPS = ['Clientes satisfeitos', 'Indicações', 'Avaliações', 'Presença online']
+const PROPOSTA_CARDS = [
+  {
+    icon: <Search className="w-5 h-5" />,
+    title: 'Diferencial',
+    text: 'Identificamos o que torna sua empresa diferente no mercado.',
+  },
+  {
+    icon: <Eye className="w-5 h-5" />,
+    title: 'Percepção',
+    text: 'Transformamos esse diferencial em uma comunicação mais clara, confiável e profissional.',
+  },
+  {
+    icon: <TrendingUp className="w-5 h-5" />,
+    title: 'Crescimento',
+    text: 'Criamos uma página pensada para gerar mais confiança antes do primeiro contato.',
+  },
+]
 
-function Tensao() {
+function Proposta() {
   return (
     <section className="px-6 py-32 lg:py-44 border-t border-white/5">
       <div className="max-w-[950px] mx-auto">
         <Reveal>
-          <Eyebrow>01 — Reputação</Eyebrow>
+          <Eyebrow>01 — Tese</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-7xl lg:text-8xl max-w-5xl uppercase">
-            Você tem reputação. Quem ainda não te conhece{' '}
-            <span style={{ color: RED }}>percebe?</span>
+          <h2 className="font-display text-white mt-8 text-[9vw] sm:text-6xl lg:text-7xl max-w-4xl leading-tight">
+            O cliente não compra uma página. Ele compra aquilo que{' '}
+            <span style={{ color: RED }}>só você consegue entregar.</span>
           </h2>
         </Reveal>
         <Reveal delay={0.2}>
-          <div className="mt-10 flex flex-wrap gap-3">
-            {CHIPS.map((c) => (
-              <span
-                key={c}
-                className="font-body-inter text-xs px-4 py-2 rounded-full border border-white/15 text-white/70"
-              >
-                {c}
-              </span>
-            ))}
-          </div>
+          <p className="font-body-inter text-white/60 mt-8 max-w-2xl text-lg leading-relaxed">
+            Você já construiu reputação. Já conquistou clientes. Já provou que sabe fazer. Agora é hora de garantir que isso seja percebido por quem ainda não conhece sua empresa.
+          </p>
         </Reveal>
 
-        {/*
-          Visual — PLACEHOLDER: díptico 2 imagens lado a lado (aspect 16/9 cada).
-          Esquerda: profissional nítido/confiante (como clientes existentes te veem).
-          Direita: a mesma cena com desfoque gaussiano forte (como um estranho te encontra online).
-          Borda entre as duas imagens = linha fina branca/5.
-          Substituir este bloco por <img> reais quando o ativo estiver pronto.
-        */}
-        <Reveal delay={0.3}>
-          <div className="mt-16 grid grid-cols-2 gap-1 rounded-xl overflow-hidden border border-white/10">
-            <div
-              className="aspect-[4/3] bg-elevated flex items-end p-4"
-              aria-label="Foto nítida: profissional confiante visto pelos clientes"
-            >
-              <span className="font-mono-eyebrow text-[10px] text-white/40">Como te veem</span>
-            </div>
-            <div
-              className="aspect-[4/3] flex items-end p-4"
-              style={{ background: 'var(--elevated)', filter: 'blur(2px)' }}
-              aria-label="Mesma cena desfocada: como um estranho te encontra online"
-            >
-              <span className="font-mono-eyebrow text-[10px] text-white/40">Como te encontram</span>
-            </div>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  )
-}
-
-/* ---------- 03 O que fazemos ---------- */
-
-function Metodo() {
-  return (
-    <section id="metodo" className="px-6 py-32 lg:py-44 border-t border-white/5">
-      <div className="max-w-[950px] mx-auto">
-        <Reveal>
-          <Eyebrow>02 — Método</Eyebrow>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-7xl lg:text-8xl max-w-5xl uppercase">
-            Não vendemos páginas.{' '}
-            <span style={{ color: RED }}>Vendemos clareza.</span>
-          </h2>
-        </Reveal>
-
-        <Reveal delay={0.2}>
-          <blockquote
-            className="mt-16 border-l-2 pl-8"
-            style={{ borderColor: RED }}
-          >
-            <p className="font-display text-white/80 text-2xl sm:text-3xl lg:text-4xl leading-snug max-w-3xl">
-              "O cliente não compra uma landing page. Compra uma visão mais clara do próprio valor."
-            </p>
-          </blockquote>
-        </Reveal>
-
-        {/*
-          Visual — PLACEHOLDER: mockup do painel Site Hunter AI.
-          Dashboard escuro com análise de reputação/concorrência da empresa.
-          Dados exibidos em vermelho (--rosso): score de reputação, gráfico de concorrentes, oportunidades listadas.
-          Estilo: terminal/dashboard minimalista, fundo #0e0918, tipografia mono.
-          Substituir por screenshot real do sistema quando disponível.
-        */}
-        <Reveal delay={0.3}>
-          <div
-            className="mt-16 rounded-xl border border-white/10 overflow-hidden"
-            aria-label="Mockup do Site Hunter AI — dashboard de análise de reputação e concorrência"
-          >
-            <div className="px-5 py-3 border-b border-white/10 flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full bg-white/10" />
-              <span className="w-3 h-3 rounded-full bg-white/10" />
-              <span className="w-3 h-3 rounded-full bg-white/10" />
-              <span className="font-mono-eyebrow text-[10px] text-white/30 ml-3">Site Hunter AI — análise de reputação</span>
-            </div>
-            <div className="bg-[#0a0812] p-8 min-h-[220px] flex flex-col gap-4">
-              {['Reputação online', 'Análise de concorrentes', 'Oportunidades identificadas'].map((row, i) => (
-                <div key={row} className="flex items-center gap-4">
-                  <span className="font-mono-eyebrow text-[10px] text-white/30 w-32 shrink-0">{row}</span>
-                  <div className="flex-1 h-px bg-white/5" />
-                  <div
-                    className="h-2 rounded-full"
-                    style={{
-                      background: RED,
-                      width: `${[72, 58, 84][i]}%`,
-                      maxWidth: 200,
-                      opacity: [1, 0.7, 0.9][i],
-                    }}
-                  />
-                  <span className="font-mono-eyebrow text-[10px] w-8 text-right" style={{ color: RED }}>
-                    {['72', '58', '84'][i]}
-                  </span>
+        <div className="mt-16 grid gap-px bg-white/5 border border-white/5 md:grid-cols-3">
+          {PROPOSTA_CARDS.map((card, i) => (
+            <Reveal key={card.title} delay={0.1 + i * 0.08}>
+              <div className="bg-surface p-10 h-full hover:bg-elevated transition-colors group">
+                <div
+                  className="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 group-hover:border-rosso transition-colors"
+                  style={{ color: RED }}
+                >
+                  {card.icon}
                 </div>
-              ))}
-            </div>
-          </div>
-        </Reveal>
+                <h3 className="font-display text-2xl text-white mt-8">{card.title}</h3>
+                <p className="font-body-inter text-sm text-white/55 mt-3 leading-relaxed">{card.text}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   )
 }
 
-/* ---------- 04 Processo ---------- */
+/* ---------- 03 Processo (moved up, expanded) ---------- */
 
-const STEPS: { label: string; icon: React.ReactNode }[] = [
-  { label: 'Análise', icon: <Search className="w-5 h-5" /> },
-  { label: 'Oportunidades', icon: <Lightbulb className="w-5 h-5" /> },
-  { label: 'Preview', icon: <Eye className="w-5 h-5" /> },
-  { label: 'Alinhamento', icon: <MessageSquare className="w-5 h-5" /> },
-  { label: 'Entrega 24h', icon: <Rocket className="w-5 h-5" /> },
+const STEPS = [
+  {
+    icon: <Search className="w-5 h-5" />,
+    title: 'Analisamos sua empresa',
+    desc: 'Entendemos sua presença digital, reputação, concorrência e diferenciais.',
+  },
+  {
+    icon: <Lightbulb className="w-5 h-5" />,
+    title: 'Identificamos seu diferencial',
+    desc: 'Descobrimos o motivo pelo qual seus clientes escolhem você.',
+  },
+  {
+    icon: <Eye className="w-5 h-5" />,
+    title: 'Criamos o Preview Estratégico',
+    desc: 'Mostramos uma prévia visual de como sua empresa pode se apresentar melhor.',
+  },
+  {
+    icon: <MessageSquare className="w-5 h-5" />,
+    title: 'Alinhamos a estratégia',
+    desc: 'Você valida a direção, os textos, o posicionamento e os ajustes finais.',
+  },
+  {
+    icon: <Rocket className="w-5 h-5" />,
+    title: 'Publicamos sua página',
+    desc: (
+      <>
+        Após a reunião de alinhamento, entregamos sua Landing Page pronta em{' '}
+        <span style={{ color: RED }} className="font-medium">até 24 horas.</span>
+      </>
+    ),
+  },
 ]
 
 function Processo() {
@@ -348,45 +305,112 @@ function Processo() {
     <section id="processo" className="px-6 py-32 lg:py-44 border-t border-white/5">
       <div className="max-w-[950px] mx-auto">
         <Reveal>
-          <Eyebrow>03 — Processo</Eyebrow>
+          <Eyebrow>02 — Como funciona</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-7xl lg:text-8xl max-w-5xl uppercase">
-            Da análise à página no ar em{' '}
-            <span style={{ color: RED }}>24h.</span>
+          <h2 className="font-display text-white mt-8 text-[9vw] sm:text-6xl lg:text-7xl max-w-4xl leading-tight">
+            Da estratégia à publicação em um{' '}
+            <span style={{ color: RED }}>fluxo simples.</span>
           </h2>
         </Reveal>
 
-        {/* Timeline — horizontal desktop / vertical mobile */}
-        <div className="mt-20 relative">
-          {/* Connector line — desktop */}
-          <div className="hidden lg:block absolute top-[22px] left-0 right-0 h-px bg-white/10" />
-
-          <div className="grid gap-10 lg:grid-cols-5 lg:gap-4">
-            {STEPS.map((step, i) => (
-              <Reveal key={step.label} delay={i * 0.08}>
-                <div className="relative flex flex-col lg:items-start gap-4">
-                  {/* Vertical connector — mobile */}
-                  {i < STEPS.length - 1 && (
-                    <div className="lg:hidden absolute left-[22px] top-12 bottom-0 w-px bg-white/10" />
-                  )}
-                  {/* Node */}
+        <div className="mt-20 flex flex-col gap-px bg-white/5 border border-white/5">
+          {STEPS.map((step, i) => (
+            <Reveal key={step.title} delay={i * 0.07}>
+              <div className="bg-surface hover:bg-elevated transition-colors group grid grid-cols-[auto_1fr] gap-6 p-8 lg:p-10">
+                {/* Number + icon */}
+                <div className="flex flex-col items-center gap-3 pt-1">
                   <div
-                    className="w-11 h-11 rounded-full flex items-center justify-center border border-white/10 bg-surface z-10 shrink-0"
+                    className="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 group-hover:border-rosso transition-colors shrink-0"
                     style={{ color: RED }}
                   >
                     {step.icon}
                   </div>
-                  <div className="ml-0 lg:ml-0">
-                    <div className="font-mono-eyebrow text-[10px] mb-1" style={{ color: RED }}>
-                      {String(i + 1).padStart(2, '0')}
-                    </div>
-                    <p className="font-body-inter text-white text-sm leading-snug">{step.label}</p>
-                  </div>
+                  {i < STEPS.length - 1 && (
+                    <div className="flex-1 w-px bg-white/10 min-h-[32px]" />
+                  )}
                 </div>
-              </Reveal>
-            ))}
-          </div>
+                {/* Content */}
+                <div className="pb-2">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="font-mono-eyebrow text-[10px]" style={{ color: RED }}>
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <h3 className="font-display text-xl sm:text-2xl text-white leading-snug">{step.title}</h3>
+                  <p className="font-body-inter text-sm text-white/55 mt-2 leading-relaxed max-w-lg">{step.desc}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ---------- 04 Antes e Depois (new) ---------- */
+
+const ANTES = [
+  'Instagram solto, sem direção',
+  'WhatsApp recebendo perguntas repetidas',
+  'Avaliações sem destaque',
+  'Diferenciais pouco claros',
+  'Cliente comparando só por preço',
+]
+
+const DEPOIS = [
+  'Página clara e profissional',
+  'Diferenciais bem posicionados',
+  'Provas sociais em destaque',
+  'CTA direto para contato',
+  'Cliente chega mais confiante',
+]
+
+function AnteDepois() {
+  return (
+    <section className="px-6 py-32 lg:py-44 border-t border-white/5">
+      <div className="max-w-[950px] mx-auto">
+        <Reveal>
+          <Eyebrow>03 — Transformação</Eyebrow>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <h2 className="font-display text-white mt-8 text-[9vw] sm:text-6xl lg:text-7xl max-w-4xl leading-tight">
+            Antes: reputação espalhada. Depois:{' '}
+            <span style={{ color: RED }}>autoridade organizada.</span>
+          </h2>
+        </Reveal>
+
+        <div className="mt-16 grid gap-px bg-white/5 border border-white/5 md:grid-cols-2">
+          {/* Antes */}
+          <Reveal delay={0.15}>
+            <div className="bg-surface p-10 h-full">
+              <p className="font-mono-eyebrow text-xs text-white/40 mb-8">Antes</p>
+              <ul className="flex flex-col gap-5">
+                {ANTES.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <XCircle className="w-4 h-4 mt-0.5 shrink-0 text-white/25" />
+                    <span className="font-body-inter text-sm text-white/45 leading-snug">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
+
+          {/* Depois */}
+          <Reveal delay={0.25}>
+            <div className="bg-elevated p-10 h-full">
+              <p className="font-mono-eyebrow text-xs mb-8" style={{ color: RED }}>Depois</p>
+              <ul className="flex flex-col gap-5">
+                {DEPOIS.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0 text-emerald-400" />
+                    <span className="font-body-inter text-sm text-white leading-snug">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>
@@ -432,7 +456,7 @@ function Resultados() {
           <Eyebrow>04 — Resultados</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-7xl lg:text-8xl max-w-4xl uppercase">
+          <h2 className="font-display text-white mt-8 text-[9vw] sm:text-6xl lg:text-7xl max-w-4xl uppercase leading-tight">
             O que sua página passa a{' '}
             <span style={{ color: RED }}>fazer.</span>
           </h2>
@@ -485,7 +509,7 @@ function ParaQuem() {
   )
 }
 
-/* ---------- 08 Portfolio ---------- */
+/* ---------- 08 Portfolio (with lightbox) ---------- */
 
 const PORTFOLIO = [
   {
@@ -511,25 +535,42 @@ const PORTFOLIO = [
 ]
 
 function Portfolio() {
+  const [lightboxIdx, setLightboxIdx] = useState<number | null>(null)
+
+  const prev = () =>
+    setLightboxIdx((i) => (i !== null ? Math.max(0, i - 1) : null))
+  const next = () =>
+    setLightboxIdx((i) => (i !== null ? Math.min(PORTFOLIO.length - 1, i + 1) : null))
+
+  useEffect(() => {
+    if (lightboxIdx === null) return
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setLightboxIdx(null)
+      if (e.key === 'ArrowLeft') prev()
+      if (e.key === 'ArrowRight') next()
+    }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [lightboxIdx])
+
   return (
-    <section className="px-6 py-32 lg:py-44 border-t border-white/5">
+    <section id="portfolio" className="px-6 py-32 lg:py-44 border-t border-white/5">
       <div className="max-w-[950px] mx-auto">
         <Reveal>
           <Eyebrow>Portfólio</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-7xl lg:text-8xl uppercase">
+          <h2 className="font-display text-white mt-8 text-[9vw] sm:text-6xl lg:text-7xl uppercase">
             Páginas que <span style={{ color: RED }}>vendem.</span>
           </h2>
         </Reveal>
+
         <div className="mt-20 grid gap-8 md:grid-cols-2">
           {PORTFOLIO.map((p, i) => (
             <Reveal key={p.name} delay={(i % 2) * 0.1}>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block border border-white/10 hover:border-rosso transition-all duration-300 overflow-hidden bg-card"
+              <button
+                onClick={() => setLightboxIdx(i)}
+                className="group block w-full text-left border border-white/10 hover:border-rosso transition-all duration-300 overflow-hidden bg-card cursor-zoom-in"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-black">
                   <img
@@ -537,16 +578,91 @@ function Portfolio() {
                     alt={p.name}
                     className="w-full h-full object-cover opacity-85 group-hover:opacity-100 group-hover:scale-[1.04] transition-all duration-700"
                   />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="bg-black/60 backdrop-blur-sm rounded-full px-4 py-2 text-white text-xs font-body-inter border border-white/20">
+                      Ver ampliado
+                    </span>
+                  </div>
                 </div>
                 <div className="px-8 py-6">
                   <Eyebrow>{p.tag}</Eyebrow>
                   <h3 className="font-display text-2xl text-white mt-3">{p.name}</h3>
                 </div>
-              </a>
+              </button>
             </Reveal>
           ))}
         </div>
       </div>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightboxIdx !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] bg-black/92 flex items-center justify-center p-4"
+            onClick={() => setLightboxIdx(null)}
+          >
+            {/* Close */}
+            <button
+              onClick={() => setLightboxIdx(null)}
+              className="absolute top-5 right-5 text-white/60 hover:text-white transition-colors z-10"
+              aria-label="Fechar"
+            >
+              <X className="w-7 h-7" />
+            </button>
+
+            {/* Counter */}
+            <div className="absolute top-5 left-5 font-mono-eyebrow text-xs text-white/40">
+              {lightboxIdx + 1} / {PORTFOLIO.length}
+            </div>
+
+            {/* Prev */}
+            {lightboxIdx > 0 && (
+              <button
+                onClick={(e) => { e.stopPropagation(); prev() }}
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors bg-black/40 rounded-full p-2 z-10"
+                aria-label="Anterior"
+              >
+                <ChevronLeft className="w-7 h-7" />
+              </button>
+            )}
+
+            {/* Image */}
+            <motion.div
+              key={lightboxIdx}
+              initial={{ scale: 0.93, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+              className="max-w-4xl w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={PORTFOLIO[lightboxIdx].img}
+                alt={PORTFOLIO[lightboxIdx].name}
+                className="w-full max-h-[80vh] object-contain rounded-lg shadow-2xl"
+              />
+              <div className="mt-4 text-center">
+                <span className="font-mono-eyebrow text-xs text-white/40 mr-4">{PORTFOLIO[lightboxIdx].tag}</span>
+                <span className="font-display text-xl text-white">{PORTFOLIO[lightboxIdx].name}</span>
+              </div>
+            </motion.div>
+
+            {/* Next */}
+            {lightboxIdx < PORTFOLIO.length - 1 && (
+              <button
+                onClick={(e) => { e.stopPropagation(); next() }}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors bg-black/40 rounded-full p-2 z-10"
+                aria-label="Próximo"
+              >
+                <ChevronRight className="w-7 h-7" />
+              </button>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }
@@ -574,7 +690,7 @@ function Inclui() {
           <Eyebrow>Inclui</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[10vw] sm:text-7xl lg:text-8xl max-w-5xl uppercase">
+          <h2 className="font-display text-white mt-8 text-[9vw] sm:text-6xl lg:text-7xl max-w-5xl uppercase leading-tight">
             Da estratégia à{' '}
             <span style={{ color: RED }}>publicação.</span>
           </h2>
@@ -596,61 +712,127 @@ function Inclui() {
   )
 }
 
-/* ---------- 10 Depoimentos (chat) ---------- */
+/* ---------- 10 Depoimentos — WhatsApp conversations ---------- */
 
-const TESTIMONIALS = [
+interface WppMessage {
+  from: 'client' | 'totum'
+  text: string
+  time: string
+}
+
+interface Conversation {
+  name: string
+  initials: string
+  messages: WppMessage[]
+}
+
+const CONVERSATIONS: Conversation[] = [
   {
     name: 'Dr. Rafael Monteiro',
     initials: 'RM',
-    text: 'Entregaram em 24h. Já recebi 3 contatos hoje. 🔥',
+    messages: [
+      { from: 'client', text: 'Ficou muito melhor do que eu imaginava.', time: '14:22' },
+      { from: 'totum', text: 'A ideia foi destacar aquilo que já fazia sua empresa ser escolhida.', time: '14:23' },
+      { from: 'client', text: 'Foi exatamente isso. Agora parece muito mais profissional.', time: '14:24' },
+    ],
   },
   {
     name: 'Camila — Clínica Vértice',
     initials: 'CV',
-    text: 'Ficou como eu imaginava. Acabamento absurdo. 🤍',
+    messages: [
+      { from: 'client', text: 'Gostei porque não ficou com cara de site genérico.', time: '10:08' },
+      { from: 'totum', text: 'A gente tentou preservar o diferencial da sua marca.', time: '10:09' },
+      { from: 'client', text: 'Deu pra perceber.', time: '10:09' },
+    ],
   },
   {
-    name: 'Eng. Bruno Tavares',
-    initials: 'BT',
-    text: 'Triplicou meus orçamentos no 1º mês. 🚀',
+    name: 'Lucas Andrade',
+    initials: 'LA',
+    messages: [
+      { from: 'client', text: 'Achei que seria só uma página bonita, mas fez sentido estratégico.', time: '16:45' },
+      { from: 'totum', text: 'Essa era a ideia: transformar sua reputação em uma apresentação mais clara.', time: '16:46' },
+    ],
   },
   {
     name: 'Mariana — Studio Norte',
     initials: 'MN',
-    text: 'A análise de concorrência abriu meus olhos.',
+    messages: [
+      { from: 'client', text: 'O pessoal aqui gostou muito da prévia.', time: '09:33' },
+      { from: 'totum', text: 'Ótimo. Depois da reunião ajustamos os detalhes e publicamos.', time: '09:34' },
+      { from: 'client', text: 'Perfeito.', time: '09:34' },
+    ],
+  },
+  {
+    name: 'Eng. Bruno Tavares',
+    initials: 'BT',
+    messages: [
+      { from: 'client', text: 'Agora dá pra mandar um link profissional em vez de explicar tudo no WhatsApp.', time: '11:52' },
+      { from: 'totum', text: 'Exatamente. A página trabalha antes da conversa começar.', time: '11:53' },
+    ],
   },
 ]
+
+function WppCard({ conv }: { conv: Conversation }) {
+  return (
+    <div className="rounded-2xl overflow-hidden border border-white/10 hover:border-rosso transition-all">
+      {/* Header */}
+      <div className="px-4 py-3 flex items-center gap-3" style={{ background: '#1f2c34' }}>
+        <div
+          className="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-medium shrink-0"
+          style={{ background: RED }}
+        >
+          {conv.initials}
+        </div>
+        <div>
+          <p className="font-body-inter text-white text-sm font-medium leading-tight">{conv.name}</p>
+          <p className="font-body-inter text-[10px] text-emerald-400">● online</p>
+        </div>
+      </div>
+
+      {/* Messages */}
+      <div className="px-4 py-4 flex flex-col gap-2" style={{ background: '#0b141a' }}>
+        {conv.messages.map((msg, i) => (
+          <div key={i} className={`flex ${msg.from === 'totum' ? 'justify-end' : 'justify-start'}`}>
+            <div
+              className="max-w-[82%] rounded-lg px-3 py-2"
+              style={{
+                background: msg.from === 'totum' ? '#005c4b' : '#1f2c34',
+                borderRadius: msg.from === 'totum'
+                  ? '12px 12px 4px 12px'
+                  : '12px 12px 12px 4px',
+              }}
+            >
+              <p className="font-body-inter text-sm leading-relaxed" style={{ color: '#e9edef' }}>
+                {msg.text}
+              </p>
+              <p
+                className="font-body-inter text-[10px] text-right mt-1"
+                style={{ color: 'rgba(233,237,239,0.45)' }}
+              >
+                {msg.time}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 function Depoimentos() {
   return (
     <section id="depoimentos" className="px-6 py-32 lg:py-44 border-t border-white/5">
       <div className="max-w-[950px] mx-auto">
         <Reveal>
-          <h2 className="font-display text-white text-[10vw] sm:text-7xl lg:text-8xl uppercase">
+          <h2 className="font-display text-white text-[9vw] sm:text-6xl lg:text-7xl uppercase">
             Conversas <span style={{ color: RED }}>reais.</span>
           </h2>
         </Reveal>
 
-        <div className="mt-20 grid gap-6 md:grid-cols-2">
-          {TESTIMONIALS.map((t, i) => (
-            <Reveal key={t.name} delay={(i % 2) * 0.08}>
-              <div className="bg-elevated border border-white/10 rounded-2xl p-6 hover:border-rosso transition-all">
-                <div className="flex items-center gap-3">
-                  <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center font-body-inter font-medium text-white text-sm shrink-0"
-                    style={{ background: RED }}
-                  >
-                    {t.initials}
-                  </div>
-                  <div>
-                    <p className="font-body-inter text-white text-sm font-medium">{t.name}</p>
-                    <p className="font-body-inter text-[10px] text-emerald-400">● online</p>
-                  </div>
-                </div>
-                <div className="mt-5 bg-surface rounded-2xl rounded-tl-sm px-4 py-3">
-                  <p className="font-body-inter text-white/85 text-sm leading-relaxed">{t.text}</p>
-                </div>
-              </div>
+        <div className="mt-20 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {CONVERSATIONS.map((conv, i) => (
+            <Reveal key={conv.name} delay={(i % 3) * 0.08}>
+              <WppCard conv={conv} />
             </Reveal>
           ))}
         </div>
@@ -680,10 +862,10 @@ const FAQ = [
 function FaqSection() {
   const [openIdx, setOpenIdx] = useState<number | null>(null)
   return (
-    <section className="px-6 py-32 lg:py-44 border-t border-white/5">
+    <section id="faq" className="px-6 py-32 lg:py-44 border-t border-white/5">
       <div className="max-w-[900px] mx-auto">
         <Reveal>
-          <h2 className="font-display text-white text-[10vw] sm:text-6xl lg:text-7xl uppercase">
+          <h2 className="font-display text-white text-[9vw] sm:text-6xl lg:text-7xl uppercase">
             Perguntas <span style={{ color: RED }}>frequentes.</span>
           </h2>
         </Reveal>
@@ -697,10 +879,10 @@ function FaqSection() {
                   onClick={() => setOpenIdx(open ? null : i)}
                   className="w-full py-6 flex items-center justify-between text-left group"
                 >
-                  <span className="font-display text-2xl md:text-3xl text-white group-hover:text-rosso transition-colors">
+                  <span className="font-display text-2xl md:text-3xl text-white group-hover:text-rosso transition-colors pr-4">
                     {item.q}
                   </span>
-                  <span style={{ color: RED }}>
+                  <span style={{ color: RED }} className="shrink-0">
                     {open ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
                   </span>
                 </button>
@@ -735,15 +917,25 @@ function FinalCTA() {
     <section className="px-6 py-32 lg:py-52 border-t border-white/5 hero-spotlight">
       <div className="max-w-[950px] mx-auto text-center">
         <Reveal>
-          <h2 className="font-display text-white text-[12vw] sm:text-7xl lg:text-[110px] leading-tight uppercase">
+          <h2 className="font-display text-white text-[10vw] sm:text-7xl lg:text-[100px] leading-tight uppercase">
             Sua reputação já existe.{' '}
-            <span style={{ color: RED }}>Falta ser vista.</span>
+            <span style={{ color: RED }}>Falta fazer ela ser vista.</span>
           </h2>
         </Reveal>
-        <Reveal delay={0.2}>
+        <Reveal delay={0.15}>
+          <p className="font-body-inter text-white/60 mt-10 max-w-2xl mx-auto text-lg leading-relaxed">
+            Agende uma reunião de alinhamento e veja como transformar seu diferencial em uma página estratégica, profissional e pronta para gerar mais oportunidades.
+          </p>
+        </Reveal>
+        <Reveal delay={0.25}>
           <div className="mt-14">
             <CTAButton className="text-base px-10 py-5" />
           </div>
+        </Reveal>
+        <Reveal delay={0.35}>
+          <p className="font-mono-eyebrow text-[10px] text-white/30 mt-8">
+            Após a reunião de alinhamento, sua Landing Page pode ser entregue em até 24 horas.
+          </p>
         </Reveal>
       </div>
     </section>
@@ -765,7 +957,7 @@ function Footer() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-body-inter text-xs text-white/60 hover:text-white"
+            className="font-body-inter text-xs text-white/60 hover:text-white transition-colors"
           >
             WhatsApp
           </a>
@@ -773,7 +965,7 @@ function Footer() {
             href="https://instagram.com/grupototum"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-body-inter text-xs text-white/60 hover:text-white"
+            className="font-body-inter text-xs text-white/60 hover:text-white transition-colors"
           >
             Instagram
           </a>
@@ -790,9 +982,9 @@ export default function AtelierRosso() {
     <main className="bg-surface text-white min-h-screen overflow-x-hidden">
       <Navbar />
       <Hero />
-      <Tensao />
-      <Metodo />
+      <Proposta />
       <Processo />
+      <AnteDepois />
       <Diferencial />
       <Resultados />
       <ParaQuem />
