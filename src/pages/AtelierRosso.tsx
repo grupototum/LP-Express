@@ -10,8 +10,9 @@ import portfolioHeva from '@/assets/portfolio-heva.png.asset.json'
 const WHATSAPP_URL =
   'https://wa.me/5533991294114?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20de%20alinhamento.'
 
-const RED = '#E0322D'
-const GREY = '#8A8A8A'
+const RED = 'var(--rosso)'
+const GREY = 'var(--muted-foreground)'
+
 
 /* ---------- Reusable bits ---------- */
 
