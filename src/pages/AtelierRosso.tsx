@@ -694,42 +694,77 @@ const CONVERSATIONS: Conversation[] = [
 
 function WppCard({ conv }: { conv: Conversation }) {
   return (
-    <div className="rounded-2xl overflow-hidden border border-white/10 hover:border-rosso transition-all">
-      {/* Header */}
-      <div className="px-4 py-3 flex items-center gap-3" style={{ background: '#1f2c34' }}>
-        <div
-          className="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-medium shrink-0"
-          style={{ background: RED }}
-        >
-          {conv.initials}
+    <div className="rounded-2xl overflow-hidden border border-white/10 hover:border-rosso transition-all shadow-[0_20px_50px_-20px_rgba(0,0,0,0.6)]">
+      {/* Header — com tarja de privacidade sobre foto e nome */}
+      <div
+        className="relative px-4 py-3 flex items-center gap-3"
+        style={{ background: '#1f2c34' }}
+      >
+        {/* Conteúdo real (borrado por baixo da tarja) */}
+        <div className="flex items-center gap-3 w-full" style={{ filter: 'blur(6px)' }}>
+          <div
+            className="w-10 h-10 rounded-full flex items-center justify-center text-white text-xs font-medium shrink-0"
+            style={{ background: RED }}
+          >
+            {conv.initials}
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="font-body-inter text-white text-sm font-medium leading-tight truncate">
+              {conv.name}
+            </p>
+            <p className="font-body-inter text-[10px] text-emerald-400">● online</p>
+          </div>
         </div>
-        <div>
-          <p className="font-body-inter text-white text-sm font-medium leading-tight">{conv.name}</p>
-          <p className="font-body-inter text-[10px] text-emerald-400">● online</p>
+
+        {/* Tarja sobreposta */}
+        <div className="absolute inset-0 flex items-center px-4 gap-3 pointer-events-none">
+          <div className="w-10 h-10 rounded-full bg-black/70 backdrop-blur-md border border-white/10 shrink-0" />
+          <div className="flex-1 h-7 rounded-md bg-black/70 backdrop-blur-md border border-white/10 flex items-center px-2">
+            <span
+              className="font-mono-eyebrow text-[9px] tracking-[0.2em] uppercase"
+              style={{ color: 'rgba(255,255,255,0.55)' }}
+            >
+              Identidade protegida
+            </span>
+          </div>
+          <div
+            className="font-mono-eyebrow text-[9px] tracking-widest uppercase shrink-0"
+            style={{ color: RED }}
+          >
+            ●
+          </div>
         </div>
       </div>
 
       {/* Messages */}
-      <div className="px-4 py-4 flex flex-col gap-2" style={{ background: '#0b141a' }}>
+      <div
+        className="px-4 py-4 flex flex-col gap-2"
+        style={{
+          background:
+            "#0b141a url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><circle cx='2' cy='2' r='0.6' fill='%23ffffff' opacity='0.04'/></svg>\")",
+        }}
+      >
         {conv.messages.map((msg, i) => (
           <div key={i} className={`flex ${msg.from === 'totum' ? 'justify-end' : 'justify-start'}`}>
             <div
-              className="max-w-[82%] rounded-lg px-3 py-2"
+              className="max-w-[82%] rounded-lg px-3 py-2 shadow-sm"
               style={{
                 background: msg.from === 'totum' ? '#005c4b' : '#1f2c34',
-                borderRadius: msg.from === 'totum'
-                  ? '12px 12px 4px 12px'
-                  : '12px 12px 12px 4px',
+                borderRadius:
+                  msg.from === 'totum' ? '12px 12px 4px 12px' : '12px 12px 12px 4px',
               }}
             >
-              <p className="font-body-inter text-sm leading-relaxed" style={{ color: '#e9edef' }}>
+              <p
+                className="font-body-inter text-sm leading-relaxed"
+                style={{ color: '#e9edef' }}
+              >
                 {msg.text}
               </p>
               <p
                 className="font-body-inter text-[10px] text-right mt-1"
-                style={{ color: 'rgba(233,237,239,0.45)' }}
+                style={{ color: 'rgba(233,237,239,0.55)' }}
               >
-                {msg.time}
+                {msg.time} {msg.from === 'totum' && <span className="text-sky-400">✓✓</span>}
               </p>
             </div>
           </div>
@@ -738,6 +773,7 @@ function WppCard({ conv }: { conv: Conversation }) {
     </div>
   )
 }
+
 
 function Depoimentos() {
   return (
