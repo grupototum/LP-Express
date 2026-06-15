@@ -213,7 +213,7 @@ const PROPOSTA_CARDS = [
     text: 'Transformamos esse diferencial em uma comunicação mais clara, confiável e profissional.',
   },
   {
-    icon: <TrendingUp className="w-5 h-5" />,
+    icon: <Rocket className="w-5 h-5" />,
     title: 'Crescimento',
     text: 'Criamos uma página pensada para gerar mais confiança antes do primeiro contato.',
   },
