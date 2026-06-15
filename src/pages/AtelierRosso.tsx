@@ -694,88 +694,104 @@ const CONVERSATIONS: Conversation[] = [
 
 function WppCard({ conv }: { conv: Conversation }) {
   return (
-    <div className="rounded-2xl overflow-hidden border border-white/10 hover:border-rosso transition-all shadow-[0_20px_50px_-20px_rgba(0,0,0,0.6)]">
-      {/* Header — com tarja de privacidade sobre foto e nome */}
-      <div
-        className="relative px-4 py-3 flex items-center gap-3"
-        style={{ background: '#1f2c34' }}
-      >
-        {/* Conteúdo real (borrado por baixo da tarja) */}
-        <div className="flex items-center gap-3 w-full" style={{ filter: 'blur(6px)' }}>
-          <div
-            className="w-10 h-10 rounded-full flex items-center justify-center text-white text-xs font-medium shrink-0"
-            style={{ background: RED }}
-          >
-            {conv.initials}
-          </div>
-          <div className="flex-1 min-w-0">
-            <p className="font-body-inter text-white text-sm font-medium leading-tight truncate">
-              {conv.name}
-            </p>
-            <p className="font-body-inter text-[10px] text-emerald-400">● online</p>
-          </div>
+    <div className="rounded-[28px] overflow-hidden border border-white/10 shadow-[0_30px_60px_-25px_rgba(0,0,0,0.7)] bg-white">
+      {/* iOS status bar */}
+      <div className="flex items-center justify-between px-4 pt-2 pb-1 text-[11px] font-semibold text-black/85" style={{ background: '#F6F6F6' }}>
+        <div className="flex items-center gap-1">
+          <span className="tracking-tight">●●●●○</span>
+          <span className="ml-1">Claro BR</span>
+          <span className="ml-1 font-normal">4G</span>
         </div>
-
-        {/* Tarja sobreposta */}
-        <div className="absolute inset-0 flex items-center px-4 gap-3 pointer-events-none">
-          <div className="w-10 h-10 rounded-full bg-black/70 backdrop-blur-md border border-white/10 shrink-0" />
-          <div className="flex-1 h-7 rounded-md bg-black/70 backdrop-blur-md border border-white/10 flex items-center px-2">
-            <span
-              className="font-mono-eyebrow text-[9px] tracking-[0.2em] uppercase"
-              style={{ color: 'rgba(255,255,255,0.55)' }}
-            >
-              Identidade protegida
-            </span>
-          </div>
-          <div
-            className="font-mono-eyebrow text-[9px] tracking-widest uppercase shrink-0"
-            style={{ color: RED }}
-          >
-            ●
-          </div>
+        <div>19:59</div>
+        <div className="flex items-center gap-1">
+          <span>↗</span>
+          <span>42%</span>
+          <span className="inline-block w-5 h-2.5 border border-black/70 rounded-[2px] relative">
+            <span className="absolute inset-[1px] right-[40%] bg-black/80 rounded-[1px]" />
+          </span>
         </div>
       </div>
 
-      {/* Messages */}
+      {/* Header with privacy bar */}
+      <div className="relative flex items-center gap-3 px-3 py-2 border-b border-black/5" style={{ background: '#F6F6F6' }}>
+        <ChevronLeft className="w-5 h-5 shrink-0" style={{ color: '#0a84ff' }} />
+        <div className="flex items-center gap-2 flex-1 min-w-0" style={{ filter: 'blur(7px)' }}>
+          <div
+            className="w-9 h-9 rounded-full shrink-0"
+            style={{
+              background: `linear-gradient(135deg, ${RED}, #6a1b1a)`,
+            }}
+          />
+          <div className="min-w-0">
+            <p className="text-black text-[15px] font-semibold leading-tight truncate">{conv.name}</p>
+            <p className="text-black/55 text-[11px] leading-tight">or último hoje às 19:45</p>
+          </div>
+        </div>
+        {/* Tarja sobreposta */}
+        <div className="absolute inset-y-0 left-9 right-20 flex items-center gap-2 pointer-events-none">
+          <div className="w-9 h-9 rounded-full bg-black/85 border border-white/20 shrink-0" />
+          <div className="flex-1 h-7 rounded-md bg-black/85 border border-white/15 flex items-center px-2">
+            <span className="font-mono-eyebrow text-[8px] tracking-[0.22em] uppercase text-white/65">
+              Identidade protegida
+            </span>
+          </div>
+        </div>
+        <div className="flex items-center gap-3 shrink-0 ml-1" style={{ color: '#0a84ff' }}>
+          <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 3.5v-10l-4 3.5Z"/></svg>
+          <svg viewBox="0 0 24 24" className="w-5 h-5" fill="currentColor"><path d="M20 15.5c-1.2 0-2.4-.2-3.5-.6a1 1 0 0 0-1 .2l-2.2 2.2a15 15 0 0 1-6.6-6.6l2.2-2.2a1 1 0 0 0 .2-1A11 11 0 0 1 8.5 4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3.5a1 1 0 0 0-1-1Z"/></svg>
+        </div>
+      </div>
+
+      {/* Messages — paper texture */}
       <div
-        className="px-4 py-4 flex flex-col gap-2"
+        className="px-3 py-4 flex flex-col gap-2 min-h-[360px]"
         style={{
           background:
-            "#0b141a url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40'><circle cx='2' cy='2' r='0.6' fill='%23ffffff' opacity='0.04'/></svg>\")",
+            "#ECE5DD url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.5 0 0 0 0 0.42 0 0 0 0.12 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>\")",
         }}
       >
+        <div className="self-center bg-white/85 text-black/60 text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-md shadow-sm">
+          Hoje
+        </div>
         {conv.messages.map((msg, i) => (
           <div key={i} className={`flex ${msg.from === 'totum' ? 'justify-end' : 'justify-start'}`}>
             <div
-              className="max-w-[82%] rounded-lg px-3 py-2 shadow-sm"
+              className="max-w-[80%] px-3 py-2 shadow-[0_1px_1px_rgba(0,0,0,0.13)] relative"
               style={{
-                background: msg.from === 'totum' ? '#005c4b' : '#1f2c34',
+                background: msg.from === 'totum' ? '#DCF8C6' : '#FFFFFF',
                 borderRadius:
-                  msg.from === 'totum' ? '12px 12px 4px 12px' : '12px 12px 12px 4px',
+                  msg.from === 'totum' ? '10px 10px 2px 10px' : '10px 10px 10px 2px',
               }}
             >
-              <p
-                className="font-body-inter text-sm leading-relaxed"
-                style={{ color: '#e9edef' }}
-              >
-                {msg.text}
-              </p>
-              <p
-                className="font-body-inter text-[10px] text-right mt-1"
-                style={{ color: 'rgba(233,237,239,0.55)' }}
-              >
-                {msg.time} {msg.from === 'totum' && <span className="text-sky-400">✓✓</span>}
+              <p className="text-[13.5px] leading-snug text-black">{msg.text}</p>
+              <p className="text-[10px] text-right mt-1 text-black/45 flex items-center gap-1 justify-end">
+                {msg.time}
+                {msg.from === 'totum' && <span style={{ color: '#34B7F1' }}>✓✓</span>}
               </p>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Input bar */}
+      <div className="flex items-center gap-2 px-3 py-2 border-t border-black/5" style={{ background: '#F6F6F6' }}>
+        <Plus className="w-5 h-5 text-black/55" />
+        <div className="flex-1 h-7 rounded-full bg-white border border-black/10" />
+        <div className="w-5 h-5 rounded-full border border-black/40" />
+        <svg viewBox="0 0 24 24" className="w-5 h-5 text-black/55" fill="currentColor"><path d="M9 4l-2 2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-3l-2-2H9Zm3 5a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"/></svg>
+        <svg viewBox="0 0 24 24" className="w-5 h-5 text-black/55" fill="currentColor"><path d="M12 14a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v5a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2Z"/></svg>
+      </div>
     </div>
   )
 }
 
-
 function Depoimentos() {
+  const [page, setPage] = useState(0)
+  const perPage = 3
+  const totalPages = Math.ceil(CONVERSATIONS.length / perPage)
+  const start = page * perPage
+  const visible = CONVERSATIONS.slice(start, start + perPage)
+
   return (
     <section id="depoimentos" className="px-6 py-32 lg:py-44 border-t border-white/5">
       <div className="max-w-[950px] mx-auto">
@@ -785,17 +801,61 @@ function Depoimentos() {
           </h2>
         </Reveal>
 
-        <div className="mt-20 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {CONVERSATIONS.map((conv, i) => (
-            <Reveal key={conv.name} delay={(i % 3) * 0.08}>
-              <WppCard conv={conv} />
-            </Reveal>
-          ))}
+        <div className="mt-16 relative">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={page}
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -30 }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
+              className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+            >
+              {visible.map((conv) => (
+                <WppCard key={conv.name} conv={conv} />
+              ))}
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Controls */}
+          <div className="mt-10 flex items-center justify-between">
+            <div className="flex gap-2">
+              {Array.from({ length: totalPages }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setPage(i)}
+                  aria-label={`Slide ${i + 1}`}
+                  className="h-[3px] transition-all"
+                  style={{
+                    width: i === page ? 32 : 14,
+                    background: i === page ? RED : 'rgba(255,255,255,0.2)',
+                  }}
+                />
+              ))}
+            </div>
+            <div className="flex gap-2">
+              <button
+                onClick={() => setPage((p) => (p === 0 ? totalPages - 1 : p - 1))}
+                className="w-11 h-11 rounded-full border border-white/15 hover:border-rosso hover:text-rosso text-white/70 flex items-center justify-center transition-colors"
+                aria-label="Anterior"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => setPage((p) => (p === totalPages - 1 ? 0 : p + 1))}
+                className="w-11 h-11 rounded-full border border-white/15 hover:border-rosso hover:text-rosso text-white/70 flex items-center justify-center transition-colors"
+                aria-label="Próximo"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   )
 }
+
 
 /* ---------- 11 FAQ ---------- */
 
