@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
+  Globe,
+  Smartphone,
+  ClipboardList,
+  TrendingUp,
+  Pencil,
+
   ArrowRight,
   ArrowDownRight,
   Menu,
@@ -417,73 +423,6 @@ function Processo() {
   )
 }
 
-/* ---------- 04 Antes e Depois (new) ---------- */
-
-const ANTES = [
-  'Instagram solto, sem direção',
-  'WhatsApp recebendo perguntas repetidas',
-  'Avaliações sem destaque',
-  'Diferenciais pouco claros',
-  'Cliente comparando só por preço',
-]
-
-const DEPOIS = [
-  'Página clara e profissional',
-  'Diferenciais bem posicionados',
-  'Provas sociais em destaque',
-  'CTA direto para contato',
-  'Cliente chega mais confiante',
-]
-
-function AnteDepois() {
-  return (
-    <section className="px-6 py-32 lg:py-44 border-t border-white/5">
-      <div className="max-w-[950px] mx-auto">
-        <Reveal>
-          <Eyebrow>03 — Transformação</Eyebrow>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[9vw] sm:text-6xl lg:text-7xl max-w-4xl leading-tight">
-            Antes: reputação espalhada. Depois:{' '}
-            <span style={{ color: RED }}>autoridade organizada.</span>
-          </h2>
-        </Reveal>
-
-        <div className="mt-16 grid gap-px bg-white/5 border border-white/5 md:grid-cols-2">
-          {/* Antes */}
-          <Reveal delay={0.15}>
-            <div className="bg-surface p-10 h-full">
-              <p className="font-mono-eyebrow text-xs text-white/40 mb-8">Antes</p>
-              <ul className="flex flex-col gap-5">
-                {ANTES.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <XCircle className="w-4 h-4 mt-0.5 shrink-0 text-white/25" />
-                    <span className="font-body-inter text-sm text-white/45 leading-snug">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
-
-          {/* Depois */}
-          <Reveal delay={0.25}>
-            <div className="bg-elevated p-10 h-full">
-              <p className="font-mono-eyebrow text-xs mb-8" style={{ color: RED }}>Depois</p>
-              <ul className="flex flex-col gap-5">
-                {DEPOIS.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-4 h-4 mt-0.5 shrink-0 text-emerald-400" />
-                    <span className="font-body-inter text-sm text-white leading-snug">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
-        </div>
-      </div>
-    </section>
-  )
-}
 
 /* ---------- 08 Portfolio (with lightbox) ---------- */
 
@@ -646,16 +585,16 @@ function Portfolio() {
 /* ---------- 09 Inclui ---------- */
 
 const INCLUDED = [
-  'Diagnóstico',
-  'Posicionamento',
-  'Oportunidades',
-  'Copywriting',
-  'Design responsivo',
-  'WhatsApp',
-  'Formulário',
-  'Conversão',
-  'Publicação',
-  'Ajustes',
+  { label: 'Diagnóstico', icon: <Search className="w-6 h-6" /> },
+  { label: 'Posicionamento', icon: <Eye className="w-6 h-6" /> },
+  { label: 'Oportunidades', icon: <Lightbulb className="w-6 h-6" /> },
+  { label: 'Copywriting', icon: <Pencil className="w-6 h-6" /> },
+  { label: 'Design responsivo', icon: <Smartphone className="w-6 h-6" /> },
+  { label: 'WhatsApp', icon: <MessageSquare className="w-6 h-6" /> },
+  { label: 'Formulário', icon: <ClipboardList className="w-6 h-6" /> },
+  { label: 'Conversão', icon: <TrendingUp className="w-6 h-6" /> },
+  { label: 'Publicação', icon: <Rocket className="w-6 h-6" /> },
+  { label: 'Ajustes', icon: <CheckCircle2 className="w-6 h-6" /> },
 ]
 
 function Inclui() {
@@ -671,18 +610,23 @@ function Inclui() {
             <span style={{ color: RED }}>publicação.</span>
           </h2>
         </Reveal>
-        <Reveal delay={0.2}>
-          <div className="mt-16 flex flex-wrap gap-3">
-            {INCLUDED.map((item) => (
-              <span
-                key={item}
-                className="font-body-inter text-sm px-5 py-2.5 rounded-full border border-white/15 text-white/80 hover:border-rosso hover:text-white transition-colors"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-        </Reveal>
+        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {INCLUDED.map((item, i) => (
+            <Reveal key={item.label} delay={i * 0.05}>
+              <div className="group flex flex-col items-start gap-5 rounded-2xl border border-white/10 bg-elevated p-8 hover:border-rosso transition-all duration-300 h-full">
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center border border-white/10 group-hover:border-rosso transition-colors"
+                  style={{ color: RED }}
+                >
+                  {item.icon}
+                </div>
+                <p className="font-body-inter text-lg text-white leading-snug">
+                  {item.label}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   )
@@ -960,7 +904,6 @@ export default function AtelierRosso() {
       <Hero />
       <Proposta />
       <Processo />
-      <AnteDepois />
       <Portfolio />
       <Inclui />
       <Depoimentos />
