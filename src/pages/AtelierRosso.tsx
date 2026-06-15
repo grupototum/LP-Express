@@ -640,9 +640,18 @@ interface WppMessage {
   time: string
 }
 
+interface StatusBar {
+  time: string
+  battery: number   // 0–100
+  signalDots: string // ex: '●●●●○'
+  carrier: string
+  date: string
+}
+
 interface Conversation {
   name: string
   initials: string
+  statusBar: StatusBar
   messages: WppMessage[]
 }
 
@@ -650,6 +659,7 @@ const CONVERSATIONS: Conversation[] = [
   {
     name: 'Dr. Rafael Monteiro',
     initials: 'RM',
+    statusBar: { time: '14:22', battery: 87, signalDots: '●●●○○', carrier: 'Vivo', date: 'Seg, 9 Jun' },
     messages: [
       { from: 'client', text: 'Ficou muito melhor do que eu imaginava.', time: '14:22' },
       { from: 'totum', text: 'A ideia foi destacar aquilo que já fazia sua empresa ser escolhida.', time: '14:23' },
@@ -659,6 +669,7 @@ const CONVERSATIONS: Conversation[] = [
   {
     name: 'Camila — Clínica Vértice',
     initials: 'CV',
+    statusBar: { time: '10:08', battery: 72, signalDots: '●●●●○', carrier: 'Claro BR', date: 'Ter, 10 Jun' },
     messages: [
       { from: 'client', text: 'Gostei porque não ficou com cara de site genérico.', time: '10:08' },
       { from: 'totum', text: 'A gente tentou preservar o diferencial da sua marca.', time: '10:09' },
@@ -668,6 +679,7 @@ const CONVERSATIONS: Conversation[] = [
   {
     name: 'Lucas Andrade',
     initials: 'LA',
+    statusBar: { time: '16:45', battery: 45, signalDots: '●●●●●', carrier: 'Tim', date: 'Qua, 11 Jun' },
     messages: [
       { from: 'client', text: 'Achei que seria só uma página bonita, mas fez sentido estratégico.', time: '16:45' },
       { from: 'totum', text: 'Essa era a ideia: transformar sua reputação em uma apresentação mais clara.', time: '16:46' },
@@ -676,6 +688,7 @@ const CONVERSATIONS: Conversation[] = [
   {
     name: 'Mariana — Studio Norte',
     initials: 'MN',
+    statusBar: { time: '09:33', battery: 91, signalDots: '●●●○○', carrier: 'Oi', date: 'Sex, 13 Jun' },
     messages: [
       { from: 'client', text: 'O pessoal aqui gostou muito da prévia.', time: '09:33' },
       { from: 'totum', text: 'Ótimo. Depois da reunião ajustamos os detalhes e publicamos.', time: '09:34' },
@@ -685,6 +698,7 @@ const CONVERSATIONS: Conversation[] = [
   {
     name: 'Eng. Bruno Tavares',
     initials: 'BT',
+    statusBar: { time: '11:52', battery: 63, signalDots: '●●●●○', carrier: 'Vivo', date: 'Qui, 12 Jun' },
     messages: [
       { from: 'client', text: 'Agora dá pra mandar um link profissional em vez de explicar tudo no WhatsApp.', time: '11:52' },
       { from: 'totum', text: 'Exatamente. A página trabalha antes da conversa começar.', time: '11:53' },
@@ -693,21 +707,23 @@ const CONVERSATIONS: Conversation[] = [
 ]
 
 function WppCard({ conv }: { conv: Conversation }) {
+  const sb = conv.statusBar
+  const batteryFill = `${Math.round((1 - sb.battery / 100) * 100)}%`
   return (
     <div className="rounded-[28px] overflow-hidden border border-white/10 shadow-[0_30px_60px_-25px_rgba(0,0,0,0.7)] bg-white">
-      {/* iOS status bar */}
+      {/* iOS status bar — único por conversa */}
       <div className="flex items-center justify-between px-4 pt-2 pb-1 text-[11px] font-semibold text-black/85" style={{ background: '#F6F6F6' }}>
         <div className="flex items-center gap-1">
-          <span className="tracking-tight">●●●●○</span>
-          <span className="ml-1">Claro BR</span>
+          <span className="tracking-tight">{sb.signalDots}</span>
+          <span className="ml-1">{sb.carrier}</span>
           <span className="ml-1 font-normal">4G</span>
         </div>
-        <div>19:59</div>
+        <div>{sb.time}</div>
         <div className="flex items-center gap-1">
           <span>↗</span>
-          <span>42%</span>
+          <span>{sb.battery}%</span>
           <span className="inline-block w-5 h-2.5 border border-black/70 rounded-[2px] relative">
-            <span className="absolute inset-[1px] right-[40%] bg-black/80 rounded-[1px]" />
+            <span className="absolute inset-[1px] bg-black/80 rounded-[1px]" style={{ right: batteryFill }} />
           </span>
         </div>
       </div>
@@ -751,7 +767,7 @@ function WppCard({ conv }: { conv: Conversation }) {
         }}
       >
         <div className="self-center bg-white/85 text-black/60 text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-md shadow-sm">
-          Hoje
+          {sb.date}
         </div>
         {conv.messages.map((msg, i) => (
           <div key={i} className={`flex ${msg.from === 'totum' ? 'justify-end' : 'justify-start'}`}>
@@ -787,10 +803,19 @@ function WppCard({ conv }: { conv: Conversation }) {
 
 function Depoimentos() {
   const [page, setPage] = useState(0)
+  const [paused, setPaused] = useState(false)
   const perPage = 3
   const totalPages = Math.ceil(CONVERSATIONS.length / perPage)
   const start = page * perPage
   const visible = CONVERSATIONS.slice(start, start + perPage)
+
+  useEffect(() => {
+    if (paused) return
+    const t = setInterval(() => {
+      setPage((p) => (p === totalPages - 1 ? 0 : p + 1))
+    }, 4500)
+    return () => clearInterval(t)
+  }, [paused, totalPages])
 
   return (
     <section id="depoimentos" className="px-6 py-32 lg:py-44 border-t border-white/5">
@@ -801,14 +826,18 @@ function Depoimentos() {
           </h2>
         </Reveal>
 
-        <div className="mt-16 relative">
+        <div
+          className="mt-16 relative"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
           <AnimatePresence mode="wait">
             <motion.div
               key={page}
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -30 }}
-              transition={{ duration: 0.4, ease: 'easeOut' }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
               className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
             >
               {visible.map((conv) => (
