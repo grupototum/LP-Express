@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
+  Globe,
+  Smartphone,
+  ClipboardList,
+  TrendingUp,
+  Pencil,
+
   ArrowRight,
   ArrowDownRight,
   Menu,
