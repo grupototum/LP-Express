@@ -704,6 +704,16 @@ const CONVERSATIONS: Conversation[] = [
       { from: 'totum', text: 'Exatamente. A página trabalha antes da conversa começar.', time: '11:53' },
     ],
   },
+  {
+    name: 'Rodrigo — Escritório Contábil',
+    initials: 'RC',
+    statusBar: { time: '15:17', battery: 79, signalDots: '●●●●○', carrier: 'Tim', date: 'Sáb, 14 Jun' },
+    messages: [
+      { from: 'client', text: 'Recebi 2 orçamentos essa semana só pelo link que mandei.', time: '15:17' },
+      { from: 'totum', text: 'Esse era o objetivo. A página apresenta antes da conversa começar.', time: '15:18' },
+      { from: 'client', text: 'Faz total diferença. Antes eu precisava explicar tudo.', time: '15:19' },
+    ],
+  },
 ]
 
 function WppCard({ conv }: { conv: Conversation }) {
@@ -834,10 +844,10 @@ function Depoimentos() {
           <AnimatePresence mode="wait">
             <motion.div
               key={page}
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -30 }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
               className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
             >
               {visible.map((conv) => (
