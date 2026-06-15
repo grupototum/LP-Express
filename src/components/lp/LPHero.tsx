@@ -10,21 +10,24 @@ export default function LPHero({ content }: Props) {
   return (
     <section
       className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden"
-      style={{
-        background:
-          'radial-gradient(80% 55% at 50% 0%, rgba(200,16,46,0.22) 0%, rgba(200,16,46,0.06) 38%, rgba(14,9,24,0) 70%), var(--surface)',
-      }}
+      style={{ background: 'var(--surface)' }}
     >
-      {/* Subtle grid texture */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
-          backgroundSize: '64px 64px',
-          maskImage: 'radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 80%)',
-        }}
-      />
+      {/* Background video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-screen pointer-events-none"
+      >
+        <source src="/videos/hero-rocket.mp4" type="video/mp4" />
+      </video>
+
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: 'radial-gradient(80% 55% at 50% 0%, rgba(200,16,46,0.18) 0%, rgba(200,16,46,0.04) 40%, rgba(14,9,24,0) 70%)',
+      }} />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0e0918]/30 via-[#0e0918]/50 to-[#0e0918] pointer-events-none" />
 
       <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-8">
         {/* Eyebrow */}
