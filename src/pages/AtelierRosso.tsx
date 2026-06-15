@@ -585,16 +585,16 @@ function Portfolio() {
 /* ---------- 09 Inclui ---------- */
 
 const INCLUDED = [
-  'Diagnóstico',
-  'Posicionamento',
-  'Oportunidades',
-  'Copywriting',
-  'Design responsivo',
-  'WhatsApp',
-  'Formulário',
-  'Conversão',
-  'Publicação',
-  'Ajustes',
+  { label: 'Diagnóstico', icon: <Search className="w-6 h-6" /> },
+  { label: 'Posicionamento', icon: <Eye className="w-6 h-6" /> },
+  { label: 'Oportunidades', icon: <Lightbulb className="w-6 h-6" /> },
+  { label: 'Copywriting', icon: <Pencil className="w-6 h-6" /> },
+  { label: 'Design responsivo', icon: <Smartphone className="w-6 h-6" /> },
+  { label: 'WhatsApp', icon: <MessageSquare className="w-6 h-6" /> },
+  { label: 'Formulário', icon: <ClipboardList className="w-6 h-6" /> },
+  { label: 'Conversão', icon: <TrendingUp className="w-6 h-6" /> },
+  { label: 'Publicação', icon: <Rocket className="w-6 h-6" /> },
+  { label: 'Ajustes', icon: <CheckCircle2 className="w-6 h-6" /> },
 ]
 
 function Inclui() {
@@ -610,18 +610,23 @@ function Inclui() {
             <span style={{ color: RED }}>publicação.</span>
           </h2>
         </Reveal>
-        <Reveal delay={0.2}>
-          <div className="mt-16 flex flex-wrap gap-3">
-            {INCLUDED.map((item) => (
-              <span
-                key={item}
-                className="font-body-inter text-sm px-5 py-2.5 rounded-full border border-white/15 text-white/80 hover:border-rosso hover:text-white transition-colors"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-        </Reveal>
+        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {INCLUDED.map((item, i) => (
+            <Reveal key={item.label} delay={i * 0.05}>
+              <div className="group flex flex-col items-start gap-5 rounded-2xl border border-white/10 bg-elevated p-8 hover:border-rosso transition-all duration-300 h-full">
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center border border-white/10 group-hover:border-rosso transition-colors"
+                  style={{ color: RED }}
+                >
+                  {item.icon}
+                </div>
+                <p className="font-body-inter text-lg text-white leading-snug">
+                  {item.label}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   )
