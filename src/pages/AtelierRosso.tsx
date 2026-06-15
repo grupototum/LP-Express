@@ -899,7 +899,6 @@ export default function AtelierRosso() {
       <Hero />
       <Proposta />
       <Processo />
-      <AnteDepois />
       <Portfolio />
       <Inclui />
       <Depoimentos />
