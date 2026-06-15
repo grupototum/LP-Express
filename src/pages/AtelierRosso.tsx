@@ -423,17 +423,6 @@ function Processo() {
   )
 }
 
-                    <span className="font-body-inter text-sm text-white leading-snug">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
-        </div>
-      </div>
-    </section>
-  )
-}
 
 /* ---------- 08 Portfolio (with lightbox) ---------- */
 
