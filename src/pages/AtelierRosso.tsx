@@ -486,7 +486,7 @@ function Portfolio() {
             <Reveal key={p.name} delay={(i % 2) * 0.1}>
               <button
                 onClick={() => setLightboxIdx(i)}
-                className="group block w-full text-left border border-white/10 hover:border-rosso transition-all duration-300 overflow-hidden bg-card cursor-zoom-in"
+                className="liquid-glass group block w-full text-left rounded-2xl transition-all duration-300 overflow-hidden cursor-zoom-in"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-black">
                   <img
