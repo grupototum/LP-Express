@@ -244,10 +244,11 @@ function Proposta() {
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-px bg-white/5 border border-white/5 md:grid-cols-3">
+        <div className="mt-16 grid gap-6 md:grid-cols-3">
           {PROPOSTA_CARDS.map((card, i) => (
             <Reveal key={card.title} delay={0.1 + i * 0.08}>
-              <div className="bg-surface p-10 h-full hover:bg-elevated transition-colors group">
+              <div className="liquid-glass rounded-2xl p-10 h-full transition-all duration-300 group">
+
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 group-hover:border-rosso transition-colors"
                   style={{ color: RED }}
