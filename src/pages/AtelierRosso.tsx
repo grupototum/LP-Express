@@ -351,7 +351,7 @@ function Processo() {
               {STEPS.map((step, i) => (
                 <Reveal key={step.title} delay={i * 0.07}>
                   <div
-                    className="relative flex flex-col gap-4 rounded-xl border border-white/8 p-6 hover:border-rosso transition-all duration-300 h-full group"
+                    className="liquid-glass relative flex flex-col gap-4 rounded-xl p-6 transition-all duration-300 h-full group"
                     style={{ background: 'var(--elevated)' }}
                   >
                     <div
