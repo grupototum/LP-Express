@@ -614,7 +614,7 @@ function Inclui() {
         <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {INCLUDED.map((item, i) => (
             <Reveal key={item.label} delay={i * 0.05}>
-              <div className="group flex flex-col items-start gap-5 rounded-2xl border border-white/10 bg-elevated p-8 hover:border-rosso transition-all duration-300 h-full">
+              <div className="liquid-glass group flex flex-col items-start gap-5 rounded-2xl p-8 transition-all duration-300 h-full">
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center border border-white/10 group-hover:border-rosso transition-colors"
                   style={{ color: RED }}
