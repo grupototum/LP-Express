@@ -22,6 +22,10 @@ export default {
         'geomanist-book': ['geomanist-book', 'geomanist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         sans: ['geomanist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         display: ['geomanist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        // LP v2 — editorial light theme
+        'playfair': ['"Playfair Display"', 'Georgia', 'serif'],
+        'dm-sans': ['"DM Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        'caveat': ['Caveat', 'cursive'],
       },
       colors: {
         surface: 'var(--surface)',

@@ -1,3 +1,5 @@
+import LPTotum from './pages/LPTotum'
+
 export default function App() {
-  return <main className="min-h-screen" />
+  return <LPTotum />
 }
