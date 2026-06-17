@@ -244,10 +244,11 @@ function Proposta() {
           </p>
         </Reveal>
 
-        <div className="mt-16 grid gap-px bg-white/5 border border-white/5 md:grid-cols-3">
+        <div className="mt-16 grid gap-6 md:grid-cols-3">
           {PROPOSTA_CARDS.map((card, i) => (
             <Reveal key={card.title} delay={0.1 + i * 0.08}>
-              <div className="bg-surface p-10 h-full hover:bg-elevated transition-colors group">
+              <div className="liquid-glass rounded-2xl p-10 h-full transition-all duration-300 group">
+
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center border border-white/10 group-hover:border-rosso transition-colors"
                   style={{ color: RED }}
@@ -350,7 +351,7 @@ function Processo() {
               {STEPS.map((step, i) => (
                 <Reveal key={step.title} delay={i * 0.07}>
                   <div
-                    className="relative flex flex-col gap-4 rounded-xl border border-white/8 p-6 hover:border-rosso transition-all duration-300 h-full group"
+                    className="liquid-glass relative flex flex-col gap-4 rounded-xl p-6 transition-all duration-300 h-full group"
                     style={{ background: 'var(--elevated)' }}
                   >
                     <div
@@ -485,7 +486,7 @@ function Portfolio() {
             <Reveal key={p.name} delay={(i % 2) * 0.1}>
               <button
                 onClick={() => setLightboxIdx(i)}
-                className="group block w-full text-left border border-white/10 hover:border-rosso transition-all duration-300 overflow-hidden bg-card cursor-zoom-in"
+                className="liquid-glass group block w-full text-left rounded-2xl transition-all duration-300 overflow-hidden cursor-zoom-in"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-black">
                   <img
@@ -613,7 +614,7 @@ function Inclui() {
         <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {INCLUDED.map((item, i) => (
             <Reveal key={item.label} delay={i * 0.05}>
-              <div className="group flex flex-col items-start gap-5 rounded-2xl border border-white/10 bg-elevated p-8 hover:border-rosso transition-all duration-300 h-full">
+              <div className="liquid-glass group flex flex-col items-start gap-5 rounded-2xl p-8 transition-all duration-300 h-full">
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center border border-white/10 group-hover:border-rosso transition-colors"
                   style={{ color: RED }}
