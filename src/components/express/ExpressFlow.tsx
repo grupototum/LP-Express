@@ -1,17 +1,42 @@
 import { motion } from 'framer-motion'
-import { Award, Search, Sparkles, Users, Rocket, ArrowUpRight } from 'lucide-react'
+import { Star, Instagram, Users, Heart, Lightbulb } from 'lucide-react'
 
 const steps = [
-  { icon: Award, title: 'Reputação construída', desc: 'Autoridade e resultados reais já existem.' },
-  { icon: Search, title: 'Oportunidade mapeada', desc: 'Identificamos o ângulo de crescimento.' },
-  { icon: Sparkles, title: 'Prévia estratégica', desc: 'Você já viu o entendimento e a estrutura.' },
-  { icon: Users, title: 'Reunião de alinhamento', desc: 'Validamos direção e ajustamos detalhes.' },
-  { icon: Rocket, title: 'No ar em 24h', desc: 'Landing Page Express pronta para capturar.' },
+  {
+    number: '01',
+    icon: Star,
+    title: 'Avaliações no Google.',
+    desc: 'Quantas, o que dizem, qual padrão se repete.',
+  },
+  {
+    number: '02',
+    icon: Instagram,
+    title: 'Presença no Instagram.',
+    desc: 'O que você publica, como o público responde.',
+  },
+  {
+    number: '03',
+    icon: Users,
+    title: 'Concorrente direto.',
+    desc: 'Onde ele acerta, onde abre espaço pra você.',
+  },
+  {
+    number: '04',
+    icon: Heart,
+    title: 'O que seus clientes mais valorizam.',
+    desc: 'No que está escrito, não no que você imagina.',
+  },
+  {
+    number: '05',
+    icon: Lightbulb,
+    title: 'A narrativa que falta.',
+    desc: 'O que existe na sua empresa e não está sendo dito em lugar nenhum.',
+  },
 ]
 
 export function ExpressFlow() {
   return (
-    <section id="fluxo" lang="pt-BR" className="relative py-24 px-6 bg-background overflow-hidden">
+    <section id="analise" className="relative py-24 px-6 bg-background overflow-hidden">
       <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-accent/8 rounded-full blur-[120px]" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/6 rounded-full blur-[100px]" />
 
@@ -26,23 +51,14 @@ export function ExpressFlow() {
             className="lg:sticky lg:top-28"
           >
             <span className="inline-block text-accent text-xs font-light tracking-widest uppercase mb-4">
-              O processo
+              O que olhamos
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-primary mb-5 leading-[1.1]">
-              Da reputação que você tem<br />
-              à página que a <span className="text-accent">materializa</span>
+              O que olhamos antes de montar sua prévia
             </h2>
             <p className="text-muted-foreground font-light text-lg mb-8 leading-relaxed">
-              Cinco etapas objetivas. Posicionamento primeiro, pixels depois.
-              Você valida cada decisão antes de qualquer linha entrar no ar.
+              Nada aqui é genérico. Cada prévia começa com uma análise específica da sua empresa. Esses são os cinco pontos que olhamos antes de montar qualquer coisa.
             </p>
-            <a
-              href="#agendar"
-              className="inline-flex items-center gap-2 glass-btn-accent text-accent-foreground font-medium px-6 py-3 rounded-xl gentle-animation"
-            >
-              Agendar reunião
-              <ArrowUpRight className="w-4 h-4" />
-            </a>
           </motion.div>
 
           {/* Right grid */}
@@ -57,18 +73,18 @@ export function ExpressFlow() {
                 className="group relative glass-card rounded-2xl p-5 hover:shadow-xl gentle-animation flex flex-col h-full min-h-[170px]"
               >
                 <div className="absolute top-4 right-4 text-accent/40 font-light text-xs tracking-wider">
-                  0{i + 1}
+                  {s.number}
                 </div>
                 <div className="w-11 h-11 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/15 gentle-animation">
                   <s.icon className="w-5 h-5 text-accent" />
                 </div>
                 <h3 className="text-base sm:text-lg font-normal text-primary mb-1.5 leading-snug">{s.title}</h3>
-              <p
-                lang="pt-BR"
-                className="text-[clamp(0.8125rem,3.2vw,0.875rem)] text-muted-foreground font-light leading-relaxed min-h-[2.875rem] hyphens-auto break-words"
-              >
-                {s.desc}
-              </p>
+                <p
+                  lang="pt-BR"
+                  className="text-[clamp(0.8125rem,3.2vw,0.875rem)] text-muted-foreground font-light leading-relaxed min-h-[2.875rem] hyphens-auto break-words"
+                >
+                  {s.desc}
+                </p>
               </motion.div>
             ))}
           </div>

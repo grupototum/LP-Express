@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
-import { CalendarCheck } from 'lucide-react'
+
+const WPP_URL = 'https://wa.me/5533991294114?text=Ol%C3%A1%21+Vi+a+landing+page+e+quero+ver+o+que+identificaram+na+minha+empresa.+Gostaria+de+entender+melhor.'
 
 export function ExpressFinalCTA() {
   return (
@@ -14,25 +15,19 @@ export function ExpressFinalCTA() {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-6xl font-light text-white leading-[1.1] mb-6 tracking-tight">
-            Você já construiu autoridade.<br />
-            <span className="text-accent">Vamos transformá-la em crescimento.</span>
-          </h2>
-          <p className="text-white/70 font-light text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-            Reserve 40 minutos para validar a estratégia. Em até 24h depois, sua nova página está no ar.
+          <p className="text-white/60 font-light text-lg mb-6">
+            Se não fizer sentido, o diagnóstico fica de graça.
           </p>
           <motion.a
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
-            href="#agendar"
+            href={WPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 glass-btn-accent text-accent-foreground font-medium px-10 py-4 rounded-xl text-lg gentle-animation"
           >
-            <CalendarCheck className="w-5 h-5" />
-            Agendar Reunião de Alinhamento
+            Quero ver o que identificaram na minha empresa
           </motion.a>
-          <p className="text-white/50 text-sm font-light mt-6">
-            Sem compromisso · Confirmação em até 1 hora útil
-          </p>
         </motion.div>
       </div>
     </section>

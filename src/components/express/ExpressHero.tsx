@@ -1,19 +1,18 @@
 import { motion } from 'framer-motion';
-import { Volume2, VolumeX, Menu, X, CalendarCheck, Clock, ShieldCheck, Workflow, MessageCircle, HelpCircle } from 'lucide-react';
+import { Menu, X, Workflow, MessageCircle, ImageIcon, Tag } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import totumLogo from '../../assets/totum-logo.png';
 
-const CTA_LABEL = 'Agendar Reunião de Alinhamento';
+const WPP_URL = 'https://wa.me/5533991294114?text=Ol%C3%A1%21+Vi+a+landing+page+e+quero+ver+o+que+identificaram+na+minha+empresa.+Gostaria+de+entender+melhor.'
 
 const navLinks = [
-  { label: 'Como funciona', href: '#fluxo', icon: Workflow },
+  { label: 'Método', href: '#metodo', icon: Workflow },
+  { label: 'Portfólio', href: '#portfolio', icon: ImageIcon },
   { label: 'Prova social', href: '#prova', icon: MessageCircle },
-  { label: 'A reunião', href: '#reuniao', icon: CalendarCheck },
-  { label: 'Perguntas', href: '#faq', icon: HelpCircle },
+  { label: 'Ver oferta', href: '#oferta', icon: Tag },
 ];
 
 export function ExpressHero() {
-  const [isMuted, setIsMuted] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -31,13 +30,6 @@ export function ExpressHero() {
       videoRef.current.play().catch(() => {});
     }
   }, []);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = isMuted;
-      videoRef.current.volume = isMuted ? 0 : 0.7;
-    }
-  }, [isMuted]);
 
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset';
@@ -84,18 +76,14 @@ export function ExpressHero() {
             </div>
 
             <div className="flex items-center space-x-3">
-              <button
-                onClick={() => setIsMuted(!isMuted)}
-                className="glass-btn-white p-3 rounded-full text-white gentle-animation cursor-pointer">
-                {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
-              </button>
-
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="#agendar"
+                href={WPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hidden 2xl:block glass-btn-accent text-accent-foreground font-semibold px-6 py-3 rounded-xl gentle-animation">
-                Agendar reunião
+                Quero ver minha análise
               </motion.a>
 
               <button
@@ -137,13 +125,15 @@ export function ExpressHero() {
             </motion.a>
           ))}
           <motion.a
-            href="#agendar"
+            href={WPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: isMobileMenuOpen ? 1 : 0, y: isMobileMenuOpen ? 0 : 15 }}
             transition={{ duration: 0.35, delay: isMobileMenuOpen ? 0.1 + navLinks.length * 0.06 : 0 }}
             onClick={() => setIsMobileMenuOpen(false)}
             className="glass-btn-accent text-accent-foreground font-semibold px-6 py-3 rounded-xl text-center mt-4">
-            Agendar reunião
+            Quero ver minha análise
           </motion.a>
         </div>
       </motion.div>
@@ -156,37 +146,39 @@ export function ExpressHero() {
           transition={{ duration: 1, delay: 0.5 }}
           className="max-w-[950px]">
 
-          <span className="inline-block glass-btn-accent text-accent-foreground px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
-            Análise estratégica entregue
-          </span>
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
-            Sua reputação já existe. Agora precisa do{' '}
-            <span className="text-rosso">posicionamento certo.</span>
+            A maioria das empresas bem avaliadas está perdendo cliente novo todo mês.{' '}
+            <span className="text-rosso">O problema não é o atendimento.</span>
           </h1>
           <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-            Você viu a prévia. Agora vamos validar o direcionamento e colocar a estratégia no ar.
+            Alguém pesquisou sua empresa hoje. Comparou com dois concorrentes. E escolheu outro. Não porque o outro é melhor. Porque a página dele comunicou mais rápido a confiança que você também tem.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="#agendar"
-              className="glass-btn-accent text-accent-foreground font-bold px-10 py-4 rounded-xl text-lg gentle-animation inline-flex items-center justify-center gap-2">
-              <CalendarCheck className="w-5 h-5" />
-              {CTA_LABEL}
+              href={WPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-btn-accent text-accent-foreground font-bold px-10 py-4 rounded-xl text-lg gentle-animation">
+              Quero ver o que identificaram na minha empresa
             </motion.a>
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="#fluxo"
+              href={WPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="glass-btn-white text-white font-semibold px-10 py-4 rounded-xl text-lg gentle-animation">
-              Ver como funciona
+              10 minutos pra entender a oportunidade
             </motion.a>
           </div>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-white/60 text-sm font-light">
-            <span className="inline-flex items-center gap-2"><Clock className="w-4 h-4 text-accent" /> 25 min</span>
-            <span className="inline-flex items-center gap-2"><CalendarCheck className="w-4 h-4 text-accent" /> No ar em 24h</span>
-            <span className="inline-flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-accent" /> Sem compromisso</span>
+            <span>No ar em 24h</span>
+            <span className="text-white/30">·</span>
+            <span>Sem compromisso</span>
+            <span className="text-white/30">·</span>
+            <span>1 empresa por região</span>
           </div>
         </motion.div>
       </div>

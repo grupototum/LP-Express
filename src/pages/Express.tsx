@@ -1,9 +1,12 @@
 import { ExpressHero } from '@/components/express/ExpressHero'
-import { ExpressFlow } from '@/components/express/ExpressFlow'
-import { ExpressWhatsAppProof } from '@/components/express/ExpressWhatsAppProof'
+import { ExpressIdentification } from '@/components/express/ExpressIdentification'
+import { ExpressLPvsSite } from '@/components/express/ExpressLPvsSite'
 import { ExpressMeeting } from '@/components/express/ExpressMeeting'
-import { ExpressForm } from '@/components/express/ExpressForm'
-import { ExpressFAQ } from '@/components/express/ExpressFAQ'
+import { ExpressMethod } from '@/components/express/ExpressMethod'
+import { ExpressFlow } from '@/components/express/ExpressFlow'
+import { ExpressPortfolio } from '@/components/express/ExpressPortfolio'
+import { ExpressWhatsAppProof } from '@/components/express/ExpressWhatsAppProof'
+import { ExpressOffer } from '@/components/express/ExpressOffer'
 import { ExpressFinalCTA } from '@/components/express/ExpressFinalCTA'
 import { WhatsAppFloat } from '@/components/WhatsAppFloat'
 
@@ -12,11 +15,14 @@ export default function ExpressPage() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <main role="main">
         <ExpressHero />
-        <ExpressFlow />
+        <ExpressIdentification />
+        <ExpressLPvsSite />
         <ExpressMeeting />
+        <ExpressMethod />
+        <ExpressFlow />
+        <ExpressPortfolio />
         <ExpressWhatsAppProof />
-        <ExpressForm />
-        <ExpressFAQ />
+        <ExpressOffer />
         <ExpressFinalCTA />
       </main>
       <WhatsAppFloat />

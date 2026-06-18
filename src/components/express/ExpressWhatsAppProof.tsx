@@ -93,11 +93,11 @@ export function ExpressWhatsAppProof() {
         >
           <span className="inline-block text-accent text-xs font-light tracking-widest uppercase mb-4">Conversas reais</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-primary mb-4 leading-tight">
-            O que clientes mandam<br />
-            <span className="text-accent">depois da entrega</span>
+            O que as pessoas dizem<br />
+            <span className="text-accent">quando veem a prévia</span>
           </h2>
           <p className="text-muted-foreground font-light text-lg">
-            Sem case fabricado. Sem texto de marketing. Apenas as mensagens que recebemos depois que a estratégia entra no ar.
+            Conversas reais. Sem edição. Sem roteiro.
           </p>
         </motion.div>
 
