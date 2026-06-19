@@ -146,10 +146,11 @@ export function ExpressHero() {
           transition={{ duration: 1, delay: 0.5 }}
           className="max-w-[950px]">
 
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl text-white leading-[1.05] mb-6">
             A maioria das empresas bem avaliadas está perdendo cliente novo todo mês.{' '}
             <span className="text-rosso">O problema não é o atendimento.</span>
           </h1>
+
           <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
             Alguém pesquisou sua empresa hoje. Comparou com dois concorrentes. E escolheu outro. Não porque o outro é melhor. Porque a página dele comunicou mais rápido a confiança que você também tem.
           </p>
