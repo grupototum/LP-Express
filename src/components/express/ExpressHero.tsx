@@ -82,7 +82,7 @@ export function ExpressHero() {
                 href={WPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden 2xl:block glass-btn-accent text-accent-foreground font-semibold px-6 py-3 rounded-xl gentle-animation">
+                className="hidden 2xl:block glass-btn-accent text-accent-foreground px-6 py-3 rounded-full gentle-animation">
                 Quero ver minha análise
               </motion.a>
 
