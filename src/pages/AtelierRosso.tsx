@@ -179,7 +179,7 @@ function Hero() {
           <Eyebrow>Estratégia · Posicionamento · Landing Pages</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
-          <h1 className="font-display text-white mt-8 text-[11vw] sm:text-[9vw] lg:text-[7.5vw] xl:text-[118px] leading-[0.95]">
+          <h1 className="font-display text-white mt-8 text-[8vw] sm:text-[7vw] lg:text-[6vw] xl:text-[90px] leading-[0.95]">
             O que sua empresa oferece que seus{' '}
             <span style={{ color: RED }}>concorrentes não conseguem?</span>
           </h1>
@@ -233,7 +233,7 @@ function Proposta() {
           <Eyebrow>01 — Tese</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[9vw] sm:text-6xl lg:text-7xl max-w-4xl leading-tight">
+          <h2 className="font-display text-white mt-8 text-[7vw] sm:text-5xl lg:text-6xl max-w-4xl leading-tight">
             O cliente não compra uma página. Ele compra aquilo que{' '}
             <span style={{ color: RED }}>só você consegue entregar.</span>
           </h2>
@@ -313,7 +313,7 @@ function Processo() {
           <Eyebrow>02 — Como funciona</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[9vw] sm:text-6xl lg:text-7xl max-w-4xl leading-tight">
+          <h2 className="font-display text-white mt-8 text-[7vw] sm:text-5xl lg:text-6xl max-w-4xl leading-tight">
             Da estratégia à publicação em um{' '}
             <span style={{ color: RED }}>fluxo simples.</span>
           </h2>
@@ -475,7 +475,7 @@ function Portfolio() {
           <Eyebrow>Portfólio</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[9vw] sm:text-6xl lg:text-7xl uppercase">
+          <h2 className="font-display text-white mt-8 text-[7vw] sm:text-5xl lg:text-6xl uppercase">
             Páginas que <span style={{ color: RED }}>vendem.</span>
           </h2>
         </Reveal>
@@ -605,7 +605,7 @@ function Inclui() {
           <Eyebrow>Inclui</Eyebrow>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="font-display text-white mt-8 text-[9vw] sm:text-6xl lg:text-7xl max-w-5xl uppercase leading-tight">
+          <h2 className="font-display text-white mt-8 text-[7vw] sm:text-5xl lg:text-6xl max-w-5xl uppercase leading-tight">
             Da estratégia à{' '}
             <span style={{ color: RED }}>publicação.</span>
           </h2>
@@ -831,7 +831,7 @@ function Depoimentos() {
     <section id="depoimentos" className="px-6 py-32 lg:py-44 border-t border-white/5">
       <div className="max-w-[950px] mx-auto">
         <Reveal>
-          <h2 className="font-display text-white text-[9vw] sm:text-6xl lg:text-7xl uppercase">
+          <h2 className="font-display text-white text-[7vw] sm:text-5xl lg:text-6xl uppercase">
             Conversas <span style={{ color: RED }}>reais.</span>
           </h2>
         </Reveal>
@@ -920,7 +920,7 @@ function FaqSection() {
     <section id="faq" className="px-6 py-32 lg:py-44 border-t border-white/5">
       <div className="max-w-[900px] mx-auto">
         <Reveal>
-          <h2 className="font-display text-white text-[9vw] sm:text-6xl lg:text-7xl uppercase">
+          <h2 className="font-display text-white text-[7vw] sm:text-5xl lg:text-6xl uppercase">
             Perguntas <span style={{ color: RED }}>frequentes.</span>
           </h2>
         </Reveal>
