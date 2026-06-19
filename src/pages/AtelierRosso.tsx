@@ -972,7 +972,7 @@ function FinalCTA() {
     <section className="px-6 py-32 lg:py-52 border-t border-white/5 hero-spotlight">
       <div className="max-w-[950px] mx-auto text-center">
         <Reveal>
-          <h2 className="font-display text-white text-[10vw] sm:text-7xl lg:text-[100px] leading-tight uppercase">
+          <h2 className="font-display text-white text-[8vw] sm:text-5xl lg:text-[80px] leading-tight uppercase">
             Sua reputação já existe.{' '}
             <span style={{ color: RED }}>Falta fazer ela ser vista.</span>
           </h2>
