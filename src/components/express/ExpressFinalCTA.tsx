@@ -24,7 +24,7 @@ export function ExpressFinalCTA() {
             href={WPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 glass-btn-accent text-accent-foreground font-medium px-10 py-4 rounded-xl text-lg gentle-animation"
+            className="inline-flex items-center justify-center gap-2 glass-btn-accent text-accent-foreground px-10 py-4 rounded-full text-lg gentle-animation"
           >
             Quero ver o que identificaram na minha empresa
           </motion.a>
