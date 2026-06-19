@@ -161,7 +161,7 @@ export function ExpressHero() {
               href={WPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-btn-accent text-accent-foreground font-bold px-10 py-4 rounded-xl text-lg gentle-animation">
+              className="glass-btn-accent text-accent-foreground px-10 py-4 rounded-full text-lg gentle-animation">
               Quero ver o que identificaram na minha empresa
             </motion.a>
             <motion.a
@@ -170,9 +170,10 @@ export function ExpressHero() {
               href={WPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-btn-white text-white font-semibold px-10 py-4 rounded-xl text-lg gentle-animation">
+              className="glass-btn-white text-white px-10 py-4 rounded-full text-lg gentle-animation">
               10 minutos pra entender a oportunidade
             </motion.a>
+
           </div>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-white/60 text-sm font-light">
             <span>No ar em 24h</span>
