@@ -132,7 +132,7 @@ export function ExpressHero() {
             animate={{ opacity: isMobileMenuOpen ? 1 : 0, y: isMobileMenuOpen ? 0 : 15 }}
             transition={{ duration: 0.35, delay: isMobileMenuOpen ? 0.1 + navLinks.length * 0.06 : 0 }}
             onClick={() => setIsMobileMenuOpen(false)}
-            className="glass-btn-accent text-accent-foreground font-semibold px-6 py-3 rounded-xl text-center mt-4">
+            className="glass-btn-accent text-accent-foreground px-6 py-3 rounded-full text-center mt-4">
             Quero ver minha análise
           </motion.a>
         </div>
