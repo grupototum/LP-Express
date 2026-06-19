@@ -87,17 +87,18 @@ export function ExpressOffer() {
                 href={WPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full glass-btn-accent text-accent-foreground font-semibold py-4 rounded-xl text-base gentle-animation flex items-center justify-center gap-2 mb-6"
+                className="w-full glass-btn-accent text-accent-foreground py-4 rounded-full text-base gentle-animation flex items-center justify-center gap-2 mb-6"
               >
                 Quero ver o que identificaram na minha empresa
               </motion.a>
 
-              <div className="flex items-start gap-3 p-4 rounded-xl bg-amber-500/5 border border-amber-500/15">
-                <AlertCircle className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3 p-4 rounded-xl bg-[hsl(var(--rosso-glow-rgb)/0.06)] border border-[var(--rosso-border)]">
+                <AlertCircle className="w-4 h-4 text-rosso shrink-0 mt-0.5" />
                 <p className="text-muted-foreground font-light text-sm leading-relaxed">
                   A gente trabalha com uma empresa por região nesse projeto. Se você está vendo essa página, ainda não fechamos com nenhum outro negócio da sua área. Isso pode mudar.
                 </p>
               </div>
+
             </div>
           </motion.div>
         </div>
