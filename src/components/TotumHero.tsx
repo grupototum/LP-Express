@@ -171,7 +171,7 @@ export function TotumHero() {
           <span className="inline-block glass-btn-accent text-accent-foreground px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
             Consultoria Estratégica Gratuita
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.05] mb-6">
             Você já investe em marketing. Então por que seu negócio{' '}
             <span className="text-rosso">ainda não cresce como deveria?</span>
           </h1>
