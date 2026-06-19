@@ -82,7 +82,7 @@ export function ExpressHero() {
                 href={WPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden 2xl:block glass-btn-accent text-accent-foreground font-semibold px-6 py-3 rounded-xl gentle-animation">
+                className="hidden 2xl:block glass-btn-accent text-accent-foreground px-6 py-3 rounded-full gentle-animation">
                 Quero ver minha análise
               </motion.a>
 
@@ -132,7 +132,7 @@ export function ExpressHero() {
             animate={{ opacity: isMobileMenuOpen ? 1 : 0, y: isMobileMenuOpen ? 0 : 15 }}
             transition={{ duration: 0.35, delay: isMobileMenuOpen ? 0.1 + navLinks.length * 0.06 : 0 }}
             onClick={() => setIsMobileMenuOpen(false)}
-            className="glass-btn-accent text-accent-foreground font-semibold px-6 py-3 rounded-xl text-center mt-4">
+            className="glass-btn-accent text-accent-foreground px-6 py-3 rounded-full text-center mt-4">
             Quero ver minha análise
           </motion.a>
         </div>
@@ -146,10 +146,11 @@ export function ExpressHero() {
           transition={{ duration: 1, delay: 0.5 }}
           className="max-w-[950px]">
 
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl text-white leading-[1.05] mb-6">
             A maioria das empresas bem avaliadas está perdendo cliente novo todo mês.{' '}
             <span className="text-rosso">O problema não é o atendimento.</span>
           </h1>
+
           <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
             Alguém pesquisou sua empresa hoje. Comparou com dois concorrentes. E escolheu outro. Não porque o outro é melhor. Porque a página dele comunicou mais rápido a confiança que você também tem.
           </p>
@@ -160,7 +161,7 @@ export function ExpressHero() {
               href={WPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-btn-accent text-accent-foreground font-bold px-10 py-4 rounded-xl text-lg gentle-animation">
+              className="glass-btn-accent text-accent-foreground px-10 py-4 rounded-full text-lg gentle-animation">
               Quero ver o que identificaram na minha empresa
             </motion.a>
             <motion.a
@@ -169,9 +170,10 @@ export function ExpressHero() {
               href={WPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-btn-white text-white font-semibold px-10 py-4 rounded-xl text-lg gentle-animation">
+              className="glass-btn-white text-white px-10 py-4 rounded-full text-lg gentle-animation">
               10 minutos pra entender a oportunidade
             </motion.a>
+
           </div>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-white/60 text-sm font-light">
             <span>No ar em 24h</span>

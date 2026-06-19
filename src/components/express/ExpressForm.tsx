@@ -110,7 +110,7 @@ export function ExpressForm() {
                 value={formData.nome}
                 onChange={(e) => setFormData(p => ({ ...p, nome: e.target.value }))}
                 required
-                className="w-full px-4 py-3.5 rounded-xl bg-white border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none gentle-animation text-primary placeholder:text-muted-foreground"
+                className="w-full px-4 py-3.5 rounded-xl bg-elevated border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none gentle-animation text-foreground placeholder:text-muted-foreground"
               />
             </div>
             <div className="w-full sm:w-[35%]">
@@ -121,7 +121,7 @@ export function ExpressForm() {
                 value={formData.whatsapp}
                 onChange={(e) => setFormData(p => ({ ...p, whatsapp: e.target.value }))}
                 required
-                className="w-full px-4 py-3.5 rounded-xl bg-white border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none gentle-animation text-primary placeholder:text-muted-foreground"
+                className="w-full px-4 py-3.5 rounded-xl bg-elevated border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none gentle-animation text-foreground placeholder:text-muted-foreground"
               />
             </div>
           </div>
@@ -135,7 +135,7 @@ export function ExpressForm() {
                 value={formData.empresa}
                 onChange={(e) => setFormData(p => ({ ...p, empresa: e.target.value }))}
                 required
-                className="w-full px-4 py-3.5 rounded-xl bg-white border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none gentle-animation text-primary placeholder:text-muted-foreground"
+                className="w-full px-4 py-3.5 rounded-xl bg-elevated border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none gentle-animation text-foreground placeholder:text-muted-foreground"
               />
             </div>
             <div className="w-full sm:w-[35%]">
@@ -146,7 +146,7 @@ export function ExpressForm() {
                 value={formData.email}
                 onChange={(e) => setFormData(p => ({ ...p, email: e.target.value }))}
                 required
-                className="w-full px-4 py-3.5 rounded-xl bg-white border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none gentle-animation text-primary placeholder:text-muted-foreground"
+                className="w-full px-4 py-3.5 rounded-xl bg-elevated border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none gentle-animation text-foreground placeholder:text-muted-foreground"
               />
             </div>
           </div>
@@ -157,7 +157,7 @@ export function ExpressForm() {
               value={formData.melhorHorario}
               onChange={(e) => setFormData(p => ({ ...p, melhorHorario: e.target.value }))}
               required
-              className="w-full px-4 py-3.5 rounded-xl bg-white border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none gentle-animation text-primary"
+              className="w-full px-4 py-3.5 rounded-xl bg-elevated border border-border focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none gentle-animation text-foreground"
             >
               <option value="">Selecione</option>
               <option>Manhã (9h – 12h)</option>
@@ -172,7 +172,7 @@ export function ExpressForm() {
             whileTap={{ scale: 0.98 }}
             type="submit"
             disabled={isSubmitting}
-            className="w-full glass-btn-accent text-accent-foreground font-medium py-4 rounded-xl text-lg gentle-animation flex items-center justify-center gap-3 cursor-pointer disabled:opacity-70"
+            className="w-full glass-btn-accent text-accent-foreground font-medium py-4 rounded-full text-lg gentle-animation flex items-center justify-center gap-3 cursor-pointer disabled:opacity-70"
           >
             {isSubmitting ? <Loader2 className="w-5 h-5 animate-spin" /> : <CalendarCheck className="w-5 h-5" />}
             {isSubmitting ? 'Enviando...' : 'Agendar Reunião de Alinhamento'}
