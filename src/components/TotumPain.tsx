@@ -36,7 +36,7 @@ export function TotumPain() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16">
           
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
             Por que muitos negócios travam{' '}
             <span className="text-accent"><br /> mesmo investindo em marketing?</span>
           </h2>

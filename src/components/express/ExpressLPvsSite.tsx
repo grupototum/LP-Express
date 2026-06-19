@@ -29,7 +29,7 @@ export function ExpressLPvsSite() {
           className="text-center mb-14 max-w-2xl mx-auto"
         >
           <span className="inline-block text-accent text-xs font-light tracking-widest uppercase mb-4">Por que landing page</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-primary mb-5 leading-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-primary mb-5 leading-tight">
             A maioria das empresas pensa que precisa de um site. Mas o que converte cliente novo não é site.{' '}
             <span className="text-accent">É página.</span>
           </h2>

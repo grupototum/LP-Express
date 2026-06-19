@@ -34,7 +34,7 @@ export function TotumSocialProof() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-4">
             Empresas que estruturam o marketing{' '}
             <span className="text-accent">crescem com mais previsibilidade</span>
           </h2>

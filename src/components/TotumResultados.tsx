@@ -34,7 +34,7 @@ export function TotumResultados() {
           >
             <Lightbulb className="w-7 h-7 text-accent" />
           </motion.div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-4">
             O que você vai sair <span className="text-accent">sabendo</span>
           </h2>
         </motion.div>

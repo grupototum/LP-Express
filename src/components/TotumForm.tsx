@@ -84,7 +84,7 @@ export function TotumForm() {
           <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
             Em uma consultoria estratégica de 45 minutos, você vai entender exatamente: <strong className="text-primary">o que está travando seu crescimento</strong>, <strong className="text-primary">onde você está perdendo dinheiro</strong> e <strong className="text-primary">o que precisa mudar agora</strong>.
           </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-4">
             Antes de começar
           </h2>
           <p className="text-muted-foreground text-lg">

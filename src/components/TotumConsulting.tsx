@@ -31,7 +31,7 @@ export function TotumConsulting() {
           <span className="inline-block glass-btn-accent text-accent-foreground px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
             O que você recebe
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-4">
             O que acontece nos{' '}
             <span className="text-accent">45 minutos</span>
           </h2>

@@ -44,7 +44,7 @@ export function TotumQualificacao() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-4">
             Como essa consultoria pode{' '}
             <span className="text-accent">ajudar você agora?</span>
           </h2>

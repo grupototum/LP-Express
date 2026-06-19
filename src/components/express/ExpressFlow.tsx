@@ -53,7 +53,7 @@ export function ExpressFlow() {
             <span className="inline-block text-accent text-xs font-light tracking-widest uppercase mb-4">
               O que olhamos
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-primary mb-5 leading-[1.1]">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-primary mb-5 leading-[1.1]">
               O que olhamos antes de montar sua prévia
             </h2>
             <p className="text-muted-foreground font-light text-lg mb-8 leading-relaxed">
