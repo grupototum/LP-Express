@@ -98,7 +98,7 @@ export function Services() {
             <div className="w-3 h-3 bg-amber-500 rounded-full animate-pulse" />
           </div>
           
-          <h2 className={`text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-6 text-amber-100 transform transition-all duration-1000 delay-200 ${
+          <h2 className={`text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-6 text-amber-100 transform transition-all duration-1000 delay-200 ${
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
           }`}>
             What We Develop
