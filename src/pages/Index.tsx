@@ -11,7 +11,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/20 via-accent-purple/10 to-accent-emerald/20"></div>
         
         <div className="relative z-10 text-center space-y-8 max-w-4xl mx-auto px-4">
-          <h1 className="font-bagel text-6xl md:text-8xl text-shadow-strong">
+          <h1 className="font-bagel text-4xl md:text-6xl text-shadow-strong">
             BAGEL FAT
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
