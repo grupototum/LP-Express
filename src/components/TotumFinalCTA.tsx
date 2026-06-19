@@ -19,7 +19,7 @@ export function TotumFinalCTA() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
               Marketing não deveria ser um{' '}
               <span className="text-accent">experimento eterno.</span>
             </h2>

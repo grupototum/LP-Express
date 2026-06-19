@@ -10,7 +10,7 @@ export function ExpressIdentification() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-primary mb-8 leading-[1.15]">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-primary mb-8 leading-[1.15]">
             O cliente vê seus serviços. Nem sempre vê os motivos para escolher você.
           </h2>
 

@@ -52,7 +52,7 @@ export function ExpressMethod() {
           className="mb-14"
         >
           <span className="inline-block text-accent text-xs font-light tracking-widest uppercase mb-4">Método</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-primary mb-5 leading-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-light text-primary mb-5 leading-tight">
             Por que o nosso processo funciona
           </h2>
           <p className="text-muted-foreground font-light text-lg leading-relaxed max-w-2xl">

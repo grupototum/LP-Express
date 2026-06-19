@@ -30,7 +30,7 @@ export function Contact() {
             <div className="w-3 h-3 bg-accent-blue rounded-full animate-pulse" />
           </div>
           
-          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-8">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-8">
             <span className="block mb-2">Ready to Light Up the Screen?</span>
             
           </h2>
