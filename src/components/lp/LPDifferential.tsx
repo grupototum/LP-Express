@@ -28,7 +28,7 @@ export default function LPDifferential({ content }: Props) {
         <Reveal delay={0.05}>
           <h2
             className="text-white mb-10"
-            style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.75rem)', lineHeight: 1.12, letterSpacing: '-0.02em', fontWeight: 300 }}
+            style={{ fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', lineHeight: 1.12, letterSpacing: '-0.02em', fontWeight: 300 }}
           >
             {content.headline}
           </h2>

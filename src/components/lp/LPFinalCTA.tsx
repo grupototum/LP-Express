@@ -36,7 +36,7 @@ export default function LPFinalCTA({ content }: Props) {
         <Reveal delay={0.07}>
           <h2
             className="text-white"
-            style={{ fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: 1.1, letterSpacing: '-0.025em', fontWeight: 300 }}
+            style={{ fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)', lineHeight: 1.1, letterSpacing: '-0.025em', fontWeight: 300 }}
           >
             {content.headline}
           </h2>

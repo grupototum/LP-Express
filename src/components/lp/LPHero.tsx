@@ -51,7 +51,7 @@ export default function LPHero({ content }: Props) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           className="text-white"
-          style={{ fontSize: 'clamp(2rem, 5vw, 4.25rem)', lineHeight: 1.05, letterSpacing: '-0.025em', fontWeight: 300 }}
+          style={{ fontSize: 'clamp(1.75rem, 4vw, 3.25rem)', lineHeight: 1.05, letterSpacing: '-0.025em', fontWeight: 300 }}
         >
           {content.headline}
         </motion.h1>
