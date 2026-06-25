@@ -1,15 +1,28 @@
 import { motion } from 'framer-motion';
-import { Menu, X, Workflow, MessageCircle, ImageIcon, Tag } from 'lucide-react';
+import { CalendarCheck, Clock3, Gauge, Handshake, ImageIcon, MapPin, Menu, MessageCircle, Search, ShieldCheck, Tag, Workflow, X } from 'lucide-react';
 import { useState, useRef, useEffect } from 'react';
 import totumLogo from '../../assets/totum-logo.png';
+import { ExpressWhatsAppIcon } from './ExpressWhatsAppIcon';
 
-const WPP_URL = 'https://wa.me/5533991294114?text=Ol%C3%A1%21+Vi+a+landing+page+e+quero+ver+o+que+identificaram+na+minha+empresa.+Gostaria+de+entender+melhor.'
+const WPP_URL = 'https://wa.me/5533997001893?text=Olá+Matheus!+Vi+a+análise+da+Totum+e+gostaria+de+agendar+uma+conversa+sobre+o+projeto.'
 
 const navLinks = [
   { label: 'Método', href: '#metodo', icon: Workflow },
   { label: 'Portfólio', href: '#portfolio', icon: ImageIcon },
   { label: 'Prova social', href: '#prova', icon: MessageCircle },
   { label: 'Ver oferta', href: '#oferta', icon: Tag },
+];
+
+const urgencyBadges = [
+  { label: 'No ar em 24h', icon: Clock3 },
+  { label: 'Sem compromisso', icon: Handshake },
+  { label: '1 empresa por região', icon: MapPin },
+];
+
+const analysisSignals = [
+  { label: 'Google', value: '182 avaliações', icon: Search },
+  { label: 'SEO local', value: '7/10', icon: Gauge },
+  { label: 'Confiança', value: 'prova escondida', icon: ShieldCheck },
 ];
 
 export function ExpressHero() {
@@ -82,7 +95,8 @@ export function ExpressHero() {
                 href={WPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden 2xl:block glass-btn-accent text-accent-foreground px-6 py-3 rounded-full gentle-animation">
+                className="hidden 2xl:inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white px-6 py-3 rounded-full gentle-animation shadow-[0_12px_30px_rgba(37,211,102,0.28)]">
+                <ExpressWhatsAppIcon className="w-4 h-4" />
                 Quero ver minha análise
               </motion.a>
 
@@ -132,56 +146,109 @@ export function ExpressHero() {
             animate={{ opacity: isMobileMenuOpen ? 1 : 0, y: isMobileMenuOpen ? 0 : 15 }}
             transition={{ duration: 0.35, delay: isMobileMenuOpen ? 0.1 + navLinks.length * 0.06 : 0 }}
             onClick={() => setIsMobileMenuOpen(false)}
-            className="glass-btn-accent text-accent-foreground px-6 py-3 rounded-full text-center mt-4">
+            className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white px-6 py-3 rounded-full text-center mt-4">
+            <ExpressWhatsAppIcon className="w-4 h-4" />
             Quero ver minha análise
           </motion.a>
         </div>
       </motion.div>
 
       {/* Hero Content */}
-      <div className="relative z-40 flex flex-col items-center justify-center h-full text-center px-6">
+      <div className="relative z-40 flex items-center justify-center h-full px-6 pt-24 pb-16">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5 }}
-          className="max-w-[950px]">
+          className="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-center max-w-[1180px] w-full">
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.05] mb-6">
-            A maioria das empresas bem avaliadas está perdendo cliente novo todo mês.{' '}
-            <span className="text-rosso">O problema não é o atendimento.</span>
-          </h1>
+          <div className="text-center lg:text-left">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl text-white leading-[1.05] mb-6">
+              Sua clínica pode estar perdendo paciente novo antes da primeira mensagem.{' '}
+              <span className="text-rosso">E talvez o problema nem seja o atendimento.</span>
+            </h1>
 
-          <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-            Alguém pesquisou sua empresa hoje. Comparou com dois concorrentes. E escolheu outro. Não porque o outro é melhor. Porque a página dele comunicou mais rápido a confiança que você também tem.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href={WPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glass-btn-accent text-accent-foreground px-10 py-4 rounded-full text-lg gentle-animation">
-              Quero ver o que identificaram na minha empresa
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              href={WPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glass-btn-white text-white px-10 py-4 rounded-full text-lg gentle-animation">
-              10 minutos pra entender a oportunidade
-            </motion.a>
-
+            <p className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto lg:mx-0 mb-10 font-light leading-relaxed">
+              Alguém pesquisou sua clínica hoje. Comparou com dois concorrentes. E escolheu outro. Não porque o outro é melhor. Porque a página dele comunicou mais rápido a confiança que você também tem.
+            </p>
+            <div className="flex justify-center lg:justify-start">
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href={WPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white px-8 sm:px-10 py-4 rounded-full text-base sm:text-lg gentle-animation shadow-[0_18px_45px_rgba(37,211,102,0.28)]">
+                <ExpressWhatsAppIcon className="w-5 h-5" />
+                Quero ver minha análise
+              </motion.a>
+            </div>
+            <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-3 text-white text-sm font-light">
+              {urgencyBadges.map((badge) => (
+                <span
+                  key={badge.label}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 backdrop-blur-md"
+                >
+                  <badge.icon className="w-4 h-4 text-[#25D366]" />
+                  {badge.label}
+                </span>
+              ))}
+            </div>
           </div>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-white/60 text-sm font-light">
-            <span>No ar em 24h</span>
-            <span className="text-white/30">·</span>
-            <span>Sem compromisso</span>
-            <span className="text-white/30">·</span>
-            <span>1 empresa por região</span>
-          </div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.9, delay: 0.85 }}
+            className="hidden lg:block"
+          >
+            <div className="rounded-2xl border border-white/15 bg-white/[0.08] backdrop-blur-xl shadow-2xl overflow-hidden">
+              <div className="flex items-center justify-between border-b border-white/10 px-6 py-4">
+                <div>
+                  <p className="text-white/55 text-xs uppercase tracking-widest">Prévia da análise</p>
+                  <p className="text-white text-lg font-light">Clínica odontológica</p>
+                </div>
+                <span className="rounded-full bg-[#25D366]/15 border border-[#25D366]/30 text-[#25D366] text-xs px-3 py-1">
+                  pronta para revisar
+                </span>
+              </div>
+
+              <div className="p-6 space-y-5">
+                <div className="grid grid-cols-3 gap-3">
+                  {analysisSignals.map((signal) => (
+                    <div key={signal.label} className="rounded-xl border border-white/10 bg-black/20 p-4">
+                      <signal.icon className="w-4 h-4 text-[#25D366] mb-3" />
+                      <p className="text-white/50 text-xs">{signal.label}</p>
+                      <p className="text-white text-sm leading-snug mt-1">{signal.value}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="rounded-xl border border-white/10 bg-black/25 p-5">
+                  <div className="flex items-start gap-3">
+                    <div className="w-9 h-9 rounded-xl bg-rosso/15 border border-rosso/25 flex items-center justify-center shrink-0">
+                      <Search className="w-4 h-4 text-rosso" />
+                    </div>
+                    <div>
+                      <p className="text-white text-sm mb-1">Gap encontrado</p>
+                      <p className="text-white/62 text-sm leading-relaxed">
+                        A reputação existe, mas a página atual não transforma avaliações, especialidade e comparação local em decisão rápida.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rounded-xl border border-[#25D366]/25 bg-[#25D366]/10 p-5">
+                  <div className="flex items-center gap-3 mb-3">
+                    <CalendarCheck className="w-4 h-4 text-[#25D366]" />
+                    <p className="text-white text-sm">Próximo passo</p>
+                  </div>
+                  <p className="text-white/70 text-sm leading-relaxed">
+                    Matheus te mostra a análise no WhatsApp e confirma se vale montar a prévia da sua página.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
 

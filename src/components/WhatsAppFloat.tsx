@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
+import { ExpressWhatsAppIcon } from './express/ExpressWhatsAppIcon';
 
 const WHATSAPP_URL =
-  'https://api.whatsapp.com/send/?phone=5531315772920&text=Ol%C3%A1%21+Gostaria+de+saber+mais+sobre+a+consultoria+gratuita+do+Grupo+Totum.&type=phone_number&app_absent=0';
+  'https://wa.me/5533997001893?text=Olá+Matheus!+Vi+a+análise+da+Totum+e+gostaria+de+agendar+uma+conversa+sobre+o+projeto.';
 
 export function WhatsAppFloat() {
   return (
@@ -15,20 +16,12 @@ export function WhatsAppFloat() {
       transition={{ delay: 1.5, type: 'spring', stiffness: 200 }}
       whileHover={{ scale: 1.12 }}
       whileTap={{ scale: 0.95 }}
-      className="fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-full flex items-center justify-center shadow-lg"
+      className="fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-full flex items-center justify-center bg-[#25D366] hover:bg-[#1ebe5d] text-white shadow-[0_4px_20px_rgba(37,211,102,0.4)] gentle-animation"
       style={{
-        background: 'linear-gradient(135deg, #25D366, #128C7E)',
         boxShadow: '0 4px 20px rgba(37, 211, 102, 0.4)',
       }}
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 175.216 175.552"
-        className="w-7 h-7"
-        fill="white"
-      >
-        <path d="M87.184 14.2c-40.437 0-73.318 32.88-73.332 73.318-.004 12.93 3.375 25.546 9.8 36.69L14.2 161.352l37.895-9.94a73.16 73.16 0 0 0 35.04 8.93h.032c40.428 0 73.312-32.888 73.326-73.33.006-19.588-7.61-38.004-21.432-51.84C125.23 21.828 106.772 14.2 87.184 14.2zm0 134.16h-.026a60.86 60.86 0 0 1-31.028-8.498l-2.227-1.32-23.076 6.052 6.158-22.5-1.45-2.306a60.81 60.81 0 0 1-9.326-32.47c.014-33.66 27.406-61.052 61.09-61.052 16.316.006 31.646 6.36 43.17 17.898 11.524 11.538 17.87 26.876 17.864 43.17-.016 33.664-27.41 61.058-61.074 61.058l-.074-.032zm33.506-45.724c-1.838-.918-10.874-5.366-12.562-5.978-1.688-.612-2.916-.918-4.144.918s-4.756 5.978-5.828 7.206c-1.072 1.228-2.144.918-3.982 0s-7.762-2.862-14.782-9.128c-5.464-4.874-9.154-10.898-10.226-12.736s-.112-2.834.802-3.75c.822-.822 1.838-2.144 2.756-3.216s1.224-1.838 1.838-3.066c.612-1.228.306-2.3-.154-3.216s-4.144-9.992-5.678-13.684c-1.494-3.594-3.016-3.108-4.144-3.164-1.072-.052-2.3-.064-3.528-.064s-3.22.46-4.908 2.3c-1.688 1.838-6.442 6.3-6.442 15.368s6.596 17.832 7.514 19.06c.918 1.228 12.98 19.82 31.452 27.8 4.394 1.898 7.824 3.032 10.5 3.882 4.412 1.402 8.43 1.204 11.604.73 3.54-.528 10.874-4.446 12.41-8.74 1.536-4.296 1.536-7.976.918-8.74-.46-.918-1.838-1.38-3.982-2.45l.002.07z" />
-      </svg>
+      <ExpressWhatsAppIcon className="w-7 h-7" />
     </motion.a>
   );
 }

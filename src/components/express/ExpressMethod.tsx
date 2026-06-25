@@ -1,8 +1,18 @@
 import { motion } from 'framer-motion'
+import { LucideIcon, MessageSquareText, MousePointerClick, Route, Smartphone, Users } from 'lucide-react'
 
-const principles = [
+type Principle = {
+  number: string
+  icon: LucideIcon
+  impact: string
+  title: string
+  explanation: string
+}
+
+const principles: Principle[] = [
   {
     number: '01',
+    icon: Users,
     impact: 'Página que tenta falar com todo mundo não convence ninguém.',
     title: 'Uma mensagem. Um leitor. Uma ação.',
     explanation:
@@ -10,6 +20,7 @@ const principles = [
   },
   {
     number: '02',
+    icon: Route,
     impact: 'Quem já quer comprar precisa de caminho. Quem ainda está pensando precisa de argumento. A mesma página serve os dois.',
     title: 'Estrutura que acompanha o nível de decisão',
     explanation:
@@ -17,6 +28,7 @@ const principles = [
   },
   {
     number: '03',
+    icon: Smartphone,
     impact: 'Mais de 70% das pessoas que chegarão nessa página vão acessar pelo celular. Se não funcionar ali, não funciona.',
     title: 'Feita pra funcionar no celular',
     explanation:
@@ -24,6 +36,7 @@ const principles = [
   },
   {
     number: '04',
+    icon: MessageSquareText,
     impact: 'Depoimento no lugar errado não convence ninguém. No lugar certo, ele derruba a última objeção.',
     title: 'Prova social no momento exato da dúvida',
     explanation:
@@ -31,6 +44,7 @@ const principles = [
   },
   {
     number: '05',
+    icon: MousePointerClick,
     impact: '"Contratar" é o que a gente quer. "Ver o que encontraram na minha empresa" é o que você quer. A diferença está no botão.',
     title: 'CTA que fala o que você ganha, não o que a gente vende',
     explanation:
@@ -68,21 +82,30 @@ export function ExpressMethod() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="glass-card rounded-2xl p-7 grid md:grid-cols-[1fr_1.6fr] gap-8 items-start"
+              className="glass-card rounded-2xl p-7 border border-border/50"
             >
-              {/* Left: number + impact phrase */}
-              <div>
-                <span className="text-accent/40 font-light text-xs tracking-widest block mb-3">{p.number}</span>
-                <p className="text-primary font-normal text-lg leading-snug mb-2">{p.title}</p>
-                <p className="text-muted-foreground font-light text-sm leading-relaxed italic">
-                  "{p.impact}"
-                </p>
-              </div>
+              <div className="grid md:grid-cols-[0.9fr_1.6fr] gap-8 items-start">
+                <div>
+                  <div className="flex items-center gap-3 mb-5">
+                    <span className="text-accent font-normal text-sm tracking-widest">{p.number}</span>
+                    <div className="w-10 h-10 rounded-xl bg-accent/12 border border-accent/20 flex items-center justify-center">
+                      <p.icon className="w-5 h-5 text-accent" />
+                    </div>
+                  </div>
+                  <p className="text-primary font-normal text-lg leading-snug">{p.title}</p>
+                </div>
 
-              {/* Right: explanation */}
-              <p className="text-muted-foreground font-light leading-relaxed text-sm sm:text-base">
-                {p.explanation}
-              </p>
+                <div>
+                  <blockquote className="border-l-2 border-accent/50 bg-accent/[0.06] rounded-r-xl px-5 py-4 mb-5">
+                    <p className="text-primary font-light text-sm sm:text-base leading-relaxed italic">
+                      "{p.impact}"
+                    </p>
+                  </blockquote>
+                  <p className="text-muted-foreground font-light leading-relaxed text-sm sm:text-base">
+                    {p.explanation}
+                  </p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>

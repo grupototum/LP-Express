@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion'
+import { Instagram } from 'lucide-react'
+import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 
 export function ExpressMeeting() {
   return (
@@ -28,6 +30,9 @@ export function ExpressMeeting() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="glass-card rounded-2xl p-8"
           >
+            <Avatar className="w-24 h-24 mb-6 border border-accent/20">
+              <AvatarFallback className="bg-accent/10 text-accent text-2xl font-normal">IL</AvatarFallback>
+            </Avatar>
             <h3 className="text-xl font-normal text-primary mb-4">Israel Lemos</h3>
             <p className="text-muted-foreground font-light leading-relaxed">
               Israel trabalha construindo sites e marketing digital desde 2003. Em mais de 20 anos analisando o que funciona e o que não funciona online, uma coisa ficou clara: a maioria das empresas não perde cliente por falta de qualidade. Perde porque o que construiu não aparece onde a decisão acontece.
@@ -42,10 +47,22 @@ export function ExpressMeeting() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="glass-card rounded-2xl p-8"
           >
-            <h3 className="text-xl font-normal text-primary mb-4">[NOME_SÓCIO]</h3>
+            <Avatar className="w-24 h-24 mb-6 border border-accent/20">
+              <AvatarFallback className="bg-accent/10 text-accent text-2xl font-normal">MF</AvatarFallback>
+            </Avatar>
+            <h3 className="text-xl font-normal text-primary mb-4">Matheus Felipe</h3>
             <p className="text-muted-foreground font-light leading-relaxed">
-              [NOME_SÓCIO] é pós-graduado em processos comerciais, com anos de prática em tráfego pago, certificações Google e Meta, e uma trajetória longa em gestão comercial de produtos complexos, serviços e mercados altamente competitivos. Sabe identificar onde a venda trava antes de acontecer.
+              Matheus é pós-graduado em processos comerciais, com quase 10 anos de prática em tráfego pago, certificações Google e Meta, e uma trajetória longa em gestão comercial de produtos complexos, serviços e mercados altamente competitivos. Sabe identificar onde a venda trava antes de acontecer.
             </p>
+            <a
+              href="https://www.instagram.com/matheusfelipe.gestor/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center gap-2 text-sm text-accent hover:text-accent/80 gentle-animation"
+            >
+              <Instagram className="w-4 h-4" />
+              Instagram
+            </a>
           </motion.div>
         </div>
 

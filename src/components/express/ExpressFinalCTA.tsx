@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
+import { ExpressWhatsAppIcon } from './ExpressWhatsAppIcon'
 
-const WPP_URL = 'https://wa.me/5533991294114?text=Ol%C3%A1%21+Vi+a+landing+page+e+quero+ver+o+que+identificaram+na+minha+empresa.+Gostaria+de+entender+melhor.'
+const WPP_URL = 'https://wa.me/5533997001893?text=Olá+Matheus!+Vi+a+análise+da+Totum+e+gostaria+de+agendar+uma+conversa+sobre+o+projeto.'
 
 export function ExpressFinalCTA() {
   return (
@@ -24,8 +25,9 @@ export function ExpressFinalCTA() {
             href={WPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 glass-btn-accent text-accent-foreground px-10 py-4 rounded-full text-lg gentle-animation"
+            className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white px-10 py-4 rounded-full text-lg gentle-animation shadow-[0_18px_45px_rgba(37,211,102,0.28)]"
           >
+            <ExpressWhatsAppIcon className="w-5 h-5" />
             Quero ver o que identificaram na minha empresa
           </motion.a>
         </motion.div>

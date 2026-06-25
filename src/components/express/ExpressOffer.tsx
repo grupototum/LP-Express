@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { Check, AlertCircle } from 'lucide-react'
+import { ExpressWhatsAppIcon } from './ExpressWhatsAppIcon'
 
-const WPP_URL = 'https://wa.me/5533991294114?text=Ol%C3%A1%21+Vi+a+landing+page+e+quero+ver+o+que+identificaram+na+minha+empresa.+Gostaria+de+entender+melhor.'
+const WPP_URL = 'https://wa.me/5533997001893?text=Olá+Matheus!+Vi+a+análise+da+Totum+e+gostaria+de+agendar+uma+conversa+sobre+o+projeto.'
 
 const deliverables = [
   {
@@ -87,8 +88,9 @@ export function ExpressOffer() {
                 href={WPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full glass-btn-accent text-accent-foreground py-4 rounded-full text-base gentle-animation flex items-center justify-center gap-2 mb-6"
+                className="w-full bg-[#25D366] hover:bg-[#1ebe5d] text-white py-4 rounded-full text-base gentle-animation flex items-center justify-center gap-2 mb-6 shadow-[0_14px_34px_rgba(37,211,102,0.26)]"
               >
+                <ExpressWhatsAppIcon className="w-5 h-5" />
                 Quero ver o que identificaram na minha empresa
               </motion.a>
 

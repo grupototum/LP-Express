@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { X, Check } from 'lucide-react'
+import { AlertTriangle, Check, X } from 'lucide-react'
 
 const siteItems = [
   'Várias páginas, vários objetivos, vários CTAs',
@@ -45,23 +45,23 @@ export function ExpressLPvsSite() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="glass-card rounded-2xl p-8 border border-border/50"
+            className="glass-card rounded-2xl border border-orange-200/60 overflow-hidden"
           >
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center">
-                <X className="w-4 h-4 text-destructive" />
+            <div className="flex items-center gap-3 bg-orange-500/10 border-b border-orange-200/60 px-6 py-5">
+              <div className="w-9 h-9 rounded-full bg-orange-500/15 flex items-center justify-center">
+                <AlertTriangle className="w-4 h-4 text-orange-600" />
               </div>
               <h3 className="text-lg font-normal text-primary">Site institucional</h3>
             </div>
-            <ul className="space-y-4">
+            <ul className="space-y-4 p-6">
               {siteItems.map((item, i) => (
                 <li key={i} className="flex items-start gap-3 text-muted-foreground font-light text-sm leading-relaxed">
-                  <X className="w-4 h-4 text-destructive/60 shrink-0 mt-0.5" />
+                  <X className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                   {item}
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm text-muted-foreground font-light border-t border-border/40 pt-4">
+            <p className="mx-6 mb-6 text-sm text-muted-foreground font-light border-t border-border/40 pt-4">
               Você gastou pra construir um catálogo que ninguém compra.
             </p>
           </motion.div>
@@ -72,25 +72,25 @@ export function ExpressLPvsSite() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="glass-card rounded-2xl p-8 border border-accent/30 relative overflow-hidden"
+            className="glass-card rounded-2xl border border-emerald-300/60 relative overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-accent/[0.06] to-transparent" />
             <div className="relative">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-full bg-accent/15 flex items-center justify-center">
-                  <Check className="w-4 h-4 text-accent" />
+              <div className="flex items-center gap-3 bg-emerald-500/10 border-b border-emerald-300/60 px-6 py-5">
+                <div className="w-9 h-9 rounded-full bg-emerald-500/15 flex items-center justify-center">
+                  <Check className="w-4 h-4 text-emerald-600" />
                 </div>
                 <h3 className="text-lg font-normal text-primary">Landing page orientada a venda</h3>
               </div>
-              <ul className="space-y-4">
+              <ul className="space-y-4 p-6">
                 {lpItems.map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-muted-foreground font-light text-sm leading-relaxed">
-                    <Check className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                    <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                     {item}
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 text-sm text-primary font-normal border-t border-accent/20 pt-4">
+              <p className="mx-6 mb-6 text-sm text-primary font-normal border-t border-emerald-300/40 pt-4">
                 O visitante entende em 30 segundos o que você faz, por que você é a escolha certa, e o que fazer agora.
               </p>
             </div>
